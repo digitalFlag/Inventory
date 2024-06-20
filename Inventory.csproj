@@ -10,8 +10,6 @@
 
   <ItemGroup>
 
-	  <Folder Include="ViewModels\Warehouse\" />
-
 	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
 
 
