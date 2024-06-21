@@ -2,7 +2,7 @@
 
 namespace Inventory.ViewModels.Warehouse
 {
-    public partial class WarehouseViewModel : ViewModel
+    public partial class WarehouseViewModel : DialogViewModel
     {
     }
 }
