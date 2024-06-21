@@ -1,4 +1,5 @@
 ﻿using Inventory.ViewModels.MainWindowViewModel;
+using Inventory.ViewModels.Warehouse;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
@@ -16,6 +17,8 @@ namespace Inventory
             var services = new ServiceCollection();
 
             services.AddSingleton<MainWindowViewModel>();
+            services.AddScoped<WarehouseViewModel>();
+
 
             return services;
         }
