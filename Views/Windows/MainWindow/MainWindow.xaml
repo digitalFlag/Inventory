@@ -10,6 +10,9 @@
         Title="{Binding NameOfInventoryWindow}" 
         Height="450" Width="800">
     <Grid>
+        <Button Content="Open Warehiouse Window"
+                Command="{Binding OpenWarehouseWindowCommand}">
+        </Button>
 
     </Grid>
 </Window>
