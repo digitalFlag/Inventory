@@ -2,6 +2,7 @@
 using Inventory.Services.Implementations;
 using Inventory.ViewModels.MainWindowViewModel;
 using Inventory.ViewModels.Warehouse;
+using Inventory.Views.Windows.Warehouse;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
@@ -23,7 +24,6 @@ namespace Inventory
 
             services.AddSingleton<IUserDialog, UserDialogServices>();
 
-
             services.AddTransient(
                 s =>
                 {
@@ -32,6 +32,19 @@ namespace Inventory
                     model.DialogComplete += (_, _) => window.Close();
 
                     return window;
+                });
+
+            services.AddTransient(
+                s =>
+                {
+                    var scope = s.CreateScope();
+                    var model = scope.ServiceProvider.GetRequiredService<WarehouseViewModel>();
+                    var window = new WarehouseWindow { DataContext = model };
+                    model.DialogComplete += (_, _) => window.Close();
+                    window.Closed += (_, _) => scope.Dispose();
+
+                    return window;
+
                 });
 
             return services;

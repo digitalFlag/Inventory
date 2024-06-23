@@ -7,7 +7,6 @@ namespace Inventory.ViewModels.MainWindowViewModel
     public partial class MainWindowViewModel : DialogViewModel
     {
 
-
 		#region Command OpenWarehouseWindowCommand: - Open Window "Warehouse"
 
 		/// <summary>Open Window "Warehouse"</summary>
@@ -20,8 +19,9 @@ namespace Inventory.ViewModels.MainWindowViewModel
 
 		private void OnOpenWarehouseWindowCommandExecuted(object? p)
 		{
+			_UserDialog.OpenWarehouseWindow();
 
-		}
+        }
 
 		#endregion
 

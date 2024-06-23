@@ -4,5 +4,6 @@
     {
         void OpenMainWindow();
 
+        void OpenWarehouseWindow();
     }
 }
