@@ -17,6 +17,32 @@ namespace Inventory.ViewModels.MainWindowViewModel
 
 		#endregion
 
+		//Main Menu
+		#region RepositoryItemMainMenuOfMainWindow: - Item "Repositoriy" -> "Main Menu" -> "Main Window"
+
+		/// <summary>Item "Repositoriy" -> "Main Menu" -> "Main Window"</summary>
+		private string? _RepositoryItemMainMenuOfMainWindow;
+
+		/// <summary>Item "Repositoriy" -> "Main Menu" -> "Main Window"</summary>
+
+		public string? RepositoryItemMainMenuOfMainWindow { get => _RepositoryItemMainMenuOfMainWindow; set => Set(ref _RepositoryItemMainMenuOfMainWindow, value); }
+
+        #endregion
+
+		#region WarehousrRepositoryMainMenuMainWindow: - Item "Warehouse" -> "Repository" -> "MainMenu" -> "Main Window"
+
+		/// <summary>Item "Warehouse" -> "Repository" -> "MainMenu" -> "Main Window"</summary>
+		private string? _WarehousrRepositoryMainMenuMainWindow;
+
+		/// <summary>Item "Warehouse" -> "Repository" -> "MainMenu" -> "Main Window"</summary>
+
+		public string? WarehousrRepositoryMainMenuMainWindow { get => _WarehousrRepositoryMainMenuMainWindow; set => Set(ref _WarehousrRepositoryMainMenuMainWindow, value); }
+
+		#endregion
+
+
+
+
 
 
 

@@ -13,6 +13,9 @@ namespace Inventory.ViewModels.MainWindowViewModel
             //Start values
             NameOfInventoryWindow = "Ассистент";
 
+            RepositoryItemMainMenuOfMainWindow = "Разделы";
+            WarehousrRepositoryMainMenuMainWindow = "Мини-Склад";
+
         }
 
         public MainWindowViewModel(IUserDialog UserDialog) : this()

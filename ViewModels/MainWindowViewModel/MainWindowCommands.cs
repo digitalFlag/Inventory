@@ -19,13 +19,16 @@ namespace Inventory.ViewModels.MainWindowViewModel
 
 		private void OnOpenWarehouseWindowCommandExecuted(object? p)
 		{
+			if (_UserDialog is null)
+			{
+				return;
+			}
+
 			_UserDialog.OpenWarehouseWindow();
 
         }
 
 		#endregion
-
-
 
 	}
 

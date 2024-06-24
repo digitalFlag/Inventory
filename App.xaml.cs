@@ -15,7 +15,7 @@ namespace Inventory
 
         public static IServiceProvider Services => _Services ??= InitializeServices().BuildServiceProvider();
 
-        private static IServiceCollection InitializeServices()
+        private static ServiceCollection InitializeServices()
         {
             var services = new ServiceCollection();
 
