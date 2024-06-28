@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:l="clr-namespace:Inventory"
         xmlns:vm="clr-namespace:Inventory.ViewModels.MainWindowViewModel"
+        xmlns:fa="http://schemas.fontawesome.com/icons/svg"
         d:DataContext="{d:DesignInstance vm:MainWindowViewModel, IsDesignTimeCreatable=True}"
         
         Style="{StaticResource WindowMainStyle}"
@@ -18,6 +19,11 @@
                 <MenuItem Header="{Binding WarehousrRepositoryMainMenuMainWindow}"
                           Command="{Binding OpenWarehouseWindowCommand}"
                           InputGestureText="Ctrl + O">
+                    <MenuItem.Icon>
+                        <fa:ImageAwesome Icon="Solid_Warehouse">
+                            
+                        </fa:ImageAwesome>
+                    </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
         </Menu>

@@ -7,9 +7,24 @@
         xmlns:vm="clr-namespace:Inventory.ViewModels.Warehouse"
         d:DataContext="{d:DesignInstance vm:WarehouseViewModel, IsDesignTimeCreatable=True}"
         
-        
-        Title="WarehouseWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Style="{StaticResource WindowMainStyle}"
+        Title="{Binding NameOfWarhouseWindow}" 
+        Height="450" Width="800">
+
+        <DockPanel Style="{StaticResource DockPanelMainStyle}">
+        <!--MENU-->
+            <Menu DockPanel.Dock="Top">
+            <MenuItem Header="{Binding ConnectionItemMainMenuWarehouseWindow}">
+                <MenuItem Header="{Binding RefreshItemConnectionMainMenuWarehouseWindow}"
+                          Command="{Binding OpenWarehouseWindowCommand}"
+                          InputGestureText="Ctrl + R">
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+
+
+
+
 </Window>
