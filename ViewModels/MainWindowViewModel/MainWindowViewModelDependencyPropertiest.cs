@@ -1,10 +1,14 @@
-﻿using Inventory.ViewModels.Base;
+﻿using Inventory.Models;
+using Inventory.ViewModels.Base;
+using System.Collections.ObjectModel;
 
 namespace Inventory.ViewModels.MainWindowViewModel
 {
 
     public partial class MainWindowViewModel : DialogViewModel
     {
+		internal ObservableCollection<Product> Products { get; set; }
+
 
 		#region NameOfInventoryWindow: - Name Of "Inventory Window"
 

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:l="clr-namespace:Inventory.Views.Windows.Warehouse"
+        xmlns:fa="http://schemas.fontawesome.com/icons/svg"
         xmlns:vm="clr-namespace:Inventory.ViewModels.Warehouse"
         d:DataContext="{d:DesignInstance vm:WarehouseViewModel, IsDesignTimeCreatable=True}"
         
@@ -16,11 +17,28 @@
             <Menu DockPanel.Dock="Top">
             <MenuItem Header="{Binding ConnectionItemMainMenuWarehouseWindow}">
                 <MenuItem Header="{Binding RefreshItemConnectionMainMenuWarehouseWindow}"
-                          Command="{Binding OpenWarehouseWindowCommand}"
+                          Command="{Binding RefreshConnectionToDataBaseWarhouseWindowCommand}"
                           InputGestureText="Ctrl + R">
-                    </MenuItem>
+                    <MenuItem.Icon>
+                        <fa:ImageAwesome Icon="Solid_Retweet">
+                        </fa:ImageAwesome>
+                    </MenuItem.Icon>
+                </MenuItem>
                 </MenuItem>
             </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="0"
+                     ItemsSource="{Binding Products}">
+                
+            </ListBox>
+        </Grid>
+            
+            
+            
         </DockPanel>
 
 

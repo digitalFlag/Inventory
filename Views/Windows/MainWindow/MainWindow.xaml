@@ -21,7 +21,6 @@
                           InputGestureText="Ctrl + O">
                     <MenuItem.Icon>
                         <fa:ImageAwesome Icon="Solid_Warehouse">
-                            
                         </fa:ImageAwesome>
                     </MenuItem.Icon>
                 </MenuItem>
