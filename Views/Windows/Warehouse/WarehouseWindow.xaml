@@ -35,6 +35,7 @@
                      ItemsSource="{Binding Products}">
                 
             </ListBox>
+            
         </Grid>
             
             

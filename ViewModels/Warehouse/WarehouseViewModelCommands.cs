@@ -1,6 +1,7 @@
 ﻿using Inventory.Commands;
 using Inventory.ViewModels.Base;
 using Npgsql;
+using System.Data;
 using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
@@ -40,6 +41,12 @@ namespace Inventory.ViewModels.Warehouse
             sqlCommand.CommandType = System.Data.CommandType.Text;
             sqlCommand.CommandText = "SELECT * FROM \"Prodacts\"";
             NpgsqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+            if (sqlDataReader.HasRows)
+            {
+                DataTable data = new();
+                data.Load(sqlDataReader);
+            }
 
             sqlCommand.Dispose();
             sqlConnection.Close();
