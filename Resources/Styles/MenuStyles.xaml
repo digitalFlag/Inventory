@@ -1,9 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Style x:Key="WindowMainStyle" TargetType="Window">
-        <Setter Property="Background"  Value="HotPink"/>
+    <Style x:Key="MenuMainStyle" TargetType="Menu">
+        <Setter Property="Background"  Value="LightPink"/>
+        <Setter Property="Margin" Value="1"/>
     </Style>
-
 
 </ResourceDictionary>

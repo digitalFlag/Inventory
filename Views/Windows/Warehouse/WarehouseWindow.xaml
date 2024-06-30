@@ -12,6 +12,13 @@
         Title="{Binding NameOfWarhouseWindow}" 
         Height="450" Width="800">
 
+    <Window.Resources>
+        <Style TargetType="Menu" BasedOn="{StaticResource MenuMainStyle}"/>
+        <Style TargetType="MenuItem" BasedOn="{StaticResource MenuItemMainStyle}"/>
+
+
+    </Window.Resources>
+
         <DockPanel Style="{StaticResource DockPanelMainStyle}">
         <!--MENU-->
             <Menu DockPanel.Dock="Top">

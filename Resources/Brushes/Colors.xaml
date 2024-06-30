@@ -2,6 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="PinkColorBrush">Pink</SolidColorBrush>
+    <SolidColorBrush x:Key="LighyPinkColorBrush">LightPink</SolidColorBrush>
+    <SolidColorBrush x:Key="HotPinkColorBrush">HotPink</SolidColorBrush>
     <SolidColorBrush x:Key="DeepPinkColorBrush">DeepPink</SolidColorBrush>
+
+    <SolidColorBrush x:Key="DarkSlateGrayColorBrush">DarkSlateGray</SolidColorBrush>
+    <SolidColorBrush x:Key="GrayColorBrush">Gray</SolidColorBrush>
+    <SolidColorBrush x:Key="DarkGrayColorBrush">DarkGray</SolidColorBrush>
+    <SolidColorBrush x:Key="LightGrayColorBrush">LightGray</SolidColorBrush>
+
 
 </ResourceDictionary>
