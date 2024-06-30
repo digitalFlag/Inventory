@@ -1,9 +1,26 @@
-﻿using Inventory.ViewModels.Base;
+﻿using Inventory.Models;
+using Inventory.ViewModels.Base;
+using System.Collections.ObjectModel;
+using System.Data;
 
 namespace Inventory.ViewModels.Warehouse
 {
     public partial class WarehouseViewModel : DialogViewModel
     {
+        //Test
+
+        #region ItemSourseTest: - IS Test
+
+        /// <summary>IS Test</summary>
+        private DataTable? _ItemSourseTest;
+
+        /// <summary>IS Test</summary>
+
+        public DataTable? ItemSourseTest { get => _ItemSourseTest; set => Set(ref _ItemSourseTest, value); }
+
+        #endregion
+
+
 
         #region NameOfWarhouseWindow: - Name Of "Warehouse Window"
 

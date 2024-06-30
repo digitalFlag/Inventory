@@ -1,7 +1,5 @@
 ﻿using Inventory.Commands;
 using Inventory.ViewModels.Base;
-using Npgsql;
-using System.Data;
 using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
@@ -22,35 +20,20 @@ namespace Inventory.ViewModels.Warehouse
 
 		private void OnRefreshConnectionToDataBaseWarhouseWindowCommandExecuted(object? p)
 		{
+			if (_DataBaseConnection is null)
+			{
+				return;
+			}
 
-
+            ItemSourseTest = _DataBaseConnection.LoadData();
+			OnPropertyChanged();
         }
 
 
 
         #endregion
 
-        string connectionString = "Server=localhost; Port=5432; DataBase=Test_N; User Id=dinaster; Password=diM@$terPw_87;";
-
-        private void SqlConnectionReader()
-        {
-            var sqlConnection = new NpgsqlConnection(connectionString);
-            sqlConnection.Open();
-            NpgsqlCommand sqlCommand = new();
-            sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandType = System.Data.CommandType.Text;
-            sqlCommand.CommandText = "SELECT * FROM \"Prodacts\"";
-            NpgsqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
-            if (sqlDataReader.HasRows)
-            {
-                DataTable data = new();
-                data.Load(sqlDataReader);
-            }
-
-            sqlCommand.Dispose();
-            sqlConnection.Close();
-        }
+       
 
     }
 }

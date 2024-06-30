@@ -5,21 +5,26 @@ namespace Inventory.ViewModels.Warehouse
 {
     public partial class WarehouseViewModel : DialogViewModel
     {
-
         private readonly IUserDialog? _UserDialog = null;
+        private readonly IDataBaseConnection? _DataBaseConnection;
 
         public WarehouseViewModel() 
         {
-            NameOfWarhouseWindow = "Мини склад";
+            //Test
+            ItemSourseTest = new();
 
+
+
+            NameOfWarhouseWindow = "Мини склад";
             ConnectionItemMainMenuWarehouseWindow = "Соединение";
             RefreshItemConnectionMainMenuWarehouseWindow = "Обновить";
         }
 
-        public WarehouseViewModel(IUserDialog UserDialog) : this()
+        public WarehouseViewModel(IUserDialog UserDialog, IDataBaseConnection DataBaseConnection) : this()
         {
 
             _UserDialog = UserDialog;
+            _DataBaseConnection = DataBaseConnection;
 
         }
 

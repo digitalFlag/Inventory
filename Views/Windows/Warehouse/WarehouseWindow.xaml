@@ -32,9 +32,13 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <ListBox Grid.Column="0"
-                     ItemsSource="{Binding Products}">
+                     ItemsSource="{Binding ItemSourseTest}">
                 
             </ListBox>
+            <DataGrid Grid.Column="1"
+                      ItemsSource="{Binding ItemSourseTest}">
+                
+            </DataGrid>
             
         </Grid>
             
