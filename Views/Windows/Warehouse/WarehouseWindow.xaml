@@ -16,6 +16,7 @@
         <Style TargetType="Menu" BasedOn="{StaticResource MenuMainStyle}"/>
         <Style TargetType="MenuItem" BasedOn="{StaticResource MenuItemMainStyle}"/>
         <Style TargetType="fa:ImageAwesome" BasedOn="{StaticResource FontAwesomeIconPinkStyle}"/>
+        <Style TargetType="Label" BasedOn="{StaticResource LabelMainStyle}"/>
 
     </Window.Resources>
 
@@ -33,21 +34,19 @@
                 </MenuItem>
                 </MenuItem>
             </Menu>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="3*"/>
-            </Grid.ColumnDefinitions>
-            <ListBox Grid.Column="0"
-                     ItemsSource="{Binding ItemSourseTest}">
-                
-            </ListBox>
-            <DataGrid Grid.Column="1"
-                      ItemsSource="{Binding ItemSourseTest}">
-                
-            </DataGrid>
-            
-        </Grid>
+        <TabControl>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="Solid_Gifts"/>
+                        <Label Content="Ghj"/>
+
+
+
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>
             
             
             

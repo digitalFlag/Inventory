@@ -34,5 +34,6 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
+        <Grid/>
     </DockPanel>
 </Window>
