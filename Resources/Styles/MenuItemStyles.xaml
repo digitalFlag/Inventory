@@ -1,17 +1,17 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <SolidColorBrush x:Key="Menu.Static.Background" Color="DarkSlateGray"/>
-    <SolidColorBrush x:Key="Menu.Static.Border" Color="#FFF0F0F0"/>
-    <SolidColorBrush x:Key="Menu.Static.Foreground" Color="#FFFFFFFF"/>
-    <SolidColorBrush x:Key="Menu.Static.Separator" Color="#FF1F1F1F"/>
-    <SolidColorBrush x:Key="Menu.Disabled.Foreground" Color="#FF707070"/>
-    <SolidColorBrush x:Key="MenuItem.Selected.Background" Color="#3D26A0DA"/>
-    <SolidColorBrush x:Key="MenuItem.Selected.Border" Color="#FF26A0DA"/>
-    <SolidColorBrush x:Key="MenuItem.Highlight.Background" Color="#FF3D3D3D"/>
-    <SolidColorBrush x:Key="MenuItem.Highlight.Border" Color="#FFF0F0F0"/>
-    <SolidColorBrush x:Key="MenuItem.Highlight.Disabled.Background" Color="#0A000000"/>
-    <SolidColorBrush x:Key="MenuItem.Highlight.Disabled.Border" Color="#21000000"/>
+    <SolidColorBrush x:Key="Menu.Static.Foreground" Color="DarkSlateGray"/>
+    <SolidColorBrush x:Key="Menu.Static.Background" Color="LightPink"/>
+    <SolidColorBrush x:Key="Menu.Static.Border" Color="HotPink"/>
+    <SolidColorBrush x:Key="Menu.Static.Separator" Color="HotPink"/>
+    <SolidColorBrush x:Key="MenuItem.Highlight.Background" Color="Pink"/>
+    <SolidColorBrush x:Key="Menu.Disabled.Foreground" Color="Transparent"/>
+    <SolidColorBrush x:Key="MenuItem.Selected.Background" Color="Transparent"/>
+    <SolidColorBrush x:Key="MenuItem.Selected.Border" Color="Transparent"/>
+    <SolidColorBrush x:Key="MenuItem.Highlight.Border" Color="Transparent"/>
+    <SolidColorBrush x:Key="MenuItem.Highlight.Disabled.Background" Color="Transparent"/>
+    <SolidColorBrush x:Key="MenuItem.Highlight.Disabled.Border" Color="Transparent"/>
     <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter"/>
     <Geometry x:Key="DownArrow">M 0,0 L 3.5,4 L 7,0 Z</Geometry>
     <Geometry x:Key="UpArrow">M 0,4 L 3.5,0 L 7,4 Z</Geometry>
