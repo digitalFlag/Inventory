@@ -15,9 +15,13 @@ namespace Inventory.ViewModels.Warehouse
 
 
 
-            NameOfWarhouseWindow = "Мини склад";
+            NameOfWarhouseWindow = "Мини-Cклад";
             ConnectionItemMainMenuWarehouseWindow = "Соединение";
             RefreshItemConnectionMainMenuWarehouseWindow = "Обновить";
+
+            MyMiniWarehouse = "Мой Мини-Склад";
+            AddToMyMiniWarehouse = "Добавить Продукцию на Мини-Склад";
+            OptionsMyWarehouseTabWarhouseWindow = "Действия:";
         }
 
         public WarehouseViewModel(IUserDialog UserDialog, IDataBaseConnection DataBaseConnection) : this()

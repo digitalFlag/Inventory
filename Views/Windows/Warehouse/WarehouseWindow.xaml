@@ -17,6 +17,8 @@
         <Style TargetType="MenuItem" BasedOn="{StaticResource MenuItemMainStyle}"/>
         <Style TargetType="fa:ImageAwesome" BasedOn="{StaticResource FontAwesomeIconPinkStyle}"/>
         <Style TargetType="Label" BasedOn="{StaticResource LabelMainStyle}"/>
+        <Style TargetType="GridSplitter" BasedOn="{StaticResource GridSplitterMainStyle}"/>
+
 
     </Window.Resources>
 
@@ -39,10 +41,52 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <fa:ImageAwesome Icon="Solid_Gifts"/>
-                        <Label Content="Ghj"/>
+                        <Label Content="{Binding MyMiniWarehouse}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Grid.Column="0">
+                    </DataGrid>
+
+                    <GridSplitter Grid.Column="1">
+                    </GridSplitter>
+                    <ScrollViewer Grid.Column="2" 
+                                  VerticalScrollBarVisibility="Auto">
+                        <StackPanel Orientation="Vertical">
+                            <Label Style="{StaticResource LabelMainStyle}"
+                       Background="HotPink"
+                       Foreground="LightGray">
+                                <Label.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <fa:ImageAwesome Icon="Solid_Gear"
+                                                         PrimaryColor="LightGray">
+                                        </fa:ImageAwesome>
+                                        <TextBlock Text="{Binding OptionsMyWarehouseTabWarhouseWindow}"/>
+                                    </StackPanel>
+                                </Label.Content>
+                            </Label>
+
+                        </StackPanel>
+
+                    </ScrollViewer>
 
 
 
+
+                </Grid>
+                
+
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="Solid_ParachuteBox"/>
+                        <Label Content="{Binding AddToMyMiniWarehouse}"/>
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
