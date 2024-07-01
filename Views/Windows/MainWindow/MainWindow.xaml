@@ -15,7 +15,7 @@
     <Window.Resources>
         <Style TargetType="Menu" BasedOn="{StaticResource MenuMainStyle}"/>
         <Style TargetType="MenuItem" BasedOn="{StaticResource MenuItemMainStyle}"/>
-
+        <Style TargetType="fa:ImageAwesome" BasedOn="{StaticResource FontAwesomeIconPinkStyle}"/>
 
     </Window.Resources>
 

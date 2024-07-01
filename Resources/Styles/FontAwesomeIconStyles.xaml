@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fa="http://schemas.fontawesome.com/icons/svg">
+
+    <Style x:Key="FontAwesomeIconPinkStyle" TargetType="fa:ImageAwesome">
+        <Setter Property="Foreground" Value="HotPink"/>
+        <Setter Property="PrimaryColor" Value="DeepPink"/>
+        <Setter Property="Height" Value="12"/>
+        <Setter Property="Margin" Value="1,1,1,1"/>
+
+    </Style>
+
+</ResourceDictionary>

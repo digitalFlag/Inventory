@@ -2,10 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="Menu.Static.Foreground" Color="DarkSlateGray"/>
-    <SolidColorBrush x:Key="Menu.Static.Background" Color="LightPink"/>
+    <SolidColorBrush x:Key="Menu.Static.Background" Color="Pink"/>
     <SolidColorBrush x:Key="Menu.Static.Border" Color="HotPink"/>
     <SolidColorBrush x:Key="Menu.Static.Separator" Color="HotPink"/>
-    <SolidColorBrush x:Key="MenuItem.Highlight.Background" Color="Pink"/>
+    <SolidColorBrush x:Key="MenuItem.Highlight.Background" Color="LightPink"/>
     <SolidColorBrush x:Key="Menu.Disabled.Foreground" Color="Transparent"/>
     <SolidColorBrush x:Key="MenuItem.Selected.Background" Color="Transparent"/>
     <SolidColorBrush x:Key="MenuItem.Selected.Border" Color="Transparent"/>
