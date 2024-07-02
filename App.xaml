@@ -6,6 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/DockPaanelStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/FontAwesomeIconStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/GridSplitterStyles.xaml"/>

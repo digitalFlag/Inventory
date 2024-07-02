@@ -19,8 +19,7 @@
         <Style TargetType="Label" BasedOn="{StaticResource LabelMainStyle}"/>
         <Style TargetType="GridSplitter" BasedOn="{StaticResource GridSplitterMainStyle}"/>
         <Style TargetType="StackPanel" BasedOn="{StaticResource StackPanelMainStyle}"/>
-
-
+        <Style TargetType="Button" BasedOn="{StaticResource ButtonMainStyle}"/>
 
     </Window.Resources>
 
@@ -73,9 +72,9 @@
                                     </StackPanel>
                                 </Label.Content>
                             </Label>
-                            <Button Content="Download"></Button>
-
-
+                            <Button Content="Download">
+                                
+                            </Button>
                         </StackPanel>
                     </ScrollViewer>
 

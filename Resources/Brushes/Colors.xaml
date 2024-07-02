@@ -1,6 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <SolidColorBrush x:Key="DarkVioletColorBrush">DarkViolet</SolidColorBrush>
+    <SolidColorBrush x:Key="VioletColorBrush">Violet</SolidColorBrush>
+
+
     <SolidColorBrush x:Key="DeepPinkColorBrush">DeepPink</SolidColorBrush>
     <SolidColorBrush x:Key="HotPinkColorBrush">HotPink</SolidColorBrush>
     <SolidColorBrush x:Key="LighyPinkColorBrush">LightPink</SolidColorBrush>
