@@ -18,6 +18,8 @@
         <Style TargetType="fa:ImageAwesome" BasedOn="{StaticResource FontAwesomeIconPinkStyle}"/>
         <Style TargetType="Label" BasedOn="{StaticResource LabelMainStyle}"/>
         <Style TargetType="GridSplitter" BasedOn="{StaticResource GridSplitterMainStyle}"/>
+        <Style TargetType="StackPanel" BasedOn="{StaticResource StackPanelMainStyle}"/>
+
 
 
     </Window.Resources>
@@ -59,10 +61,11 @@
                                   VerticalScrollBarVisibility="Auto">
                         <StackPanel Orientation="Vertical">
                             <Label Style="{StaticResource LabelMainStyle}"
-                       Background="HotPink"
-                       Foreground="LightGray">
+                                   Background="HotPink"
+                                   Foreground="LightGray">
                                 <Label.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal"
+                                                Background="HotPink">
                                         <fa:ImageAwesome Icon="Solid_Gear"
                                                          PrimaryColor="LightGray">
                                         </fa:ImageAwesome>
@@ -70,9 +73,10 @@
                                     </StackPanel>
                                 </Label.Content>
                             </Label>
+                            <Button Content="Download"></Button>
+
 
                         </StackPanel>
-
                     </ScrollViewer>
 
 

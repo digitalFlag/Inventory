@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="Resources/Styles/LabelStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/MenuItemStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/MenuStyles.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/StackPanelStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/WindowStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

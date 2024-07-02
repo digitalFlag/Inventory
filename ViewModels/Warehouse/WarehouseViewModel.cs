@@ -14,7 +14,6 @@ namespace Inventory.ViewModels.Warehouse
             ItemSourseTest = new();
 
 
-
             NameOfWarhouseWindow = "Мини-Cклад";
             ConnectionItemMainMenuWarehouseWindow = "Соединение";
             RefreshItemConnectionMainMenuWarehouseWindow = "Обновить";
