@@ -3,7 +3,7 @@
 
     <Style x:Key="GridSplitterMainStyle" TargetType="GridSplitter">
         <Setter Property="Background" Value="HotPink"/>
-        <Setter Property="Width" Value="2"/>
+        <Setter Property="Width" Value="3"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Stretch"/>
     </Style>

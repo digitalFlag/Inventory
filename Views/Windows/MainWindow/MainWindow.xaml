@@ -17,7 +17,6 @@
         <Style TargetType="MenuItem" BasedOn="{StaticResource MenuItemMainStyle}"/>
         <Style TargetType="fa:ImageAwesome" BasedOn="{StaticResource FontAwesomeIconPinkStyle}"/>
 
-
     </Window.Resources>
 
 
@@ -36,6 +35,6 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <Grid/>
+        <TabControl/>
     </DockPanel>
 </Window>

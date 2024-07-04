@@ -12,7 +12,6 @@
     <SolidColorBrush x:Key="MistyRoseColorBrush">MistyRose</SolidColorBrush>
 
 
-
     <SolidColorBrush x:Key="DarkSlateGrayColorBrush">DarkSlateGray</SolidColorBrush>
     <SolidColorBrush x:Key="DimGrayColorBrush">DimGray</SolidColorBrush>
     <SolidColorBrush x:Key="GrayColorBrush">Gray</SolidColorBrush>
