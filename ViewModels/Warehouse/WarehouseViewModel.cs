@@ -21,6 +21,7 @@ namespace Inventory.ViewModels.Warehouse
             MyMiniWarehouse = "Мой Мини-Склад";
             AddToMyMiniWarehouse = "Добавить Продукцию на Мини-Склад";
             OptionsMyWarehouseTabWarhouseWindow = "Действия:";
+            DownloadDataMyProductsWarehouseWindow = "Загрузить данные";
         }
 
         public WarehouseViewModel(IUserDialog UserDialog, IDataBaseConnection DataBaseConnection) : this()

@@ -17,13 +17,15 @@
         <Style TargetType="MenuItem" BasedOn="{StaticResource MenuItemMainStyle}"/>
         <Style TargetType="fa:ImageAwesome" BasedOn="{StaticResource FontAwesomeIconPinkStyle}"/>
 
+
     </Window.Resources>
 
 
     <DockPanel Style="{StaticResource DockPanelMainStyle}">
         <!--MENU-->
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="{Binding RepositoryItemMainMenuOfMainWindow}">
+            <MenuItem Style="{StaticResource MenuItemMainStyle}" 
+                      Header="{Binding RepositoryItemMainMenuOfMainWindow}">
                 <MenuItem Header="{Binding WarehousrRepositoryMainMenuMainWindow}"
                           Command="{Binding OpenWarehouseWindowCommand}"
                           InputGestureText="Ctrl + O">

@@ -8,7 +8,6 @@ namespace Inventory.ViewModels.Warehouse
     public partial class WarehouseViewModel : DialogViewModel
     {
         //Test
-
         #region ItemSourseTest: - IS Test
 
         /// <summary>IS Test</summary>
@@ -19,8 +18,6 @@ namespace Inventory.ViewModels.Warehouse
         public DataTable? ItemSourseTest { get => _ItemSourseTest; set => Set(ref _ItemSourseTest, value); }
 
         #endregion
-
-
 
         #region NameOfWarhouseWindow: - Name Of "Warehouse Window"
 
@@ -85,6 +82,17 @@ namespace Inventory.ViewModels.Warehouse
         /// <summary>Label "Options" -> "My Warehouse" Case -> "Warehouse Window" </summary>
 
         public string? OptionsMyWarehouseTabWarhouseWindow { get => _OptionsMyWarehouseTabWarhouseWindow; set => Set(ref _OptionsMyWarehouseTabWarhouseWindow, value); }
+
+        #endregion
+
+        #region DownloadDataMyProductsWarehouseWindow: - "Download Data" -> "My Mini-Warehouse" Case -> "Warehouse Window"
+
+        /// <summary>"Download Data" -> "My Mini-Warehouse" Case -> "Warehouse Window"</summary>
+        private string? _DownloadDataMyProductsWarehouseWindow;
+
+        /// <summary>"Download Data" -> "My Mini-Warehouse" Case -> "Warehouse Window"</summary>
+
+        public string? DownloadDataMyProductsWarehouseWindow { get => _DownloadDataMyProductsWarehouseWindow; set => Set(ref _DownloadDataMyProductsWarehouseWindow, value); }
 
         #endregion
 
