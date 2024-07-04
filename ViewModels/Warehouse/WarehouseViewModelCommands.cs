@@ -37,12 +37,14 @@ namespace Inventory.ViewModels.Warehouse
 
 			WarehouseProducts = LoadedDataTableFromDataBaseMiniWarehouseWindow.AsEnumerable().Select(row => new Models.WarehouseProduct
 			{
-				Tittle = Convert.ToString(row["Tittle_Product"])
-			});
+				Tittle = Convert.ToString(row["Tittle_Product"]),
+                Note = Convert.ToString(row["Note_Product"]),
+                Size = Convert.ToString(row["Size_Product"]),
+                ExpirationDate = Convert.ToDateTime(row["ExpirationDate_Product"]),
+                Location = Convert.ToString(row["Location_Product"]),
+                OrderNumber = Convert.ToString(row["OrderNumber_Product"]),
 
-
-
-
+            });
 
             OnPropertyChanged();
         }

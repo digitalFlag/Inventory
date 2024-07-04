@@ -2,5 +2,7 @@
 {
     public class WarehouseProduct : Product
     {
+        public string? Location { get; set; }
+
     }
 }

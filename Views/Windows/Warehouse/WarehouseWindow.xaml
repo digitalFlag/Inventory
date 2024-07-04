@@ -59,6 +59,11 @@
                               ItemsSource="{Binding Path = WarehouseProducts}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Наименование продукции" Binding="{Binding Tittle}"/>
+                            <DataGridTextColumn Header="Примечание" Binding="{Binding Note}"/>
+                            <DataGridTextColumn Header="Размер" Binding="{Binding Size}"/>
+                            <DataGridTextColumn Header="Срок годности" Binding="{Binding ExpirationDate, StringFormat=MM.yyyy}"/>
+                            <DataGridTextColumn Header="Мест хранения" Binding="{Binding Location}"/>
+                            <DataGridTextColumn Header="Номер ТТН" Binding="{Binding OrderNumber}"/>
 
                         </DataGrid.Columns>
                     </DataGrid>

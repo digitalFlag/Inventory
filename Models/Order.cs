@@ -1,9 +1,8 @@
 ﻿namespace Inventory.Models
 {
-    class Order
+    public class Order
     {
-        public int Id { get; set; }
+        public string? OrderNumber { get; set; }
 
-        public DateOnly Date { get; set; }
     }
 }
