@@ -23,6 +23,8 @@
         <Style TargetType="TabControl" BasedOn="{StaticResource TabControlMainStyle}"/>
         <Style TargetType="TabItem" BasedOn="{StaticResource TabItemMainStyle}"/>
         <Style TargetType="DataGrid" BasedOn="{StaticResource DataGridMainStyle}"/>
+        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderMainStyle}"/>
+
 
     </Window.Resources>
 
@@ -75,12 +77,12 @@
                         <StackPanel Orientation="Vertical">
                             <Label Style="{StaticResource LabelMainStyle}"
                                    Background="HotPink"
-                                   Foreground="LightGray">
+                                   Foreground="Black">
                                 <Label.Content>
                                     <StackPanel Orientation="Horizontal"
                                                 Background="HotPink">
                                         <fa:ImageAwesome Icon="Solid_Gear"
-                                                         PrimaryColor="LightGray">
+                                                         PrimaryColor="Black">
                                         </fa:ImageAwesome>
                                         <TextBlock Text="{Binding OptionsMyWarehouseTabWarhouseWindow}"/>
                                     </StackPanel>
