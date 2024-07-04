@@ -7,17 +7,9 @@ namespace Inventory.ViewModels.Warehouse
 {
     public partial class WarehouseViewModel : DialogViewModel
     {
-        //Test
-        #region ItemSourseTest: - IS Test
 
-        /// <summary>IS Test</summary>
-        private DataTable? _ItemSourseTest;
 
-        /// <summary>IS Test</summary>
 
-        public DataTable? ItemSourseTest { get => _ItemSourseTest; set => Set(ref _ItemSourseTest, value); }
-
-        #endregion
 
         #region NameOfWarhouseWindow: - Name Of "Warehouse Window"
 
@@ -29,8 +21,6 @@ namespace Inventory.ViewModels.Warehouse
         public string? NameOfWarhouseWindow { get => _NameOfWarhouseWindow; set => Set(ref _NameOfWarhouseWindow, value); }
 
         #endregion
-
-        //Main Menu
 
         #region ConnectionItemMainMenuWarehouseWindow: - Item "Connection -> "Main Menu" -> "Warehouse Window""
 
@@ -52,7 +42,6 @@ namespace Inventory.ViewModels.Warehouse
         public string? RefreshItemConnectionMainMenuWarehouseWindow { get => _RefreshItemConnectionMainMenuWarehouseWindow; set => Set(ref _RefreshItemConnectionMainMenuWarehouseWindow, value); }
 
         #endregion
-
 
         #region MyMiniWarehouse: - TabControl Header "Мой Мини-Склад" -> "Warehouse Window"
 
@@ -96,7 +85,40 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region LoadedDataTableFromDataBaseMiniWarehouseWindow: - Loaded "DataTable" From SQL DB For "WareHouse Window" 
 
+        /// <summary>Loaded "DataTable" From SQL DB For "WareHouse Window" </summary>
+        private DataTable? _LoadedDataTableFromDataBaseMiniWarehouseWindow;
+
+        /// <summary>Loaded "DataTable" From SQL DB For "WareHouse Window" </summary>
+
+        public DataTable? LoadedDataTableFromDataBaseMiniWarehouseWindow { get => _LoadedDataTableFromDataBaseMiniWarehouseWindow; set => Set(ref _LoadedDataTableFromDataBaseMiniWarehouseWindow, value); }
+
+        #endregion
+
+//Dell???
+        #region SelectedWarehouseProduct: - Selected Warehouse Product
+
+        /// <summary>Selected Warehouse Product</summary>
+        private WarehouseProduct? _SelectedWarehouseProduct;
+
+        /// <summary>Selected Warehouse Product</summary>
+
+        internal WarehouseProduct? SelectedWarehouseProduct { get => _SelectedWarehouseProduct; set => Set(ref _SelectedWarehouseProduct, value); }
+
+        #endregion
+
+
+        #region WarehouseProducts: - Products On Warehouse List
+
+        /// <summary>Products On Warehouse List</summary>
+        private IEnumerable<WarehouseProduct>? _WarehouseProducts;
+
+        /// <summary>Products On Warehouse List</summary>
+
+        public IEnumerable<WarehouseProduct>? WarehouseProducts { get => _WarehouseProducts; set => Set(ref _WarehouseProducts, value); }
+
+        #endregion
 
 
 

@@ -5,9 +5,9 @@ namespace Inventory.Services.Implementations
 {
     class DataBaseConnectionServices : IDataBaseConnection
     {
-        public DataTable LoadData()
+        public DataTable LoadDataFromTable(string server, string port, string dataBase, string userId, string password, string table)
         {
-            string connectionString = "Server=localhost; Port=5432; DataBase=MiniWareHouse; User Id=dinaster; Password=diM@$terPw_87;";
+            string connectionString = $"Server={server}; Port={port}; DataBase={dataBase}; User Id={userId}; Password={password};";
 
             DataTable loadedData = new();
             var sqlConnection = new NpgsqlConnection(connectionString);
@@ -15,7 +15,7 @@ namespace Inventory.Services.Implementations
             NpgsqlCommand sqlCommand = new();
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandType = System.Data.CommandType.Text;
-            sqlCommand.CommandText = "SELECT * FROM \"Products_Actuall\"";
+            sqlCommand.CommandText = $"SELECT * FROM \"{table}\"";
             NpgsqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             if (sqlDataReader.HasRows)
             {
@@ -23,7 +23,6 @@ namespace Inventory.Services.Implementations
             }
             sqlCommand.Dispose();
             sqlConnection.Close();
-
 
             return loadedData;
         }

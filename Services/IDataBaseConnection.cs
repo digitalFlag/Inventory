@@ -4,6 +4,7 @@ namespace Inventory.Services
 {
     public interface IDataBaseConnection
     {
-        DataTable LoadData();
+        DataTable LoadDataFromTable(string server, string port, string dataBase, string userId, string password, string table);
     }
 }
+

@@ -1,5 +1,7 @@
-﻿using Inventory.Services;
+﻿using Inventory.Models;
+using Inventory.Services;
 using Inventory.ViewModels.Base;
+using System.Data;
 
 namespace Inventory.ViewModels.Warehouse
 {
@@ -11,8 +13,6 @@ namespace Inventory.ViewModels.Warehouse
         public WarehouseViewModel() 
         {
             //Test
-            ItemSourseTest = new();
-
 
             NameOfWarhouseWindow = "Мини-Cклад";
             ConnectionItemMainMenuWarehouseWindow = "Соединение";
@@ -21,7 +21,13 @@ namespace Inventory.ViewModels.Warehouse
             MyMiniWarehouse = "Мой Мини-Склад";
             AddToMyMiniWarehouse = "Добавить Продукцию на Мини-Склад";
             OptionsMyWarehouseTabWarhouseWindow = "Действия:";
-            DownloadDataMyProductsWarehouseWindow = "Загрузить данные";
+            DownloadDataMyProductsWarehouseWindow = "Обновить данные";
+
+            LoadedDataTableFromDataBaseMiniWarehouseWindow = new DataTable();
+
+            //Dell??
+            SelectedWarehouseProduct = null;
+
         }
 
         public WarehouseViewModel(IUserDialog UserDialog, IDataBaseConnection DataBaseConnection) : this()

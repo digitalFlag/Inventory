@@ -7,8 +7,6 @@ namespace Inventory.ViewModels.MainWindowViewModel
 
     public partial class MainWindowViewModel : DialogViewModel
     {
-		internal ObservableCollection<Product> Products { get; set; }
-
 
 		#region NameOfInventoryWindow: - Name Of "Inventory Window"
 

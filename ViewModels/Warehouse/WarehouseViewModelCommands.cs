@@ -1,5 +1,8 @@
 ﻿using Inventory.Commands;
+using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
+using System;
+using System.Data;
 using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
@@ -23,10 +26,25 @@ namespace Inventory.ViewModels.Warehouse
 			if (_DataBaseConnection is null)
 			{
 				return;
-			}
+            }
 
-            ItemSourseTest = _DataBaseConnection.LoadData();
-			OnPropertyChanged();
+			LoadedDataTableFromDataBaseMiniWarehouseWindow = _DataBaseConnection.LoadDataFromTable(ConnectionOptions.dbServer, 
+																								   ConnectionOptions.dbPort,
+																								   ConnectionOptions.dbName,
+																								   ConnectionOptions.userId,
+																								   ConnectionOptions.password,
+                                                                                                   "Products_MyWareHouse");
+
+			WarehouseProducts = LoadedDataTableFromDataBaseMiniWarehouseWindow.AsEnumerable().Select(row => new Models.WarehouseProduct
+			{
+				Tittle = Convert.ToString(row["Tittle_Product"])
+			});
+
+
+
+
+
+            OnPropertyChanged();
         }
 
 
