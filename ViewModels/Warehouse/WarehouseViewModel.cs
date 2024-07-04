@@ -22,12 +22,12 @@ namespace Inventory.ViewModels.Warehouse
             AddToMyMiniWarehouse = "Добавить Продукцию на Мини-Склад";
             OptionsMyWarehouseTabWarhouseWindow = "Действия:";
             DownloadDataMyProductsWarehouseWindow = "Обновить данные";
-
             LoadedDataTableFromDataBaseMiniWarehouseWindow = new DataTable();
+            NameColumnProductNameDataGridWarehouseProducts = "Наименование Продукции";
 
             //Dell??
             SelectedWarehouseProduct = null;
-
+            prop = "Привет!";
         }
 
         public WarehouseViewModel(IUserDialog UserDialog, IDataBaseConnection DataBaseConnection) : this()

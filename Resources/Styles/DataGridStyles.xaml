@@ -7,6 +7,9 @@
 
     <Style x:Key="DataGridMainStyle" TargetType="{x:Type DataGrid}">
         <Setter Property="Margin" Value="0,1,2,1"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+
         <Setter Property="Background" Value="{StaticResource DataGrid.BackGround}"/>
         <Setter Property="Foreground" Value="{StaticResource DataGrid.Foreground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource DataGrid.BorderBrush}"/>

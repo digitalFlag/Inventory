@@ -56,8 +56,11 @@
                     </Grid.ColumnDefinitions>
                     <DataGrid Grid.Column="0"
                               SelectedItem="{Binding SelectedWarehouseProduct}"
-                              ItemsSource="{Binding Path = WarehouseProducts}"
-                              >
+                              ItemsSource="{Binding Path = WarehouseProducts}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Наименование продукции" Binding="{Binding Tittle}"/>
+
+                        </DataGrid.Columns>
                     </DataGrid>
 
                     <GridSplitter Grid.Column="1">

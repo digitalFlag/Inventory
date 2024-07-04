@@ -96,7 +96,9 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
-//Dell???
+
+
+        //Dell???
         #region SelectedWarehouseProduct: - Selected Warehouse Product
 
         /// <summary>Selected Warehouse Product</summary>
