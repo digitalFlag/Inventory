@@ -44,6 +44,8 @@ namespace Inventory.ViewModels.Warehouse
             LabelSelectedProductNoteMyWarehouseControlTab = "Примечание:";
             BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";
             LabelSelectedProductIdMyWarehouseControlTab = "Номер позиции:";
+            ButtonCaptionReWriteWareHouseProduct = "Корректировать данные";
+            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = string.Empty;
 
 
 

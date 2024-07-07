@@ -300,6 +300,29 @@ namespace Inventory.ViewModels.Warehouse
         public string? BorderColorSelectedProductNoteMyWarehouseControlTab { get => _BorderColorSelectedProductNoteMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductNoteMyWarehouseControlTab, value); }
 
         #endregion
+        #region ButtonCaptionReWriteWareHouseProduct: - Button Caption "ReWrite Data" In My WareHouse Products
+
+        /// <summary>Button Caption "ReWrite Data" In My WareHouse Products</summary>
+        private string? _ButtonCaptionReWriteWareHouseProduct;
+
+        /// <summary>Button Caption "ReWrite Data" In My WareHouse Products</summary>
+
+        public string? ButtonCaptionReWriteWareHouseProduct { get => _ButtonCaptionReWriteWareHouseProduct; set => Set(ref _ButtonCaptionReWriteWareHouseProduct, value); }
+
+        #endregion
+
+        #region TextLabelEventLogMyWarehouseTabControlWarehouseWindow: - Text Of Event Log In MyWarehouse TabControl In Warehouse Window
+
+        /// <summary>Text Of Event Log In MyWarehouse TabControl In Warehouse Window</summary>
+        private string? _TextLabelEventLogMyWarehouseTabControlWarehouseWindow;
+
+        /// <summary>Text Of Event Log In MyWarehouse TabControl In Warehouse Window</summary>
+
+        public string? TextLabelEventLogMyWarehouseTabControlWarehouseWindow { get => _TextLabelEventLogMyWarehouseTabControlWarehouseWindow; set => Set(ref _TextLabelEventLogMyWarehouseTabControlWarehouseWindow, value); }
+
+        #endregion
+
+
 
 
         //Dell???

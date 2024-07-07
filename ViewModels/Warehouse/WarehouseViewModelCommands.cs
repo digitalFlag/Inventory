@@ -1,7 +1,7 @@
 ﻿using Inventory.Commands;
 using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
-using System;
+using Microsoft.VisualBasic;
 using System.Data;
 using System.Windows.Input;
 
@@ -35,8 +35,8 @@ namespace Inventory.ViewModels.Warehouse
 																								   ConnectionOptions.password,
                                                                                                    "Products_MyWareHouse");
 
-			WarehouseProducts = LoadedDataTableFromDataBaseMiniWarehouseWindow.AsEnumerable().Select(row => new Models.WarehouseProduct
-			{
+            WarehouseProducts = LoadedDataTableFromDataBaseMiniWarehouseWindow.AsEnumerable().Select(row => new Models.WarehouseProduct
+            {
                 Id = Convert.ToInt32(row["Id"]),
                 Tittle = Convert.ToString(row["Tittle_Product"]),
                 Property = Convert.ToString(row["Property_Product"]),
@@ -47,17 +47,33 @@ namespace Inventory.ViewModels.Warehouse
                 OrderNumber = Convert.ToString(row["OrderNumber_Product"]),
                 ReceiptDate = Convert.ToDateTime(row["ReceiptDate_Product"]),
                 Note = Convert.ToString(row["Note_Product"]),
-
             });
+
+            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Информация о продукции на Мини-Складе из базы \"{ConnectionOptions.dbName}\" загружена.";
 
             OnPropertyChanged();
         }
 
+        #endregion
 
+        #region Command PushButtonCorrectWareHouseProductDataCommand: - Push Button "Correct Data" Of The Warehouse Product
+
+        /// <summary>Push Button "Correct Data" Of The Warehouse Product</summary>
+        private LambdaCommand? _PushButtonCorrectWareHouseProductDataCommand;
+
+        /// <summary>Push Button "Correct Data" Of The Warehouse Product</summary>
+        public ICommand PushButtonCorrectWareHouseProductDataCommand => _PushButtonCorrectWareHouseProductDataCommand ??= new(OnPushButtonCorrectWareHouseProductDataCommandExecuted);
+
+        /// <summary>Логика выполнения - Push Button "Correct Data" Of The Warehouse Product</summary>
+
+        private void OnPushButtonCorrectWareHouseProductDataCommandExecuted(object? p)
+        {
+
+        }
 
         #endregion
 
-       
+
 
     }
 }
