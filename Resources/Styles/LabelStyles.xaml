@@ -3,7 +3,7 @@
 
     <Style x:Key="LabelMainStyle" TargetType="Label">
         <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="Margin" Value="1,1,1,1"/>
+        <Setter Property="Margin" Value="2"/>
         <Setter Property="Padding" Value="0"/>
     </Style>
 

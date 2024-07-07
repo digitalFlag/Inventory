@@ -8,5 +8,7 @@ namespace Inventory.Models
 
         public string? Location { get; set; }
 
+        public int? PurchaseCost { get; set; }
+
     }
 }

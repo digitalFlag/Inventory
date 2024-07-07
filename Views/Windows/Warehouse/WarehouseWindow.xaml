@@ -26,7 +26,7 @@
         <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderMainStyle}"/>
         <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockMainStyle}"/>
         <Style TargetType="Border" BasedOn="{StaticResource BorderMainStyle}"/>
-
+        <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxMainStyle}"/>
 
     </Window.Resources>
 
@@ -54,7 +54,7 @@
                 </TabItem.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
@@ -67,7 +67,8 @@
                             <DataGridTextColumn Header="Размер" Binding="{Binding Size}"/>
                             <DataGridTextColumn Header="Срок годности" Binding="{Binding ExpirationDate, StringFormat=MM.yyyy}"/>
                             <DataGridTextColumn Header="Мест хранения" Binding="{Binding Location}"/>
-                            <DataGridTextColumn Header="Номер ТТН" Binding="{Binding OrderNumber}"/>
+                            <DataGridTextColumn Header="Стоимость покупки" Binding="{Binding PurchaseCost}"/>
+
 
                         </DataGrid.Columns>
                     </DataGrid>
@@ -102,18 +103,56 @@
                                 </Button.Content>
                             </Button>
                             <Label Content=""/>
-                            <Label Content="{Binding LabelSelectedProductTittleMyWarehouseControlTab}"/>
-                            <Grid>
-                                <Border BorderBrush="{Binding BorderColorSelectedProductTittleMyWarehouseControlTab}">
-                                </Border>
-                                <TextBlock Text="{Binding SelectedWarehouseProduct.Tittle, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                            </Grid>
-                            
-                            
-
-
-
-
+                            <Label Content="{Binding LabelSelectedProductTittleMyWarehouseControlTab}" 
+                                   FontWeight="Bold"
+                                   Margin="2,2,2,0"/>
+                            <TextBox Text="{Binding SelectedWarehouseProduct.Tittle, UpdateSourceTrigger=PropertyChanged}"
+                                     BorderBrush="{Binding BorderColorSelectedProductTittleMyWarehouseControlTab}">
+                            </TextBox>
+                            <Label Content="{Binding LabelSelectedProductNoteMyWarehouseControlTab}" 
+                                   FontWeight="Bold"
+                                   Margin="2,2,2,0">
+                            </Label>
+                            <TextBox Text="{Binding SelectedWarehouseProduct.Note, UpdateSourceTrigger=PropertyChanged}"
+                                     BorderBrush="{Binding BorderColorSelectedProductNoteMyWarehouseControlTab}">
+                            </TextBox>
+                            <Label Content="{Binding LabelSelectedProductSizeMyWarehouseControlTab}" 
+                                   FontWeight="Bold"
+                                   Margin="2,2,2,0">
+                            </Label>
+                            <TextBox Text="{Binding SelectedWarehouseProduct.Size, UpdateSourceTrigger=PropertyChanged}"
+                                     BorderBrush="{Binding BorderColorSelectedProductSizeMyWarehouseControlTab}">
+                            </TextBox>
+                            <Label Content="{Binding LabelSelectedProductExpirationDateMyWarehouseControlTab}" 
+                                   FontWeight="Bold"
+                                   Margin="2,2,2,0">
+                            </Label>
+                            <TextBox Text="{Binding SelectedWarehouseProduct.ExpirationDate, 
+                                                    UpdateSourceTrigger=PropertyChanged,
+                                                    StringFormat=MM.yyyy}"
+                                     BorderBrush="{Binding BorderColorSelectedProductExpirationDateMyWarehouseControlTab}">
+                            </TextBox>
+                            <Label Content="{Binding LabelSelectedProductLocationMyWarehouseControlTab}" 
+                                   FontWeight="Bold"
+                                   Margin="2,2,2,0">
+                            </Label>
+                            <TextBox Text="{Binding SelectedWarehouseProduct.Location, UpdateSourceTrigger=PropertyChanged}"
+                                     BorderBrush="{Binding BorderColorSelectedProductLocationMyWarehouseControlTab}">
+                            </TextBox>
+                            <Label Content="{Binding LabelSelectedProductOrderNumberMyWarehouseControlTab}" 
+                                   FontWeight="Bold"
+                                   Margin="2,2,2,0">
+                            </Label>
+                            <TextBox Text="{Binding SelectedWarehouseProduct.OrderNumber, UpdateSourceTrigger=PropertyChanged}"
+                                     BorderBrush="{Binding BorderColorSelectedProductOrderNumberMyWarehouseControlTab}">
+                            </TextBox>
+                            <Label Content="{Binding LabelSelectedProductIdMyWarehouseControlTab}" 
+                                   FontWeight="Bold"
+                                   Margin="2,2,2,0">
+                            </Label>
+                            <TextBox Text="{Binding SelectedWarehouseProduct.Id, UpdateSourceTrigger=PropertyChanged}"
+                                     IsReadOnly="True">
+                            </TextBox>
 
                         </StackPanel>
                     </ScrollViewer>

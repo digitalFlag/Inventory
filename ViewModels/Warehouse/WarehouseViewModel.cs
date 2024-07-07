@@ -25,6 +25,19 @@ namespace Inventory.ViewModels.Warehouse
             LoadedDataTableFromDataBaseMiniWarehouseWindow = new DataTable();
             LabelSelectedProductTittleMyWarehouseControlTab = "Название:";
             BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
+            LabelSelectedProductNoteMyWarehouseControlTab = "Примечание:";
+            BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";
+            LabelSelectedProductSizeMyWarehouseControlTab = "Размер:";
+            BorderColorSelectedProductSizeMyWarehouseControlTab = "HotPink";
+            LabelSelectedProductExpirationDateMyWarehouseControlTab = "Срок годности:";
+            BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "HotPink";
+            LabelSelectedProductLocationMyWarehouseControlTab = "Место хранения";
+            BorderColorSelectedProductLocationMyWarehouseControlTab = "HotPink";
+            LabelSelectedProductOrderNumberMyWarehouseControlTab = "Номер заказа";
+            BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "HotPink";
+            LabelSelectedProductIdMyWarehouseControlTab = "Номер позиции на складе";
+
+
 
             //Dell??
             SelectedWarehouseProduct = new WarehouseProduct();

@@ -95,6 +95,21 @@ namespace Inventory.ViewModels.Warehouse
         public DataTable? LoadedDataTableFromDataBaseMiniWarehouseWindow { get => _LoadedDataTableFromDataBaseMiniWarehouseWindow; set => Set(ref _LoadedDataTableFromDataBaseMiniWarehouseWindow, value); }
 
         #endregion
+        #region SelectedWarehouseProduct: - Selected Warehouse Product
+
+        /// <summary>Selected Warehouse Product</summary>
+        private WarehouseProduct? _SelectedWarehouseProduct;
+
+        /// <summary>Selected Warehouse Product</summary>
+
+        public WarehouseProduct? SelectedWarehouseProduct
+        {
+            get => _SelectedWarehouseProduct;
+            set => Set(ref _SelectedWarehouseProduct, value);
+        }
+
+        #endregion
+
         #region LabelSelectedProductTittleMyWarehouseControlTab: - "Tittle" Of Selected Product At "My Warehouse"
 
         /// <summary>"Tittle" Of Selected Product At "My Warehouse"</summary>
@@ -115,24 +130,120 @@ namespace Inventory.ViewModels.Warehouse
         public string? BorderColorSelectedProductTittleMyWarehouseControlTab { get => _BorderColorSelectedProductTittleMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductTittleMyWarehouseControlTab, value); }
 
         #endregion
+        #region LabelSelectedProductNoteMyWarehouseControlTab: - "Note" Of Selected Product At "My Warehouse"
+
+        /// <summary>"Note" Of Selected Product At "My Warehouse"</summary>
+        private string? _LabelSelectedProductNoteMyWarehouseControlTab;
+
+        /// <summary>"Note" Of Selected Product At "My Warehouse"</summary>
+
+        public string? LabelSelectedProductNoteMyWarehouseControlTab { get => _LabelSelectedProductNoteMyWarehouseControlTab; set => Set(ref _LabelSelectedProductNoteMyWarehouseControlTab, value); }
+
+        #endregion
+        #region BorderColorSelectedProductNoteMyWarehouseControlTab: - "Border Color" Of Selected Product Note At "My Warehouse"
+
+        /// <summary>"Border Color" Of Selected Product Note At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductNoteMyWarehouseControlTab;
+
+        /// <summary>"Border Color" Of Selected Product Note At "My Warehouse"</summary>
+
+        public string? BorderColorSelectedProductNoteMyWarehouseControlTab { get => _BorderColorSelectedProductNoteMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductNoteMyWarehouseControlTab, value); }
+
+        #endregion
+        #region LabelSelectedProductSizeMyWarehouseControlTab: - "Size" Of Selected Product At "My Warehouse"
+
+        /// <summary>"Size" Of Selected Product At "My Warehouse"</summary>
+        private string? _LabelSelectedProductSizeMyWarehouseControlTab;
+
+        /// <summary>"Size" Of Selected Product At "My Warehouse"</summary>
+
+        public string? LabelSelectedProductSizeMyWarehouseControlTab { get => _LabelSelectedProductSizeMyWarehouseControlTab; set => Set(ref _LabelSelectedProductSizeMyWarehouseControlTab, value); }
+
+        #endregion
+        #region BorderColorSelectedProductSizeMyWarehouseControlTab: - "Border Color" Of Selected Product Size At "My Warehouse"
+
+        /// <summary>"Border Color" Of Selected Product Size At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductSizeMyWarehouseControlTab;
+
+        /// <summary>"Border Color" Of Selected Product Size At "My Warehouse"</summary>
+
+        public string? BorderColorSelectedProductSizeMyWarehouseControlTab { get => _BorderColorSelectedProductSizeMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductSizeMyWarehouseControlTab, value); }
+
+        #endregion
+        #region LabelSelectedProductExpirationDateMyWarehouseControlTab: - "ExpirationDate" Of Selected Product At "My Warehouse"
+
+        /// <summary>"ExpirationDate" Of Selected Product At "My Warehouse"</summary>
+        private string? _LabelSelectedProductExpirationDateMyWarehouseControlTab;
+
+        /// <summary>"ExpirationDate" Of Selected Product At "My Warehouse"</summary>
+
+        public string? LabelSelectedProductExpirationDateMyWarehouseControlTab { get => _LabelSelectedProductExpirationDateMyWarehouseControlTab; set => Set(ref _LabelSelectedProductExpirationDateMyWarehouseControlTab, value); }
+
+        #endregion
+        #region BorderColorSelectedProductExpirationDateMyWarehouseControlTab: - "Border Color" Of Selected Product Expiration Date At "My Warehouse"
+
+        /// <summary>"Border Color" Of Selected Product Expiration Date At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductExpirationDateMyWarehouseControlTab;
+
+        /// <summary>"Border Color" Of Selected Product Expiration Date At "My Warehouse"</summary>
+
+        public string? BorderColorSelectedProductExpirationDateMyWarehouseControlTab { get => _BorderColorSelectedProductExpirationDateMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductExpirationDateMyWarehouseControlTab, value); }
+
+        #endregion
+        #region LabelSelectedProductLocationMyWarehouseControlTab: - "Location" Of Selected Product At "My Warehouse"
+
+        /// <summary>"Location" Of Selected Product At "My Warehouse"</summary>
+        private string? _LabelSelectedProductLocationMyWarehouseControlTab;
+
+        /// <summary>"Location" Of Selected Product At "My Warehouse"</summary>
+
+        public string? LabelSelectedProductLocationMyWarehouseControlTab { get => _LabelSelectedProductLocationMyWarehouseControlTab; set => Set(ref _LabelSelectedProductLocationMyWarehouseControlTab, value); }
+
+        #endregion
+        #region BorderColorSelectedProductLocationMyWarehouseControlTab: - "Border Color" Of Selected Product Location At "My Warehouse"
+
+        /// <summary>"Border Color" Of Selected Product Location At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductLocationMyWarehouseControlTab;
+
+        /// <summary>"Border Color" Of Selected Product Location At "My Warehouse"</summary>
+
+        public string? BorderColorSelectedProductLocationMyWarehouseControlTab { get => _BorderColorSelectedProductLocationMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductLocationMyWarehouseControlTab, value); }
+
+        #endregion
+        #region LabelSelectedProductOrderNumberMyWarehouseControlTab: - "Order Number" Of Selected Product At "My Warehouse"
+
+        /// <summary>"Order Number" Of Selected Product At "My Warehouse"</summary>
+        private string? _LabelSelectedProductOrderNumberMyWarehouseControlTab;
+
+        /// <summary>"Order Number" Of Selected Product At "My Warehouse"</summary>
+
+        public string? LabelSelectedProductOrderNumberMyWarehouseControlTab { get => _LabelSelectedProductOrderNumberMyWarehouseControlTab; set => Set(ref _LabelSelectedProductOrderNumberMyWarehouseControlTab, value); }
+
+        #endregion
+        #region BorderColorSelectedProductOrderNumberMyWarehouseControlTab: - "Border Color" Of Selected Product Order Number At "My Warehouse"
+
+        /// <summary>"Border Color" Of Selected Product Order Number At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductOrderNumberMyWarehouseControlTab;
+
+        /// <summary>"Border Color" Of Selected Product Order Number At "My Warehouse"</summary>
+
+        public string? BorderColorSelectedProductOrderNumberMyWarehouseControlTab { get => _BorderColorSelectedProductOrderNumberMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductOrderNumberMyWarehouseControlTab, value); }
+
+        #endregion
+        #region LabelSelectedProductIdMyWarehouseControlTab: - "Id" Of Selected Product At "My Warehouse"
+
+        /// <summary>"Id" Of Selected Product At "My Warehouse"</summary>
+        private string? _LabelSelectedProductIdMyWarehouseControlTab;
+
+        /// <summary>"Id" Of Selected Product At "My Warehouse"</summary>
+
+        public string? LabelSelectedProductIdMyWarehouseControlTab { get => _LabelSelectedProductIdMyWarehouseControlTab; set => Set(ref _LabelSelectedProductIdMyWarehouseControlTab, value); }
+
+        #endregion
 
 
 
         //Dell???
-        #region SelectedWarehouseProduct: - Selected Warehouse Product
-
-        /// <summary>Selected Warehouse Product</summary>
-        private WarehouseProduct? _SelectedWarehouseProduct;
-
-        /// <summary>Selected Warehouse Product</summary>
-
-        public WarehouseProduct? SelectedWarehouseProduct 
-        { 
-            get => _SelectedWarehouseProduct; 
-            set => Set(ref _SelectedWarehouseProduct, value); 
-        }
-
-        #endregion
 
 
         #region WarehouseProducts: - Products On Warehouse List
