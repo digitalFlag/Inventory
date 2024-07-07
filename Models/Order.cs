@@ -4,5 +4,7 @@
     {
         public string? OrderNumber { get; set; }
 
+        public DateTime? ReceiptDate { get; set; }
+
     }
 }

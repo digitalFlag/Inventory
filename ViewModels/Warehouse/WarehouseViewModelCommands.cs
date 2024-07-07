@@ -39,11 +39,14 @@ namespace Inventory.ViewModels.Warehouse
 			{
                 Id = Convert.ToInt32(row["Id"]),
                 Tittle = Convert.ToString(row["Tittle_Product"]),
-                Note = Convert.ToString(row["Note_Product"]),
+                Property = Convert.ToString(row["Property_Product"]),
                 Size = Convert.ToString(row["Size_Product"]),
                 ExpirationDate = Convert.ToDateTime(row["ExpirationDate_Product"]),
                 Location = Convert.ToString(row["Location_Product"]),
+                PurchaseCost = Convert.ToInt16(row["PurchaseCost_Product"]),
                 OrderNumber = Convert.ToString(row["OrderNumber_Product"]),
+                ReceiptDate = Convert.ToDateTime(row["ReceiptDate_Product"]),
+                Note = Convert.ToString(row["Note_Product"]),
 
             });
 

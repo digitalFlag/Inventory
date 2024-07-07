@@ -23,19 +23,27 @@ namespace Inventory.ViewModels.Warehouse
             OptionsMyWarehouseTabWarhouseWindow = "Действия:";
             DownloadDataMyProductsWarehouseWindow = "Обновить данные";
             LoadedDataTableFromDataBaseMiniWarehouseWindow = new DataTable();
-            LabelSelectedProductTittleMyWarehouseControlTab = "Название:";
+
+            //WareHouse Products
+            LabelSelectedProductTittleMyWarehouseControlTab = "Наименование:";
             BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
-            LabelSelectedProductNoteMyWarehouseControlTab = "Примечание:";
-            BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";
+            LabelSelectedProductPropertyMyWarehouseControlTab = "Тип:";
+            BorderColorSelectedProductPropertyMyWarehouseControlTab = "HotPink";
             LabelSelectedProductSizeMyWarehouseControlTab = "Размер:";
             BorderColorSelectedProductSizeMyWarehouseControlTab = "HotPink";
             LabelSelectedProductExpirationDateMyWarehouseControlTab = "Срок годности:";
             BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "HotPink";
-            LabelSelectedProductLocationMyWarehouseControlTab = "Место хранения";
+            LabelSelectedProductPurchaseCostMyWarehouseControlTab = "Стоимость покупки:";
+            BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "HotPink";
+            LabelSelectedProductLocationMyWarehouseControlTab = "Место хранения:";
             BorderColorSelectedProductLocationMyWarehouseControlTab = "HotPink";
-            LabelSelectedProductOrderNumberMyWarehouseControlTab = "Номер заказа";
+            LabelSelectedProductReceiptDateMyWarehouseControlTab = "Дата поступления:";
+            BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "HotPink";
+            LabelSelectedProductOrderNumberMyWarehouseControlTab = "Номер заказа:";
             BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "HotPink";
-            LabelSelectedProductIdMyWarehouseControlTab = "Номер позиции на складе";
+            LabelSelectedProductNoteMyWarehouseControlTab = "Примечание:";
+            BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";
+            LabelSelectedProductIdMyWarehouseControlTab = "Номер позиции:";
 
 
 

@@ -4,7 +4,7 @@
     {
         public string? Tittle { get; set; }
 
-        public string? Note { get; set; }
+        public string? Property { get; set; }
 
         public string? Size { get; set; }
 

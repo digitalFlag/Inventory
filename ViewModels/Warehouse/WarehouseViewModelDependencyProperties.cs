@@ -130,24 +130,24 @@ namespace Inventory.ViewModels.Warehouse
         public string? BorderColorSelectedProductTittleMyWarehouseControlTab { get => _BorderColorSelectedProductTittleMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductTittleMyWarehouseControlTab, value); }
 
         #endregion
-        #region LabelSelectedProductNoteMyWarehouseControlTab: - "Note" Of Selected Product At "My Warehouse"
+        #region LabelSelectedProductPropertyMyWarehouseControlTab: - "Property" Of Selected Product At "My Warehouse"
 
-        /// <summary>"Note" Of Selected Product At "My Warehouse"</summary>
-        private string? _LabelSelectedProductNoteMyWarehouseControlTab;
+        /// <summary>"Property" Of Selected Product At "My Warehouse"</summary>
+        private string? _LabelSelectedProductPropertyMyWarehouseControlTab;
 
-        /// <summary>"Note" Of Selected Product At "My Warehouse"</summary>
+        /// <summary>"Property" Of Selected Product At "My Warehouse"</summary>
 
-        public string? LabelSelectedProductNoteMyWarehouseControlTab { get => _LabelSelectedProductNoteMyWarehouseControlTab; set => Set(ref _LabelSelectedProductNoteMyWarehouseControlTab, value); }
+        public string? LabelSelectedProductPropertyMyWarehouseControlTab { get => _LabelSelectedProductPropertyMyWarehouseControlTab; set => Set(ref _LabelSelectedProductPropertyMyWarehouseControlTab, value); }
 
         #endregion
-        #region BorderColorSelectedProductNoteMyWarehouseControlTab: - "Border Color" Of Selected Product Note At "My Warehouse"
+        #region BorderColorSelectedProductPropertyMyWarehouseControlTab: - "Border Color" Of Selected Product Property At "My Warehouse"
 
-        /// <summary>"Border Color" Of Selected Product Note At "My Warehouse"</summary>
-        private string? _BorderColorSelectedProductNoteMyWarehouseControlTab;
+        /// <summary>"Border Color" Of Selected Product Property At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductPropertyMyWarehouseControlTab;
 
-        /// <summary>"Border Color" Of Selected Product Note At "My Warehouse"</summary>
+        /// <summary>"Border Color" Of Selected Product Property At "My Warehouse"</summary>
 
-        public string? BorderColorSelectedProductNoteMyWarehouseControlTab { get => _BorderColorSelectedProductNoteMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductNoteMyWarehouseControlTab, value); }
+        public string? BorderColorSelectedProductPropertyMyWarehouseControlTab { get => _BorderColorSelectedProductPropertyMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductPropertyMyWarehouseControlTab, value); }
 
         #endregion
         #region LabelSelectedProductSizeMyWarehouseControlTab: - "Size" Of Selected Product At "My Warehouse"
@@ -190,6 +190,26 @@ namespace Inventory.ViewModels.Warehouse
         public string? BorderColorSelectedProductExpirationDateMyWarehouseControlTab { get => _BorderColorSelectedProductExpirationDateMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductExpirationDateMyWarehouseControlTab, value); }
 
         #endregion
+        #region LabelSelectedProductPurchaseCostMyWarehouseControlTab: - "Purchase Cost" Of Selected Product At "My Warehouse"
+
+        /// <summary>"Purchase Cost" Of Selected Product At "My Warehouse"</summary>
+        private string? _LabelSelectedProductPurchaseCostMyWarehouseControlTab;
+
+        /// <summary>"Purchase Cost" Of Selected Product At "My Warehouse"</summary>
+
+        public string? LabelSelectedProductPurchaseCostMyWarehouseControlTab { get => _LabelSelectedProductPurchaseCostMyWarehouseControlTab; set => Set(ref _LabelSelectedProductPurchaseCostMyWarehouseControlTab, value); }
+
+        #endregion
+        #region BorderColorSelectedProductPurchaseCostMyWarehouseControlTab: - "Purchase Cost" Of Selected Product Expiration Date At "My Warehouse"
+
+        /// <summary>"Purchase Cost" Of Selected Product Expiration Date At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductPurchaseCostMyWarehouseControlTab;
+
+        /// <summary>"Purchase Cost" Of Selected Product Expiration Date At "My Warehouse"</summary>
+
+        public string? BorderColorSelectedProductPurchaseCostMyWarehouseControlTab { get => _BorderColorSelectedProductPurchaseCostMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductPurchaseCostMyWarehouseControlTab, value); }
+
+        #endregion
         #region LabelSelectedProductLocationMyWarehouseControlTab: - "Location" Of Selected Product At "My Warehouse"
 
         /// <summary>"Location" Of Selected Product At "My Warehouse"</summary>
@@ -208,6 +228,26 @@ namespace Inventory.ViewModels.Warehouse
         /// <summary>"Border Color" Of Selected Product Location At "My Warehouse"</summary>
 
         public string? BorderColorSelectedProductLocationMyWarehouseControlTab { get => _BorderColorSelectedProductLocationMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductLocationMyWarehouseControlTab, value); }
+
+        #endregion
+        #region LabelSelectedProductReceiptDateMyWarehouseControlTab: - "Receipt Date" Of Selected Product At "My Warehouse"
+
+        /// <summary>"Receipt Date" Of Selected Product At "My Warehouse"</summary>
+        private string? _LabelSelectedProductReceiptDateMyWarehouseControlTab;
+
+        /// <summary>"Receipt Date" Of Selected Product At "My Warehouse"</summary>
+
+        public string? LabelSelectedProductReceiptDateMyWarehouseControlTab { get => _LabelSelectedProductReceiptDateMyWarehouseControlTab; set => Set(ref _LabelSelectedProductReceiptDateMyWarehouseControlTab, value); }
+
+        #endregion
+        #region BorderColorSelectedProductReceiptDateMyWarehouseControlTab: - "Receipt Date" Of Selected Product Expiration Date At "My Warehouse"
+
+        /// <summary>"Receipt Date" Of Selected Product Expiration Date At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductReceiptDateMyWarehouseControlTab;
+
+        /// <summary>"Receipt Date" Of Selected Product Expiration Date At "My Warehouse"</summary>
+
+        public string? BorderColorSelectedProductReceiptDateMyWarehouseControlTab { get => _BorderColorSelectedProductReceiptDateMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductReceiptDateMyWarehouseControlTab, value); }
 
         #endregion
         #region LabelSelectedProductOrderNumberMyWarehouseControlTab: - "Order Number" Of Selected Product At "My Warehouse"
@@ -240,7 +280,26 @@ namespace Inventory.ViewModels.Warehouse
         public string? LabelSelectedProductIdMyWarehouseControlTab { get => _LabelSelectedProductIdMyWarehouseControlTab; set => Set(ref _LabelSelectedProductIdMyWarehouseControlTab, value); }
 
         #endregion
+        #region LabelSelectedProductNoteMyWarehouseControlTab: - "Note" Of Selected Product At "My Warehouse"
 
+        /// <summary>"Note" Of Selected Product At "My Warehouse"</summary>
+        private string? _LabelSelectedProductNoteMyWarehouseControlTab;
+
+        /// <summary>"Note" Of Selected Product At "My Warehouse"</summary>
+
+        public string? LabelSelectedProductNoteMyWarehouseControlTab { get => _LabelSelectedProductNoteMyWarehouseControlTab; set => Set(ref _LabelSelectedProductNoteMyWarehouseControlTab, value); }
+
+        #endregion
+        #region BorderColorSelectedProductNoteMyWarehouseControlTab: - "Border Color" Of Selected Product Note At "My Warehouse"
+
+        /// <summary>"Border Color" Of Selected Product Note At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductNoteMyWarehouseControlTab;
+
+        /// <summary>"Border Color" Of Selected Product Note At "My Warehouse"</summary>
+
+        public string? BorderColorSelectedProductNoteMyWarehouseControlTab { get => _BorderColorSelectedProductNoteMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductNoteMyWarehouseControlTab, value); }
+
+        #endregion
 
 
         //Dell???
