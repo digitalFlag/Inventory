@@ -95,6 +95,26 @@ namespace Inventory.ViewModels.Warehouse
         public DataTable? LoadedDataTableFromDataBaseMiniWarehouseWindow { get => _LoadedDataTableFromDataBaseMiniWarehouseWindow; set => Set(ref _LoadedDataTableFromDataBaseMiniWarehouseWindow, value); }
 
         #endregion
+        #region LabelSelectedProductTittleMyWarehouseControlTab: - "Tittle" Of Selected Product At "My Warehouse"
+
+        /// <summary>"Tittle" Of Selected Product At "My Warehouse"</summary>
+        private string? _LabelSelectedProductTittleMyWarehouseControlTab;
+
+        /// <summary>"Tittle" Of Selected Product At "My Warehouse"</summary>
+
+        public string? LabelSelectedProductTittleMyWarehouseControlTab { get => _LabelSelectedProductTittleMyWarehouseControlTab; set => Set(ref _LabelSelectedProductTittleMyWarehouseControlTab, value); }
+
+        #endregion
+        #region BorderColorSelectedProductTittleMyWarehouseControlTab: - "Border Color" Of Selected Product At "My Warehouse"
+
+        /// <summary>"Border Color" Of Selected Product At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductTittleMyWarehouseControlTab;
+
+        /// <summary>"Border Color" Of Selected Product At "My Warehouse"</summary>
+
+        public string? BorderColorSelectedProductTittleMyWarehouseControlTab { get => _BorderColorSelectedProductTittleMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductTittleMyWarehouseControlTab, value); }
+
+        #endregion
 
 
 
@@ -106,7 +126,11 @@ namespace Inventory.ViewModels.Warehouse
 
         /// <summary>Selected Warehouse Product</summary>
 
-        internal WarehouseProduct? SelectedWarehouseProduct { get => _SelectedWarehouseProduct; set => Set(ref _SelectedWarehouseProduct, value); }
+        public WarehouseProduct? SelectedWarehouseProduct 
+        { 
+            get => _SelectedWarehouseProduct; 
+            set => Set(ref _SelectedWarehouseProduct, value); 
+        }
 
         #endregion
 

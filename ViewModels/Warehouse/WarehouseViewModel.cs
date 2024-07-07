@@ -23,9 +23,11 @@ namespace Inventory.ViewModels.Warehouse
             OptionsMyWarehouseTabWarhouseWindow = "Действия:";
             DownloadDataMyProductsWarehouseWindow = "Обновить данные";
             LoadedDataTableFromDataBaseMiniWarehouseWindow = new DataTable();
+            LabelSelectedProductTittleMyWarehouseControlTab = "Название:";
+            BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
 
             //Dell??
-            SelectedWarehouseProduct = null;
+            SelectedWarehouseProduct = new WarehouseProduct();
         }
 
         public WarehouseViewModel(IUserDialog UserDialog, IDataBaseConnection DataBaseConnection) : this()
