@@ -2,6 +2,6 @@
 {
     public interface IDataBase
     {
-        void Update();
+        void Update(string server, string port, string dataBase, string userId, string password, string table);
     }
 }

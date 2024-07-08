@@ -24,6 +24,7 @@ namespace Inventory
 
             services.AddSingleton<IUserDialog, UserDialogServices>();
             services.AddSingleton<IDataBaseConnection, DataBaseConnectionServices>();
+            services.AddSingleton<IDataBase, DataBaseServices>();
 
 
             services.AddTransient(

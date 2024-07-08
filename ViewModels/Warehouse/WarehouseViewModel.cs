@@ -9,6 +9,7 @@ namespace Inventory.ViewModels.Warehouse
     {
         private readonly IUserDialog? _UserDialog = null;
         private readonly IDataBaseConnection? _DataBaseConnection;
+        private readonly IDataBase? _DataBase = null;
 
         public WarehouseViewModel() 
         {
@@ -25,6 +26,7 @@ namespace Inventory.ViewModels.Warehouse
             LoadedDataTableFromDataBaseMiniWarehouseWindow = new DataTable();
 
             //WareHouse Products
+            SelectedWarehouseProduct = new WarehouseProduct();
             LabelSelectedProductTittleMyWarehouseControlTab = "Наименование:";
             BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
             LabelSelectedProductPropertyMyWarehouseControlTab = "Тип:";
@@ -47,17 +49,14 @@ namespace Inventory.ViewModels.Warehouse
             ButtonCaptionReWriteWareHouseProduct = "Корректировать данные";
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = string.Empty;
 
-
-
-            //Dell??
-            SelectedWarehouseProduct = new WarehouseProduct();
         }
 
-        public WarehouseViewModel(IUserDialog UserDialog, IDataBaseConnection DataBaseConnection) : this()
+        public WarehouseViewModel(IUserDialog UserDialog, IDataBaseConnection DataBaseConnection, IDataBase DataBase) : this()
         {
 
             _UserDialog = UserDialog;
             _DataBaseConnection = DataBaseConnection;
+            _DataBase = DataBase;
 
         }
 

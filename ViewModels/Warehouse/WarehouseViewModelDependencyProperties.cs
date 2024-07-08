@@ -8,9 +8,6 @@ namespace Inventory.ViewModels.Warehouse
     public partial class WarehouseViewModel : DialogViewModel
     {
 
-
-
-
         #region NameOfWarhouseWindow: - Name Of "Warehouse Window"
 
         /// <summary>Name Of "Warehouse Window"</summary>
@@ -93,6 +90,16 @@ namespace Inventory.ViewModels.Warehouse
         /// <summary>Loaded "DataTable" From SQL DB For "WareHouse Window" </summary>
 
         public DataTable? LoadedDataTableFromDataBaseMiniWarehouseWindow { get => _LoadedDataTableFromDataBaseMiniWarehouseWindow; set => Set(ref _LoadedDataTableFromDataBaseMiniWarehouseWindow, value); }
+
+        #endregion
+        #region WarehouseProducts: - Products On Warehouse List
+
+        /// <summary>Products On Warehouse List</summary>
+        private IEnumerable<WarehouseProduct>? _WarehouseProducts;
+
+        /// <summary>Products On Warehouse List</summary>
+
+        public IEnumerable<WarehouseProduct>? WarehouseProducts { get => _WarehouseProducts; set => Set(ref _WarehouseProducts, value); }
 
         #endregion
         #region SelectedWarehouseProduct: - Selected Warehouse Product
@@ -325,19 +332,9 @@ namespace Inventory.ViewModels.Warehouse
 
 
 
-        //Dell???
 
 
-        #region WarehouseProducts: - Products On Warehouse List
 
-        /// <summary>Products On Warehouse List</summary>
-        private IEnumerable<WarehouseProduct>? _WarehouseProducts;
-
-        /// <summary>Products On Warehouse List</summary>
-
-        public IEnumerable<WarehouseProduct>? WarehouseProducts { get => _WarehouseProducts; set => Set(ref _WarehouseProducts, value); }
-
-        #endregion
 
 
 
