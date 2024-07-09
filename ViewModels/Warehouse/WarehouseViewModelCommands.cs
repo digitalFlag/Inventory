@@ -68,10 +68,88 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnPushButtonCorrectWareHouseProductDataCommandExecuted(object? p)
         {
+            if (string.IsNullOrEmpty(SelectedProductId))
+            {
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не выбран \"Продукт\" из списка.";
+            }
+
+            if (SelectedWarehouseProduct is null)
+            {
+                return;
+            }
+
 
         }
 
         #endregion
+
+        #region Command SelectNewWarehouseProductCommand: - Select New Product In My Warehouse
+
+        /// <summary>Select New Product In My Warehouse</summary>
+        private LambdaCommand? _SelectNewWarehouseProductCommand;
+
+        /// <summary>Select New Product In My Warehouse</summary>
+        public ICommand SelectNewWarehouseProductCommand => _SelectNewWarehouseProductCommand ??= new(OnSelectNewWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Select New Product In My Warehouse</summary>
+
+        private void OnSelectNewWarehouseProductCommandExecuted(object? p)
+        {
+            if (SelectedWarehouseProduct is null) 
+            {
+                return;
+            }
+
+            SelectedProductId = SelectedWarehouseProduct.Id.ToString();
+            SelectedProductTittle = SelectedWarehouseProduct.Tittle;
+        }
+
+        #endregion
+
+        #region Command ChangeTittleValueOfWarehouseProductCommand: - Change Value Of "Tittle" Of Selected Warhouse Product
+
+        /// <summary>Change Value Of "Tittle" Of Selected Warhouse Product</summary>
+        private LambdaCommand? _ChangeTittleValueOfWarehouseProductCommand;
+
+        /// <summary>Change Value Of "Tittle" Of Selected Warhouse Product</summary>
+        public ICommand ChangeTittleValueOfWarehouseProductCommand => _ChangeTittleValueOfWarehouseProductCommand ??= new(OnChangeTittleValueOfWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Tittle" Of Selected Warhouse Product</summary>
+
+        private void OnChangeTittleValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            if (SelectedWarehouseProduct is null)
+            {
+                return;
+            }
+
+            if (SelectedProductId != SelectedWarehouseProduct.Id.ToString())
+            {
+                return;
+            }
+
+            if (SelectedProductTittle != SelectedWarehouseProduct.Tittle)
+            {
+                if (string.IsNullOrEmpty(SelectedProductTittle))
+                {
+                    BorderColorSelectedProductTittleMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Название\" продукта.";
+
+                    return;
+                }
+
+                BorderColorSelectedProductTittleMyWarehouseControlTab = "Green";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Название\" продукта изменено.";
+
+            }
+            else 
+            {
+                BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
+            }
+        }
+
+        #endregion
+
 
 
 

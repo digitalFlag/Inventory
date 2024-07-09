@@ -49,6 +49,8 @@ namespace Inventory.ViewModels.Warehouse
             ButtonCaptionReWriteWareHouseProduct = "Корректировать данные";
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = string.Empty;
 
+            SelectedProductId = string.Empty;
+            SelectedProductTittle = string.Empty;
         }
 
         public WarehouseViewModel(IUserDialog UserDialog, IDataBaseConnection DataBaseConnection, IDataBase DataBase) : this()

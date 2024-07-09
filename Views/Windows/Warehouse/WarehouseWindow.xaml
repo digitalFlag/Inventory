@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:l="clr-namespace:Inventory.Views.Windows.Warehouse"
         xmlns:fa="http://schemas.fontawesome.com/icons/svg"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        
         xmlns:vm="clr-namespace:Inventory.ViewModels.Warehouse"
         d:DataContext="{d:DesignInstance vm:WarehouseViewModel, IsDesignTimeCreatable=True}"
         
@@ -132,8 +134,13 @@
                                 <Label Grid.Column="0"
                                        Content="{Binding LabelSelectedProductTittleMyWarehouseControlTab}"/>
                                 <TextBox Grid.Column="1"
-                                         Text="{Binding SelectedWarehouseProduct.Tittle, UpdateSourceTrigger=PropertyChanged}"
+                                         Text="{Binding SelectedProductTittle, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductTittleMyWarehouseControlTab}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding ChangeTittleValueOfWarehouseProductCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                 </TextBox>
                             </Grid>
                             <Grid>
@@ -238,6 +245,11 @@
                                 <TextBox Grid.Column="1"
                                          Text="{Binding SelectedWarehouseProduct.Id, UpdateSourceTrigger=PropertyChanged}"
                                          IsReadOnly="True">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding SelectNewWarehouseProductCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                 </TextBox>
                             </Grid>
                             <Grid>

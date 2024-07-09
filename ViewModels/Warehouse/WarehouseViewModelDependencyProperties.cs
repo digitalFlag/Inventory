@@ -1,6 +1,5 @@
 ﻿using Inventory.Models;
 using Inventory.ViewModels.Base;
-using System.Collections.ObjectModel;
 using System.Data;
 
 namespace Inventory.ViewModels.Warehouse
@@ -317,6 +316,29 @@ namespace Inventory.ViewModels.Warehouse
         public string? ButtonCaptionReWriteWareHouseProduct { get => _ButtonCaptionReWriteWareHouseProduct; set => Set(ref _ButtonCaptionReWriteWareHouseProduct, value); }
 
         #endregion
+
+        #region SelectedProductId: - Selected Product ID "My Warehouse"
+
+        /// <summary>Selected Product ID "My Warehouse"</summary>
+        private string? _SelectedProductId;
+
+        /// <summary>Selected Product ID "My Warehouse"</summary>
+
+        public string? SelectedProductId { get => _SelectedProductId; set => Set(ref _SelectedProductId, value); }
+
+        #endregion
+        #region SelectedProductTittle: - Selected Product Tittle "My Warehouse"
+
+        /// <summary>Selected Product Tittle "My Warehouse"</summary>
+        private string? _SelectedProductTittle;
+
+        /// <summary>Selected Product Tittle "My Warehouse"</summary>
+
+        public string? SelectedProductTittle { get => _SelectedProductTittle; set => Set(ref _SelectedProductTittle, value); }
+
+        #endregion
+
+
 
         #region TextLabelEventLogMyWarehouseTabControlWarehouseWindow: - Text Of Event Log In MyWarehouse TabControl In Warehouse Window
 
