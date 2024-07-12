@@ -1,7 +1,6 @@
 ﻿using Inventory.Commands;
 using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
-using Microsoft.VisualBasic;
 using System.Data;
 using System.Windows.Input;
 
@@ -78,6 +77,10 @@ namespace Inventory.ViewModels.Warehouse
                 return;
             }
 
+            if (BorderColorSelectedProductTittleMyWarehouseControlTab == "Green")
+            {
+                //TODO Update Data In DataBase
+            }
 
         }
 
