@@ -30,12 +30,14 @@ namespace Inventory.ViewModels.Warehouse
             dbSettings.UserId = ConnectionOptions.userId;
             dbSettings.Password = ConnectionOptions.password;
 
+            string table = ConnectionOptions.tableWarehouseProducts;
+
             if (_DataBase is null)
             {
                 return;
             }
 
-            LoadedDataTableFromDataBaseMiniWarehouseWindow = _DataBase.GetData(dbSettings, "Products_MyWareHouse");
+            LoadedDataTableFromDataBaseMiniWarehouseWindow = _DataBase.GetData(dbSettings, table);
 
 
             WarehouseProducts = LoadedDataTableFromDataBaseMiniWarehouseWindow.AsEnumerable().Select(row => new Models.WarehouseProduct

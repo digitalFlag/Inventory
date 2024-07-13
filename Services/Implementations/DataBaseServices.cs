@@ -7,11 +7,12 @@ namespace Inventory.Services.Implementations
     public class DataBaseServices : IDataBase
     {
 
+        //ToDo It Is Need To Update "Get Data Method" To Made It Async
+
         //Get Data From Data Base
         public DataTable GetData(DBSettings dbSettings, string tableTittle)
         {
             DataTable loadedData = new();
-
 
             string connectionString = $"Server={dbSettings.Server}; " +
                                       $"Port={dbSettings.Port}; " +
@@ -35,7 +36,30 @@ namespace Inventory.Services.Implementations
             return loadedData;
         }
 
+        // Update Record In Table From Data Base
+        public async Task UpdateRecord(DBSettings dbSettings, string tableTittle, string id, string oldValue, string newValue)
+        {
+            string connectionString = $"Server={dbSettings.Server}; " +
+                                      $"Port={dbSettings.Port}; " +
+                                      $"DataBase={dbSettings.Name}; " +
+                                      $"User Id={dbSettings.UserId}; " +
+                                      $"Password={dbSettings.Password};";
 
+            var sqlConnection = new NpgsqlConnection(connectionString);
+            sqlConnection.Open();
+
+            using var sqlCommand = new NpgsqlCommand();
+            sqlCommand.Connection= sqlConnection;
+            sqlCommand.CommandType = System.Data.CommandType.Text;
+            sqlCommand.CommandText = $"SELECT * FROM \"{tableTittle}\"";
+            sqlCommand.CommandText = $"DROP TABLE IF EXISTS {tableTittle}";
+            //ToDo I am Here
+            await sqlCommand.ExecuteNonQueryAsync();
+
+
+            sqlCommand.Dispose();
+            sqlConnection.Close();
+        }
 
 
     }

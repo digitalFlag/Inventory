@@ -8,7 +8,7 @@ namespace Inventory.Services
 
         public DataTable GetData(DBSettings dbSettings, string tableTittle);
 
-
+        public Task UpdateRecord(DBSettings dbSettings, string tableTittle, string id, string oldValue, string newValue);
 
         
     }
