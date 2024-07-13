@@ -23,7 +23,6 @@ namespace Inventory
             services.AddScoped<WarehouseViewModel>();
 
             services.AddSingleton<IUserDialog, UserDialogServices>();
-            services.AddSingleton<IDataBaseConnection, DataBaseConnectionServices>();
             services.AddSingleton<IDataBase, DataBaseServices>();
 
 

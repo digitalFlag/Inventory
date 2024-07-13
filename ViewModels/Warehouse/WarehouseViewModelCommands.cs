@@ -1,4 +1,5 @@
 ﻿using Inventory.Commands;
+using Inventory.Models;
 using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
 using System.Data;
@@ -22,17 +23,20 @@ namespace Inventory.ViewModels.Warehouse
 
 		private void OnRefreshConnectionToDataBaseWarhouseWindowCommandExecuted(object? p)
 		{
-			if (_DataBaseConnection is null)
-			{
-				return;
+            var dbSettings = new DBSettings();
+            dbSettings.Server = ConnectionOptions.dbServer;
+            dbSettings.Port = ConnectionOptions.dbPort;
+            dbSettings.Name = ConnectionOptions.dbName;
+            dbSettings.UserId = ConnectionOptions.userId;
+            dbSettings.Password = ConnectionOptions.password;
+
+            if (_DataBase is null)
+            {
+                return;
             }
 
-			LoadedDataTableFromDataBaseMiniWarehouseWindow = _DataBaseConnection.LoadDataFromTable(ConnectionOptions.dbServer, 
-																								   ConnectionOptions.dbPort,
-																								   ConnectionOptions.dbName,
-																								   ConnectionOptions.userId,
-																								   ConnectionOptions.password,
-                                                                                                   "Products_MyWareHouse");
+            LoadedDataTableFromDataBaseMiniWarehouseWindow = _DataBase.GetData(dbSettings, "Products_MyWareHouse");
+
 
             WarehouseProducts = LoadedDataTableFromDataBaseMiniWarehouseWindow.AsEnumerable().Select(row => new Models.WarehouseProduct
             {

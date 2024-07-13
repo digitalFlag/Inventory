@@ -8,7 +8,6 @@ namespace Inventory.ViewModels.Warehouse
     public partial class WarehouseViewModel : DialogViewModel
     {
         private readonly IUserDialog? _UserDialog = null;
-        private readonly IDataBaseConnection? _DataBaseConnection;
         private readonly IDataBase? _DataBase = null;
 
         public WarehouseViewModel() 
@@ -53,11 +52,10 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductTittle = string.Empty;
         }
 
-        public WarehouseViewModel(IUserDialog UserDialog, IDataBaseConnection DataBaseConnection, IDataBase DataBase) : this()
+        public WarehouseViewModel(IUserDialog UserDialog, IDataBase DataBase) : this()
         {
 
             _UserDialog = UserDialog;
-            _DataBaseConnection = DataBaseConnection;
             _DataBase = DataBase;
 
         }

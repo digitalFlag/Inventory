@@ -1,13 +1,14 @@
 ﻿using Inventory.Models;
+using System.Data;
 
 namespace Inventory.Services
 {
     public interface IDataBase
     {
-        public void OpenConnection(DBSettings dbSettings);
+
+        public DataTable GetData(DBSettings dbSettings, string tableTittle);
 
 
-        public void Update(string server, string port, string dataBase, string userId, string password, string table);
 
         
     }
