@@ -4,10 +4,10 @@ namespace Inventory.Services
 {
     public interface IDataBase
     {
-        void Connect( DBSettings dbSettings);
+        public void OpenConnection(DBSettings dbSettings);
 
 
-        void Update(string server, string port, string dataBase, string userId, string password, string table);
+        public void Update(string server, string port, string dataBase, string userId, string password, string table);
 
         
     }
