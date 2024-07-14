@@ -37,7 +37,7 @@ namespace Inventory.Services.Implementations
         }
 
         // Update Record In Table From Data Base
-        public async Task UpdateRecord(DBSettings dbSettings, string tableTittle, string id, string oldValue, string newValue)
+        public async Task UpdateRecord(DBSettings dbSettings, string tableTittle, string columnTittle, string id, string newValue)
         {
             string connectionString = $"Server={dbSettings.Server}; " +
                                       $"Port={dbSettings.Port}; " +
@@ -51,13 +51,9 @@ namespace Inventory.Services.Implementations
             using var sqlCommand = new NpgsqlCommand();
             sqlCommand.Connection= sqlConnection;
             sqlCommand.CommandType = System.Data.CommandType.Text;
-            sqlCommand.CommandText = $"SELECT * FROM \"{tableTittle}\"";
             sqlCommand.CommandText = $"DROP TABLE IF EXISTS {tableTittle}";
-            //ToDo I am Here
             await sqlCommand.ExecuteNonQueryAsync();
-
-
-            sqlCommand.Dispose();
+            sqlCommand.CommandText = $"UPDATE \"{tableTittle}\" SET \"{columnTittle}\" = {newValue} WHERE \"Id\" = {id}";
             sqlConnection.Close();
         }
 

@@ -85,7 +85,36 @@ namespace Inventory.ViewModels.Warehouse
 
             if (BorderColorSelectedProductTittleMyWarehouseControlTab == "Green")
             {
-                //TODO Update Data In DataBase
+                var dbSettings = new DBSettings
+                {
+                    Server = ConnectionOptions.dbServer,
+                    Port = ConnectionOptions.dbPort,
+                    Name = ConnectionOptions.dbName,
+                    UserId = ConnectionOptions.userId,
+                    Password = ConnectionOptions.password
+                };
+
+                string table = ConnectionOptions.tableWarehouseProducts;
+                string column = "Tittle_Product";
+
+                if (SelectedWarehouseProduct.Id is null)
+                {
+                    return;
+                }
+                if (_DataBase is null)
+                {
+                    return;
+                }
+                if (SelectedProductTittle is null)
+                {
+                    return;
+                }
+
+                string id = SelectedWarehouseProduct.Id.ToString();
+
+                _DataBase.UpdateRecord(dbSettings, table, column, id, SelectedProductTittle);
+
+                BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
             }
 
         }
