@@ -53,10 +53,11 @@ namespace Inventory.Services.Implementations
             sqlCommand.CommandType = System.Data.CommandType.Text;
             sqlCommand.CommandText = $"DROP TABLE IF EXISTS {tableTittle}";
             await sqlCommand.ExecuteNonQueryAsync();
-            string textCmd = $"UPDATE \"{tableTittle}\"" +
-                          $"SET \"{columnTittle}\" = \'{newValue}\' " +
-                          $"WHERE \"Id\" = \'{id}\'";
+            string textCmd = $"UPDATE \"{tableTittle}\" " +
+                             $"SET \"{columnTittle}\" = \'{newValue}\' " +
+                             $"WHERE \"Id\" = \'{id}\';";
             sqlCommand.CommandText = textCmd;
+            await sqlCommand.ExecuteNonQueryAsync();
 
             sqlConnection.Close();
         }

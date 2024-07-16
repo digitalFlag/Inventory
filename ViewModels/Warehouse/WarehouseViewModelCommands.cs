@@ -10,7 +10,6 @@ namespace Inventory.ViewModels.Warehouse
     public partial class WarehouseViewModel : DialogViewModel
     {
 
-
 		#region Command RefreshConnectionToDataBaseWarhouseWindowCommand: - Refresh Connection To BD With Products
 
 		/// <summary>Refresh Connection To BD With Products</summary>
@@ -56,6 +55,10 @@ namespace Inventory.ViewModels.Warehouse
 
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Информация о продукции на Мини-Складе из базы \"{ConnectionOptions.dbName}\" загружена.";
 
+            SelectedProductTittle = string.Empty;
+
+
+
             OnPropertyChanged();
         }
 
@@ -94,8 +97,8 @@ namespace Inventory.ViewModels.Warehouse
                     Password = ConnectionOptions.password
                 };
 
-                string table = ConnectionOptions.tableWarehouseProducts;
-                string column = "Tittle_Product";
+                string tableTittle = ConnectionOptions.tableWarehouseProducts;
+                string columnTittle = "Tittle_Product";
 
                 if (SelectedWarehouseProduct.Id is null)
                 {
@@ -112,8 +115,9 @@ namespace Inventory.ViewModels.Warehouse
 
                 string id = SelectedWarehouseProduct.Id.ToString();
 
-                _DataBase.UpdateRecord(dbSettings, table, column, id, SelectedProductTittle);
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductTittle);
 
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение названия выбранного продукта изменено.";
                 BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
             }
 
@@ -187,8 +191,6 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
-
-
 
 
     }
