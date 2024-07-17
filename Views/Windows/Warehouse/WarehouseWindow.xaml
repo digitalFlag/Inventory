@@ -151,8 +151,13 @@
                                 <Label Grid.Column="0"
                                        Content="{Binding LabelSelectedProductPropertyMyWarehouseControlTab}"/>
                                 <TextBox Grid.Column="1"
-                                         Text="{Binding SelectedWarehouseProduct.Property, UpdateSourceTrigger=PropertyChanged}"
+                                         Text="{Binding SelectedProductProperty, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductPropertyMyWarehouseControlTab}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding ChangePropertyValueOfWarehouseProductCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                 </TextBox>
                             </Grid>
                             <Grid>

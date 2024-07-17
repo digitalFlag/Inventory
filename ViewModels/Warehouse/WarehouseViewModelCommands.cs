@@ -56,7 +56,7 @@ namespace Inventory.ViewModels.Warehouse
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Информация о продукции на Мини-Складе из базы \"{ConnectionOptions.dbName}\" загружена.";
 
             SelectedProductTittle = string.Empty;
-
+            SelectedProductProperty = string.Empty;
 
 
             OnPropertyChanged();
@@ -85,7 +85,7 @@ namespace Inventory.ViewModels.Warehouse
             {
                 return;
             }
-
+            //Tittle
             if (BorderColorSelectedProductTittleMyWarehouseControlTab == "Green")
             {
                 var dbSettings = new DBSettings
@@ -115,11 +115,62 @@ namespace Inventory.ViewModels.Warehouse
 
                 string id = SelectedWarehouseProduct.Id.ToString();
 
+                if (id is null)
+                {
+                    return;
+                }
+
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductTittle);
+
+                SelectedWarehouseProduct.Tittle = SelectedProductTittle;
+
 
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение названия выбранного продукта изменено.";
                 BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
             }
+            //Property
+            if (BorderColorSelectedProductPropertyMyWarehouseControlTab == "Green")
+            {
+                var dbSettings = new DBSettings
+                {
+                    Server = ConnectionOptions.dbServer,
+                    Port = ConnectionOptions.dbPort,
+                    Name = ConnectionOptions.dbName,
+                    UserId = ConnectionOptions.userId,
+                    Password = ConnectionOptions.password
+                };
+
+                string tableTittle = ConnectionOptions.tableWarehouseProducts;
+                string columnTittle = "Property_Product";
+
+                if (SelectedWarehouseProduct.Id is null)
+                {
+                    return;
+                }
+                if (_DataBase is null)
+                {
+                    return;
+                }
+                if (SelectedProductProperty is null)
+                {
+                    return;
+                }
+
+                string id = SelectedWarehouseProduct.Id.ToString();
+
+                if (id is null)
+                {
+                    return;
+                }
+
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductProperty);
+
+                SelectedWarehouseProduct.Property = SelectedProductProperty;
+
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                BorderColorSelectedProductPropertyMyWarehouseControlTab = "HotPink";
+            }
+
 
         }
 
@@ -144,6 +195,7 @@ namespace Inventory.ViewModels.Warehouse
 
             SelectedProductId = SelectedWarehouseProduct.Id.ToString();
             SelectedProductTittle = SelectedWarehouseProduct.Tittle;
+            SelectedProductProperty = SelectedWarehouseProduct.Property;
         }
 
         #endregion
@@ -191,6 +243,52 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
+        #region Command ChangePropertyValueOfWarehouseProductCommand: - Change Value Of "Proprety" Of Selected Warhouse Product
+
+        /// <summary>Change Value Of "Proprety" Of Selected Warhouse Product</summary>
+        private LambdaCommand? _ChangePropertyValueOfWarehouseProductCommand;
+
+        /// <summary>Change Value Of "Proprety" Of Selected Warhouse Product</summary>
+        public ICommand ChangePropertyValueOfWarehouseProductCommand => _ChangePropertyValueOfWarehouseProductCommand ??= new(OnChangePropertyValueOfWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Proprety" Of Selected Warhouse Product</summary>
+
+        private void OnChangePropertyValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            if (SelectedWarehouseProduct is null)
+            {
+                return;
+            }
+
+            if (SelectedProductId != SelectedWarehouseProduct.Id.ToString())
+            {
+                return;
+            }
+
+            if (SelectedProductProperty != SelectedWarehouseProduct.Property)
+            {
+                if (string.IsNullOrEmpty(SelectedProductProperty))
+                {
+                    BorderColorSelectedProductPropertyMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Свойство\" продукта.";
+
+                    return;
+                }
+
+                BorderColorSelectedProductPropertyMyWarehouseControlTab = "Green";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Свойство\" продукта изменено.";
+
+            }
+            else
+            {
+                BorderColorSelectedProductPropertyMyWarehouseControlTab = "HotPink";
+            }
+        }
+
+        #endregion
+
+
+
 
 
     }

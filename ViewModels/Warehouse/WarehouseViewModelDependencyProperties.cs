@@ -337,6 +337,17 @@ namespace Inventory.ViewModels.Warehouse
         public string? SelectedProductTittle { get => _SelectedProductTittle; set => Set(ref _SelectedProductTittle, value); }
 
         #endregion
+        #region SelectedProductProperty: - Selected Product Property "My Warehouse"
+
+        /// <summary>Selected Product Property "My Warehouse"</summary>
+        private string? _SelectedProductProperty;
+
+        /// <summary>Selected Product Property "My Warehouse"</summary>
+
+        public string? SelectedProductProperty { get => _SelectedProductProperty; set => Set(ref _SelectedProductProperty, value); }
+
+        #endregion
+
 
 
 

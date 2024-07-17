@@ -50,6 +50,7 @@ namespace Inventory.ViewModels.Warehouse
 
             SelectedProductId = string.Empty;
             SelectedProductTittle = string.Empty;
+            SelectedProductProperty = string.Empty;
         }
 
         public WarehouseViewModel(IUserDialog UserDialog, IDataBase DataBase) : this()
