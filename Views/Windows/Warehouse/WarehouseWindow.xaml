@@ -142,7 +142,7 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid>
+                            </Grid><!--Tittle-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -159,7 +159,7 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid>
+                            </Grid><!--Property-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -170,7 +170,7 @@
                                          Text="{Binding SelectedWarehouseProduct.Size, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductSizeMyWarehouseControlTab}">
                                 </TextBox>
-                            </Grid>
+                            </Grid><!--Size-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>

@@ -122,9 +122,6 @@ namespace Inventory.ViewModels.Warehouse
 
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductTittle);
 
-                SelectedWarehouseProduct.Tittle = SelectedProductTittle;
-
-
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение названия выбранного продукта изменено.";
                 BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
             }
@@ -164,8 +161,6 @@ namespace Inventory.ViewModels.Warehouse
                 }
 
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductProperty);
-
-                SelectedWarehouseProduct.Property = SelectedProductProperty;
 
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductPropertyMyWarehouseControlTab = "HotPink";

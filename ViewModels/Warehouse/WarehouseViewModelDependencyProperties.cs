@@ -348,6 +348,78 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        //ToDo I am Here
+        #region SelectedProductSize: - Selected Product Size "My Warehouse"
+
+        /// <summary>Selected Product Size "My Warehouse"</summary>
+        private string? _SelectedProductSize;
+
+        /// <summary>Selected Product Size "My Warehouse"</summary>
+
+        public string? SelectedProductSize { get => _SelectedProductSize; set => Set(ref _SelectedProductSize, value); }
+
+        #endregion
+        #region SelectedProductExpirationData: - Selected Product Expiration Data "My Warehouse"
+
+        /// <summary>Selected Product Expiration Data "My Warehouse"</summary>
+        private string? _SelectedProductExpirationData;
+
+        /// <summary>Selected Product Expiration Data "My Warehouse"</summary>
+
+        public string? SelectedProductExpirationData { get => _SelectedProductExpirationData; set => Set(ref _SelectedProductExpirationData, value); }
+
+        #endregion
+        #region SelectedProductPurchaseCost: - Selected Product Purchase Cost "My Warehouse"
+
+        /// <summary>Selected Product Purchase Cost "My Warehouse"</summary>
+        private string? _SelectedProductPurchaseCost;
+
+        /// <summary>Selected Product Purchase Cost "My Warehouse"</summary>
+
+        public string? SelectedProductPurchaseCost { get => _SelectedProductPurchaseCost; set => Set(ref _SelectedProductPurchaseCost, value); }
+
+        #endregion
+        #region SelectedProductLocation: - Selected Product Location "My Warehouse"
+
+        /// <summary>Selected Product Location "My Warehouse"</summary>
+        private string? _SelectedProductLocation;
+
+        /// <summary>Selected Product Location "My Warehouse"</summary>
+
+        public string? SelectedProductLocation { get => _SelectedProductLocation; set => Set(ref _SelectedProductLocation, value); }
+
+        #endregion
+        #region SelectedProductReceiptDate: - Selected Product Receipt Date "My Warehouse"
+
+        /// <summary>Selected Product Receipt Date "My Warehouse"</summary>
+        private string? _SelectedProductReceiptDate;
+
+        /// <summary>Selected Product Receipt Date "My Warehouse"</summary>
+
+        public string? SelectedProductReceiptDate { get => _SelectedProductReceiptDate; set => Set(ref _SelectedProductReceiptDate, value); }
+
+        #endregion
+        #region SelectedProductOrderNumber: - Selected Product Order Number "My Warehouse"
+
+        /// <summary>Selected Product Order Number "My Warehouse"</summary>
+        private string? _SelectedProductOrderNumber;
+
+        /// <summary>Selected Product Order Number "My Warehouse"</summary>
+
+        public string? SelectedProductOrderNumber { get => _SelectedProductOrderNumber; set => Set(ref _SelectedProductOrderNumber, value); }
+
+        #endregion
+        #region SelectedProductNote: - Selected Product Note "My Warehouse"
+
+        /// <summary>Selected Product Note "My Warehouse"</summary>
+        private string? _SelectedProductNote;
+
+        /// <summary>Selected Product Note "My Warehouse"</summary>
+
+        public string? SelectedProductNote { get => _SelectedProductNote; set => Set(ref _SelectedProductNote, value); }
+
+        #endregion
+
 
 
 
