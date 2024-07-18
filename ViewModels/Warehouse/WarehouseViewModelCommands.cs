@@ -387,17 +387,17 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
-        #region Command ChangeOrderNoteValueOfWarehouseProductCommand: - Change Value Of "Note" Of Selected Warhouse Product
+        #region Command ChangeNoteValueOfWarehouseProductCommand: - Change Value Of "Note" Of Selected Warhouse Product
 
         /// <summary>Change Value Of "Note" Of Selected Warhouse Product</summary>
-        private LambdaCommand? _ChangeOrderNoteValueOfWarehouseProductCommand;
+        private LambdaCommand? _ChangeNoteValueOfWarehouseProductCommand;
 
         /// <summary>Change Value Of "Note" Of Selected Warhouse Product</summary>
-        public ICommand ChangeOrderNoteValueOfWarehouseProductCommand => _ChangeOrderNoteValueOfWarehouseProductCommand ??= new(OnChangeOrderNoteValueOfWarehouseProductCommandExecuted);
+        public ICommand ChangeNoteValueOfWarehouseProductCommand => _ChangeNoteValueOfWarehouseProductCommand ??= new(OnChangeNoteValueOfWarehouseProductCommandExecuted);
 
         /// <summary>Логика выполнения - Change Value Of "Note" Of Selected Warhouse Product</summary>
 
-        private void OnChangeOrderNoteValueOfWarehouseProductCommandExecuted(object? p)
+        private void OnChangeNoteValueOfWarehouseProductCommandExecuted(object? p)
         {
             //ToDo The Method Is Not Implemented
         }

@@ -169,6 +169,11 @@
                                 <TextBox Grid.Column="1"
                                          Text="{Binding SelectedProductSize, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductSizeMyWarehouseControlTab}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding ChangeSizeValueOfWarehouseProductCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                 </TextBox>
                             </Grid><!--Size-->
                             <Grid>
@@ -180,6 +185,11 @@
                                 <TextBox Grid.Column="1"
                                          Text="{Binding SelectedProductExpirationData, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductExpirationDateMyWarehouseControlTab}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding ChangeExpirationDateValueOfWarehouseProductCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                 </TextBox>
                             </Grid><!--Expiration Date-->
                             <Grid>
@@ -191,6 +201,11 @@
                                 <TextBox Grid.Column="1" 
                                          Text="{Binding SelectedProductPurchaseCost, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductPurchaseCostMyWarehouseControlTab}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding ChangePurchaseCostValueOfWarehouseProductCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                 </TextBox>
                             </Grid><!--Purchase Cost-->
                             <Grid>
@@ -202,6 +217,11 @@
                                 <TextBox Grid.Column="1" 
                                          Text="{Binding SelectedProductLocation, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductLocationMyWarehouseControlTab}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding ChangeLocationValueOfWarehouseProductCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                 </TextBox>
                             </Grid><!--Location-->
                             <Grid>
@@ -213,6 +233,11 @@
                                 <TextBox Grid.Column="1"
                                          Text="{Binding SelectedProductReceiptDate, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductReceiptDateMyWarehouseControlTab}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding ChangeReceiptDateValueOfWarehouseProductCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                 </TextBox>
                             </Grid><!--Receipt Date-->
                             <Grid>
@@ -224,6 +249,11 @@
                                 <TextBox Grid.Column="1" 
                                          Text="{Binding SelectedProductOrderNumber, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductOrderNumberMyWarehouseControlTab}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding ChangeOrderNumberValueOfWarehouseProductCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                 </TextBox>
                             </Grid><!--Order Number-->
                             <Grid>
@@ -235,6 +265,11 @@
                                 <TextBox Grid.Column="1" 
                                          Text="{Binding SelectedProductNote, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductNoteMyWarehouseControlTab}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding ChangeNoteValueOfWarehouseProductCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                 </TextBox>
                             </Grid><!--Note-->
                             <Grid>
