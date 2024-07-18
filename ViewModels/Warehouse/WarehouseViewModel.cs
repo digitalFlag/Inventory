@@ -7,7 +7,7 @@ namespace Inventory.ViewModels.Warehouse
 {
     public partial class WarehouseViewModel : DialogViewModel
     {
-        private readonly IUserDialog? _UserDialog = null;
+        private readonly IUserDialog? _UserDialog;
         private readonly IDataBase? _DataBase = null;
 
         public WarehouseViewModel() 
@@ -63,10 +63,8 @@ namespace Inventory.ViewModels.Warehouse
 
         public WarehouseViewModel(IUserDialog UserDialog, IDataBase DataBase) : this()
         {
-
             _UserDialog = UserDialog;
             _DataBase = DataBase;
-
         }
 
 

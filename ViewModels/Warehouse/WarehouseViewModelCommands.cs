@@ -22,14 +22,16 @@ namespace Inventory.ViewModels.Warehouse
 
 		private void OnRefreshConnectionToDataBaseWarhouseWindowCommandExecuted(object? p)
 		{
-            var dbSettings = new DBSettings();
-            dbSettings.Server = ConnectionOptions.dbServer;
-            dbSettings.Port = ConnectionOptions.dbPort;
-            dbSettings.Name = ConnectionOptions.dbName;
-            dbSettings.UserId = ConnectionOptions.userId;
-            dbSettings.Password = ConnectionOptions.password;
+            var dbSettings = new DBSettings
+            {
+                Server = ConnectionOptions.dbServer,
+                Port = ConnectionOptions.dbPort,
+                Name = ConnectionOptions.dbName,
+                UserId = ConnectionOptions.userId,
+                Password = ConnectionOptions.password
+            };
 
-            string table = ConnectionOptions.tableWarehouseProducts;
+            string table = WarehouseTable.tableTittleWarehouseProducts;
 
             if (_DataBase is null)
             {
@@ -97,7 +99,7 @@ namespace Inventory.ViewModels.Warehouse
                     Password = ConnectionOptions.password
                 };
 
-                string tableTittle = ConnectionOptions.tableWarehouseProducts;
+                string tableTittle = WarehouseTable.tableTittleWarehouseProducts;
                 string columnTittle = "Tittle_Product";
 
                 if (SelectedWarehouseProduct.Id is null)
@@ -137,7 +139,7 @@ namespace Inventory.ViewModels.Warehouse
                     Password = ConnectionOptions.password
                 };
 
-                string tableTittle = ConnectionOptions.tableWarehouseProducts;
+                string tableTittle = WarehouseTable.tableTittleWarehouseProducts;
                 string columnTittle = "Property_Product";
 
                 if (SelectedWarehouseProduct.Id is null)
@@ -289,10 +291,118 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
+        #region Command ChangeSizeValueOfWarehouseProductCommand: - Change Value Of "Size" Of Selected Warhouse Product
 
+        /// <summary>Change Value Of "Size" Of Selected Warhouse Product</summary>
+        private LambdaCommand? _ChangeSizeValueOfWarehouseProductCommand;
 
+        /// <summary>Change Value Of "Size" Of Selected Warhouse Product</summary>
+        public ICommand ChangeSizeValueOfWarehouseProductCommand => _ChangeSizeValueOfWarehouseProductCommand ??= new(OnChangeSizeValueOfWarehouseProductCommandExecuted);
 
+        /// <summary>Логика выполнения - Change Value Of "Size" Of Selected Warhouse Product</summary>
 
+        private void OnChangeSizeValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            //ToDo The Method Is Not Implemented
+        }
+
+        #endregion
+        #region Command ChangeExpirationDateValueOfWarehouseProductCommand: - Change Value Of "Expiration Date" Of Selected Warhouse Product
+
+        /// <summary>Change Value Of "Expiration Date" Of Selected Warhouse Product</summary>
+        private LambdaCommand? _ChangeExpirationDateValueOfWarehouseProductCommand;
+
+        /// <summary>Change Value Of "Expiration Date" Of Selected Warhouse Product</summary>
+        public ICommand ChangeExpirationDateValueOfWarehouseProductCommand => _ChangeExpirationDateValueOfWarehouseProductCommand ??= new(OnChangeExpirationDateValueOfWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Expiration Date" Of Selected Warhouse Product</summary>
+
+        private void OnChangeExpirationDateValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            //ToDo The Method Is Not Implemented
+        }
+
+        #endregion
+        #region Command ChangePurchaseCostValueOfWarehouseProductCommand: - Change Value Of "Purchase Cost" Of Selected Warhouse Product
+
+        /// <summary>Change Value Of "Purchase Cost" Of Selected Warhouse Product</summary>
+        private LambdaCommand? _ChangePurchaseCostValueOfWarehouseProductCommand;
+
+        /// <summary>Change Value Of "Purchase Cost" Of Selected Warhouse Product</summary>
+        public ICommand ChangePurchaseCostValueOfWarehouseProductCommand => _ChangePurchaseCostValueOfWarehouseProductCommand ??= new(OnChangePurchaseCostValueOfWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Purchase Cost" Of Selected Warhouse Product</summary>
+
+        private void OnChangePurchaseCostValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            //ToDo The Method Is Not Implemented
+        }
+
+        #endregion
+        #region Command ChangeLocationValueOfWarehouseProductCommand: - Change Value Of "Location" Of Selected Warhouse Product
+
+        /// <summary>Change Value Of "Location" Of Selected Warhouse Product</summary>
+        private LambdaCommand? _ChangeLocationValueOfWarehouseProductCommand;
+
+        /// <summary>Change Value Of "Location" Of Selected Warhouse Product</summary>
+        public ICommand ChangeLocationValueOfWarehouseProductCommand => _ChangeLocationValueOfWarehouseProductCommand ??= new(OnChangeLocationValueOfWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Location" Of Selected Warhouse Product</summary>
+
+        private void OnChangeLocationValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            //ToDo The Method Is Not Implemented
+        }
+
+        #endregion
+        #region Command ChangeReceiptDateValueOfWarehouseProductCommand: - Change Value Of "Receipt Date" Of Selected Warhouse Product
+
+        /// <summary>Change Value Of "Receipt Date" Of Selected Warhouse Product</summary>
+        private LambdaCommand? _ChangeReceiptDateValueOfWarehouseProductCommand;
+
+        /// <summary>Change Value Of "Receipt Date" Of Selected Warhouse Product</summary>
+        public ICommand ChangeReceiptDateValueOfWarehouseProductCommand => _ChangeReceiptDateValueOfWarehouseProductCommand ??= new(OnChangeReceiptDateValueOfWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Receipt Date" Of Selected Warhouse Product</summary>
+
+        private void OnChangeReceiptDateValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            //ToDo The Method Is Not Implemented
+        }
+
+        #endregion
+        #region Command ChangeOrderNumberValueOfWarehouseProductCommand: - Change Value Of "Order Number" Of Selected Warhouse Product
+
+        /// <summary>Change Value Of "Order Number" Of Selected Warhouse Product</summary>
+        private LambdaCommand? _ChangeOrderNumberValueOfWarehouseProductCommand;
+
+        /// <summary>Change Value Of "Order Number" Of Selected Warhouse Product</summary>
+        public ICommand ChangeOrderNumberValueOfWarehouseProductCommand => _ChangeOrderNumberValueOfWarehouseProductCommand ??= new(OnChangeOrderNumberValueOfWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Order Number" Of Selected Warhouse Product</summary>
+
+        private void OnChangeOrderNumberValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            //ToDo The Method Is Not Implemented
+        }
+
+        #endregion
+        #region Command ChangeOrderNoteValueOfWarehouseProductCommand: - Change Value Of "Note" Of Selected Warhouse Product
+
+        /// <summary>Change Value Of "Note" Of Selected Warhouse Product</summary>
+        private LambdaCommand? _ChangeOrderNoteValueOfWarehouseProductCommand;
+
+        /// <summary>Change Value Of "Note" Of Selected Warhouse Product</summary>
+        public ICommand ChangeOrderNoteValueOfWarehouseProductCommand => _ChangeOrderNoteValueOfWarehouseProductCommand ??= new(OnChangeOrderNoteValueOfWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Note" Of Selected Warhouse Product</summary>
+
+        private void OnChangeOrderNoteValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            //ToDo The Method Is Not Implemented
+        }
+
+        #endregion
 
     }
 }
