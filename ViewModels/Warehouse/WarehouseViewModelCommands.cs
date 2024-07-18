@@ -78,29 +78,33 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnPushButtonCorrectWareHouseProductDataCommandExecuted(object? p)
         {
-            if (string.IsNullOrEmpty(SelectedProductId))
-            {
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не выбран \"Продукт\" из списка.";
-            }
-
             if (SelectedWarehouseProduct is null)
             {
                 return;
             }
+
+            if (string.IsNullOrEmpty(SelectedProductId))
+            {
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не выбран \"Продукт\" из списка.";
+                return;
+            }
+
+            var dbSettings = new DBSettings
+            {
+                Server = ConnectionOptions.dbServer,
+                Port = ConnectionOptions.dbPort,
+                Name = ConnectionOptions.dbName,
+                UserId = ConnectionOptions.userId,
+                Password = ConnectionOptions.password
+            };
+
+            string tableTittle = WarehouseTable.tableTittleWarehouseProducts;
+
+
             //Tittle
             if (BorderColorSelectedProductTittleMyWarehouseControlTab == "Green")
             {
-                var dbSettings = new DBSettings
-                {
-                    Server = ConnectionOptions.dbServer,
-                    Port = ConnectionOptions.dbPort,
-                    Name = ConnectionOptions.dbName,
-                    UserId = ConnectionOptions.userId,
-                    Password = ConnectionOptions.password
-                };
-
-                string tableTittle = WarehouseTable.tableTittleWarehouseProducts;
-                string columnTittle = "Tittle_Product";
+                string columnTittle = WarehouseTable.propertyTittle;
 
                 if (SelectedWarehouseProduct.Id is null)
                 {
@@ -130,17 +134,7 @@ namespace Inventory.ViewModels.Warehouse
             //Property
             if (BorderColorSelectedProductPropertyMyWarehouseControlTab == "Green")
             {
-                var dbSettings = new DBSettings
-                {
-                    Server = ConnectionOptions.dbServer,
-                    Port = ConnectionOptions.dbPort,
-                    Name = ConnectionOptions.dbName,
-                    UserId = ConnectionOptions.userId,
-                    Password = ConnectionOptions.password
-                };
-
-                string tableTittle = WarehouseTable.tableTittleWarehouseProducts;
-                string columnTittle = "Property_Product";
+                string columnTittle = WarehouseTable.propertyProperty;
 
                 if (SelectedWarehouseProduct.Id is null)
                 {
