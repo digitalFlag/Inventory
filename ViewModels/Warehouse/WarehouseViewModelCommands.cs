@@ -191,6 +191,14 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductId = SelectedWarehouseProduct.Id.ToString();
             SelectedProductTittle = SelectedWarehouseProduct.Tittle;
             SelectedProductProperty = SelectedWarehouseProduct.Property;
+            SelectedProductSize = SelectedWarehouseProduct.Size;
+            SelectedProductExpirationData = SelectedWarehouseProduct.ExpirationDate.ToString();
+            SelectedProductPurchaseCost = SelectedWarehouseProduct.PurchaseCost.ToString();
+            SelectedProductLocation = SelectedWarehouseProduct.Location;
+            SelectedProductReceiptDate = SelectedWarehouseProduct.ReceiptDate.ToString();
+            SelectedProductOrderNumber = SelectedWarehouseProduct.OrderNumber;
+            SelectedProductNote = SelectedWarehouseProduct.Note;
+
         }
 
         #endregion

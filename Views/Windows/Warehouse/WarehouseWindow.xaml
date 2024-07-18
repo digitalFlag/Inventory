@@ -167,7 +167,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Content="{Binding LabelSelectedProductSizeMyWarehouseControlTab}"/>
                                 <TextBox Grid.Column="1"
-                                         Text="{Binding SelectedWarehouseProduct.Size, UpdateSourceTrigger=PropertyChanged}"
+                                         Text="{Binding SelectedProductSize, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductSizeMyWarehouseControlTab}">
                                 </TextBox>
                             </Grid><!--Size-->
@@ -178,12 +178,10 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Content="{Binding LabelSelectedProductExpirationDateMyWarehouseControlTab}"/>
                                 <TextBox Grid.Column="1"
-                                         Text="{Binding SelectedWarehouseProduct.ExpirationDate, 
-                                                        UpdateSourceTrigger=PropertyChanged,
-                                                        StringFormat=MM/yyyy}"
+                                         Text="{Binding SelectedProductExpirationData, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductExpirationDateMyWarehouseControlTab}">
                                 </TextBox>
-                            </Grid>
+                            </Grid><!--Expiration Date-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -191,10 +189,10 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Content="{Binding LabelSelectedProductPurchaseCostMyWarehouseControlTab}"/>
                                 <TextBox Grid.Column="1" 
-                                         Text="{Binding SelectedWarehouseProduct.PurchaseCost, UpdateSourceTrigger=PropertyChanged}"
+                                         Text="{Binding SelectedProductPurchaseCost, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductPurchaseCostMyWarehouseControlTab}">
                                 </TextBox>
-                            </Grid>
+                            </Grid><!--Purchase Cost-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -202,10 +200,10 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Content="{Binding LabelSelectedProductLocationMyWarehouseControlTab}"/>
                                 <TextBox Grid.Column="1" 
-                                         Text="{Binding SelectedWarehouseProduct.Location, UpdateSourceTrigger=PropertyChanged}"
+                                         Text="{Binding SelectedProductLocation, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductLocationMyWarehouseControlTab}">
                                 </TextBox>
-                            </Grid>
+                            </Grid><!--Location-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -213,12 +211,10 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Content="{Binding LabelSelectedProductReceiptDateMyWarehouseControlTab}"/>
                                 <TextBox Grid.Column="1"
-                                         Text="{Binding SelectedWarehouseProduct.ReceiptDate, 
-                                                        UpdateSourceTrigger=PropertyChanged,
-                                                        StringFormat=dd.MM.yyyy}"
+                                         Text="{Binding SelectedProductReceiptDate, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductReceiptDateMyWarehouseControlTab}">
                                 </TextBox>
-                            </Grid>
+                            </Grid><!--Receipt Date-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -226,10 +222,10 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Content="{Binding LabelSelectedProductOrderNumberMyWarehouseControlTab}"/>
                                 <TextBox Grid.Column="1" 
-                                         Text="{Binding SelectedWarehouseProduct.OrderNumber, UpdateSourceTrigger=PropertyChanged}"
+                                         Text="{Binding SelectedProductOrderNumber, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductOrderNumberMyWarehouseControlTab}">
                                 </TextBox>
-                            </Grid>
+                            </Grid><!--Order Number-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -237,10 +233,10 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Row="0" Content="{Binding LabelSelectedProductNoteMyWarehouseControlTab}"/>
                                 <TextBox Grid.Column="1" 
-                                         Text="{Binding SelectedWarehouseProduct.Note, UpdateSourceTrigger=PropertyChanged}"
+                                         Text="{Binding SelectedProductNote, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductNoteMyWarehouseControlTab}">
                                 </TextBox>
-                            </Grid>
+                            </Grid><!--Note-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -256,7 +252,7 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid>
+                            </Grid><!--Id-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>

@@ -51,6 +51,14 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductId = string.Empty;
             SelectedProductTittle = string.Empty;
             SelectedProductProperty = string.Empty;
+            SelectedProductSize = string.Empty;
+            SelectedProductExpirationData = string.Empty;
+            SelectedProductPurchaseCost = string.Empty;
+            SelectedProductLocation = string.Empty;
+            SelectedProductReceiptDate = string.Empty;
+            SelectedProductOrderNumber = string.Empty;
+            SelectedProductNote = string.Empty;
+
         }
 
         public WarehouseViewModel(IUserDialog UserDialog, IDataBase DataBase) : this()

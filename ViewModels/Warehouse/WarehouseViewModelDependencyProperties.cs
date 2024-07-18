@@ -347,8 +347,6 @@ namespace Inventory.ViewModels.Warehouse
         public string? SelectedProductProperty { get => _SelectedProductProperty; set => Set(ref _SelectedProductProperty, value); }
 
         #endregion
-
-        //ToDo I am Here
         #region SelectedProductSize: - Selected Product Size "My Warehouse"
 
         /// <summary>Selected Product Size "My Warehouse"</summary>
