@@ -328,6 +328,49 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
+        #region Command ChangeLocationValueOfWarehouseProductCommand: - Change Value Of "Location" Of Selected Warhouse Product
+
+        /// <summary>Change Value Of "Location" Of Selected Warhouse Product</summary>
+        private LambdaCommand? _ChangeLocationValueOfWarehouseProductCommand;
+
+        /// <summary>Change Value Of "Location" Of Selected Warhouse Product</summary>
+        public ICommand ChangeLocationValueOfWarehouseProductCommand => _ChangeLocationValueOfWarehouseProductCommand ??= new(OnChangeLocationValueOfWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Location" Of Selected Warhouse Product</summary>
+
+        private void OnChangeLocationValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            if (SelectedWarehouseProduct is null)
+            {
+                return;
+            }
+
+            if (SelectedProductId != SelectedWarehouseProduct.Id.ToString())
+            {
+                return;
+            }
+
+            if (SelectedProductLocation != SelectedWarehouseProduct.Location)
+            {
+                if (string.IsNullOrEmpty(SelectedProductLocation))
+                {
+                    BorderColorSelectedProductLocationMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Место хранения\" продукта.";
+
+                    return;
+                }
+
+                BorderColorSelectedProductLocationMyWarehouseControlTab = "Green";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Место хранения\" продукта изменено.";
+
+            }
+            else
+            {
+                BorderColorSelectedProductLocationMyWarehouseControlTab = "HotPink";
+            }
+        }
+
+        #endregion
 
 
 
@@ -362,49 +405,6 @@ namespace Inventory.ViewModels.Warehouse
         private void OnChangePurchaseCostValueOfWarehouseProductCommandExecuted(object? p)
         {
             //ToDo The Method Is Not Implemented
-        }
-
-        #endregion
-        #region Command ChangeLocationValueOfWarehouseProductCommand: - Change Value Of "Location" Of Selected Warhouse Product
-
-        /// <summary>Change Value Of "Location" Of Selected Warhouse Product</summary>
-        private LambdaCommand? _ChangeLocationValueOfWarehouseProductCommand;
-
-        /// <summary>Change Value Of "Location" Of Selected Warhouse Product</summary>
-        public ICommand ChangeLocationValueOfWarehouseProductCommand => _ChangeLocationValueOfWarehouseProductCommand ??= new(OnChangeLocationValueOfWarehouseProductCommandExecuted);
-
-        /// <summary>Логика выполнения - Change Value Of "Location" Of Selected Warhouse Product</summary>
-
-        private void OnChangeLocationValueOfWarehouseProductCommandExecuted(object? p)
-        {
-            if (SelectedWarehouseProduct is null)
-            {
-                return;
-            }
-
-            if (SelectedProductId != SelectedWarehouseProduct.Id.ToString())
-            {
-                return;
-            }
-
-            if (SelectedProductSize != SelectedWarehouseProduct.Size)
-            {
-                if (string.IsNullOrEmpty(SelectedProductSize))
-                {
-                    BorderColorSelectedProductSizeMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Размер\" продукта.";
-
-                    return;
-                }
-
-                BorderColorSelectedProductSizeMyWarehouseControlTab = "Green";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Размер\" продукта изменено.";
-
-            }
-            else
-            {
-                BorderColorSelectedProductSizeMyWarehouseControlTab = "HotPink";
-            }
         }
 
         #endregion
