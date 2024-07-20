@@ -161,7 +161,7 @@ namespace Inventory.ViewModels.Warehouse
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductPropertyMyWarehouseControlTab = "HotPink";
             }
-
+            //I am Here.
 
         }
 
@@ -297,10 +297,42 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnChangeSizeValueOfWarehouseProductCommandExecuted(object? p)
         {
-            //ToDo The Method Is Not Implemented
+            if (SelectedWarehouseProduct is null)
+            {
+                return;
+            }
+
+            if (SelectedProductId != SelectedWarehouseProduct.Id.ToString())
+            {
+                return;
+            }
+
+            if (SelectedProductSize != SelectedWarehouseProduct.Size)
+            {
+                if (string.IsNullOrEmpty(SelectedProductSize))
+                {
+                    BorderColorSelectedProductSizeMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Размер\" продукта.";
+
+                    return;
+                }
+
+                BorderColorSelectedProductSizeMyWarehouseControlTab = "Green";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Размер\" продукта изменено.";
+
+            }
+            else
+            {
+                BorderColorSelectedProductSizeMyWarehouseControlTab = "HotPink";
+            }
         }
 
         #endregion
+
+
+
+
+
         #region Command ChangeExpirationDateValueOfWarehouseProductCommand: - Change Value Of "Expiration Date" Of Selected Warhouse Product
 
         /// <summary>Change Value Of "Expiration Date" Of Selected Warhouse Product</summary>
@@ -345,7 +377,34 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnChangeLocationValueOfWarehouseProductCommandExecuted(object? p)
         {
-            //ToDo The Method Is Not Implemented
+            if (SelectedWarehouseProduct is null)
+            {
+                return;
+            }
+
+            if (SelectedProductId != SelectedWarehouseProduct.Id.ToString())
+            {
+                return;
+            }
+
+            if (SelectedProductSize != SelectedWarehouseProduct.Size)
+            {
+                if (string.IsNullOrEmpty(SelectedProductSize))
+                {
+                    BorderColorSelectedProductSizeMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Размер\" продукта.";
+
+                    return;
+                }
+
+                BorderColorSelectedProductSizeMyWarehouseControlTab = "Green";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Размер\" продукта изменено.";
+
+            }
+            else
+            {
+                BorderColorSelectedProductSizeMyWarehouseControlTab = "HotPink";
+            }
         }
 
         #endregion
