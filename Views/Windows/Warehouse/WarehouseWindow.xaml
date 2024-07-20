@@ -87,7 +87,7 @@
                                 <DataGridTextColumn Header="Место хранения" Binding="{Binding Location}"/>
                                 <DataGridTextColumn Header="Стоимость покупки" Binding="{Binding PurchaseCost}"/>
                                 <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderNumber}"/>
-                                <DataGridTextColumn Header="Дата поступления" Binding="{Binding ReceiptDate, StringFormat=dd.mm.yyyy}"/>
+                                <DataGridTextColumn Header="Дата поступления" Binding="{Binding ReceiptDate, StringFormat=dd.MM.yyyy}"/>
                                 <DataGridTextColumn Header="Примечание" Binding="{Binding Note}"/>
                             </DataGrid.Columns>
                         </DataGrid>

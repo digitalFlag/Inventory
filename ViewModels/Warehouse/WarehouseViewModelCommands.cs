@@ -191,7 +191,7 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductExpirationData = SelectedWarehouseProduct.ExpirationDate.ToString().Substring(3, 7).Replace('.', '/');
             SelectedProductPurchaseCost = SelectedWarehouseProduct.PurchaseCost.ToString();
             SelectedProductLocation = SelectedWarehouseProduct.Location;
-            SelectedProductReceiptDate = SelectedWarehouseProduct.ReceiptDate.ToString().Substring(3, 7).Replace('.', '/'); ;
+            SelectedProductReceiptDate = SelectedWarehouseProduct.ReceiptDate.ToString().Substring(0, 10);
             SelectedProductOrderNumber = SelectedWarehouseProduct.OrderNumber;
             SelectedProductNote = SelectedWarehouseProduct.Note;
 
@@ -643,7 +643,54 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnChangeReceiptDateValueOfWarehouseProductCommandExecuted(object? p)
         {
-            //ToDo The Method Is Not Implemented
+
+            if (SelectedWarehouseProduct is null)
+            {
+                return;
+            }
+
+            if (SelectedProductId != SelectedWarehouseProduct.Id.ToString())
+            {
+                return;
+            }
+
+            if (SelectedProductReceiptDate != SelectedWarehouseProduct.ReceiptDate.ToString().Substring(0, 10))
+            {
+                if (string.IsNullOrEmpty(SelectedProductReceiptDate))
+                {
+                    BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Дата поступления\" продукта.";
+
+                    return;
+                }
+
+                if (SelectedProductReceiptDate.Length != 10)
+                {
+                    BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Формат значения \"Дата поступления\" некоректный (дд.мм.гггг).";
+
+                    return;
+                }
+
+                DateTime dt;
+                if (!DateTime.TryParse(SelectedProductReceiptDate, out dt)) 
+                {
+                    BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Дата поступления\" некоректно.";
+
+                    return;
+                }
+
+                BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "Green";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Дата поступления\" продукта изменено.";
+
+            }
+            else
+            {
+                BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "HotPink";
+            }
+
+
         }
 
         #endregion
