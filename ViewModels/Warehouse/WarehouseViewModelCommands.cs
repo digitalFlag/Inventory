@@ -457,17 +457,17 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
-        #region Command ChangeExpirationDateValueOfWarehouseProductCommand: - Change Value Of "Expiration Date" Of Selected Warhouse Product
+        #region Command nameCommand: - Change Value Of "Expiration Date" Of Selected Warhouse Product
 
         /// <summary>Change Value Of "Expiration Date" Of Selected Warhouse Product</summary>
-        private LambdaCommand? _ChangeExpirationDateValueOfWarehouseProductCommand;
+        private LambdaCommand? _nameCommand;
 
         /// <summary>Change Value Of "Expiration Date" Of Selected Warhouse Product</summary>
-        public ICommand ChangeExpirationDateValueOfWarehouseProductCommand => _ChangeExpirationDateValueOfWarehouseProductCommand ??= new(OnChangeExpirationDateValueOfWarehouseProductCommandExecuted);
+        public ICommand ChangeExpirationDateValueOfWarehouseProductCommand => _nameCommand ??= new(OnnameCommandExecuted);
 
         /// <summary>Логика выполнения - Change Value Of "Expiration Date" Of Selected Warhouse Product</summary>
 
-        private void OnChangeExpirationDateValueOfWarehouseProductCommandExecuted(object? p)
+        private void OnnameCommandExecuted(object? p)
         {
             if (SelectedWarehouseProduct is null)
             {
@@ -494,7 +494,7 @@ namespace Inventory.ViewModels.Warehouse
                     BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
                     TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Формат значения \"Срок годности\" некоректный (мм/гггг).";
 
-                    return ;
+                    return;
                 }
 
                 string mm = SelectedProductExpirationData.Substring(0, 2);
@@ -512,7 +512,7 @@ namespace Inventory.ViewModels.Warehouse
                 {
                     if (!char.IsDigit(c))
                     {
-                        isLetter = true; 
+                        isLetter = true;
                         break;
                     }
                 }
@@ -553,11 +553,6 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
-
-
-
-
-
         #region Command ChangePurchaseCostValueOfWarehouseProductCommand: - Change Value Of "Purchase Cost" Of Selected Warhouse Product
 
         /// <summary>Change Value Of "Purchase Cost" Of Selected Warhouse Product</summary>
@@ -570,10 +565,72 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnChangePurchaseCostValueOfWarehouseProductCommandExecuted(object? p)
         {
-            //ToDo The Method Is Not Implemented
+            if (SelectedWarehouseProduct is null)
+            {
+                return;
+            }
+
+            if (SelectedProductId != SelectedWarehouseProduct.Id.ToString())
+            {
+                return;
+            }
+
+            if (SelectedProductPurchaseCost != SelectedWarehouseProduct.PurchaseCost.ToString())
+            {
+                if (string.IsNullOrEmpty(SelectedProductPurchaseCost))
+                {
+                    BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Цена\" продукта.";
+
+                    return;
+                }
+
+                bool isLetter = false;
+                foreach (char c in SelectedProductPurchaseCost)
+                {
+                    if (!char.IsDigit(c))
+                    {
+                        isLetter = true;
+                        break;
+                    }
+                }
+
+                if (isLetter)
+                {
+                    BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Цена\" указано некорректно.";
+
+                    return;
+                }
+
+                int coastValue = Convert.ToInt16(SelectedProductPurchaseCost);
+
+                if (coastValue < 0)
+                {
+                    BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Цена\" отрицательное.";
+
+                    return;
+                }
+
+                BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "Green";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Цена\" продукта изменено.";
+
+            }
+            else
+            {
+                BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "HotPink";
+            }
+
+
         }
 
         #endregion
+
+
+
+
+
         #region Command ChangeReceiptDateValueOfWarehouseProductCommand: - Change Value Of "Receipt Date" Of Selected Warhouse Product
 
         /// <summary>Change Value Of "Receipt Date" Of Selected Warhouse Product</summary>
