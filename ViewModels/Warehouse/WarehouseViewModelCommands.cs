@@ -371,6 +371,49 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
+        #region Command ChangeOrderNumberValueOfWarehouseProductCommand: - Change Value Of "Order Number" Of Selected Warhouse Product
+
+        /// <summary>Change Value Of "Order Number" Of Selected Warhouse Product</summary>
+        private LambdaCommand? _ChangeOrderNumberValueOfWarehouseProductCommand;
+
+        /// <summary>Change Value Of "Order Number" Of Selected Warhouse Product</summary>
+        public ICommand ChangeOrderNumberValueOfWarehouseProductCommand => _ChangeOrderNumberValueOfWarehouseProductCommand ??= new(OnChangeOrderNumberValueOfWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Order Number" Of Selected Warhouse Product</summary>
+
+        private void OnChangeOrderNumberValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            if (SelectedWarehouseProduct is null)
+            {
+                return;
+            }
+
+            if (SelectedProductId != SelectedWarehouseProduct.Id.ToString())
+            {
+                return;
+            }
+
+            if (SelectedProductOrderNumber != SelectedWarehouseProduct.OrderNumber)
+            {
+                if (string.IsNullOrEmpty(SelectedProductOrderNumber))
+                {
+                    BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Номер заказа\" продукта.";
+
+                    return;
+                }
+
+                BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "Green";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Номер заказа\" продукта изменено.";
+
+            }
+            else
+            {
+                BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "HotPink";
+            }
+        }
+
+        #endregion
 
 
 
@@ -419,22 +462,6 @@ namespace Inventory.ViewModels.Warehouse
         /// <summary>Логика выполнения - Change Value Of "Receipt Date" Of Selected Warhouse Product</summary>
 
         private void OnChangeReceiptDateValueOfWarehouseProductCommandExecuted(object? p)
-        {
-            //ToDo The Method Is Not Implemented
-        }
-
-        #endregion
-        #region Command ChangeOrderNumberValueOfWarehouseProductCommand: - Change Value Of "Order Number" Of Selected Warhouse Product
-
-        /// <summary>Change Value Of "Order Number" Of Selected Warhouse Product</summary>
-        private LambdaCommand? _ChangeOrderNumberValueOfWarehouseProductCommand;
-
-        /// <summary>Change Value Of "Order Number" Of Selected Warhouse Product</summary>
-        public ICommand ChangeOrderNumberValueOfWarehouseProductCommand => _ChangeOrderNumberValueOfWarehouseProductCommand ??= new(OnChangeOrderNumberValueOfWarehouseProductCommandExecuted);
-
-        /// <summary>Логика выполнения - Change Value Of "Order Number" Of Selected Warhouse Product</summary>
-
-        private void OnChangeOrderNumberValueOfWarehouseProductCommandExecuted(object? p)
         {
             //ToDo The Method Is Not Implemented
         }
