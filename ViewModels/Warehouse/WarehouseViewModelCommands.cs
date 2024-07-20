@@ -3,7 +3,6 @@ using Inventory.Models;
 using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
 using System.Data;
-using System.Globalization;
 using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
@@ -458,11 +457,6 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
-
-
-
-
-
         #region Command ChangeExpirationDateValueOfWarehouseProductCommand: - Change Value Of "Expiration Date" Of Selected Warhouse Product
 
         /// <summary>Change Value Of "Expiration Date" Of Selected Warhouse Product</summary>
@@ -475,10 +469,95 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnChangeExpirationDateValueOfWarehouseProductCommandExecuted(object? p)
         {
-            //ToDo The Method Is Not Implemented
+            if (SelectedWarehouseProduct is null)
+            {
+                return;
+            }
+
+            if (SelectedProductId != SelectedWarehouseProduct.Id.ToString())
+            {
+                return;
+            }
+
+            if (SelectedProductExpirationData != SelectedWarehouseProduct.ExpirationDate.ToString().Substring(3, 7).Replace('.', '/'))
+            {
+                if (string.IsNullOrEmpty(SelectedProductExpirationData))
+                {
+                    BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Срок годности\" продукта.";
+
+                    return;
+                }
+
+                if (SelectedProductExpirationData.Length != 7)
+                {
+                    BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Формат значения \"Срок годности\" некоректный (мм/гггг).";
+
+                    return ;
+                }
+
+                string mm = SelectedProductExpirationData.Substring(0, 2);
+                if (mm != "01" && mm != "02" && mm != "03" && mm != "04" && mm != "05" && mm != "06" && mm != "07" && mm != "08" && mm != "09" && mm != "10" && mm != "11" && mm != "12")
+                {
+                    BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Формат месяца значения \"Срок годности\" некоректный.";
+
+                    return;
+                }
+
+                string yyyy = SelectedProductExpirationData.Substring(3, 4);
+                bool isLetter = false;
+                foreach (char c in yyyy)
+                {
+                    if (!char.IsDigit(c))
+                    {
+                        isLetter = true; 
+                        break;
+                    }
+                }
+                if (isLetter)
+                {
+                    BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Формат года значения \"Срок годности\" некоректный.";
+
+                    return;
+                }
+
+                uint yearvalue = Convert.ToUInt16(yyyy);
+                if (yearvalue < 2000)
+                {
+                    BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение года \"Срок годности\" слишком мало.";
+
+                    return;
+                }
+
+                if (yearvalue > 2050)
+                {
+                    BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение года \"Срок годности\" слишком велико.";
+
+                    return;
+                }
+
+
+                BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "Green";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Срок годности\" продукта изменено.";
+
+            }
+            else
+            {
+                BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "HotPink";
+            }
         }
 
         #endregion
+
+
+
+
+
         #region Command ChangePurchaseCostValueOfWarehouseProductCommand: - Change Value Of "Purchase Cost" Of Selected Warhouse Product
 
         /// <summary>Change Value Of "Purchase Cost" Of Selected Warhouse Product</summary>
