@@ -3,6 +3,7 @@ using Inventory.Models;
 using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
 using System.Data;
+using System.Globalization;
 using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
@@ -188,10 +189,10 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductTittle = SelectedWarehouseProduct.Tittle;
             SelectedProductProperty = SelectedWarehouseProduct.Property;
             SelectedProductSize = SelectedWarehouseProduct.Size;
-            SelectedProductExpirationData = SelectedWarehouseProduct.ExpirationDate.ToString();
+            SelectedProductExpirationData = SelectedWarehouseProduct.ExpirationDate.ToString().Substring(3, 7).Replace('.', '/');
             SelectedProductPurchaseCost = SelectedWarehouseProduct.PurchaseCost.ToString();
             SelectedProductLocation = SelectedWarehouseProduct.Location;
-            SelectedProductReceiptDate = SelectedWarehouseProduct.ReceiptDate.ToString();
+            SelectedProductReceiptDate = SelectedWarehouseProduct.ReceiptDate.ToString().Substring(3, 7).Replace('.', '/'); ;
             SelectedProductOrderNumber = SelectedWarehouseProduct.OrderNumber;
             SelectedProductNote = SelectedWarehouseProduct.Note;
 
@@ -414,6 +415,49 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
+        #region Command ChangeNoteValueOfWarehouseProductCommand: - Change Value Of "Note" Of Selected Warhouse Product
+
+        /// <summary>Change Value Of "Note" Of Selected Warhouse Product</summary>
+        private LambdaCommand? _ChangeNoteValueOfWarehouseProductCommand;
+
+        /// <summary>Change Value Of "Note" Of Selected Warhouse Product</summary>
+        public ICommand ChangeNoteValueOfWarehouseProductCommand => _ChangeNoteValueOfWarehouseProductCommand ??= new(OnChangeNoteValueOfWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Note" Of Selected Warhouse Product</summary>
+
+        private void OnChangeNoteValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            if (SelectedWarehouseProduct is null)
+            {
+                return;
+            }
+
+            if (SelectedProductId != SelectedWarehouseProduct.Id.ToString())
+            {
+                return;
+            }
+
+            if (SelectedProductNote != SelectedWarehouseProduct.Note)
+            {
+                if (SelectedProductNote is null)
+                {
+                    BorderColorSelectedProductNoteMyWarehouseControlTab = "DarkViolet";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Примечание\" продукта NULL.";
+
+                    return;
+                }
+
+                BorderColorSelectedProductNoteMyWarehouseControlTab = "Green";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Примечание\" продукта изменено.";
+
+            }
+            else
+            {
+                BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";
+            }
+        }
+
+        #endregion
 
 
 
@@ -462,22 +506,6 @@ namespace Inventory.ViewModels.Warehouse
         /// <summary>Логика выполнения - Change Value Of "Receipt Date" Of Selected Warhouse Product</summary>
 
         private void OnChangeReceiptDateValueOfWarehouseProductCommandExecuted(object? p)
-        {
-            //ToDo The Method Is Not Implemented
-        }
-
-        #endregion
-        #region Command ChangeNoteValueOfWarehouseProductCommand: - Change Value Of "Note" Of Selected Warhouse Product
-
-        /// <summary>Change Value Of "Note" Of Selected Warhouse Product</summary>
-        private LambdaCommand? _ChangeNoteValueOfWarehouseProductCommand;
-
-        /// <summary>Change Value Of "Note" Of Selected Warhouse Product</summary>
-        public ICommand ChangeNoteValueOfWarehouseProductCommand => _ChangeNoteValueOfWarehouseProductCommand ??= new(OnChangeNoteValueOfWarehouseProductCommandExecuted);
-
-        /// <summary>Логика выполнения - Change Value Of "Note" Of Selected Warhouse Product</summary>
-
-        private void OnChangeNoteValueOfWarehouseProductCommandExecuted(object? p)
         {
             //ToDo The Method Is Not Implemented
         }
