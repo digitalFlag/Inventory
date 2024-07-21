@@ -245,8 +245,36 @@ namespace Inventory.ViewModels.Warehouse
 
 
             }
+            //Order Number
+            if (BorderColorSelectedProductOrderNumberMyWarehouseControlTab == "Green")
+            {
+                string columnTittle = WarehouseTable.propertyOrderNumber;
 
+                if (SelectedProductOrderNumber is null)
+                {
+                    return;
+                }
 
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductOrderNumber);
+
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "HotPink";
+            }
+            //Note
+            if (BorderColorSelectedProductNoteMyWarehouseControlTab == "Green")
+            {
+                string columnTittle = WarehouseTable.propertyNote;
+
+                if (SelectedProductNote is null)
+                {
+                    return;
+                }
+
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductNote);
+
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";
+            }
         }
 
         #endregion
@@ -637,7 +665,6 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
-
         #region Command ChangePurchaseCostValueOfWarehouseProductCommand: - Change Value Of "Purchase Cost" Of Selected Warhouse Product
 
         /// <summary>Change Value Of "Purchase Cost" Of Selected Warhouse Product</summary>
