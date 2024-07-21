@@ -210,9 +210,41 @@ namespace Inventory.ViewModels.Warehouse
 
 
             }
+            //Location
+            if (BorderColorSelectedProductLocationMyWarehouseControlTab == "Green")
+            {
+                string columnTittle = WarehouseTable.propertyLocation;
+
+                if (SelectedProductLocation is null)
+                {
+                    return;
+                }
+
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductLocation);
+
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                BorderColorSelectedProductLocationMyWarehouseControlTab = "HotPink";
+            }
+            //Receipt Date
+            if (BorderColorSelectedProductReceiptDateMyWarehouseControlTab == "Green")
+            {
+                string columnTittle = WarehouseTable.propertyReceiptDate;
+
+                if (SelectedProductReceiptDate is null)
+                {
+                    return;
+                }
+
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductReceiptDate);
+
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "HotPink";
 
 
 
+
+
+            }
 
 
         }
