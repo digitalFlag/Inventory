@@ -167,7 +167,29 @@ namespace Inventory.ViewModels.Warehouse
 
 
             }
+            //Expiration Data
+            if (BorderColorSelectedProductExpirationDateMyWarehouseControlTab == "Green")
+            {
+                string columnTittle = WarehouseTable.propertyExpirationDate;
 
+                if (SelectedProductExpirationData is null)
+                {
+                    return;
+                }
+
+                string newValue = "01." + SelectedProductExpirationData.Substring(0, 2) + '.' + SelectedProductExpirationData.Substring(3, 4);
+
+
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, newValue);
+
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "HotPink";
+
+
+
+
+
+            }
 
 
 
