@@ -100,28 +100,29 @@ namespace Inventory.ViewModels.Warehouse
 
             string tableTittle = WarehouseTable.tableTittleWarehouseProducts;
 
+            if (SelectedWarehouseProduct.Id is null)
+            {
+                return;
+            }
+
+            if (_DataBase is null)
+            {
+                return;
+            }
+
+            string id = SelectedWarehouseProduct.Id.ToString();
+
+            if (id is null)
+            {
+                return;
+            }
 
             //Tittle
             if (BorderColorSelectedProductTittleMyWarehouseControlTab == "Green")
             {
                 string columnTittle = WarehouseTable.propertyTittle;
 
-                if (SelectedWarehouseProduct.Id is null)
-                {
-                    return;
-                }
-                if (_DataBase is null)
-                {
-                    return;
-                }
                 if (SelectedProductTittle is null)
-                {
-                    return;
-                }
-
-                string id = SelectedWarehouseProduct.Id.ToString();
-
-                if (id is null)
                 {
                     return;
                 }
@@ -136,22 +137,7 @@ namespace Inventory.ViewModels.Warehouse
             {
                 string columnTittle = WarehouseTable.propertyProperty;
 
-                if (SelectedWarehouseProduct.Id is null)
-                {
-                    return;
-                }
-                if (_DataBase is null)
-                {
-                    return;
-                }
                 if (SelectedProductProperty is null)
-                {
-                    return;
-                }
-
-                string id = SelectedWarehouseProduct.Id.ToString();
-
-                if (id is null)
                 {
                     return;
                 }
@@ -161,7 +147,32 @@ namespace Inventory.ViewModels.Warehouse
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductPropertyMyWarehouseControlTab = "HotPink";
             }
-            //I am Here.
+            //Size
+            if (BorderColorSelectedProductSizeMyWarehouseControlTab == "Green")
+            {
+                string columnTittle = WarehouseTable.propertySize;
+
+                if (SelectedProductSize is null)
+                {
+                    return;
+                }
+
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductSize);
+
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                BorderColorSelectedProductSizeMyWarehouseControlTab = "HotPink";
+
+
+
+
+
+            }
+
+
+
+
+
+
 
         }
 
@@ -626,11 +637,6 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
-
-
-
-
-
         #region Command ChangeReceiptDateValueOfWarehouseProductCommand: - Change Value Of "Receipt Date" Of Selected Warhouse Product
 
         /// <summary>Change Value Of "Receipt Date" Of Selected Warhouse Product</summary>
