@@ -190,7 +190,26 @@ namespace Inventory.ViewModels.Warehouse
 
 
             }
+            //Purchase Cost
+            if (BorderColorSelectedProductPurchaseCostMyWarehouseControlTab == "Green")
+            {
+                string columnTittle = WarehouseTable.propertyPurchaseCost;
 
+                if (SelectedProductPurchaseCost is null)
+                {
+                    return;
+                }
+
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductPurchaseCost);
+
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "HotPink";
+
+
+
+
+
+            }
 
 
 
@@ -490,17 +509,17 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
-        #region Command nameCommand: - Change Value Of "Expiration Date" Of Selected Warhouse Product
+        #region Command ChangeExpirationDateValueOfWarehouseProductCommand: - Change Value Of "Expiration Date" Of Selected Warhouse Product
 
         /// <summary>Change Value Of "Expiration Date" Of Selected Warhouse Product</summary>
-        private LambdaCommand? _nameCommand;
+        private LambdaCommand? _ChangeExpirationDateValueOfWarehouseProductCommand;
 
         /// <summary>Change Value Of "Expiration Date" Of Selected Warhouse Product</summary>
-        public ICommand ChangeExpirationDateValueOfWarehouseProductCommand => _nameCommand ??= new(OnnameCommandExecuted);
+        public ICommand ChangeExpirationDateValueOfWarehouseProductCommand => _ChangeExpirationDateValueOfWarehouseProductCommand ??= new(OnChangeExpirationDateValueOfWarehouseProductCommandExecuted);
 
         /// <summary>Логика выполнения - Change Value Of "Expiration Date" Of Selected Warhouse Product</summary>
 
-        private void OnnameCommandExecuted(object? p)
+        private void OnChangeExpirationDateValueOfWarehouseProductCommandExecuted(object? p)
         {
             if (SelectedWarehouseProduct is null)
             {
@@ -586,6 +605,7 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
+
         #region Command ChangePurchaseCostValueOfWarehouseProductCommand: - Change Value Of "Purchase Cost" Of Selected Warhouse Product
 
         /// <summary>Change Value Of "Purchase Cost" Of Selected Warhouse Product</summary>
