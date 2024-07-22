@@ -6,14 +6,235 @@
              xmlns:local="clr-namespace:Inventory.Views.Panels.AddNewProductToWarehouse"
              
              xmlns:vm="clr-namespace:Inventory.ViewModels.MainWindowViewModel"
-             xmlns:fa="http://schemas.fontawesome.com/icons/"
+             xmlns:fa="http://schemas.fontawesome.com/icons/svg"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              
              d:DataContext="{d:DesignInstance vm:MainWindowViewModel, IsDesignTimeCreatable=True}"
              d:Height="450" d:Width="800">
-              
+
+    <UserControl.Resources>
+        <Style TargetType="Menu" BasedOn="{StaticResource MenuMainStyle}"/>
+        <Style TargetType="MenuItem" BasedOn="{StaticResource MenuItemMainStyle}"/>
+        <Style TargetType="fa:ImageAwesome" BasedOn="{StaticResource FontAwesomeIconPinkStyle}"/>
+        <Style TargetType="Label" BasedOn="{StaticResource LabelMainStyle}"/>
+        <Style TargetType="GridSplitter" BasedOn="{StaticResource GridSplitterMainStyle}"/>
+        <Style TargetType="StackPanel" BasedOn="{StaticResource StackPanelMainStyle}"/>
+        <Style TargetType="Button" BasedOn="{StaticResource ButtonMainStyle}"/>
+        <Style TargetType="TabControl" BasedOn="{StaticResource TabControlMainStyle}"/>
+        <Style TargetType="TabItem" BasedOn="{StaticResource TabItemMainStyle}"/>
+        <Style TargetType="DataGrid" BasedOn="{StaticResource DataGridMainStyle}"/>
+        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderMainStyle}"/>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockMainStyle}"/>
+        <Style TargetType="Border" BasedOn="{StaticResource BorderMainStyle}"/>
+        <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxMainStyle}"/>
+        <Style TargetType="Grid" BasedOn="{StaticResource GridMainStyle}"/>
+
+    </UserControl.Resources>
+
     <Grid>
-        <TextBlock Text="Hellow!!!"
-                   Foreground="Azure"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" 
+                    Orientation="Vertical">
+            <Grid Background="Pink">
+                <Label Content="Описание продукта:"
+                       FontWeight="Medium" 
+                       HorizontalAlignment="Center">
+                </Label>
+            </Grid>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+           Content="{Binding LabelSelectedProductTittleMyWarehouseControlTab}"/>
+                <TextBox Grid.Column="1"
+             Text="{Binding SelectedProductTittle, UpdateSourceTrigger=PropertyChanged}"
+             BorderBrush="{Binding BorderColorSelectedProductTittleMyWarehouseControlTab}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding ChangeTittleValueOfWarehouseProductCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Tittle-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+           Content="{Binding LabelSelectedProductPropertyMyWarehouseControlTab}"/>
+                <TextBox Grid.Column="1"
+             Text="{Binding SelectedProductProperty, UpdateSourceTrigger=PropertyChanged}"
+             BorderBrush="{Binding BorderColorSelectedProductPropertyMyWarehouseControlTab}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding ChangePropertyValueOfWarehouseProductCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Property-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="{Binding LabelSelectedProductSizeMyWarehouseControlTab}"/>
+                <TextBox Grid.Column="1"
+             Text="{Binding SelectedProductSize, UpdateSourceTrigger=PropertyChanged}"
+             BorderBrush="{Binding BorderColorSelectedProductSizeMyWarehouseControlTab}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding ChangeSizeValueOfWarehouseProductCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Size-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="{Binding LabelSelectedProductExpirationDateMyWarehouseControlTab}"/>
+                <TextBox Grid.Column="1"
+             Text="{Binding SelectedProductExpirationData, UpdateSourceTrigger=PropertyChanged}"
+             BorderBrush="{Binding BorderColorSelectedProductExpirationDateMyWarehouseControlTab}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding ChangeExpirationDateValueOfWarehouseProductCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Expiration Date-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="{Binding LabelSelectedProductPurchaseCostMyWarehouseControlTab}"/>
+                <TextBox Grid.Column="1" 
+             Text="{Binding SelectedProductPurchaseCost, UpdateSourceTrigger=PropertyChanged}"
+             BorderBrush="{Binding BorderColorSelectedProductPurchaseCostMyWarehouseControlTab}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding ChangePurchaseCostValueOfWarehouseProductCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Purchase Cost-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="{Binding LabelSelectedProductLocationMyWarehouseControlTab}"/>
+                <TextBox Grid.Column="1" 
+             Text="{Binding SelectedProductLocation, UpdateSourceTrigger=PropertyChanged}"
+             BorderBrush="{Binding BorderColorSelectedProductLocationMyWarehouseControlTab}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding ChangeLocationValueOfWarehouseProductCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Location-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="{Binding LabelSelectedProductReceiptDateMyWarehouseControlTab}"/>
+                <TextBox Grid.Column="1"
+             Text="{Binding SelectedProductReceiptDate, UpdateSourceTrigger=PropertyChanged}"
+             BorderBrush="{Binding BorderColorSelectedProductReceiptDateMyWarehouseControlTab}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding ChangeReceiptDateValueOfWarehouseProductCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Receipt Date-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="{Binding LabelSelectedProductOrderNumberMyWarehouseControlTab}"/>
+                <TextBox Grid.Column="1" 
+             Text="{Binding SelectedProductOrderNumber, UpdateSourceTrigger=PropertyChanged}"
+             BorderBrush="{Binding BorderColorSelectedProductOrderNumberMyWarehouseControlTab}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding ChangeOrderNumberValueOfWarehouseProductCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Order Number-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Content="{Binding LabelSelectedProductNoteMyWarehouseControlTab}"/>
+                <TextBox Grid.Column="1" 
+             Text="{Binding SelectedProductNote, UpdateSourceTrigger=PropertyChanged}"
+             BorderBrush="{Binding BorderColorSelectedProductNoteMyWarehouseControlTab}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding ChangeNoteValueOfWarehouseProductCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Note-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="{Binding LabelSelectedProductIdMyWarehouseControlTab}"/>
+                <TextBox Grid.Column="1"
+             Text="{Binding SelectedWarehouseProduct.Id, UpdateSourceTrigger=PropertyChanged}"
+             IsReadOnly="True">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding SelectNewWarehouseProductCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Id-->
+
+        </StackPanel>
+
+
+        <GridSplitter Grid.Column="1">
+        </GridSplitter><!--Grid Splitter-->
+
+
     </Grid>
 </UserControl>
