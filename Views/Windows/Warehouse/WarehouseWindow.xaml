@@ -9,10 +9,13 @@
         
         xmlns:vm="clr-namespace:Inventory.ViewModels.Warehouse"
         d:DataContext="{d:DesignInstance vm:WarehouseViewModel, IsDesignTimeCreatable=True}"
+
+        xmlns:viewsAddNewProductToWarehouse="clr-namespace:Inventory.Views.Panels.AddNewProductToWarehouse"
         
         Style="{StaticResource WindowMainStyle}"
         Title="{Binding NameOfWarhouseWindow}" 
         Height="450" Width="800">
+        
 
     <Window.Resources>
         <Style TargetType="Menu" BasedOn="{StaticResource MenuMainStyle}"/>
@@ -142,7 +145,8 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid><!--Tittle-->
+                            </Grid>
+                            <!--Tittle-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -159,7 +163,8 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid><!--Property-->
+                            </Grid>
+                            <!--Property-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -175,7 +180,8 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid><!--Size-->
+                            </Grid>
+                            <!--Size-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -191,7 +197,8 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid><!--Expiration Date-->
+                            </Grid>
+                            <!--Expiration Date-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -207,7 +214,8 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid><!--Purchase Cost-->
+                            </Grid>
+                            <!--Purchase Cost-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -223,7 +231,8 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid><!--Location-->
+                            </Grid>
+                            <!--Location-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -239,7 +248,8 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid><!--Receipt Date-->
+                            </Grid>
+                            <!--Receipt Date-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -255,7 +265,8 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid><!--Order Number-->
+                            </Grid>
+                            <!--Order Number-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -271,7 +282,8 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid><!--Note-->
+                            </Grid>
+                            <!--Note-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -287,7 +299,8 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>
-                            </Grid><!--Id-->
+                            </Grid>
+                            <!--Id-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="130"/>
@@ -317,7 +330,7 @@
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
-                
+
 
             </TabItem>
             <TabItem>
@@ -327,12 +340,12 @@
                         <Label Content="{Binding AddToMyMiniWarehouse}"/>
                     </StackPanel>
                 </TabItem.Header>
-            </TabItem>
+                <viewsAddNewProductToWarehouse:AddNewProductToWarehousePanel/>
+            </TabItem> <!--Add New Product To Warehouse-->
         </TabControl>
-            
-            
-            
-        </DockPanel>
+
+
+    </DockPanel>
 
 
 
