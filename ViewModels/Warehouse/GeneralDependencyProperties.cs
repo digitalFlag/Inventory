@@ -16,16 +16,19 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
-		#region name: - description
+		#region LabelPropertyProduct: - Label "Property:" Of Product
 
-		/// <summary>description</summary>
-		private string? _name;
+		/// <summary>Label "Property:" Of Product</summary>
+		private string? _LabelPropertyProduct;
 
-		/// <summary>description</summary>
+		/// <summary>Label "Property:" Of Product</summary>
 
-		public string? name { get => _name; set => Set(ref _name, value); }
+		public string? LabelPropertyProduct { get => _LabelPropertyProduct; set => Set(ref _LabelPropertyProduct, value); }
 
 		#endregion
+
+
+
 
 
 

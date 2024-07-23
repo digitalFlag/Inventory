@@ -24,14 +24,13 @@ namespace Inventory.ViewModels.Warehouse
 
             //GENERAL PROPERTIES
             LabelTittleProduct = "Наименование:";
+            LabelPropertyProduct = "Тип:";
 
-
-
+            //ToDo I am Here
 
 
             //WareHouse Products
             SelectedWarehouseProduct = new WarehouseProduct();
-            LabelSelectedProductTittleMyWarehouseControlTab = "Наименование:";
             BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
             LabelSelectedProductPropertyMyWarehouseControlTab = "Тип:";
             BorderColorSelectedProductPropertyMyWarehouseControlTab = "HotPink";

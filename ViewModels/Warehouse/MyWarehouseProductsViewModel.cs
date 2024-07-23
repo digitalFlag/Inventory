@@ -226,6 +226,10 @@ namespace Inventory.ViewModels.Warehouse
 
         #region Commands
 
+
+
+
+
         #endregion
 
     }

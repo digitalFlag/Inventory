@@ -116,16 +116,5 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
-       
-
-
-
-
-
-
-
-
-
-
     }
 }
