@@ -11,7 +11,6 @@ namespace Inventory.ViewModels.Warehouse
 
         public WarehouseViewModel() 
         {
-            //Test
 
             NameOfWarhouseWindow = "Мини-Cклад";
             ConnectionItemMainMenuWarehouseWindow = "Соединение";
@@ -22,6 +21,13 @@ namespace Inventory.ViewModels.Warehouse
             OptionsMyWarehouseTabWarhouseWindow = "Действия:";
             DownloadDataMyProductsWarehouseWindow = "Обновить данные";
             LoadedDataTableFromDataBaseMiniWarehouseWindow = new DataTable();
+
+            //GENERAL PROPERTIES
+            LabelTittleProduct = "Наименование:";
+
+
+
+
 
             //WareHouse Products
             SelectedWarehouseProduct = new WarehouseProduct();
