@@ -16,10 +16,17 @@ namespace Inventory.ViewModels.Warehouse
 
 		public string? LabalValueTittleOfProductAddNewToWarehouse { get => _LabalValueTittleOfProductAddNewToWarehouse; set => Set(ref _LabalValueTittleOfProductAddNewToWarehouse, value); }
 
-        #endregion
+		#endregion
+		#region LabelValuePropertyOfProductAddNewToWarehouse: - Label Value "Property" At Panel Add Product To Warehouse
 
+		/// <summary>Label Value "Property" At Panel Add Product To Warehouse</summary>
+		private string? _LabelValuePropertyOfProductAddNewToWarehouse;
 
+		/// <summary>Label Value "Property" At Panel Add Product To Warehouse</summary>
 
+		public string? LabelValuePropertyOfProductAddNewToWarehouse { get => _LabelValuePropertyOfProductAddNewToWarehouse; set => Set(ref _LabelValuePropertyOfProductAddNewToWarehouse, value); }
+
+		#endregion
 
 		#region TittleProductAddNewToWarehouse: - "Tittle" Of Product That Is Adding To Warehouse
 
@@ -31,6 +38,17 @@ namespace Inventory.ViewModels.Warehouse
 		public string? TittleProductAddNewToWarehouse { get => _TittleProductAddNewToWarehouse; set => Set(ref _TittleProductAddNewToWarehouse, value); }
 
 		#endregion
+		#region PropertyProductAddNewToWarehouse: - "Property" Of Product That Is Adding To Warehouse
+
+		/// <summary>"Property" Of Product That Is Adding To Warehouse</summary>
+		private string? _PropertyProductAddNewToWarehouse;
+
+		/// <summary>"Property" Of Product That Is Adding To Warehouse</summary>
+
+		public string? PropertyProductAddNewToWarehouse { get => _PropertyProductAddNewToWarehouse; set => Set(ref _PropertyProductAddNewToWarehouse, value); }
+
+		#endregion
+
 		#region BorderColorTittleAddNewWarehouse: - Border Color Of Text Box "Tittle" Add New Product To Warehouse
 
 		/// <summary>Border Color Of Text Box "Tittle" Add New Product To Warehouse</summary>
@@ -39,6 +57,16 @@ namespace Inventory.ViewModels.Warehouse
 		/// <summary>Border Color Of Text Box "Tittle" Add New Product To Warehouse</summary>
 
 		public string? BorderColorTittleAddNewWarehouse { get => _BorderColorTittleAddNewWarehouse; set => Set(ref _BorderColorTittleAddNewWarehouse, value); }
+
+		#endregion
+		#region BorderColorPropertyAddNewWarehouse: - Border Color Of Text Box "Property" Add New Product To Warehouse
+
+		/// <summary>Border Color Of Text Box "Property" Add New Product To Warehouse</summary>
+		private string? _BorderColorPropertyAddNewWarehouse;
+
+		/// <summary>Border Color Of Text Box "Property" Add New Product To Warehouse</summary>
+
+		public string? BorderColorPropertyAddNewWarehouse { get => _BorderColorPropertyAddNewWarehouse; set => Set(ref _BorderColorPropertyAddNewWarehouse, value); }
 
 		#endregion
 

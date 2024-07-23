@@ -60,9 +60,14 @@ namespace Inventory.ViewModels.Warehouse
 
             #region Add New Product To Warehouse
 
-            LabalValueTittleOfProductAddNewToWarehouse = "Наименование";
+            LabalValueTittleOfProductAddNewToWarehouse = "Наименование:";
+            LabelValuePropertyOfProductAddNewToWarehouse = "Тип:";
+
             TittleProductAddNewToWarehouse = string.Empty;
+            PropertyProductAddNewToWarehouse = string.Empty;
+
             BorderColorTittleAddNewWarehouse = "HotPink";
+            BorderColorPropertyAddNewWarehouse = "HotPink";
 
             #endregion
 
