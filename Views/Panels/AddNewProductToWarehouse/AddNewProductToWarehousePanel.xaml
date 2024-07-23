@@ -44,35 +44,7 @@
                        FontWeight="Medium" 
                        HorizontalAlignment="Center">
                 </Label>
-            </Grid>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="130"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Column="0"
-           Content="{Binding LabelSelectedProductTittleMyWarehouseControlTab}"/>
-                <TextBox Grid.Column="1"
-             Text="{Binding SelectedProductTittle, UpdateSourceTrigger=PropertyChanged}"
-             BorderBrush="{Binding BorderColorSelectedProductTittleMyWarehouseControlTab}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding ChangeTittleValueOfWarehouseProductCommand}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </TextBox>
-            </Grid>
+            </Grid><!--PRODUCT DESCRIPTION-->
             <!--Tittle-->
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -80,18 +52,51 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0"
-           Content="{Binding LabelSelectedProductPropertyMyWarehouseControlTab}"/>
+                       Content="{Binding LabalValueTittleOfProductAddNewToWarehouse}"/>
                 <TextBox Grid.Column="1"
-             Text="{Binding SelectedProductProperty, UpdateSourceTrigger=PropertyChanged}"
-             BorderBrush="{Binding BorderColorSelectedProductPropertyMyWarehouseControlTab}">
+                         Text="{Binding TittleProductAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
+                         BorderBrush="{Binding BorderColorTittleAddNewWarehouse}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding ChangePropertyValueOfWarehouseProductCommand}"/>
+                            <i:InvokeCommandAction Command="{Binding }"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBox>
             </Grid>
             <!--Property-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       Content="{Binding LabalValueTittleOfProductAddNewToWarehouse}"/>
+                <TextBox Grid.Column="1"
+                         Text="{Binding TittleProductAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
+                         BorderBrush="{Binding BorderColorTittleAddNewWarehouse}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding }"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
+            
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="130"/>

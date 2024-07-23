@@ -7,7 +7,6 @@ namespace Inventory.ViewModels.Warehouse
 {
     public partial class WarehouseViewModel : DialogViewModel
     {
-        private readonly IUserDialog? _UserDialog;
         private readonly IDataBase? _DataBase = null;
 
         public WarehouseViewModel() 
@@ -59,11 +58,19 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductOrderNumber = string.Empty;
             SelectedProductNote = string.Empty;
 
+            #region Add New Product To Warehouse
+
+            LabalValueTittleOfProductAddNewToWarehouse = "Наименование";
+            TittleProductAddNewToWarehouse = string.Empty;
+            BorderColorTittleAddNewWarehouse = "HotPink";
+
+            #endregion
+
+
         }
 
-        public WarehouseViewModel(IUserDialog UserDialog, IDataBase DataBase) : this()
+        public WarehouseViewModel(IDataBase DataBase) : this()
         {
-            _UserDialog = UserDialog;
             _DataBase = DataBase;
         }
 
