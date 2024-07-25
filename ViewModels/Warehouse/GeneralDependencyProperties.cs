@@ -39,14 +39,14 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
-		#region LabelExpirationDataProduct: - Label Value "Expiration Data:" Of Product
+		#region LabelExpirationDateProduct: - Label Value "Expiration Date" Of Product
 
-		/// <summary>Label Value "Expiration Data:" Of Product</summary>
-		private string? _LabelExpirationDataProduct;
+		/// <summary>Label Value "Expiration Date" Of Product</summary>
+		private string? _LabelExpirationDateProduct;
 
-		/// <summary>Label Value "Expiration Data:" Of Product</summary>
+		/// <summary>Label Value "Expiration Date" Of Product</summary>
 
-		public string? LabelExpirationDataProduct { get => _LabelExpirationDataProduct; set => Set(ref _LabelExpirationDataProduct, value); }
+		public string? LabelExpirationDateProduct { get => _LabelExpirationDateProduct; set => Set(ref _LabelExpirationDateProduct, value); }
 
 		#endregion
 

@@ -25,6 +25,15 @@ namespace Inventory.ViewModels.Warehouse
             //GENERAL PROPERTIES
             LabelTittleProduct = "Наименование:";
             LabelPropertyProduct = "Тип:";
+            LabelSizeProduct = "Размер:";
+            LabelExpirationDateProduct = "Срок годности:";
+            LabelPurchasseCostProduct = "Стоимость покупки:";
+            LabelLocationProduct = "Место хранения:";
+            LabelReceiptDateProduct = "Дата поступления:";
+            LabelOrderNumberProduct = "Номер заказа:";
+            LabelNoteProduct = "Примечание:";
+            LabelIdProduct = "Номер позиции:";
+
 
             //ToDo I am Here
 
