@@ -1,9 +1,4 @@
-﻿using Inventory.Commands;
-using Inventory.Models;
-using Inventory.Resources.Constants;
-using Inventory.ViewModels.Base;
-using System.Data;
-using System.Windows.Input;
+﻿using Inventory.ViewModels.Base;
 
 namespace Inventory.ViewModels.Warehouse
 {

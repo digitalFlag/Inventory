@@ -39,24 +39,6 @@ namespace Inventory.ViewModels.Warehouse
 
 
             //WareHouse Products
-            SelectedWarehouseProduct = new WarehouseProduct();
-            BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
-            LabelSelectedProductPropertyMyWarehouseControlTab = "Тип:";
-            BorderColorSelectedProductPropertyMyWarehouseControlTab = "HotPink";
-            LabelSelectedProductSizeMyWarehouseControlTab = "Размер:";
-            BorderColorSelectedProductSizeMyWarehouseControlTab = "HotPink";
-            LabelSelectedProductExpirationDateMyWarehouseControlTab = "Срок годности:";
-            BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "HotPink";
-            LabelSelectedProductPurchaseCostMyWarehouseControlTab = "Стоимость покупки:";
-            BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "HotPink";
-            LabelSelectedProductLocationMyWarehouseControlTab = "Место хранения:";
-            BorderColorSelectedProductLocationMyWarehouseControlTab = "HotPink";
-            LabelSelectedProductReceiptDateMyWarehouseControlTab = "Дата поступления:";
-            BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "HotPink";
-            LabelSelectedProductOrderNumberMyWarehouseControlTab = "Номер заказа:";
-            BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "HotPink";
-            LabelSelectedProductNoteMyWarehouseControlTab = "Примечание:";
-            BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";
             LabelSelectedProductIdMyWarehouseControlTab = "Номер позиции:";
             ButtonCaptionReWriteWareHouseProduct = "Корректировать данные";
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = string.Empty;
@@ -74,12 +56,24 @@ namespace Inventory.ViewModels.Warehouse
 
             #region WAREHOUSE PRODUCTS
 
+            SelectedWarehouseProduct = new WarehouseProduct();
+
+            BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
+            BorderColorSelectedProductPropertyMyWarehouseControlTab = "HotPink";
+            BorderColorSelectedProductSizeMyWarehouseControlTab = "HotPink";
+            BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "HotPink";
+            BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "HotPink";
+            BorderColorSelectedProductLocationMyWarehouseControlTab = "HotPink";
+            BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "HotPink";
+            BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "HotPink";
+            BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";
+
+
+
+
             #endregion
 
             #region ADD NEW PRODUCT TO WAREHOUSE
-
-            LabalValueTittleOfProductAddNewToWarehouse = "Наименование:";
-            LabelValuePropertyOfProductAddNewToWarehouse = "Тип:";
 
             TittleProductAddNewToWarehouse = string.Empty;
             PropertyProductAddNewToWarehouse = string.Empty;
