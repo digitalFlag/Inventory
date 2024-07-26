@@ -7,26 +7,6 @@ namespace Inventory.ViewModels.Warehouse
 		#region Dependencies
 
 
-		#region LabalValueTittleOfProductAddNewToWarehouse: - Label Value "Tittle" At Panel Add Product To Warehouse
-
-		/// <summary>Label Value "Tittle" At Panel Add Product To Warehouse</summary>
-		private string? _LabalValueTittleOfProductAddNewToWarehouse;
-
-		/// <summary>Label Value "Tittle" At Panel Add Product To Warehouse</summary>
-
-		public string? LabalValueTittleOfProductAddNewToWarehouse { get => _LabalValueTittleOfProductAddNewToWarehouse; set => Set(ref _LabalValueTittleOfProductAddNewToWarehouse, value); }
-
-		#endregion
-		#region LabelValuePropertyOfProductAddNewToWarehouse: - Label Value "Property" At Panel Add Product To Warehouse
-
-		/// <summary>Label Value "Property" At Panel Add Product To Warehouse</summary>
-		private string? _LabelValuePropertyOfProductAddNewToWarehouse;
-
-		/// <summary>Label Value "Property" At Panel Add Product To Warehouse</summary>
-
-		public string? LabelValuePropertyOfProductAddNewToWarehouse { get => _LabelValuePropertyOfProductAddNewToWarehouse; set => Set(ref _LabelValuePropertyOfProductAddNewToWarehouse, value); }
-
-		#endregion
 		#region TittleProductAddNewToWarehouse: - "Tittle" Of Product That Is Adding To Warehouse
 
 		/// <summary>"Tittle" Of Product That Is Adding To Warehouse</summary>
@@ -45,6 +25,76 @@ namespace Inventory.ViewModels.Warehouse
 		/// <summary>"Property" Of Product That Is Adding To Warehouse</summary>
 
 		public string? PropertyProductAddNewToWarehouse { get => _PropertyProductAddNewToWarehouse; set => Set(ref _PropertyProductAddNewToWarehouse, value); }
+
+		#endregion
+		#region SizeProductAddNewToWarehouse: - "Size" Of Product That Is Adding To The Warehouse
+
+		/// <summary>"Size" Of Product That Is Adding To The Warehouse</summary>
+		private string? _SizeProductAddNewToWarehouse;
+
+		/// <summary>"Size" Of Product That Is Adding To The Warehouse</summary>
+
+		public string? SizeProductAddNewToWarehouse { get => _SizeProductAddNewToWarehouse; set => Set(ref _SizeProductAddNewToWarehouse, value); }
+
+		#endregion
+		#region ExpirationDateProductAddNewToWarehouse: - "Expiration Date" Of Product That Is Adding To The Warehouse
+
+		/// <summary>"Expiration Date" Of Product That Is Adding To The Warehouse</summary>
+		private string? _ExpirationDateProductAddNewToWarehouse;
+
+		/// <summary>"Expiration Date" Of Product That Is Adding To The Warehouse</summary>
+
+		public string? ExpirationDateProductAddNewToWarehouse { get => _ExpirationDateProductAddNewToWarehouse; set => Set(ref _ExpirationDateProductAddNewToWarehouse, value); }
+
+		#endregion
+		#region PurcchaseCostAddNewToWarehouse: - "Purchase Cost" Of Product That Is Adding To The Warehouse
+
+		/// <summary>"Purchase Cost" Of Product That Is Adding To The Warehouse</summary>
+		private string? _PurcchaseCostAddNewToWarehouse;
+
+		/// <summary>"Purchase Cost" Of Product That Is Adding To The Warehouse</summary>
+
+		public string? PurcchaseCostAddNewToWarehouse { get => _PurcchaseCostAddNewToWarehouse; set => Set(ref _PurcchaseCostAddNewToWarehouse, value); }
+
+		#endregion
+		#region LocationAddNewToWarehouse: - "Location" Of Product That Is Adding To The Warehouse
+
+		/// <summary>"Location" Of Product That Is Adding To The Warehouse</summary>
+		private string? _LocationAddNewToWarehouse;
+
+		/// <summary>"Location" Of Product That Is Adding To The Warehouse</summary>
+
+		public string? LocationAddNewToWarehouse { get => _LocationAddNewToWarehouse; set => Set(ref _LocationAddNewToWarehouse, value); }
+
+		#endregion
+		#region ReceiptDateAddNewToWarehouse: - "Receipt Date" Of Product That Is Adding To The Warehouse
+
+		/// <summary>"Receipt Date" Of Product That Is Adding To The Warehouse</summary>
+		private string? _ReceiptDateAddNewToWarehouse;
+
+		/// <summary>"Receipt Date" Of Product That Is Adding To The Warehouse</summary>
+
+		public string? ReceiptDateAddNewToWarehouse { get => _ReceiptDateAddNewToWarehouse; set => Set(ref _ReceiptDateAddNewToWarehouse, value); }
+
+		#endregion
+		#region OrderNumberAddNewToWarehouse: - "Order Number" Of Product That Is Adding To The Warehouse
+
+		/// <summary>"Order Number" Of Product That Is Adding To The Warehouse</summary>
+		private string? _OrderNumberAddNewToWarehouse;
+
+		/// <summary>"Order Number" Of Product That Is Adding To The Warehouse</summary>
+
+		public string? OrderNumberAddNewToWarehouse { get => _OrderNumberAddNewToWarehouse; set => Set(ref _OrderNumberAddNewToWarehouse, value); }
+
+		#endregion
+		#region NoteAddNewToWarehouse: - "Note" Of Product That Is Adding To The Warehouse
+
+		/// <summary>"Note" Of Product That Is Adding To The Warehouse</summary>
+		private string? _NoteAddNewToWarehouse;
+
+		/// <summary>"Note" Of Product That Is Adding To The Warehouse</summary>
+
+		public string? NoteAddNewToWarehouse { get => _NoteAddNewToWarehouse; set => Set(ref _NoteAddNewToWarehouse, value); }
 
 		#endregion
 

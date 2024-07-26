@@ -179,7 +179,7 @@
                         <ColumnDefinition Width="130"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Content="{Binding LabelPurchasseCostProduct}"/>
+                    <Label Grid.Column="0" Content="{Binding LabelPurchaseCostProduct}"/>
                     <TextBox Grid.Column="1" 
                                          Text="{Binding SelectedProductPurchaseCost, UpdateSourceTrigger=PropertyChanged}"
                                          BorderBrush="{Binding BorderColorSelectedProductPurchaseCostMyWarehouseControlTab}">

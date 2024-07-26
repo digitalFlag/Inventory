@@ -28,7 +28,7 @@ namespace Inventory.ViewModels.Warehouse
             LabelPropertyProduct = "Тип:";
             LabelSizeProduct = "Размер:";
             LabelExpirationDateProduct = "Срок годности:";
-            LabelPurchasseCostProduct = "Стоимость покупки:";
+            LabelPurchaseCostProduct = "Стоимость покупки:";
             LabelLocationProduct = "Место хранения:";
             LabelReceiptDateProduct = "Дата поступления:";
             LabelOrderNumberProduct = "Номер заказа:";
@@ -36,23 +36,6 @@ namespace Inventory.ViewModels.Warehouse
             LabelIdProduct = "Номер позиции:";
 
             #endregion
-
-
-            //WareHouse Products
-            LabelSelectedProductIdMyWarehouseControlTab = "Номер позиции:";
-            ButtonCaptionReWriteWareHouseProduct = "Корректировать данные";
-            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = string.Empty;
-
-            SelectedProductId = string.Empty;
-            SelectedProductTittle = string.Empty;
-            SelectedProductProperty = string.Empty;
-            SelectedProductSize = string.Empty;
-            SelectedProductExpirationData = string.Empty;
-            SelectedProductPurchaseCost = string.Empty;
-            SelectedProductLocation = string.Empty;
-            SelectedProductReceiptDate = string.Empty;
-            SelectedProductOrderNumber = string.Empty;
-            SelectedProductNote = string.Empty;
 
             #region WAREHOUSE PRODUCTS
 
@@ -68,8 +51,20 @@ namespace Inventory.ViewModels.Warehouse
             BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "HotPink";
             BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";
 
+            ButtonCaptionReWriteWareHouseProduct = "Корректировать данные";
 
+            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = string.Empty;
 
+            SelectedProductId = string.Empty;
+            SelectedProductTittle = string.Empty;
+            SelectedProductProperty = string.Empty;
+            SelectedProductSize = string.Empty;
+            SelectedProductExpirationData = string.Empty;
+            SelectedProductPurchaseCost = string.Empty;
+            SelectedProductLocation = string.Empty;
+            SelectedProductReceiptDate = string.Empty;
+            SelectedProductOrderNumber = string.Empty;
+            SelectedProductNote = string.Empty;
 
             #endregion
 
@@ -77,12 +72,18 @@ namespace Inventory.ViewModels.Warehouse
 
             TittleProductAddNewToWarehouse = string.Empty;
             PropertyProductAddNewToWarehouse = string.Empty;
+            SizeProductAddNewToWarehouse = string.Empty;
+            ExpirationDateProductAddNewToWarehouse = string.Empty;
+            PurcchaseCostAddNewToWarehouse = string.Empty;
+            LocationAddNewToWarehouse = string.Empty;
+            ReceiptDateAddNewToWarehouse = string.Empty;
+            OrderNumberAddNewToWarehouse = string.Empty;
+            NoteAddNewToWarehouse = string.Empty;
 
             BorderColorTittleAddNewWarehouse = "HotPink";
             BorderColorPropertyAddNewWarehouse = "HotPink";
 
             #endregion
-
 
         }
 

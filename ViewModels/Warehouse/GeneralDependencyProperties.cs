@@ -50,14 +50,14 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
-		#region LabelPurchasseCostProduct: - Label Value "Purcase Cost:@ Of Product
+		#region LabelPurchaseCostProduct: - Label Value "Purcase Cost" Of Product
 
-		/// <summary>Label Value "Purcase Cost:@ Of Product</summary>
-		private string? _LabelPurchasseCostProduct;
+		/// <summary>Label Value "Purcase Cost" Of Product</summary>
+		private string? _LabelPurchaseCostProduct;
 
-		/// <summary>Label Value "Purcase Cost:@ Of Product</summary>
+		/// <summary>Label Value "Purcase Cost" Of Product</summary>
 
-		public string? LabelPurchasseCostProduct { get => _LabelPurchasseCostProduct; set => Set(ref _LabelPurchasseCostProduct, value); }
+		public string? LabelPurchaseCostProduct { get => _LabelPurchaseCostProduct; set => Set(ref _LabelPurchaseCostProduct, value); }
 
 		#endregion
 
