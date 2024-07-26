@@ -102,6 +102,8 @@
                                        HorizontalAlignment="Center">
                     </Label>
                 </Grid>
+                <!--Tittle-->
+                
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="130"/>
@@ -119,7 +121,6 @@
                         </i:Interaction.Triggers>
                     </TextBox>
                 </Grid>
-                <!--Tittle-->
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="130"/>

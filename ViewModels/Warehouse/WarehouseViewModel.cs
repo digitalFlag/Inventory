@@ -22,7 +22,8 @@ namespace Inventory.ViewModels.Warehouse
             DownloadDataMyProductsWarehouseWindow = "Обновить данные";
             LoadedDataTableFromDataBaseMiniWarehouseWindow = new DataTable();
 
-            //GENERAL PROPERTIES
+            #region GENERAL PROPERTIES
+
             LabelTittleProduct = "Наименование:";
             LabelPropertyProduct = "Тип:";
             LabelSizeProduct = "Размер:";
@@ -34,8 +35,7 @@ namespace Inventory.ViewModels.Warehouse
             LabelNoteProduct = "Примечание:";
             LabelIdProduct = "Номер позиции:";
 
-
-            //ToDo I am Here
+            #endregion
 
 
             //WareHouse Products
@@ -72,7 +72,11 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductOrderNumber = string.Empty;
             SelectedProductNote = string.Empty;
 
-            #region Add New Product To Warehouse
+            #region WAREHOUSE PRODUCTS
+
+            #endregion
+
+            #region ADD NEW PRODUCT TO WAREHOUSE
 
             LabalValueTittleOfProductAddNewToWarehouse = "Наименование:";
             LabelValuePropertyOfProductAddNewToWarehouse = "Тип:";
