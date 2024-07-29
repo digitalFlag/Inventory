@@ -63,5 +63,46 @@ namespace Inventory.Services.Implementations
         }
 
 
+        public async Task AddRecord(DBSettings dbSettings, string tableTittle, WarehouseProduct warehouseProduct)
+        {
+            if (warehouseProduct.Tittle is null)
+            {
+                return;
+            }
+
+
+
+
+
+            string connectionString = $"Server={dbSettings.Server}; " +
+                                      $"Port={dbSettings.Port}; " +
+                                      $"DataBase={dbSettings.Name}; " +
+                                      $"User Id={dbSettings.UserId}; " +
+                                      $"Password={dbSettings.Password};";
+
+            var sqlConnection = new NpgsqlConnection(connectionString);
+            sqlConnection.Open();
+
+            using var sqlCommand = new NpgsqlCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandType = System.Data.CommandType.Text;
+            sqlCommand.CommandText = $"DROP TABLE IF EXISTS {tableTittle}";
+            await sqlCommand.ExecuteNonQueryAsync();
+            //ToDo I am Here
+            string textCmd = $"INSERT INTO \"tableTittle\" (Tittle, Property) " +
+                             $"VALUES (@tittle, @property)";
+            await using (var cmd = new NpgsqlCommand(textCmd, sqlConnection))
+            {
+                cmd.Parameters.AddWithValue("Tittle", warehouseProduct.Tittle);
+
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+
+
+            sqlConnection.Close();
+        }
+
+
     }
 }
