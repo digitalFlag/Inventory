@@ -90,8 +90,134 @@
                 <Label Grid.Column="0"
                        Content="{Binding LabelSizeProduct}"/>
                 <TextBox Grid.Column="1"
-                         Text="{Binding PropertyProductAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
-                         BorderBrush="{Binding BorderColorPropertyAddNewWarehouse}">
+                         Text="{Binding SizeProductAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
+                         BorderBrush="{Binding BorderColorSizeAddNewWarehouse}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding }"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Expiration Date-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       Content="{Binding LabelExpirationDateProduct}"/>
+                <TextBox Grid.Column="1"
+                         Text="{Binding ExpirationDateProductAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
+                         BorderBrush="{Binding BorderColorExpirationDateAddNewWarehouse}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding }"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Purchase Cost-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       Content="{Binding LabelPurchaseCostProduct}"/>
+                <TextBox Grid.Column="1"
+                         Text="{Binding PurchaseCostAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
+                         BorderBrush="{Binding BorderColorPurchaseCostAddNewWarehouse}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding }"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Location-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       Content="{Binding LabelLocationProduct}"/>
+                <TextBox Grid.Column="1"
+                         Text="{Binding LocationAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
+                         BorderBrush="{Binding BorderColorLocationAddNewWarehouse}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding }"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Receipt Date-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       Content="{Binding LabelReceiptDateProduct}"/>
+                <TextBox Grid.Column="1"
+                         Text="{Binding ReceiptDateAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
+                         BorderBrush="{Binding BorderColorReceiptDateAddNewWarehouse}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding }"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Order Number-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       Content="{Binding LabelOrderNumberProduct}"/>
+                <TextBox Grid.Column="1"
+                         Text="{Binding OrderNumberAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
+                         BorderBrush="{Binding BorderColorOrderNumberAddNewWarehouse}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding }"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Note-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       Content="{Binding LabelNoteProduct}"/>
+                <TextBox Grid.Column="1"
+                         Text="{Binding NoteAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
+                         BorderBrush="{Binding BorderColorNoteAddNewWarehouse}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding }"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <!--Id-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       Content="{Binding LabelIdProduct}"/>
+                <TextBox Grid.Column="1"
+                         Text="{Binding NoteAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
+                         BorderBrush="{Binding BorderColorIdAddNewWarehouse}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="TextChanged">
                             <i:InvokeCommandAction Command="{Binding }"/>
@@ -100,29 +226,17 @@
                 </TextBox>
             </Grid>
 
-            <!--Expiration Date-->
-
-            <!--Purchase Cost-->
-
-            <!--Location-->
-
-            <!--Receipt Date-->
-
-            <!--Order Number-->
-
-            <!--Note-->
-
-            <!--Id-->
-
-
-
-
-            
-            
-            
-            
-            
-
+            <Button Grid.Column="1"
+                    Command="{Binding PushButtonAddToWarehouseAtAddToWarehousePanelCommand}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="Solid_ParachuteBox"/>
+                        <Label Content="{Binding ButtonTittleAddToWarewouseAddToWarehousePannel}"
+                               Margin="5,0,0,0">
+                        </Label>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
 
         </StackPanel>
 

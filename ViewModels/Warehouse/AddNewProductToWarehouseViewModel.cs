@@ -1,4 +1,6 @@
-﻿using Inventory.ViewModels.Base;
+﻿using Inventory.Commands;
+using Inventory.ViewModels.Base;
+using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
 {
@@ -47,14 +49,14 @@ namespace Inventory.ViewModels.Warehouse
 		public string? ExpirationDateProductAddNewToWarehouse { get => _ExpirationDateProductAddNewToWarehouse; set => Set(ref _ExpirationDateProductAddNewToWarehouse, value); }
 
 		#endregion
-		#region PurcchaseCostAddNewToWarehouse: - "Purchase Cost" Of Product That Is Adding To The Warehouse
+		#region PurchaseCostAddNewToWarehouse: - "Purchase Cost" Of Product That Is Adding To The Warehouse
 
 		/// <summary>"Purchase Cost" Of Product That Is Adding To The Warehouse</summary>
-		private string? _PurcchaseCostAddNewToWarehouse;
+		private string? _PurchaseCostAddNewToWarehouse;
 
 		/// <summary>"Purchase Cost" Of Product That Is Adding To The Warehouse</summary>
 
-		public string? PurcchaseCostAddNewToWarehouse { get => _PurcchaseCostAddNewToWarehouse; set => Set(ref _PurcchaseCostAddNewToWarehouse, value); }
+		public string? PurchaseCostAddNewToWarehouse { get => _PurchaseCostAddNewToWarehouse; set => Set(ref _PurchaseCostAddNewToWarehouse, value); }
 
 		#endregion
 		#region LocationAddNewToWarehouse: - "Location" Of Product That Is Adding To The Warehouse
@@ -117,14 +119,125 @@ namespace Inventory.ViewModels.Warehouse
 
 		public string? BorderColorPropertyAddNewWarehouse { get => _BorderColorPropertyAddNewWarehouse; set => Set(ref _BorderColorPropertyAddNewWarehouse, value); }
 
+        #endregion
+        #region BorderColorSizeAddNewWarehouse: - Border Color Of Text Box "Size" Add New Product To Warehouse
+
+        /// <summary>Border Color Of Text Box "Size" Add New Product To Warehouse</summary>
+        private string? _BorderColorSizeAddNewWarehouse;
+
+        /// <summary>Border Color Of Text Box "Size" Add New Product To Warehouse</summary>
+
+        public string? BorderColorSizeAddNewWarehouse { get => _BorderColorSizeAddNewWarehouse; set => Set(ref _BorderColorSizeAddNewWarehouse, value); }
+
+		#endregion
+		#region BorderColorExpirationDateAddNewWarehouse: - Border Color Of Text Box "Expiration Date" Add New Product To Warehouse
+
+		/// <summary>Border Color Of Text Box "Expiration Date" Add New Product To Warehouse</summary>
+		private string? _BorderColorExpirationDateAddNewWarehouse;
+
+		/// <summary>Border Color Of Text Box "Expiration Date" Add New Product To Warehouse</summary>
+
+		public string? BorderColorExpirationDateAddNewWarehouse { get => _BorderColorExpirationDateAddNewWarehouse; set => Set(ref _BorderColorExpirationDateAddNewWarehouse, value); }
+
+		#endregion
+		#region BorderColorPurchaseCostAddNewWarehouse: - Border COlor Of Text "Purchase Cost" Add New Product To Warehouse
+
+		/// <summary>Border COlor Of Text "Purchase Cost" Add New Product To Warehouse</summary>
+		private string? _BorderColorPurchaseCostAddNewWarehouse;
+
+		/// <summary>Border COlor Of Text "Purchase Cost" Add New Product To Warehouse</summary>
+
+		public string? BorderColorPurchaseCostAddNewWarehouse { get => _BorderColorPurchaseCostAddNewWarehouse; set => Set(ref _BorderColorPurchaseCostAddNewWarehouse, value); }
+
+        #endregion
+        #region BorderColorLocationAddNewWarehouse: - Border COlor Of Text "Location" Add New Product To Warehouse
+
+        /// <summary>Border COlor Of Text "Location" Add New Product To Warehouse</summary>
+        private string? _BorderColorLocationAddNewWarehouse;
+
+        /// <summary>Border COlor Of Text "Location" Add New Product To Warehouse</summary>
+
+        public string? BorderColorLocationAddNewWarehouse { get => _BorderColorLocationAddNewWarehouse; set => Set(ref _BorderColorLocationAddNewWarehouse, value); }
+
+		#endregion
+		#region BorderColorReceiptDateAddNewWarehouse: - Border Color Of Text "Receipt Date" Add New Product To Warehouse
+
+		/// <summary>Border Color Of Text "Receipt Date" Add New Product To Warehouse</summary>
+		private string? _BorderColorReceiptDateAddNewWarehouse;
+
+		/// <summary>Border Color Of Text "Receipt Date" Add New Product To Warehouse</summary>
+
+		public string? BorderColorReceiptDateAddNewWarehouse { get => _BorderColorReceiptDateAddNewWarehouse; set => Set(ref _BorderColorReceiptDateAddNewWarehouse, value); }
+
+        #endregion
+        #region BorderColorOrderNumberAddNewWarehouse: - Border Color Of Text "Order Number" Add New Product To Warehouse
+
+        /// <summary>Border Color Of Text "Order Number" Add New Product To Warehouse</summary>
+        private string? _BorderColorOrderNumberAddNewWarehouse;
+
+        /// <summary>Border Color Of Text "Order Number" Add New Product To Warehouse</summary>
+
+        public string? BorderColorOrderNumberAddNewWarehouse { get => _BorderColorOrderNumberAddNewWarehouse; set => Set(ref _BorderColorOrderNumberAddNewWarehouse, value); }
+
+        #endregion
+        #region BorderColorNoteAddNewWarehouse: - Border Color Of Text "Location" Add New Product To Warehouse
+
+        /// <summary>Border Color Of Text "Note" Add New Product To Warehouse</summary>
+        private string? _BorderColorNoteAddNewWarehouse;
+
+        /// <summary>Border Color Of Text "Note" Add New Product To Warehouse</summary>
+
+        public string? BorderColorNoteAddNewWarehouse { get => _BorderColorNoteAddNewWarehouse; set => Set(ref _BorderColorNoteAddNewWarehouse, value); }
+
+        #endregion
+        #region BorderColorIdAddNewWarehouse: - Border Color Of Text "Id" Add New Product To Warehouse
+
+        /// <summary>Border Color Of Text "Id" Add New Product To Warehouse</summary>
+        private string? _BorderColorIdAddNewWarehouse;
+
+        /// <summary>Border Color Of Text "Id" Add New Product To Warehouse</summary>
+
+        public string? BorderColorIdAddNewWarehouse { get => _BorderColorIdAddNewWarehouse; set => Set(ref _BorderColorIdAddNewWarehouse, value); }
+
 		#endregion
 
+		#region ButtonTittleAddToWarewouseAddToWarehousePannel: - Button Content "Add To Warehouse" Add To Warehouse Panel
+
+		/// <summary>Button Content "Add To Warehouse" Add To Warehouse Panel</summary>
+		private string? _ButtonTittleAddToWarewouseAddToWarehousePannel;
+
+		/// <summary>Button Content "Add To Warehouse" Add To Warehouse Panel</summary>
+
+		public string? ButtonTittleAddToWarewouseAddToWarehousePannel { get => _ButtonTittleAddToWarewouseAddToWarehousePannel; set => Set(ref _ButtonTittleAddToWarewouseAddToWarehousePannel, value); }
+
+		#endregion
 
 
 		#endregion
 
 
 		#region Commands
+
+
+		#region Command PushButtonAddToWarehouseAtAddToWarehousePanelCommand: - Action When You Push The Button "Add To Warehouse" On Add To Warehoue Panel
+
+		/// <summary>Action When You Push The Button "Add To Warehouse" On Add To Warehoue Panel</summary>
+		private LambdaCommand? _PushButtonAddToWarehouseAtAddToWarehousePanelCommand;
+
+		/// <summary>Action When You Push The Button "Add To Warehouse" On Add To Warehoue Panel</summary>
+		public ICommand PushButtonAddToWarehouseAtAddToWarehousePanelCommand => _PushButtonAddToWarehouseAtAddToWarehousePanelCommand ??= new(OnPushButtonAddToWarehouseAtAddToWarehousePanelCommandExecuted);
+
+		/// <summary>Логика выполнения - Action When You Push The Button "Add To Warehouse" On Add To Warehoue Panel</summary>
+
+		private void OnPushButtonAddToWarehouseAtAddToWarehousePanelCommandExecuted(object? p)
+		{
+			//ToDo Need to Emplement
+		}
+
+		#endregion
+
+
+
 		#endregion
 	}
 }

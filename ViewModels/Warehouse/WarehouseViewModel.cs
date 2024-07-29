@@ -74,7 +74,7 @@ namespace Inventory.ViewModels.Warehouse
             PropertyProductAddNewToWarehouse = string.Empty;
             SizeProductAddNewToWarehouse = string.Empty;
             ExpirationDateProductAddNewToWarehouse = string.Empty;
-            PurcchaseCostAddNewToWarehouse = string.Empty;
+            PurchaseCostAddNewToWarehouse = string.Empty;
             LocationAddNewToWarehouse = string.Empty;
             ReceiptDateAddNewToWarehouse = string.Empty;
             OrderNumberAddNewToWarehouse = string.Empty;
@@ -82,6 +82,17 @@ namespace Inventory.ViewModels.Warehouse
 
             BorderColorTittleAddNewWarehouse = "HotPink";
             BorderColorPropertyAddNewWarehouse = "HotPink";
+            BorderColorSizeAddNewWarehouse = "HotPink";
+            BorderColorExpirationDateAddNewWarehouse = "HotPink";
+            BorderColorPurchaseCostAddNewWarehouse = "HotPink";
+            BorderColorLocationAddNewWarehouse = "HotPink";
+            BorderColorReceiptDateAddNewWarehouse = "HotPink";
+            BorderColorOrderNumberAddNewWarehouse = "HotPink";
+            BorderColorNoteAddNewWarehouse = "HotPink";
+            BorderColorIdAddNewWarehouse = "HotPink";
+
+            ButtonTittleAddToWarewouseAddToWarehousePannel = "Добавить на Мини-Склад";
+
 
             #endregion
 
