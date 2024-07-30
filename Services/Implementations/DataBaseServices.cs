@@ -1,6 +1,9 @@
 ﻿using Inventory.Models;
 using Npgsql;
+using System.Collections.Generic;
 using System.Data;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Inventory.Services.Implementations
 {
@@ -65,14 +68,46 @@ namespace Inventory.Services.Implementations
 
         public async Task AddRecord(DBSettings dbSettings, string tableTittle, WarehouseProduct warehouseProduct)
         {
+            if(warehouseProduct is null)
+            {
+                return;
+            }
             if (warehouseProduct.Tittle is null)
             {
                 return;
             }
-
-
-
-
+            if (warehouseProduct.Property is null)
+            {
+                return;
+            }
+            if (warehouseProduct.Size is null)
+            {
+                return;
+            }
+            if (warehouseProduct.ExpirationDate is null)
+            {
+                return;
+            }
+            if (warehouseProduct.Location is null)
+            {
+                return;
+            }
+            if (warehouseProduct.PurchaseCost is null)
+            {
+                return;
+            }
+            if (warehouseProduct.OrderNumber is null)
+            {
+                return;
+            }
+            if (warehouseProduct.ReceiptDate is null)
+            {
+                return;
+            }
+            if (warehouseProduct.Note is null)
+            {
+                return;
+            }
 
             string connectionString = $"Server={dbSettings.Server}; " +
                                       $"Port={dbSettings.Port}; " +
@@ -88,13 +123,20 @@ namespace Inventory.Services.Implementations
             sqlCommand.CommandType = System.Data.CommandType.Text;
             sqlCommand.CommandText = $"DROP TABLE IF EXISTS {tableTittle}";
             await sqlCommand.ExecuteNonQueryAsync();
-            //ToDo I am Here
-            string textCmd = $"INSERT INTO \"tableTittle\" (Tittle, Property) " +
-                             $"VALUES (@tittle, @property)";
+            string textCmd = $"INSERT INTO \"tableTittle\" (\"wp_Tittle\", \"wp_Property\", \"wp_Size\", \"wp_ExpirationDate\", \"wp_Location\", \"wp_PurchaseCost\", \"wp_OrderNumber\", \"wp_ReceiptDate\", \"wp_Note\") " +
+                             $"VALUES (@tittle, @property, @size, @expirationDate, @Location, @purchaseCost, @orderNumber, @receiptDate, @note)" +
+                             $"returning \"wp_Id\"";
             await using (var cmd = new NpgsqlCommand(textCmd, sqlConnection))
             {
-                cmd.Parameters.AddWithValue("Tittle", warehouseProduct.Tittle);
-
+                cmd.Parameters.AddWithValue("wp_Tittle", warehouseProduct.Tittle);
+                cmd.Parameters.AddWithValue("wp_Property", warehouseProduct.Property);
+                cmd.Parameters.AddWithValue("wp_Size", warehouseProduct.Size);
+                cmd.Parameters.AddWithValue("wp_ExpirationDate", warehouseProduct.ExpirationDate);
+                cmd.Parameters.AddWithValue("wp_Location", warehouseProduct.Location);
+                cmd.Parameters.AddWithValue("wp_PurchaseCost", warehouseProduct.PurchaseCost);
+                cmd.Parameters.AddWithValue("wp_OrderNumber", warehouseProduct.OrderNumber);
+                cmd.Parameters.AddWithValue("wp_ReceiptDate", warehouseProduct.ReceiptDate);
+                cmd.Parameters.AddWithValue("wp_Note", warehouseProduct.Note);
 
                 await cmd.ExecuteNonQueryAsync();
             }
