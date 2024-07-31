@@ -244,6 +244,17 @@
         <GridSplitter Grid.Column="1">
         </GridSplitter><!--Grid Splitter-->
 
+        <StackPanel Grid.Column="2"
+                    Orientation="Vertical">
+            <Grid Background="Pink">
+                <Label Content="Журнал событий:"
+                       FontWeight="Medium" 
+                       HorizontalAlignment="Center">
+                </Label>
+            </Grid>
+            <Label Content="{Binding ValueOfEventLogAddProductToWarehouseTabControl}"/>
+
+        </StackPanel>
 
     </Grid>
 </UserControl>

@@ -93,6 +93,7 @@ namespace Inventory.ViewModels.Warehouse
 
             ButtonTittleAddToWarewouseAddToWarehousePannel = "Добавить на Мини-Склад";
 
+            ValueOfEventLogAddProductToWarehouseTabControl = string.Empty;
 
             #endregion
 

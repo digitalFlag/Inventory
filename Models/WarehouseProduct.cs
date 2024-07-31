@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls.Primitives;
-
-namespace Inventory.Models
+﻿namespace Inventory.Models
 {
     public class WarehouseProduct : Product
     {
