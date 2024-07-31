@@ -260,16 +260,32 @@ namespace Inventory.ViewModels.Warehouse
 
             string tableTittle = Resources.Constants.WarehouseProducts.tableTittleWarehouseProducts;
 
+            DateTime exDate;
+			if (!DateTime.TryParse(ExpirationDateProductAddNewToWarehouse, out exDate))
+			{
+                ValueOfEventLogAddProductToWarehouseTabControl = "Не удалось преобразовать значение \"Срок годности\"";
+
+                return;
+			}
+
+            DateTime resDate;
+            if (!DateTime.TryParse(ReceiptDateAddNewToWarehouse, out resDate))
+			{
+                ValueOfEventLogAddProductToWarehouseTabControl = "Не удалось преобразовать значение \"Дата поступления\"";
+
+                return;
+            }
+
             WarehouseProduct warehouseProduct = new()
             {
                 Id = 0,
                 Tittle = TittleProductAddNewToWarehouse,
                 Property = PropertyProductAddNewToWarehouse,
                 Size = SizeProductAddNewToWarehouse,
-                ExpirationDate = ExpirationDateProductAddNewToWarehouse,
+                ExpirationDate = exDate,
                 PurchaseCost = Convert.ToInt16(PurchaseCostAddNewToWarehouse),
                 Location = LocationAddNewToWarehouse,
-                ReceiptDate = ReceiptDateAddNewToWarehouse,
+                ReceiptDate = resDate,
                 OrderNumber = OrderNumberAddNewToWarehouse,
                 Note = NoteAddNewToWarehouse,
             };
@@ -278,6 +294,8 @@ namespace Inventory.ViewModels.Warehouse
             _DataBase.AddRecord(dbSettings, tableTittle, warehouseProduct);
 
 			ValueOfEventLogAddProductToWarehouseTabControl = "Данные внесены в Базу Данных";
+
+			//ToDo I am Here.
         }
 
 		#endregion
