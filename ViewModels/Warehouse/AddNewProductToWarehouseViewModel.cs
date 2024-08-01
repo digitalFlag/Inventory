@@ -295,7 +295,6 @@ namespace Inventory.ViewModels.Warehouse
 
 			ValueOfEventLogAddProductToWarehouseTabControl = "Данные внесены в Базу Данных";
 
-			//ToDo I am Here.
         }
 
 		#endregion

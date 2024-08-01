@@ -1,9 +1,6 @@
 ﻿using Inventory.Models;
 using Npgsql;
-using System.Collections.Generic;
 using System.Data;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Inventory.Services.Implementations
 {

@@ -2,6 +2,7 @@
 using Inventory.Models;
 using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
+using Microsoft.VisualBasic;
 using System.Data;
 using System.Windows.Input;
 
@@ -252,7 +253,7 @@ namespace Inventory.ViewModels.Warehouse
                 Password = ConnectionOptions.password
             };
 
-            string table = WarehouseTable.tableTittleWarehouseProducts;
+            string table = Resources.Constants.WarehouseProducts.tableTittleWarehouseProducts;
 
             if (_DataBase is null)
             {
@@ -264,16 +265,16 @@ namespace Inventory.ViewModels.Warehouse
 
             WarehouseProducts = LoadedDataTableFromDataBaseMiniWarehouseWindow.AsEnumerable().Select(row => new Models.WarehouseProduct
             {
-                Id = Convert.ToInt32(row["Id"]),
-                Tittle = Convert.ToString(row["Tittle_Product"]),
-                Property = Convert.ToString(row["Property_Product"]),
-                Size = Convert.ToString(row["Size_Product"]),
-                ExpirationDate = Convert.ToDateTime(row["ExpirationDate_Product"]),
-                Location = Convert.ToString(row["Location_Product"]),
-                PurchaseCost = Convert.ToInt16(row["PurchaseCost_Product"]),
-                OrderNumber = Convert.ToString(row["OrderNumber_Product"]),
-                ReceiptDate = Convert.ToDateTime(row["ReceiptDate_Product"]),
-                Note = Convert.ToString(row["Note_Product"]),
+                Id = Convert.ToInt32(row[Resources.Constants.WarehouseProducts.propertyId]),
+                Tittle = Convert.ToString(row[Resources.Constants.WarehouseProducts.propertyTittle]),
+                Property = Convert.ToString(row[Resources.Constants.WarehouseProducts.propertyProperty]),
+                Size = Convert.ToString(row[Resources.Constants.WarehouseProducts.propertySize]),
+                ExpirationDate = Convert.ToDateTime(row[Resources.Constants.WarehouseProducts.propertyExpirationDate]),
+                Location = Convert.ToString(row[Resources.Constants.WarehouseProducts.propertyLocation]),
+                PurchaseCost = Convert.ToInt16(row[Resources.Constants.WarehouseProducts.propertyPurchaseCost]),
+                OrderNumber = Convert.ToString(row[Resources.Constants.WarehouseProducts.propertyOrderNumber]),
+                ReceiptDate = Convert.ToDateTime(row[Resources.Constants.WarehouseProducts.propertyReceiptDate]),
+                Note = Convert.ToString(row[Resources.Constants.WarehouseProducts.propertyNote]),
             });
 
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Информация о продукции на Мини-Складе из базы \"{ConnectionOptions.dbName}\" загружена.";
