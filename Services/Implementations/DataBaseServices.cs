@@ -123,24 +123,11 @@ namespace Inventory.Services.Implementations
             sqlCommand.CommandType = System.Data.CommandType.Text;
             sqlCommand.CommandText = $"DROP TABLE IF EXISTS {tableTittle}";
             await sqlCommand.ExecuteNonQueryAsync();
-            string textCmd = $"INSERT INTO \"tableTittle\" (\"wp_Tittle\", \"wp_Property\", \"wp_Size\", \"wp_ExpirationDate\", \"wp_Location\", \"wp_PurchaseCost\", \"wp_OrderNumber\", \"wp_ReceiptDate\", \"wp_Note\") " +
-                             $"VALUES (@tittle, @property, @size, @expirationDate, @Location, @purchaseCost, @orderNumber, @receiptDate, @note)" +
-                             $"returning \"wp_Id\"";
-            await using (var cmd = new NpgsqlCommand(textCmd, sqlConnection))
-            {
-                cmd.Parameters.AddWithValue("wp_Tittle", warehouseProduct.Tittle);
-                cmd.Parameters.AddWithValue("wp_Property", warehouseProduct.Property);
-                cmd.Parameters.AddWithValue("wp_Size", warehouseProduct.Size);
-                cmd.Parameters.AddWithValue("wp_ExpirationDate", warehouseProduct.ExpirationDate);
-                cmd.Parameters.AddWithValue("wp_Location", warehouseProduct.Location);
-                cmd.Parameters.AddWithValue("wp_PurchaseCost", warehouseProduct.PurchaseCost);
-                cmd.Parameters.AddWithValue("wp_OrderNumber", warehouseProduct.OrderNumber);
-                cmd.Parameters.AddWithValue("wp_ReceiptDate", warehouseProduct.ReceiptDate);
-                cmd.Parameters.AddWithValue("wp_Note", warehouseProduct.Note);
+            string textCmd = $"INSERT INTO \"{tableTittle}\" (\"wp_Tittle\", \"wp_Property\", \"wp_Size\", \"wp_ExpirationDate\", \"wp_Location\", \"wp_PurchaseCost\", \"wp_OrderNumber\", \"wp_ReceiptDate\", \"wp_Note\") " +
+                             $"VALUES (\'{warehouseProduct.Tittle}\', \'{warehouseProduct.Property}\', \'{warehouseProduct.Size}\', \'{warehouseProduct.ExpirationDate}\', \'{warehouseProduct.Location}\', \'{warehouseProduct.PurchaseCost}\', \'{warehouseProduct.OrderNumber}\', \'{warehouseProduct.ReceiptDate}\', \'{warehouseProduct.Note}\')";
+            sqlCommand.CommandText = textCmd;
 
-                await cmd.ExecuteNonQueryAsync();
-            }
-
+            await sqlCommand.ExecuteNonQueryAsync();
 
             sqlConnection.Close();
         }
@@ -148,3 +135,4 @@ namespace Inventory.Services.Implementations
 
     }
 }
+
