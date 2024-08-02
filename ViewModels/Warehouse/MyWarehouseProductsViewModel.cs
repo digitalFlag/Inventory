@@ -253,7 +253,7 @@ namespace Inventory.ViewModels.Warehouse
                 Password = ConnectionOptions.password
             };
 
-            string table = Resources.Constants.WarehouseProducts.tableTittleWarehouseProducts;
+            string table = DbTables.WarehouseProducts;
 
             if (_DataBase is null)
             {
@@ -265,16 +265,16 @@ namespace Inventory.ViewModels.Warehouse
 
             WarehouseProducts = LoadedDataTableFromDataBaseMiniWarehouseWindow.AsEnumerable().Select(row => new Models.WarehouseProduct
             {
-                Id = Convert.ToInt32(row[Resources.Constants.WarehouseProducts.propertyId]),
-                Tittle = Convert.ToString(row[Resources.Constants.WarehouseProducts.propertyTittle]),
-                Property = Convert.ToString(row[Resources.Constants.WarehouseProducts.propertyProperty]),
-                Size = Convert.ToString(row[Resources.Constants.WarehouseProducts.propertySize]),
-                ExpirationDate = Convert.ToDateTime(row[Resources.Constants.WarehouseProducts.propertyExpirationDate]),
-                Location = Convert.ToString(row[Resources.Constants.WarehouseProducts.propertyLocation]),
-                PurchaseCost = Convert.ToInt16(row[Resources.Constants.WarehouseProducts.propertyPurchaseCost]),
-                OrderNumber = Convert.ToString(row[Resources.Constants.WarehouseProducts.propertyOrderNumber]),
-                ReceiptDate = Convert.ToDateTime(row[Resources.Constants.WarehouseProducts.propertyReceiptDate]),
-                Note = Convert.ToString(row[Resources.Constants.WarehouseProducts.propertyNote]),
+                Id = Convert.ToInt32(row[DbTableWarehouseProducts.propertyId]),
+                Tittle = Convert.ToString(row[DbTableWarehouseProducts.propertyTittle]),
+                Property = Convert.ToString(row[DbTableWarehouseProducts.propertyProperty]),
+                Size = Convert.ToString(row[DbTableWarehouseProducts.propertySize]),
+                ExpirationDate = Convert.ToDateTime(row[DbTableWarehouseProducts.propertyExpirationDate]),
+                Location = Convert.ToString(row[DbTableWarehouseProducts.propertyLocation]),
+                PurchaseCost = Convert.ToInt16(row[DbTableWarehouseProducts.propertyPurchaseCost]),
+                OrderNumber = Convert.ToString(row[DbTableWarehouseProducts.propertyOrderNumber]),
+                ReceiptDate = Convert.ToDateTime(row[DbTableWarehouseProducts.propertyReceiptDate]),
+                Note = Convert.ToString(row[DbTableWarehouseProducts.propertyNote]),
             });
 
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Информация о продукции на Мини-Складе из базы \"{ConnectionOptions.dbName}\" загружена.";
@@ -312,7 +312,7 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductExpirationData = SelectedWarehouseProduct.ExpirationDate.ToString().Substring(3, 7).Replace('.', '/');
             SelectedProductPurchaseCost = SelectedWarehouseProduct.PurchaseCost.ToString();
             SelectedProductLocation = SelectedWarehouseProduct.Location;
-            SelectedProductReceiptDate = SelectedWarehouseProduct.ReceiptDate.ToString().Substring(0, 10);
+            SelectedProductReceiptDate = SelectedWarehouseProduct.ReceiptDate.ToString()[..10];
             SelectedProductOrderNumber = SelectedWarehouseProduct.OrderNumber;
             SelectedProductNote = SelectedWarehouseProduct.Note;
 
@@ -352,7 +352,7 @@ namespace Inventory.ViewModels.Warehouse
                 Password = ConnectionOptions.password
             };
 
-            string tableTittle = WarehouseTable.tableTittleWarehouseProducts;
+            string tableTittle = DbTables.WarehouseProducts;
 
             if (SelectedWarehouseProduct.Id is null)
             {
@@ -374,7 +374,7 @@ namespace Inventory.ViewModels.Warehouse
             //Tittle
             if (BorderColorSelectedProductTittleMyWarehouseControlTab == "Green")
             {
-                string columnTittle = WarehouseTable.propertyTittle;
+                string columnTittle = DbTableWarehouseProducts.propertyTittle;
 
                 if (SelectedProductTittle is null)
                 {
@@ -389,7 +389,7 @@ namespace Inventory.ViewModels.Warehouse
             //Property
             if (BorderColorSelectedProductPropertyMyWarehouseControlTab == "Green")
             {
-                string columnTittle = WarehouseTable.propertyProperty;
+                string columnTittle = DbTableWarehouseProducts.propertyProperty;
 
                 if (SelectedProductProperty is null)
                 {
@@ -404,7 +404,7 @@ namespace Inventory.ViewModels.Warehouse
             //Size
             if (BorderColorSelectedProductSizeMyWarehouseControlTab == "Green")
             {
-                string columnTittle = WarehouseTable.propertySize;
+                string columnTittle = DbTableWarehouseProducts.propertySize;
 
                 if (SelectedProductSize is null)
                 {
@@ -424,30 +424,25 @@ namespace Inventory.ViewModels.Warehouse
             //Expiration Data
             if (BorderColorSelectedProductExpirationDateMyWarehouseControlTab == "Green")
             {
-                string columnTittle = WarehouseTable.propertyExpirationDate;
+                string columnTittle = DbTableWarehouseProducts.propertyExpirationDate;
 
                 if (SelectedProductExpirationData is null)
                 {
                     return;
                 }
 
-                string newValue = "01." + SelectedProductExpirationData.Substring(0, 2) + '.' + SelectedProductExpirationData.Substring(3, 4);
+                string newValue = string.Concat("01.", SelectedProductExpirationData.AsSpan(0, 2), ".", SelectedProductExpirationData.AsSpan(3, 4));
 
 
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, newValue);
 
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "HotPink";
-
-
-
-
-
             }
             //Purchase Cost
             if (BorderColorSelectedProductPurchaseCostMyWarehouseControlTab == "Green")
             {
-                string columnTittle = WarehouseTable.propertyPurchaseCost;
+                string columnTittle = DbTableWarehouseProducts.propertyPurchaseCost;
 
                 if (SelectedProductPurchaseCost is null)
                 {
@@ -467,7 +462,7 @@ namespace Inventory.ViewModels.Warehouse
             //Location
             if (BorderColorSelectedProductLocationMyWarehouseControlTab == "Green")
             {
-                string columnTittle = WarehouseTable.propertyLocation;
+                string columnTittle = DbTableWarehouseProducts.propertyLocation;
 
                 if (SelectedProductLocation is null)
                 {
@@ -482,7 +477,7 @@ namespace Inventory.ViewModels.Warehouse
             //Receipt Date
             if (BorderColorSelectedProductReceiptDateMyWarehouseControlTab == "Green")
             {
-                string columnTittle = WarehouseTable.propertyReceiptDate;
+                string columnTittle = DbTableWarehouseProducts.propertyReceiptDate;
 
                 if (SelectedProductReceiptDate is null)
                 {
@@ -502,7 +497,7 @@ namespace Inventory.ViewModels.Warehouse
             //Order Number
             if (BorderColorSelectedProductOrderNumberMyWarehouseControlTab == "Green")
             {
-                string columnTittle = WarehouseTable.propertyOrderNumber;
+                string columnTittle = DbTableWarehouseProducts.propertyOrderNumber;
 
                 if (SelectedProductOrderNumber is null)
                 {
@@ -517,7 +512,7 @@ namespace Inventory.ViewModels.Warehouse
             //Note
             if (BorderColorSelectedProductNoteMyWarehouseControlTab == "Green")
             {
-                string columnTittle = WarehouseTable.propertyNote;
+                string columnTittle = DbTableWarehouseProducts.propertyNote;
 
                 if (SelectedProductNote is null)
                 {
@@ -831,7 +826,7 @@ namespace Inventory.ViewModels.Warehouse
                     return;
                 }
 
-                string mm = SelectedProductExpirationData.Substring(0, 2);
+                string mm = SelectedProductExpirationData[..2];
                 if (mm != "01" && mm != "02" && mm != "03" && mm != "04" && mm != "05" && mm != "06" && mm != "07" && mm != "08" && mm != "09" && mm != "10" && mm != "11" && mm != "12")
                 {
                     BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
@@ -983,7 +978,7 @@ namespace Inventory.ViewModels.Warehouse
                 return;
             }
 
-            if (SelectedProductReceiptDate != SelectedWarehouseProduct.ReceiptDate.ToString().Substring(0, 10))
+            if (SelectedProductReceiptDate != SelectedWarehouseProduct.ReceiptDate.ToString()[..10])
             {
                 if (string.IsNullOrEmpty(SelectedProductReceiptDate))
                 {

@@ -258,7 +258,7 @@ namespace Inventory.ViewModels.Warehouse
                 Password = ConnectionOptions.password
             };
 
-            string tableTittle = Resources.Constants.WarehouseProducts.tableTittleWarehouseProducts;
+            string tableTittle = DbTables.WarehouseProducts;
 
             DateTime exDate;
 			if (!DateTime.TryParse(ExpirationDateProductAddNewToWarehouse, out exDate))

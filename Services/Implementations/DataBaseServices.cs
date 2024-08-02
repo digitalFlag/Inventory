@@ -62,7 +62,6 @@ namespace Inventory.Services.Implementations
             sqlConnection.Close();
         }
 
-
         public async Task AddRecord(DBSettings dbSettings, string tableTittle, WarehouseProduct warehouseProduct)
         {
             if(warehouseProduct is null)
