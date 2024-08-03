@@ -8,7 +8,7 @@ namespace Inventory.Services
 
         public DataTable GetData(DBSettings dbSettings, string tableTittle);
 
-        public Task UpdateRecord(DBSettings dbSettings, string tableTittle, string columnTittle, string id, string newValue);
+        public Task UpdateRecord(DBSettings dbSettings, string tableTittle, string columnTittle, string columnId, string idValue, string newValue);
 
         public Task AddRecord(DBSettings dbSettings, string tableTittle, WarehouseProduct warehouseProduct);
 

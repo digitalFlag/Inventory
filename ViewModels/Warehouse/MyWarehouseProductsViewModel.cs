@@ -353,6 +353,7 @@ namespace Inventory.ViewModels.Warehouse
             };
 
             string tableTittle = DbTables.WarehouseProducts;
+            string columnId = DbTableWarehouseProducts.propertyId;
 
             if (SelectedWarehouseProduct.Id is null)
             {
@@ -381,7 +382,7 @@ namespace Inventory.ViewModels.Warehouse
                     return;
                 }
 
-                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductTittle);
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductTittle);
 
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение названия выбранного продукта изменено.";
                 BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
@@ -396,7 +397,7 @@ namespace Inventory.ViewModels.Warehouse
                     return;
                 }
 
-                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductProperty);
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductProperty);
 
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductPropertyMyWarehouseControlTab = "HotPink";
@@ -411,7 +412,7 @@ namespace Inventory.ViewModels.Warehouse
                     return;
                 }
 
-                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductSize);
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductSize);
 
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductSizeMyWarehouseControlTab = "HotPink";
@@ -434,7 +435,7 @@ namespace Inventory.ViewModels.Warehouse
                 string newValue = string.Concat("01.", SelectedProductExpirationData.AsSpan(0, 2), ".", SelectedProductExpirationData.AsSpan(3, 4));
 
 
-                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, newValue);
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, newValue);
 
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "HotPink";
@@ -449,7 +450,7 @@ namespace Inventory.ViewModels.Warehouse
                     return;
                 }
 
-                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductPurchaseCost);
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductPurchaseCost);
 
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "HotPink";
@@ -469,7 +470,7 @@ namespace Inventory.ViewModels.Warehouse
                     return;
                 }
 
-                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductLocation);
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductLocation);
 
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductLocationMyWarehouseControlTab = "HotPink";
@@ -484,7 +485,7 @@ namespace Inventory.ViewModels.Warehouse
                     return;
                 }
 
-                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductReceiptDate);
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductReceiptDate);
 
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "HotPink";
@@ -504,7 +505,7 @@ namespace Inventory.ViewModels.Warehouse
                     return;
                 }
 
-                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductOrderNumber);
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductOrderNumber);
 
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "HotPink";
@@ -519,7 +520,7 @@ namespace Inventory.ViewModels.Warehouse
                     return;
                 }
 
-                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, id, SelectedProductNote);
+                _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductNote);
 
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";

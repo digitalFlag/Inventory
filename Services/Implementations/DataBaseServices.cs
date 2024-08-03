@@ -1,6 +1,7 @@
 ﻿using Inventory.Models;
 using Npgsql;
 using System.Data;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Inventory.Services.Implementations
 {
@@ -37,7 +38,7 @@ namespace Inventory.Services.Implementations
         }
 
         // Update Record In Table From Data Base
-        public async Task UpdateRecord(DBSettings dbSettings, string tableTittle, string columnTittle, string id, string newValue)
+        public async Task UpdateRecord(DBSettings dbSettings, string tableTittle, string columnTittle, string columnId,string idValue, string newValue)
         {
             string connectionString = $"Server={dbSettings.Server}; " +
                                       $"Port={dbSettings.Port}; " +
@@ -53,9 +54,11 @@ namespace Inventory.Services.Implementations
             sqlCommand.CommandType = System.Data.CommandType.Text;
             sqlCommand.CommandText = $"DROP TABLE IF EXISTS {tableTittle}";
             await sqlCommand.ExecuteNonQueryAsync();
+
             string textCmd = $"UPDATE \"{tableTittle}\" " +
                              $"SET \"{columnTittle}\" = \'{newValue}\' " +
-                             $"WHERE \"Id\" = \'{id}\';";
+                             $"WHERE \"{columnId}\" = \'{idValue}\'";
+
             sqlCommand.CommandText = textCmd;
             await sqlCommand.ExecuteNonQueryAsync();
 
