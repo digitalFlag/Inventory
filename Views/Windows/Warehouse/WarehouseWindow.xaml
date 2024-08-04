@@ -52,6 +52,16 @@
             </Menu>
         <TabControl>
             <TabItem>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding RefreshConnectionToDataBaseWarhouseWindowCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
+
+
+
+
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <fa:ImageAwesome Icon="Solid_Gifts"/>
