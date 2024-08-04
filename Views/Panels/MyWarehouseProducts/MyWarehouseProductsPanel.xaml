@@ -41,17 +41,22 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0"
-                                Command="{Binding RefreshConnectionToDataBaseWarhouseWindowCommand}">
-                <Button.Content>
-                    <StackPanel Orientation="Horizontal">
-                        <fa:ImageAwesome Icon="Solid_Rotate"/>
-                        <Label Content="{Binding DownloadDataMyProductsWarehouseWindow}"
-                                             Margin="5,0,0,0">
-                        </Label>
-                    </StackPanel>
-                </Button.Content>
-            </Button>
+            <DockPanel Grid.Row="0">
+                <Button DockPanel.Dock="Right"
+                        Width="30"
+                        HorizontalAlignment="Right"
+                        Command="{Binding RefreshConnectionToDataBaseWarhouseWindowCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <fa:ImageAwesome Icon="Solid_Rotate"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </DockPanel>
+            
+            
+            
+
             <DataGrid Grid.Row="1"
                               ItemsSource="{Binding Path = WarehouseProducts}"
                               SelectedItem="{Binding SelectedWarehouseProduct, UpdateSourceTrigger=PropertyChanged}">

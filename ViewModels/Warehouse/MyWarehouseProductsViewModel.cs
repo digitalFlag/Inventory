@@ -279,9 +279,16 @@ namespace Inventory.ViewModels.Warehouse
 
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Информация о продукции на Мини-Складе из базы \"{ConnectionOptions.dbName}\" загружена.";
 
+            SelectedProductId = string.Empty;
             SelectedProductTittle = string.Empty;
             SelectedProductProperty = string.Empty;
-
+            SelectedProductSize = string.Empty;
+            SelectedProductExpirationData = string.Empty;
+            SelectedProductPurchaseCost = string.Empty;
+            SelectedProductLocation = string.Empty;
+            SelectedProductReceiptDate = string.Empty;
+            SelectedProductOrderNumber = string.Empty;
+            SelectedProductNote = string.Empty;
 
             OnPropertyChanged();
         }
@@ -525,6 +532,9 @@ namespace Inventory.ViewModels.Warehouse
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
                 BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";
             }
+
+            OnRefreshConnectionToDataBaseWarhouseWindowCommandExecuted(true);
+
         }
 
         #endregion

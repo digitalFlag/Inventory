@@ -207,24 +207,6 @@
                     </i:Interaction.Triggers>
                 </TextBox>
             </Grid>
-            <!--Id-->
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="130"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Column="0"
-                       Content="{Binding LabelIdProduct}"/>
-                <TextBox Grid.Column="1"
-                         Text="{Binding NoteAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
-                         BorderBrush="{Binding BorderColorIdAddNewWarehouse}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding }"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </TextBox>
-            </Grid>
 
             <Button Grid.Column="1"
                     Command="{Binding PushButtonAddToWarehouseAtAddToWarehousePanelCommand}">
