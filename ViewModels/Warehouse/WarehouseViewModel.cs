@@ -1,6 +1,7 @@
 ﻿using Inventory.Models;
 using Inventory.Services;
 using Inventory.ViewModels.Base;
+using System.Collections.ObjectModel;
 using System.Data;
 
 namespace Inventory.ViewModels.Warehouse
@@ -94,6 +95,10 @@ namespace Inventory.ViewModels.Warehouse
             ButtonTittleAddToWarewouseAddToWarehousePannel = "Добавить на Мини-Склад";
 
             ValueOfEventLogAddProductToWarehouseTabControl = string.Empty;
+
+            IconTittleChangeValue = "Regular_CircleCheck";
+            IcomTittleColorAddNewProduct = "Gray";
+            ActualProductsTittles = [];
 
             #endregion
 

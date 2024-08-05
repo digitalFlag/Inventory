@@ -2,6 +2,7 @@
 using Inventory.Models;
 using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
@@ -224,6 +225,41 @@ namespace Inventory.ViewModels.Warehouse
 		public string? ValueOfEventLogAddProductToWarehouseTabControl { get => _ValueOfEventLogAddProductToWarehouseTabControl; set => Set(ref _ValueOfEventLogAddProductToWarehouseTabControl, value); }
 
 		#endregion
+
+
+		#region IconTittleChangeValue: - Value Of Icon "Tittle" When Value Is Changing
+
+		/// <summary>Value Of Icon "Tittle" When Value Is Changing</summary>
+		private string? _IconTittleChangeValue;
+
+		/// <summary>Value Of Icon "Tittle" When Value Is Changing</summary>
+
+		public string? IconTittleChangeValue { get => _IconTittleChangeValue; set => Set(ref _IconTittleChangeValue, value); }
+
+		#endregion
+		#region IcomTittleColorAddNewProduct: - Color Of Icon "Tittle" At Add New Product Panel
+
+		/// <summary>Color Of Icon "Tittle" At Add New Product Panel</summary>
+		private string? _IcomTittleColorAddNewProduct;
+
+		/// <summary>Color Of Icon "Tittle" At Add New Product Panel</summary>
+
+		public string? IcomTittleColorAddNewProduct { get => _IcomTittleColorAddNewProduct; set => Set(ref _IcomTittleColorAddNewProduct, value); }
+
+		#endregion
+
+		#region ActualProductsTittles: - "Tittles" Of Actuall Products At "Add New Product" Panel
+
+		/// <summary>"Tittles" Of Actuall Products At "Add New Product" Panel</summary>
+		private ObservableCollection<Product>? _ActualProductsTittles;
+
+		/// <summary>"Tittles" Of Actuall Products At "Add New Product" Panel</summary>
+
+		public ObservableCollection<Product>? ActualProductsTittles { get => _ActualProductsTittles; set => Set(ref _ActualProductsTittles, value); }
+
+		#endregion
+
+
 
 
 		#endregion
