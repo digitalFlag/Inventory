@@ -247,7 +247,6 @@ namespace Inventory.ViewModels.Warehouse
 		public string? IcomTittleColorAddNewProduct { get => _IcomTittleColorAddNewProduct; set => Set(ref _IcomTittleColorAddNewProduct, value); }
 
 		#endregion
-
 		#region ActualProductsTittles: - "Tittles" Of Actuall Products At "Add New Product" Panel
 
 		/// <summary>"Tittles" Of Actuall Products At "Add New Product" Panel</summary>
@@ -258,7 +257,7 @@ namespace Inventory.ViewModels.Warehouse
 		public ObservableCollection<Product>? ActualProductsTittles { get => _ActualProductsTittles; set => Set(ref _ActualProductsTittles, value); }
 
 		#endregion
-
+		//ToDo I am Here.
 
 
 
@@ -335,6 +334,23 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
+
+		#region Command LoadActualProductslistCommand: - Load The List Witch Contains Actual Products 
+
+		/// <summary>Load The List Witch Contains Actual Products </summary>
+		private LambdaCommand? _LoadActualProductslistCommand;
+
+		/// <summary>Load The List Witch Contains Actual Products </summary>
+		public ICommand LoadActualProductslistCommand => _LoadActualProductslistCommand ??= new(OnLoadActualProductslistCommandExecuted);
+
+		/// <summary>Логика выполнения - Load The List Witch Contains Actual Products </summary>
+
+		private void OnLoadActualProductslistCommandExecuted(object? p)
+		{
+
+		}
+
+		#endregion
 
 
 		#endregion
