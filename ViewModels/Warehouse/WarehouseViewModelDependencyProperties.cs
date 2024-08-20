@@ -81,16 +81,6 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
-        #region LoadedDataTableFromDataBaseMiniWarehouseWindow: - Loaded "DataTable" From SQL DB For "WareHouse Window" 
-
-        /// <summary>Loaded "DataTable" From SQL DB For "WareHouse Window" </summary>
-        private DataTable? _LoadedDataTableFromDataBaseMiniWarehouseWindow;
-
-        /// <summary>Loaded "DataTable" From SQL DB For "WareHouse Window" </summary>
-
-        public DataTable? LoadedDataTableFromDataBaseMiniWarehouseWindow { get => _LoadedDataTableFromDataBaseMiniWarehouseWindow; set => Set(ref _LoadedDataTableFromDataBaseMiniWarehouseWindow, value); }
-
-        #endregion
         #region WarehouseProducts: - Products On Warehouse List
 
         /// <summary>Products On Warehouse List</summary>

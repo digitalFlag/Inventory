@@ -57,11 +57,6 @@
                         <i:InvokeCommandAction Command="{Binding RefreshConnectionToDataBaseWarhouseWindowCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-
-
-
-
-
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <fa:ImageAwesome Icon="Solid_Gifts"/>
@@ -71,6 +66,11 @@
                 <viewsMyWarehouseProducts:MyWarehouseProductsPanel/>
             </TabItem><!--My Warehouse Products Panel-->
             <TabItem>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction Command="{Binding LoadActualProductslistCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <fa:ImageAwesome Icon="Solid_ParachuteBox"/>

@@ -1,7 +1,6 @@
 ﻿using Inventory.Models;
 using Inventory.Services;
 using Inventory.ViewModels.Base;
-using System.Collections.ObjectModel;
 using System.Data;
 
 namespace Inventory.ViewModels.Warehouse
@@ -21,7 +20,6 @@ namespace Inventory.ViewModels.Warehouse
             AddToMyMiniWarehouse = "Добавить Продукцию на Мини-Склад";
             OptionsMyWarehouseTabWarhouseWindow = "Действия:";
             DownloadDataMyProductsWarehouseWindow = "Обновить данные";
-            LoadedDataTableFromDataBaseMiniWarehouseWindow = new DataTable();
 
             #region GENERAL PROPERTIES
 
@@ -40,6 +38,7 @@ namespace Inventory.ViewModels.Warehouse
 
             #region WAREHOUSE PRODUCTS
 
+            LoadedDataTableFromDataBaseMiniWarehouseWindow = new DataTable();
             SelectedWarehouseProduct = new WarehouseProduct();
 
             BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
@@ -99,6 +98,8 @@ namespace Inventory.ViewModels.Warehouse
             IconTittleChangeValue = "Regular_CircleCheck";
             IcomTittleColorAddNewProduct = "Gray";
             ActualProductsTittles = [];
+
+            LoadedDataTableOfActualProducts = new DataTable();
 
             #endregion
 

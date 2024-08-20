@@ -2,7 +2,6 @@
 using Inventory.Models;
 using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
-using Microsoft.VisualBasic;
 using System.Data;
 using System.Windows.Input;
 
@@ -11,6 +10,17 @@ namespace Inventory.ViewModels.Warehouse
     public partial class WarehouseViewModel : DialogViewModel
     {
         #region Dependency Properties
+
+        #region LoadedDataTableFromDataBaseMiniWarehouseWindow: - Loaded "DataTable" From SQL DB For "WareHouse Window" 
+
+        /// <summary>Loaded "DataTable" From SQL DB For "WareHouse Window" </summary>
+        private DataTable? _LoadedDataTableFromDataBaseMiniWarehouseWindow;
+
+        /// <summary>Loaded "DataTable" From SQL DB For "WareHouse Window" </summary>
+
+        public DataTable? LoadedDataTableFromDataBaseMiniWarehouseWindow { get => _LoadedDataTableFromDataBaseMiniWarehouseWindow; set => Set(ref _LoadedDataTableFromDataBaseMiniWarehouseWindow, value); }
+
+        #endregion
 
         #region BorderColorSelectedProductTittleMyWarehouseControlTab: - "Border Color" Of Selected Product At "My Warehouse"
 

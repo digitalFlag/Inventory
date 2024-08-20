@@ -3,6 +3,7 @@ using Inventory.Models;
 using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
@@ -257,8 +258,35 @@ namespace Inventory.ViewModels.Warehouse
 		public ObservableCollection<Product>? ActualProductsTittles { get => _ActualProductsTittles; set => Set(ref _ActualProductsTittles, value); }
 
 		#endregion
-		//ToDo I am Here.
 
+		//Dell
+
+		//I am Here
+
+		#region dellData: - DellData
+
+		/// <summary>DellData</summary>
+		private Enumerable<>? _dellData;
+
+		/// <summary>DellData</summary>
+
+		public Enumerable<>? dellData { get => _dellData; set => Set(ref _dellData, value); }
+
+		#endregion
+
+
+		//Dell
+
+		#region LoadedDataTableOfActualProducts: - Loaded "Data Table" From SQL DB For TabItem "Add New Warehouse Product"
+
+		/// <summary>Loaded "Data Table" From SQL DB For TabItem "Add New Warehouse Product"</summary>
+		private DataTable? _LoadedDataTableOfActualProducts;
+
+		/// <summary>Loaded "Data Table" From SQL DB For TabItem "Add New Warehouse Product"</summary>
+
+		public DataTable? LoadedDataTableOfActualProducts { get => _LoadedDataTableOfActualProducts; set => Set(ref _LoadedDataTableOfActualProducts, value); }
+
+		#endregion
 
 
 		#endregion
@@ -347,12 +375,30 @@ namespace Inventory.ViewModels.Warehouse
 
 		private void OnLoadActualProductslistCommandExecuted(object? p)
 		{
+            var dbSettings = new DBSettings
+            {
+                Server = ConnectionOptions.dbServer,
+                Port = ConnectionOptions.dbPort,
+                Name = ConnectionOptions.dbName,
+                UserId = ConnectionOptions.userId,
+                Password = ConnectionOptions.password
+            };
 
-		}
+            string table = DbTables.ActualProducts;
 
-		#endregion
+            if (_DataBase is null)
+            {
+                return;
+            }
+
+            LoadedDataTableOfActualProducts = _DataBase.GetData(dbSettings, table);
+            ActualProductsTittles = LoadedDataTableOfActualProducts.AsEnumerable;
+			//ToDo I am Here.
+        }
+
+        #endregion
 
 
-		#endregion
-	}
+        #endregion
+    }
 }
