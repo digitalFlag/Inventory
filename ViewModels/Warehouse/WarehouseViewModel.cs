@@ -97,9 +97,13 @@ namespace Inventory.ViewModels.Warehouse
 
             IconTittleChangeValue = "Regular_CircleCheck";
             IcomTittleColorAddNewProduct = "Gray";
+            IconPropertyChangeValue = "Regular_CircleCheck";
+            IconPropertyColorAddNewProduct = "Gray";
+            ValueOfSelectedItemComboBoxTittle = string.Empty;
 
             LoadedDataTableOfActualProducts = new DataTable();
             ListOfActualProductsTittles = [];
+            ListOfActualProductProperties = [];
 
 
             #endregion

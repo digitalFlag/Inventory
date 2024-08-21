@@ -2,7 +2,6 @@
 using Inventory.Models;
 using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
-using System.Collections.ObjectModel;
 using System.Data;
 using System.Windows.Input;
 
@@ -248,6 +247,31 @@ namespace Inventory.ViewModels.Warehouse
 		public string? IcomTittleColorAddNewProduct { get => _IcomTittleColorAddNewProduct; set => Set(ref _IcomTittleColorAddNewProduct, value); }
 
 		#endregion
+		#region IconPropertyChangeValue: - Value Of Icon "Property" When Value Is Changing
+
+		/// <summary>Value Of Icon "Property" When Value Is Changing</summary>
+		private string? _IconPropertyChangeValue;
+
+		/// <summary>Value Of Icon "Property" When Value Is Changing</summary>
+
+		public string? IconPropertyChangeValue { get => _IconPropertyChangeValue; set => Set(ref _IconPropertyChangeValue, value); }
+
+		#endregion
+		#region IconPropertyColorAddNewProduct: - Color Of Icon "Property" At Add New Product Panel
+
+		/// <summary>Color Of Icon "Property" At Add New Product Panel</summary>
+		private string? _IconPropertyColorAddNewProduct;
+
+		/// <summary>Color Of Icon "Property" At Add New Product Panel</summary>
+
+		public string? IconPropertyColorAddNewProduct { get => _IconPropertyColorAddNewProduct; set => Set(ref _IconPropertyColorAddNewProduct, value); }
+
+		#endregion
+
+
+
+
+
 
 		#region LoadedDataTableOfActualProducts: - Loaded "Data Table" From SQL DB For TabItem "Add New Warehouse Product"
 
@@ -268,6 +292,26 @@ namespace Inventory.ViewModels.Warehouse
 		/// <summary>List Wich Contains Actuall Tittes Of Products Names</summary>
 
 		public List<string>? ListOfActualProductsTittles { get => _ListOfActualProductsTittles; set => Set(ref _ListOfActualProductsTittles, value); }
+
+		#endregion
+		#region ValueOfSelectedItemComboBoxTittle: - Value Of Selected Item Of Combo Box "Tittle" At Add New Product Panel
+
+		/// <summary>Value Of Selected Item Of Combo Box "Tittle" At Add New Product Panel</summary>
+		private string? _ValueOfSelectedItemComboBoxTittle;
+
+		/// <summary>Value Of Selected Item Of Combo Box "Tittle" At Add New Product Panel</summary>
+
+		public string? ValueOfSelectedItemComboBoxTittle { get => _ValueOfSelectedItemComboBoxTittle; set => Set(ref _ValueOfSelectedItemComboBoxTittle, value); }
+
+		#endregion
+		#region ListOfActualProductProperties: - List Wich Contains Actuall Properties Of Product
+
+		/// <summary>List Wich Contains Actuall Properties Of Product</summary>
+		private List<string>? _ListOfActualProductProperties;
+
+		/// <summary>List Wich Contains Actuall Properties Of Product</summary>
+
+		public List<string>? ListOfActualProductProperties { get => _ListOfActualProductProperties; set => Set(ref _ListOfActualProductProperties, value); }
 
 		#endregion
 
@@ -345,7 +389,6 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
-
 		#region Command LoadActualProductslistCommand: - Load The List Witch Contains Actual Products 
 
 		/// <summary>Load The List Witch Contains Actual Products </summary>
@@ -386,9 +429,32 @@ namespace Inventory.ViewModels.Warehouse
 
         }
 
-        #endregion
+		#endregion
 
 
-        #endregion
-    }
+		#region Command ComboBoxValueTittleIsChangedCommand: - Change Value Of Selected Item In Combo Box "Tittle";
+
+		/// <summary>Change Value Of Selected Item In Combo Box "Tittle";</summary>
+		private LambdaCommand? _ComboBoxValueTittleIsChangedCommand;
+
+		/// <summary>Change Value Of Selected Item In Combo Box "Tittle";</summary>
+		public ICommand ComboBoxValueTittleIsChangedCommand => _ComboBoxValueTittleIsChangedCommand ??= new(OnComboBoxValueTittleIsChangedCommandExecuted);
+
+		/// <summary>Логика выполнения - Change Value Of Selected Item In Combo Box "Tittle";</summary>
+
+		private void OnComboBoxValueTittleIsChangedCommandExecuted(object? p)
+		{
+			switch(ValueOfSelectedItemComboBoxTittle)
+			{
+				case "":
+					{
+						return;
+					}
+			}
+        }
+
+		#endregion
+	}
 }
+#endregion
+
