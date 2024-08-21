@@ -81,16 +81,6 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
-        #region WarehouseProducts: - Products On Warehouse List
-
-        /// <summary>Products On Warehouse List</summary>
-        private IEnumerable<WarehouseProduct>? _WarehouseProducts;
-
-        /// <summary>Products On Warehouse List</summary>
-
-        public IEnumerable<WarehouseProduct>? WarehouseProducts { get => _WarehouseProducts; set => Set(ref _WarehouseProducts, value); }
-
-        #endregion
         #region SelectedWarehouseProduct: - Selected Warehouse Product
 
         /// <summary>Selected Warehouse Product</summary>

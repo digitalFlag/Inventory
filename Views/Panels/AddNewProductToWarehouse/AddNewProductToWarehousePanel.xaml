@@ -73,7 +73,8 @@
                                      PrimaryColor="{Binding IcomTittleColorAddNewProduct}">
                     </fa:ImageAwesome>
                     <ComboBox Grid.Column="1"
-                              ItemsSource="{Binding ActualProductsTittles}">
+                              ItemsSource="{Binding ListOfActualProductsTittles}"
+                              SelectedIndex="0">
                         
                     </ComboBox>
 

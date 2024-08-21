@@ -248,34 +248,6 @@ namespace Inventory.ViewModels.Warehouse
 		public string? IcomTittleColorAddNewProduct { get => _IcomTittleColorAddNewProduct; set => Set(ref _IcomTittleColorAddNewProduct, value); }
 
 		#endregion
-		#region ActualProductsTittles: - "Tittles" Of Actuall Products At "Add New Product" Panel
-
-		/// <summary>"Tittles" Of Actuall Products At "Add New Product" Panel</summary>
-		private ObservableCollection<Product>? _ActualProductsTittles;
-
-		/// <summary>"Tittles" Of Actuall Products At "Add New Product" Panel</summary>
-
-		public ObservableCollection<Product>? ActualProductsTittles { get => _ActualProductsTittles; set => Set(ref _ActualProductsTittles, value); }
-
-		#endregion
-
-		//Dell
-
-		//I am Here
-
-		#region dellData: - DellData
-
-		/// <summary>DellData</summary>
-		private Enumerable<>? _dellData;
-
-		/// <summary>DellData</summary>
-
-		public Enumerable<>? dellData { get => _dellData; set => Set(ref _dellData, value); }
-
-		#endregion
-
-
-		//Dell
 
 		#region LoadedDataTableOfActualProducts: - Loaded "Data Table" From SQL DB For TabItem "Add New Warehouse Product"
 
@@ -285,6 +257,17 @@ namespace Inventory.ViewModels.Warehouse
 		/// <summary>Loaded "Data Table" From SQL DB For TabItem "Add New Warehouse Product"</summary>
 
 		public DataTable? LoadedDataTableOfActualProducts { get => _LoadedDataTableOfActualProducts; set => Set(ref _LoadedDataTableOfActualProducts, value); }
+
+		#endregion
+
+		#region ListOfActualProductsTittles: - List Wich Contains Actuall Tittes Of Products Names
+
+		/// <summary>List Wich Contains Actuall Tittes Of Products Names</summary>
+		private List<string>? _ListOfActualProductsTittles;
+
+		/// <summary>List Wich Contains Actuall Tittes Of Products Names</summary>
+
+		public List<string>? ListOfActualProductsTittles { get => _ListOfActualProductsTittles; set => Set(ref _ListOfActualProductsTittles, value); }
 
 		#endregion
 
@@ -392,8 +375,15 @@ namespace Inventory.ViewModels.Warehouse
             }
 
             LoadedDataTableOfActualProducts = _DataBase.GetData(dbSettings, table);
-            ActualProductsTittles = LoadedDataTableOfActualProducts.AsEnumerable;
-			//ToDo I am Here.
+            ListOfActualProductsTittles = [.. LoadedDataTableOfActualProducts.AsEnumerable().Select(x => x[1].ToString())];
+			ListOfActualProductsTittles.Sort();
+
+
+
+
+
+
+
         }
 
         #endregion
