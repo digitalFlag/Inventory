@@ -117,7 +117,7 @@
                     </fa:ImageAwesome>
                     <ComboBox Grid.Column="1"
                               ItemsSource="{Binding ListOfActualProductProperties, UpdateSourceTrigger=PropertyChanged}"
-                              SelectedIndex="0">
+                              SelectedIndex="{Binding SelectedIndexOfComboBoxProductProperty, UpdateSourceTrigger=PropertyChanged}">
                     </ComboBox>
 
                 </Grid>
@@ -126,6 +126,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="130"/>
+                    <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0"
@@ -139,6 +140,16 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBox>
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <fa:ImageAwesome Grid.Column="0"
+                                     Icon="{Binding IconSizeChangeValue}"
+                                     PrimaryColor="{Binding IconSizeColorAddNewProduct}">
+                    </fa:ImageAwesome>
+                </Grid>
             </Grid>
             <!--Expiration Date-->
             <Grid>
@@ -235,6 +246,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="130"/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0"
                        Content="{Binding LabelNoteProduct}"/>
@@ -247,6 +259,16 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBox>
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <fa:ImageAwesome Grid.Column="0"
+                                     Icon="{Binding IconNoteChangeValue}"
+                                     PrimaryColor="{Binding IconNoteColorAddNewProduct}">
+                    </fa:ImageAwesome>
+                </Grid>
             </Grid>
 
             <Button Grid.Column="1"

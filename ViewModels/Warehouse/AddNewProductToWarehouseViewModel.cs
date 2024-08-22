@@ -267,6 +267,46 @@ namespace Inventory.ViewModels.Warehouse
 		public string? IconPropertyColorAddNewProduct { get => _IconPropertyColorAddNewProduct; set => Set(ref _IconPropertyColorAddNewProduct, value); }
 
 		#endregion
+		#region IconSizeChangeValue: - Value Of Icon "Size" When VAlue Is Changing
+
+		/// <summary>Value Of Icon "Size" When VAlue Is Changing</summary>
+		private string? _IconSizeChangeValue;
+
+		/// <summary>Value Of Icon "Size" When VAlue Is Changing</summary>
+
+		public string? IconSizeChangeValue { get => _IconSizeChangeValue; set => Set(ref _IconSizeChangeValue, value); }
+
+		#endregion
+		#region IconSizeColorAddNewProduct: - Color Of Icon "Size" At Add New Product
+
+		/// <summary>Color Of Icon "Size" At Add New Product</summary>
+		private string? _IconSizeColorAddNewProduct;
+
+		/// <summary>Color Of Icon "Size" At Add New Product</summary>
+
+		public string? IconSizeColorAddNewProduct { get => _IconSizeColorAddNewProduct; set => Set(ref _IconSizeColorAddNewProduct, value); }
+
+		#endregion
+		#region IconNoteChangeValue: - Value Of Icon "Note" When Value Is Changing
+
+		/// <summary>Value Of Icon "Note" When Value Is Changing</summary>
+		private string? _IconNoteChangeValue;
+
+		/// <summary>Value Of Icon "Note" When Value Is Changing</summary>
+
+		public string? IconNoteChangeValue { get => _IconNoteChangeValue; set => Set(ref _IconNoteChangeValue, value); }
+
+		#endregion
+		#region IconNoteColorAddNewProduct: - Color Of Icon "Note" At Add New Product
+
+		/// <summary>Color Of Icon "Note" At Add New Product</summary>
+		private string? _IconNoteColorAddNewProduct;
+
+		/// <summary>Color Of Icon "Note" At Add New Product</summary>
+
+		public string? IconNoteColorAddNewProduct { get => _IconNoteColorAddNewProduct; set => Set(ref _IconNoteColorAddNewProduct, value); }
+
+		#endregion
 
 
 
@@ -304,6 +344,7 @@ namespace Inventory.ViewModels.Warehouse
 		public string? ValueOfSelectedItemComboBoxTittle { get => _ValueOfSelectedItemComboBoxTittle; set => Set(ref _ValueOfSelectedItemComboBoxTittle, value); }
 
 		#endregion
+
 		#region ListOfActualProductProperties: - List Wich Contains Actuall Properties Of Product
 
 		/// <summary>List Wich Contains Actuall Properties Of Product</summary>
@@ -312,6 +353,17 @@ namespace Inventory.ViewModels.Warehouse
 		/// <summary>List Wich Contains Actuall Properties Of Product</summary>
 
 		public List<string>? ListOfActualProductProperties { get => _ListOfActualProductProperties; set => Set(ref _ListOfActualProductProperties, value); }
+
+		#endregion
+
+		#region SelectedIndexOfComboBoxProductProperty: - The Value Of Selected Index Of Combo Box "Property"
+
+		/// <summary>The Value Of Selected Index Of Combo Box "Property"</summary>
+		private uint? _SelectedIndexOfComboBoxProductProperty;
+
+		/// <summary>The Value Of Selected Index Of Combo Box "Property"</summary>
+
+		public uint? SelectedIndexOfComboBoxProductProperty { get => _SelectedIndexOfComboBoxProductProperty; set => Set(ref _SelectedIndexOfComboBoxProductProperty, value); }
 
 		#endregion
 
@@ -419,18 +471,10 @@ namespace Inventory.ViewModels.Warehouse
 
             LoadedDataTableOfActualProducts = _DataBase.GetData(dbSettings, table);
             ListOfActualProductsTittles = [.. LoadedDataTableOfActualProducts.AsEnumerable().Select(x => x[1].ToString())];
-			ListOfActualProductsTittles.Sort();
-
-
-
-
-
-
 
         }
 
 		#endregion
-
 
 		#region Command ComboBoxValueTittleIsChangedCommand: - Change Value Of Selected Item In Combo Box "Tittle";
 
@@ -444,13 +488,26 @@ namespace Inventory.ViewModels.Warehouse
 
 		private void OnComboBoxValueTittleIsChangedCommandExecuted(object? p)
 		{
-			if (ValueOfSelectedItemComboBoxTittle is null)
+			TittleProductAddNewToWarehouse = ValueOfSelectedItemComboBoxTittle;
+
+
+            if (ValueOfSelectedItemComboBoxTittle is null)
 			{
 				return;
 			}
 
 			ListOfActualProductProperties = ProductsProperties.ActualProperties.Set(ValueOfSelectedItemComboBoxTittle);
 
+            if (ListOfActualProductProperties.Count > 0)
+            {
+                ListOfActualProductProperties.Sort();
+                SelectedIndexOfComboBoxProductProperty = 0;
+
+                PropertyProductAddNewToWarehouse = ListOfActualProductProperties[0];
+            }
+
+            SizeProductAddNewToWarehouse = ProductsProperties.ActualSizes.Set(ValueOfSelectedItemComboBoxTittle);
+            NoteAddNewToWarehouse = ProductsProperties.ActualNotes.Set(ValueOfSelectedItemComboBoxTittle);
 
         }
 
