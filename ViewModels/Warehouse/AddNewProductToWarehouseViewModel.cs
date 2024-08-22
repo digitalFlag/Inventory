@@ -444,14 +444,14 @@ namespace Inventory.ViewModels.Warehouse
 
 		private void OnComboBoxValueTittleIsChangedCommandExecuted(object? p)
 		{
-			//ToDo I am Here.
-			switch(ValueOfSelectedItemComboBoxTittle)
+			if (ValueOfSelectedItemComboBoxTittle is null)
 			{
-				case "":
-					{
-						return;
-					}
+				return;
 			}
+
+			ListOfActualProductProperties = ProductsProperties.ActualProperties.Set(ValueOfSelectedItemComboBoxTittle);
+
+
         }
 
 		#endregion

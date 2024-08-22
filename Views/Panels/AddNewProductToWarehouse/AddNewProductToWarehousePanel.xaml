@@ -73,8 +73,8 @@
                                      PrimaryColor="{Binding IcomTittleColorAddNewProduct}">
                     </fa:ImageAwesome>
                     <ComboBox Grid.Column="1"
-                              ItemsSource="{Binding ListOfActualProductsTittles}"
-                              SelectedItem="{Binding ValueOfSelectedItemComboBoxTittle}"
+                              ItemsSource="{Binding ListOfActualProductsTittles, UpdateSourceTrigger=PropertyChanged}"
+                              SelectedItem="{Binding ValueOfSelectedItemComboBoxTittle, UpdateSourceTrigger=PropertyChanged}"
                               SelectedIndex="0">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
@@ -116,7 +116,7 @@
                      PrimaryColor="{Binding IconPropertyColorAddNewProduct}">
                     </fa:ImageAwesome>
                     <ComboBox Grid.Column="1"
-                              ItemsSource="{Binding ListOfActualProductProperties}"
+                              ItemsSource="{Binding ListOfActualProductProperties, UpdateSourceTrigger=PropertyChanged}"
                               SelectedIndex="0">
                     </ComboBox>
 
