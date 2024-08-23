@@ -44,7 +44,8 @@
                        FontWeight="Medium" 
                        HorizontalAlignment="Center">
                 </Label>
-            </Grid><!--PRODUCT DESCRIPTION-->
+            </Grid>
+            <!--PRODUCT DESCRIPTION-->
             <!--Tittle-->
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -92,28 +93,29 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="130"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="67*"/>
+                    <ColumnDefinition Width="132*"/>
+                    <ColumnDefinition Width="199*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0"
-                       Content="{Binding LabelPropertyProduct}"/>
+                       Content="{Binding LabelPropertyProduct}" Margin="2,2,2,2"/>
                 <TextBox Grid.Column="1"
                          Text="{Binding PropertyProductAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
-                         BorderBrush="{Binding BorderColorPropertyAddNewWarehouse}">
+                         BorderBrush="{Binding BorderColorPropertyAddNewWarehouse}" Grid.ColumnSpan="2" Margin="2,2,2,2">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding }"/>
+                            <i:InvokeCommandAction Command="{Binding ChangeValueOfProductPropertyCommand}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBox>
-                <Grid Grid.Column="2">
+                <Grid Grid.Column="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <fa:ImageAwesome Grid.Column="0"
-                     Icon="{Binding IconPropertyChangeValue}"
-                     PrimaryColor="{Binding IconPropertyColorAddNewProduct}">
+                                     Icon="{Binding IconPropertyChangeValue}"
+                                     PrimaryColor="{Binding IconPropertyColorAddNewProduct}">
                     </fa:ImageAwesome>
                     <ComboBox Grid.Column="1"
                               ItemsSource="{Binding ListOfActualProductProperties, UpdateSourceTrigger=PropertyChanged}"
@@ -287,7 +289,8 @@
 
 
         <GridSplitter Grid.Column="1">
-        </GridSplitter><!--Grid Splitter-->
+        </GridSplitter>
+        <!--Grid Splitter-->
 
         <StackPanel Grid.Column="2"
                     Orientation="Vertical">

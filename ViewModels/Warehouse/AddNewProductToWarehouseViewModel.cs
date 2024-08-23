@@ -514,7 +514,6 @@ namespace Inventory.ViewModels.Warehouse
 		#endregion
 
 
-
 		#region Command ChangeValueOfProductTittleCommand: - Change Value Of The Added Product Tittle
 
 		/// <summary>Change Value Of The Added Product Tittle</summary>
@@ -570,6 +569,35 @@ namespace Inventory.ViewModels.Warehouse
             IconTittleChangeValue = "Regular_CircleQuestion";
             IcomTittleColorAddNewProduct = "LimeGreen";
 			ValueOfEventLogAddProductToWarehouseTabControl = "Задано \"Название\" продукта не внесенное в эталоны!";
+        }
+
+		#endregion
+
+		#region Command ChangeValueOfProductPropertyCommand: - Change Value Of The Added Product Property
+
+		/// <summary>Change Value Of The Added Product Property</summary>
+		private LambdaCommand? _ChangeValueOfProductPropertyCommand;
+
+		/// <summary>Change Value Of The Added Product Property</summary>
+		public ICommand ChangeValueOfProductPropertyCommand => _ChangeValueOfProductPropertyCommand ??= new(OnChangeValueOfProductPropertyCommandExecuted);
+
+		/// <summary>Логика выполнения - Change Value Of The Added Product Property</summary>
+
+		private void OnChangeValueOfProductPropertyCommandExecuted(object? p)
+		{
+            if (string.IsNullOrEmpty(PropertyProductAddNewToWarehouse))
+            {
+                BorderColorPropertyAddNewWarehouse = "HotPink";
+                IconPropertyChangeValue = "Regular_CircleCheck";
+                IcomTittleColorAddNewProduct = "IconPropertyColorAddNewProduct";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Тип\" продукта не задано.";
+
+                return;
+
+            }
+			//ToDo I am Here.
+
+
         }
 
         #endregion
