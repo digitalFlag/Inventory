@@ -512,7 +512,72 @@ namespace Inventory.ViewModels.Warehouse
         }
 
 		#endregion
-	}
+
+
+
+		#region Command ChangeValueOfProductTittleCommand: - Change Value Of The Added Product Tittle
+
+		/// <summary>Change Value Of The Added Product Tittle</summary>
+		private LambdaCommand? _ChangeValueOfProductTittleCommand;
+
+		/// <summary>Change Value Of The Added Product Tittle</summary>
+		public ICommand ChangeValueOfProductTittleCommand => _ChangeValueOfProductTittleCommand ??= new(OnChangeValueOfProductTittleCommandExecuted);
+
+		/// <summary>Логика выполнения - Change Value Of The Added Product Tittle</summary>
+
+		private void OnChangeValueOfProductTittleCommandExecuted(object? p)
+		{
+			if (string.IsNullOrEmpty(TittleProductAddNewToWarehouse))
+			{
+                BorderColorTittleAddNewWarehouse = "DarkViolet";
+				IconTittleChangeValue = "Regular_CircleXmark";
+				IcomTittleColorAddNewProduct = "Red";
+				ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Название\" продукта не задано!";
+
+                return;
+
+            }
+
+            if (string.IsNullOrWhiteSpace(TittleProductAddNewToWarehouse))
+            {
+                BorderColorTittleAddNewWarehouse = "DarkViolet";
+                IconTittleChangeValue = "Regular_CircleXmark";
+                IcomTittleColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Название\" продукта задано как ПРОБЕЛ!";
+
+                return;
+
+            }
+
+			if (ListOfActualProductsTittles is null)
+			{
+                ValueOfEventLogAddProductToWarehouseTabControl = "Список эталонов\"Названий\" продуктов пустой!";
+
+                return;
+			}
+
+			if (ListOfActualProductsTittles.Contains(TittleProductAddNewToWarehouse))
+			{
+                BorderColorTittleAddNewWarehouse = "HotPink";
+                IconTittleChangeValue = "Regular_CircleCheck";
+                IcomTittleColorAddNewProduct = "LimeGreen";
+				ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Название\" продукта изменено.";
+
+				return;
+            }
+
+            BorderColorTittleAddNewWarehouse = "HotPink";
+            IconTittleChangeValue = "Regular_CircleQuestion";
+            IcomTittleColorAddNewProduct = "LimeGreen";
+			ValueOfEventLogAddProductToWarehouseTabControl = "Задано \"Название\" продукта не внесенное в эталоны!";
+        }
+
+        #endregion
+
+
+
+
+    }
 }
 #endregion
 
