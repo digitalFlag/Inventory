@@ -93,9 +93,8 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="130"/>
-                    <ColumnDefinition Width="67*"/>
-                    <ColumnDefinition Width="132*"/>
-                    <ColumnDefinition Width="199*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0"
                        Content="{Binding LabelPropertyProduct}" Margin="2,2,2,2"/>
@@ -138,7 +137,7 @@
                          BorderBrush="{Binding BorderColorSizeAddNewWarehouse}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding }"/>
+                            <i:InvokeCommandAction Command="{Binding ChangeValueOfProductSizeCommand}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBox>

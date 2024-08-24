@@ -589,23 +589,60 @@ namespace Inventory.ViewModels.Warehouse
             {
                 BorderColorPropertyAddNewWarehouse = "HotPink";
                 IconPropertyChangeValue = "Regular_CircleCheck";
-                IcomTittleColorAddNewProduct = "IconPropertyColorAddNewProduct";
+                IconPropertyColorAddNewProduct = "Red";
                 ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Тип\" продукта не задано.";
 
                 return;
-
             }
-			//ToDo I am Here.
 
+			if (ListOfActualProductProperties is null)
+			{
+                IcomTittleColorAddNewProduct = "Список \"Тип\" продукта NULL!!!";
+                return;
+			}
+
+            if (ListOfActualProductProperties.Contains(PropertyProductAddNewToWarehouse))
+            {
+                BorderColorPropertyAddNewWarehouse = "HotPink";
+                IconPropertyChangeValue = "Regular_CircleCheck";
+                IconPropertyColorAddNewProduct = "LimeGreen";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Тип\" продукта изменено.";
+
+                return;
+            }
+
+            BorderColorPropertyAddNewWarehouse = "HotPink";
+            IconPropertyChangeValue = "Regular_CircleQuestion";
+            IconPropertyColorAddNewProduct = "LimeGreen";
+            ValueOfEventLogAddProductToWarehouseTabControl = "Задан \"Тип\" продукта не внесенный в эталон!";
 
         }
 
-        #endregion
+		#endregion
+
+
+		#region Command ChangeValueOfProductSizeCommand: - Change Value Of The Added Product Size
+
+		/// <summary>Change Value Of The Added Product Size</summary>
+		private LambdaCommand? _ChangeValueOfProductSizeCommand;
+
+		/// <summary>Change Value Of The Added Product Size</summary>
+		public ICommand ChangeValueOfProductSizeCommand => _ChangeValueOfProductSizeCommand ??= new(OnChangeValueOfProductSizeCommandExecuted);
+
+		/// <summary>Логика выполнения - Change Value Of The Added Product Size</summary>
+
+		private void OnChangeValueOfProductSizeCommandExecuted(object? p)
+		{
+
+		}
+
+		#endregion
 
 
 
 
-    }
+
+	}
 }
 #endregion
 
