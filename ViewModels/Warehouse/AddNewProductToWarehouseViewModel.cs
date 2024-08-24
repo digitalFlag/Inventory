@@ -587,8 +587,8 @@ namespace Inventory.ViewModels.Warehouse
 		{
             if (string.IsNullOrEmpty(PropertyProductAddNewToWarehouse))
             {
-                BorderColorPropertyAddNewWarehouse = "HotPink";
-                IconPropertyChangeValue = "Regular_CircleCheck";
+                BorderColorPropertyAddNewWarehouse = "DarkViolet";
+                IconPropertyChangeValue = "Regular_CircleXmark";
                 IconPropertyColorAddNewProduct = "Red";
                 ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Тип\" продукта не задано.";
 
@@ -620,7 +620,6 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
-
 		#region Command ChangeValueOfProductSizeCommand: - Change Value Of The Added Product Size
 
 		/// <summary>Change Value Of The Added Product Size</summary>
@@ -633,16 +632,30 @@ namespace Inventory.ViewModels.Warehouse
 
 		private void OnChangeValueOfProductSizeCommandExecuted(object? p)
 		{
+            if (string.IsNullOrEmpty(SizeProductAddNewToWarehouse))
+            {
+                BorderColorSizeAddNewWarehouse = "DarkViolet";
+                IconSizeChangeValue = "Regular_CircleXmark";
+                IconSizeColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Размер\" продукта не задано.";
 
-		}
+                return;
+            }
 
-		#endregion
+            BorderColorSizeAddNewWarehouse = "HotPink";
+            IconSizeChangeValue = "Regular_CircleCheck";
+            IconSizeColorAddNewProduct = "LimeGreen";
+            ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Размер\" продукта изменено.";
+
+        }
+
+        #endregion
 
 
 
 
 
-	}
+    }
 }
 #endregion
 
