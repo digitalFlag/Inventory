@@ -307,6 +307,26 @@ namespace Inventory.ViewModels.Warehouse
 		public string? IconNoteColorAddNewProduct { get => _IconNoteColorAddNewProduct; set => Set(ref _IconNoteColorAddNewProduct, value); }
 
 		#endregion
+		#region IconExpirationDateChangeValue: - Value Of Icon "Expiration Date" When Value Is Changing
+
+		/// <summary>Value Of Icon "Expiration Date" When Value Is Changing</summary>
+		private string? _IconExpirationDateChangeValue;
+
+		/// <summary>Value Of Icon "Expiration Date" When Value Is Changing</summary>
+
+		public string? IconExpirationDateChangeValue { get => _IconExpirationDateChangeValue; set => Set(ref _IconExpirationDateChangeValue, value); }
+
+		#endregion
+		#region IconExpirationDateColorAddNewProduct: - Color Of Icon "Expiration Date" At Add New Product Panel
+
+		/// <summary>Color Of Icon "Expiration Date" At Add New Product Panel</summary>
+		private string? _IconExpirationDateColorAddNewProduct;
+
+		/// <summary>Color Of Icon "Expiration Date" At Add New Product Panel</summary>
+
+		public string? IconExpirationDateColorAddNewProduct { get => _IconExpirationDateColorAddNewProduct; set => Set(ref _IconExpirationDateColorAddNewProduct, value); }
+
+		#endregion
 
 
 
@@ -476,6 +496,27 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
+
+		#region Command SelectTabItemAddNewProductCommand: - Action When You Chouse TabItem "Add New Warehouse Product"
+
+		/// <summary>Action When You Chouse TabItem "Add New Warehouse Product"</summary>
+		private LambdaCommand? _SelectTabItemAddNewProductCommand;
+
+		/// <summary>Action When You Chouse TabItem "Add New Warehouse Product"</summary>
+		public ICommand SelectTabItemAddNewProductCommand => _SelectTabItemAddNewProductCommand ??= new(OnSelectTabItemAddNewProductCommandExecuted);
+
+		/// <summary>Логика выполнения - Action When You Chouse TabItem "Add New Warehouse Product"</summary>
+
+		private void OnSelectTabItemAddNewProductCommandExecuted(object? p)
+		{
+			//ToDo I am Here. 
+		}
+
+		#endregion
+
+
+
+
 		#region Command ComboBoxValueTittleIsChangedCommand: - Change Value Of Selected Item In Combo Box "Tittle";
 
 		/// <summary>Change Value Of Selected Item In Combo Box "Tittle";</summary>
@@ -569,6 +610,11 @@ namespace Inventory.ViewModels.Warehouse
             IconTittleChangeValue = "Regular_CircleQuestion";
             IcomTittleColorAddNewProduct = "LimeGreen";
 			ValueOfEventLogAddProductToWarehouseTabControl = "Задано \"Название\" продукта не внесенное в эталоны!";
+
+			ListOfActualProductProperties = [];
+            PropertyProductAddNewToWarehouse = string.Empty;
+            SizeProductAddNewToWarehouse = string.Empty;
+
         }
 
 		#endregion
@@ -649,13 +695,39 @@ namespace Inventory.ViewModels.Warehouse
 
         }
 
-        #endregion
+		#endregion
+
+
+		#region Command ChangeValueOfProductExpirationDateCommand: - Change Value Of The Added Product Expiration Date
+
+		/// <summary>Change Value Of The Added Product Expiration Date</summary>
+		private LambdaCommand? _ChangeValueOfProductExpirationDateCommand;
+
+		/// <summary>Change Value Of The Added Product Expiration Date</summary>
+		public ICommand ChangeValueOfProductExpirationDateCommand => _ChangeValueOfProductExpirationDateCommand ??= new(OnChangeValueOfProductExpirationDateCommandExecuted);
+
+		/// <summary>Логика выполнения - Change Value Of The Added Product Expiration Date</summary>
+
+		private void OnChangeValueOfProductExpirationDateCommandExecuted(object? p)
+		{
+            if (string.IsNullOrEmpty(ExpirationDateProductAddNewToWarehouse))
+            {
+                BorderColorExpirationDateAddNewWarehouse = "DarkViolet";
+                IconExpirationDateChangeValue = "Regular_CircleXmark";
+                IconExpirationDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Срок годности\" продукта не задано.";
+
+                return;
+            }
+        }
+
+		#endregion
 
 
 
 
 
-    }
+	}
 }
 #endregion
 

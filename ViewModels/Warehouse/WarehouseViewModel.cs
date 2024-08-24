@@ -103,6 +103,8 @@ namespace Inventory.ViewModels.Warehouse
             IconSizeColorAddNewProduct = "Gray";
             IconNoteChangeValue = "Regular_CircleCheck";
             IconNoteColorAddNewProduct = "Gray";
+            IconExpirationDateChangeValue = "Regular_CircleCheck";
+            IconExpirationDateColorAddNewProduct = "Gray";
 
             ValueOfSelectedItemComboBoxTittle = string.Empty;
 
