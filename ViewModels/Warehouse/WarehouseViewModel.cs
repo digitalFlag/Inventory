@@ -73,7 +73,7 @@ namespace Inventory.ViewModels.Warehouse
             TittleProductAddNewToWarehouse = string.Empty;
             PropertyProductAddNewToWarehouse = string.Empty;
             SizeProductAddNewToWarehouse = string.Empty;
-            ExpirationDateProductAddNewToWarehouse = string.Empty;
+            ExpirationDateProductAddNewToWarehouse = "**.202*";
             PurchaseCostAddNewToWarehouse = string.Empty;
             LocationAddNewToWarehouse = string.Empty;
             ReceiptDateAddNewToWarehouse = string.Empty;
@@ -102,9 +102,9 @@ namespace Inventory.ViewModels.Warehouse
             IconSizeChangeValue = "Regular_CircleCheck";
             IconSizeColorAddNewProduct = "Gray";
             IconNoteChangeValue = "Regular_CircleCheck";
-            IconNoteColorAddNewProduct = "Gray";
-            IconExpirationDateChangeValue = "Regular_CircleCheck";
-            IconExpirationDateColorAddNewProduct = "Gray";
+            IconNoteColorAddNewProduct = "LimeGreen";
+            IconExpirationDateChangeValue = "Regular_CircleXmark";
+            IconExpirationDateColorAddNewProduct = "Red";
 
             ValueOfSelectedItemComboBoxTittle = string.Empty;
 

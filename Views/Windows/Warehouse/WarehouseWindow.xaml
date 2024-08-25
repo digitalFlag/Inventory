@@ -68,7 +68,7 @@
             <TabItem>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction Command="{Binding LoadActualProductslistCommand}"/>
+                        <i:InvokeCommandAction Command="{Binding SelectTabItemAddNewProductCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 <TabItem.Header>

@@ -461,17 +461,17 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
-		#region Command LoadActualProductslistCommand: - Load The List Witch Contains Actual Products 
+		#region Command SelectTabItemAddNewProductCommand: - Action When You Chouse TabItem "Add New Warehouse Product"
 
-		/// <summary>Load The List Witch Contains Actual Products </summary>
-		private LambdaCommand? _LoadActualProductslistCommand;
+		/// <summary>Action When You Chouse TabItem "Add New Warehouse Product"</summary>
+		private LambdaCommand? _SelectTabItemAddNewProductCommand;
 
-		/// <summary>Load The List Witch Contains Actual Products </summary>
-		public ICommand LoadActualProductslistCommand => _LoadActualProductslistCommand ??= new(OnLoadActualProductslistCommandExecuted);
+		/// <summary>Action When You Chouse TabItem "Add New Warehouse Product"</summary>
+		public ICommand SelectTabItemAddNewProductCommand => _SelectTabItemAddNewProductCommand ??= new(OnSelectTabItemAddNewProductCommandExecuted);
 
-		/// <summary>Логика выполнения - Load The List Witch Contains Actual Products </summary>
+		/// <summary>Логика выполнения - Action When You Chouse TabItem "Add New Warehouse Product"</summary>
 
-		private void OnLoadActualProductslistCommandExecuted(object? p)
+		private void OnSelectTabItemAddNewProductCommandExecuted(object? p)
 		{
             var dbSettings = new DBSettings
             {
@@ -491,26 +491,7 @@ namespace Inventory.ViewModels.Warehouse
 
             LoadedDataTableOfActualProducts = _DataBase.GetData(dbSettings, table);
             ListOfActualProductsTittles = [.. LoadedDataTableOfActualProducts.AsEnumerable().Select(x => x[1].ToString())];
-
         }
-
-		#endregion
-
-
-		#region Command SelectTabItemAddNewProductCommand: - Action When You Chouse TabItem "Add New Warehouse Product"
-
-		/// <summary>Action When You Chouse TabItem "Add New Warehouse Product"</summary>
-		private LambdaCommand? _SelectTabItemAddNewProductCommand;
-
-		/// <summary>Action When You Chouse TabItem "Add New Warehouse Product"</summary>
-		public ICommand SelectTabItemAddNewProductCommand => _SelectTabItemAddNewProductCommand ??= new(OnSelectTabItemAddNewProductCommandExecuted);
-
-		/// <summary>Логика выполнения - Action When You Chouse TabItem "Add New Warehouse Product"</summary>
-
-		private void OnSelectTabItemAddNewProductCommandExecuted(object? p)
-		{
-			//ToDo I am Here. 
-		}
 
 		#endregion
 
@@ -697,7 +678,6 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
-
 		#region Command ChangeValueOfProductExpirationDateCommand: - Change Value Of The Added Product Expiration Date
 
 		/// <summary>Change Value Of The Added Product Expiration Date</summary>
@@ -719,9 +699,88 @@ namespace Inventory.ViewModels.Warehouse
 
                 return;
             }
+
+			if (ExpirationDateProductAddNewToWarehouse.Length != 7)
+			{
+                BorderColorExpirationDateAddNewWarehouse = "DarkViolet";
+                IconExpirationDateChangeValue = "Regular_CircleXmark";
+                IconExpirationDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Срок годности\" продукта задано некорректно (mm.yyyy).";
+
+				return;
+            }
+
+			if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[0]))
+			{
+                BorderColorExpirationDateAddNewWarehouse = "DarkViolet";
+                IconExpirationDateChangeValue = "Regular_CircleXmark";
+                IconExpirationDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Срок годности\" продукта задано некорректно (*m.yyyy).";
+
+				return;
+            }
+            if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[1]))
+            {
+                BorderColorExpirationDateAddNewWarehouse = "DarkViolet";
+                IconExpirationDateChangeValue = "Regular_CircleXmark";
+                IconExpirationDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Срок годности\" продукта задано некорректно (m*.yyyy).";
+
+                return;
+            }
+            if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[3]))
+            {
+                BorderColorExpirationDateAddNewWarehouse = "DarkViolet";
+                IconExpirationDateChangeValue = "Regular_CircleXmark";
+                IconExpirationDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Срок годности\" продукта задано некорректно (mm.*yyy).";
+
+                return;
+            }
+            if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[4]))
+            {
+                BorderColorExpirationDateAddNewWarehouse = "DarkViolet";
+                IconExpirationDateChangeValue = "Regular_CircleXmark";
+                IconExpirationDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Срок годности\" продукта задано некорректно (mm.y*yy).";
+
+                return;
+            }
+            if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[5]))
+            {
+                BorderColorExpirationDateAddNewWarehouse = "DarkViolet";
+                IconExpirationDateChangeValue = "Regular_CircleXmark";
+                IconExpirationDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Срок годности\" продукта задано некорректно (mm.yy*y).";
+
+                return;
+            }
+            if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[6]))
+            {
+                BorderColorExpirationDateAddNewWarehouse = "DarkViolet";
+                IconExpirationDateChangeValue = "Regular_CircleXmark";
+                IconExpirationDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Срок годности\" продукта задано некорректно (mm.yyy*).";
+
+                return;
+            }
+
+			uint month = Convert.ToUInt32(ExpirationDateProductAddNewToWarehouse[..2]);
+			//ToDo I am Here.
+
+
+
+
+
+            BorderColorExpirationDateAddNewWarehouse = "HotPink";
+            IconExpirationDateChangeValue = "Regular_CircleCheck";
+            IconExpirationDateColorAddNewProduct = "LimeGreen";
+            ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Срок годности\" продукта изменено.";
         }
 
 		#endregion
+
+
 
 
 
