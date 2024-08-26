@@ -766,7 +766,26 @@ namespace Inventory.ViewModels.Warehouse
             }
 
 			uint month = Convert.ToUInt32(ExpirationDateProductAddNewToWarehouse[..2]);
-			//ToDo I am Here.
+
+			if (month < 1 || month > 12)
+			{
+                BorderColorExpirationDateAddNewWarehouse = "DarkViolet";
+                IconExpirationDateChangeValue = "Regular_CircleXmark";
+                IconExpirationDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Срок годности\" (месяц) продукта задано некорректно (**.yyyy).";
+
+				return;
+            }
+
+			if (ExpirationDateProductAddNewToWarehouse[2] != '.' && ExpirationDateProductAddNewToWarehouse[2] != '/')
+			{
+                BorderColorExpirationDateAddNewWarehouse = "DarkViolet";
+                IconExpirationDateChangeValue = "Regular_CircleXmark";
+                IconExpirationDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Срок годности\" (разделитель) продукта задано некорректно (mm*yyyy) ( * = . or /).";
+
+				return;
+            }
 
 
 
