@@ -556,11 +556,10 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
+        #region Command ComboBoxValueTittleIsChangedCommand: - Change Value Of Selected Item In Combo Box "Tittle";
 
-		#region Command ComboBoxValueTittleIsChangedCommand: - Change Value Of Selected Item In Combo Box "Tittle";
-
-		/// <summary>Change Value Of Selected Item In Combo Box "Tittle";</summary>
-		private LambdaCommand? _ComboBoxValueTittleIsChangedCommand;
+        /// <summary>Change Value Of Selected Item In Combo Box "Tittle";</summary>
+        private LambdaCommand? _ComboBoxValueTittleIsChangedCommand;
 
 		/// <summary>Change Value Of Selected Item In Combo Box "Tittle";</summary>
 		public ICommand ComboBoxValueTittleIsChangedCommand => _ComboBoxValueTittleIsChangedCommand ??= new(OnComboBoxValueTittleIsChangedCommandExecuted);
@@ -592,12 +591,29 @@ namespace Inventory.ViewModels.Warehouse
 
         }
 
-		#endregion
+        #endregion
+        #region Command ComboBoxValueLocationIsChangedCommand: - Change value Of Selected Item In Combo Box "Lication"
 
-		#region Command ChangeValueOfProductTittleCommand: - Change Value Of The Added Product Tittle
+        /// <summary>Change value Of Selected Item In Combo Box "Lication"</summary>
+        private LambdaCommand? _ComboBoxValueLocationIsChangedCommand;
 
-		/// <summary>Change Value Of The Added Product Tittle</summary>
-		private LambdaCommand? _ChangeValueOfProductTittleCommand;
+        /// <summary>Change value Of Selected Item In Combo Box "Lication"</summary>
+        public ICommand ComboBoxValueLocationIsChangedCommand => _ComboBoxValueLocationIsChangedCommand ??= new(OnComboBoxValueLocationIsChangedCommandExecuted);
+
+        /// <summary>Логика выполнения - Change value Of Selected Item In Combo Box "Lication"</summary>
+
+        private void OnComboBoxValueLocationIsChangedCommandExecuted(object? p)
+        {
+            LocationAddNewToWarehouse = ValueOfSelectedItemComboBoxLocation;
+        }
+
+        #endregion
+
+
+        #region Command ChangeValueOfProductTittleCommand: - Change Value Of The Added Product Tittle
+
+        /// <summary>Change Value Of The Added Product Tittle</summary>
+        private LambdaCommand? _ChangeValueOfProductTittleCommand;
 
 		/// <summary>Change Value Of The Added Product Tittle</summary>
 		public ICommand ChangeValueOfProductTittleCommand => _ChangeValueOfProductTittleCommand ??= new(OnChangeValueOfProductTittleCommandExecuted);
