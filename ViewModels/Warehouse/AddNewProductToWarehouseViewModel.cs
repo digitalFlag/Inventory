@@ -516,8 +516,6 @@ namespace Inventory.ViewModels.Warehouse
 		#endregion
 
 
-
-
 		#region Command ComboBoxValueTittleIsChangedCommand: - Change Value Of Selected Item In Combo Box "Tittle";
 
 		/// <summary>Change Value Of Selected Item In Combo Box "Tittle";</summary>
@@ -844,9 +842,36 @@ namespace Inventory.ViewModels.Warehouse
                 ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Стоимость покупки\" продукта задано как ПРОБЕЛ!";
 
                 return;
+            }
+
+			foreach (char c in PurchaseCostAddNewToWarehouse)
+			{
+				if (!char.IsDigit(c))
+				{
+                    BorderColorPurchaseCostAddNewWarehouse = "DarkViolet";
+                    IconCostChangeValue = "Regular_CircleXmark";
+                    IconCostColorAddNewProduct = "Red";
+                    ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Стоимость покупки\" продукта задано некорректно.";
+
+                    return;
+                }
+			}
+
+			if (PurchaseCostAddNewToWarehouse.Length > 1 && PurchaseCostAddNewToWarehouse[0] == '0')
+			{
+                BorderColorPurchaseCostAddNewWarehouse = "DarkViolet";
+                IconCostChangeValue = "Regular_CircleXmark";
+                IconCostColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Стоимость покупки\" продукта задано некорректно (первая цифра 0).";
+
+                return;
 
             }
 
+            BorderColorPurchaseCostAddNewWarehouse = "HotPink";
+            IconCostChangeValue = "Regular_CircleCheck";
+            IconCostColorAddNewProduct = "LimeGreen";
+            ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Стоимость покупки\" продукта изменено.";
 
 
 
