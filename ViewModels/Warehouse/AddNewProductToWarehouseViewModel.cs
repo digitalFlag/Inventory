@@ -663,7 +663,7 @@ namespace Inventory.ViewModels.Warehouse
 
             BorderColorTittleAddNewWarehouse = "HotPink";
             IconTittleChangeValue = "Regular_CircleQuestion";
-            IcomTittleColorAddNewProduct = "LimeGreen";
+            IcomTittleColorAddNewProduct = "Green";
 			ValueOfEventLogAddProductToWarehouseTabControl = "Задано \"Название\" продукта не внесенное в эталоны!";
 
 			ListOfActualProductProperties = [];
@@ -714,7 +714,7 @@ namespace Inventory.ViewModels.Warehouse
 
             BorderColorPropertyAddNewWarehouse = "HotPink";
             IconPropertyChangeValue = "Regular_CircleQuestion";
-            IconPropertyColorAddNewProduct = "LimeGreen";
+            IconPropertyColorAddNewProduct = "Green";
             ValueOfEventLogAddProductToWarehouseTabControl = "Задан \"Тип\" продукта не внесенный в эталон!";
 
         }
@@ -948,18 +948,38 @@ namespace Inventory.ViewModels.Warehouse
 
 		private void OnChangeValueOfLocationCommandExecuted(object? p)
 		{
-            if (string.IsNullOrEmpty(TittleProductAddNewToWarehouse))
+            if (string.IsNullOrEmpty(LocationAddNewToWarehouse) || string.IsNullOrWhiteSpace(LocationAddNewToWarehouse))
             {
-                BorderColorTittleAddNewWarehouse = "DarkViolet";
-                IconTittleChangeValue = "Regular_CircleXmark";
-                IcomTittleColorAddNewProduct = "Red";
-                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Название\" продукта не задано!";
+                BorderColorLocationAddNewWarehouse = "DarkViolet";
+                IconLocationChangeValue = "Regular_CircleXmark";
+                IconLocationColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Место хранения\" продукта не задано!";
 
                 return;
 
-				//ToDo I am Here.
-
             }
+
+            if (ListOfPossibleProductLocations is null)
+            {
+                ValueOfEventLogAddProductToWarehouseTabControl = "Список эталонов\"Место хранения\" продуктов пустой!";
+
+                return;
+            }
+
+            if (ListOfPossibleProductLocations.Contains(LocationAddNewToWarehouse))
+            {
+                BorderColorLocationAddNewWarehouse = "HotPink";
+                IconLocationChangeValue = "Regular_CircleCheck";
+                IconLocationColorAddNewProduct = "LimeGreen";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Место хранения\" продукта изменено.";
+
+                return;
+            }
+
+            BorderColorLocationAddNewWarehouse = "HotPink";
+            IconLocationChangeValue = "Regular_CircleQuestion";
+            IconLocationColorAddNewProduct = "Green";
+            ValueOfEventLogAddProductToWarehouseTabControl = "Задано значение \"Место хранения\" продукта не внесенное в эталоны.";
 
         }
 
