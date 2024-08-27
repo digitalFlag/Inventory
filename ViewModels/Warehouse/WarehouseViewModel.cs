@@ -75,7 +75,6 @@ namespace Inventory.ViewModels.Warehouse
             SizeProductAddNewToWarehouse = string.Empty;
             ExpirationDateProductAddNewToWarehouse = "**.202*";
             PurchaseCostAddNewToWarehouse = string.Empty;
-            LocationAddNewToWarehouse = string.Empty;
             ReceiptDateAddNewToWarehouse = string.Empty;
             OrderNumberAddNewToWarehouse = string.Empty;
             NoteAddNewToWarehouse = string.Empty;
@@ -83,7 +82,7 @@ namespace Inventory.ViewModels.Warehouse
             BorderColorTittleAddNewWarehouse = "HotPink";
             BorderColorPropertyAddNewWarehouse = "HotPink";
             BorderColorSizeAddNewWarehouse = "HotPink";
-            BorderColorExpirationDateAddNewWarehouse = "HotPink";
+            BorderColorExpirationDateAddNewWarehouse = "DarkViolet";
             BorderColorPurchaseCostAddNewWarehouse = "DarkViolet";
             BorderColorLocationAddNewWarehouse = "HotPink";
             BorderColorReceiptDateAddNewWarehouse = "HotPink";
@@ -107,6 +106,8 @@ namespace Inventory.ViewModels.Warehouse
             IconExpirationDateColorAddNewProduct = "Red";
             IconCostChangeValue = "Regular_CircleXmark";
             IconCostColorAddNewProduct = "Red";
+            IconLocationChangeValue = "Regular_CircleCheck";
+            IconLocationColorAddNewProduct = "LimeGreen";
 
             LoadedDataTableOfActualProducts = new DataTable();
             ListOfActualProductsTittles = [];
@@ -118,6 +119,7 @@ namespace Inventory.ViewModels.Warehouse
 
             ValueOfSelectedItemComboBoxTittle = string.Empty;
             ValueOfSelectedItemComboBoxLocation = ListOfPossibleProductLocations[0];
+            LocationAddNewToWarehouse = ValueOfSelectedItemComboBoxLocation;
 
 
             #endregion

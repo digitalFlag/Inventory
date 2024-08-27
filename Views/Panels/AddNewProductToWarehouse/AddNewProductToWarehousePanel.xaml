@@ -232,8 +232,8 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <fa:ImageAwesome Grid.Column="0"
-                                     Icon="{Binding IconTittleChangeValue}"
-                                     PrimaryColor="{Binding IcomTittleColorAddNewProduct}">
+                                     Icon="{Binding IconLocationChangeValue}"
+                                     PrimaryColor="{Binding IconLocationColorAddNewProduct}">
                     </fa:ImageAwesome>
                     <ComboBox Grid.Column="1"
                               ItemsSource="{Binding ListOfPossibleProductLocations, UpdateSourceTrigger=PropertyChanged}"

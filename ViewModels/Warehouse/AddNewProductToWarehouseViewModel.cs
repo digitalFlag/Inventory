@@ -347,6 +347,26 @@ namespace Inventory.ViewModels.Warehouse
 		public string? IconCostColorAddNewProduct { get => _IconCostColorAddNewProduct; set => Set(ref _IconCostColorAddNewProduct, value); }
 
 		#endregion
+		#region IconLocationChangeValue: - Value Of Icon "Location" When Value Is Changing
+
+		/// <summary>Value Of Icon "Location" When Value Is Changing</summary>
+		private string? _IconLocationChangeValue;
+
+		/// <summary>Value Of Icon "Location" When Value Is Changing</summary>
+
+		public string? IconLocationChangeValue { get => _IconLocationChangeValue; set => Set(ref _IconLocationChangeValue, value); }
+
+		#endregion
+		#region IconLocationColorAddNewProduct: - Color Of Icon "Location" At Add New Product Panel
+
+		/// <summary>Color Of Icon "Location" At Add New Product Panel</summary>
+		private string? _IconLocationColorAddNewProduct;
+
+		/// <summary>Color Of Icon "Location" At Add New Product Panel</summary>
+
+		public string? IconLocationColorAddNewProduct { get => _IconLocationColorAddNewProduct; set => Set(ref _IconLocationColorAddNewProduct, value); }
+
+		#endregion
 
 
 
@@ -912,9 +932,20 @@ namespace Inventory.ViewModels.Warehouse
 
 		private void OnChangeValueOfLocationCommandExecuted(object? p)
 		{
+            if (string.IsNullOrEmpty(TittleProductAddNewToWarehouse))
+            {
+                BorderColorTittleAddNewWarehouse = "DarkViolet";
+                IconTittleChangeValue = "Regular_CircleXmark";
+                IcomTittleColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Название\" продукта не задано!";
 
+                return;
 
-		}
+				//ToDo I am Here.
+
+            }
+
+        }
 
 		#endregion
 
