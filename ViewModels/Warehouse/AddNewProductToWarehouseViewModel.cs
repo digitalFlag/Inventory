@@ -367,11 +367,26 @@ namespace Inventory.ViewModels.Warehouse
 		public string? IconLocationColorAddNewProduct { get => _IconLocationColorAddNewProduct; set => Set(ref _IconLocationColorAddNewProduct, value); }
 
 		#endregion
+		#region IconReceiptDateValue: - Value Of Icon "Receipt Date" When Value Is Changing
 
+		/// <summary>Value Of Icon "Receipt Date" When Value Is Changing</summary>
+		private string? _IconReceiptDateValue;
 
+		/// <summary>Value Of Icon "Receipt Date" When Value Is Changing</summary>
 
+		public string? IconReceiptDateValue { get => _IconReceiptDateValue; set => Set(ref _IconReceiptDateValue, value); }
 
+		#endregion
+		#region IconReceiptDateColorAddNewProduct: - Color Of Icon "Receipt Date" At Add New Product Panel
 
+		/// <summary>Color Of Icon "Receipt Date" At Add New Product Panel</summary>
+		private string? _IconReceiptDateColorAddNewProduct;
+
+		/// <summary>Color Of Icon "Receipt Date" At Add New Product Panel</summary>
+
+		public string? IconReceiptDateColorAddNewProduct { get => _IconReceiptDateColorAddNewProduct; set => Set(ref _IconReceiptDateColorAddNewProduct, value); }
+
+		#endregion
 
 		#region LoadedDataTableOfActualProducts: - Loaded "Data Table" From SQL DB For TabItem "Add New Warehouse Product"
 
@@ -985,6 +1000,23 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
+
+		#region Command ChangeValueOfReceiptDateCommand: - Change Value Of The Added Product Receipt Date
+
+		/// <summary>Change Value Of The Added Product Receipt Date</summary>
+		private LambdaCommand? _ChangeValueOfReceiptDateCommand;
+
+		/// <summary>Change Value Of The Added Product Receipt Date</summary>
+		public ICommand ChangeValueOfReceiptDateCommand => _ChangeValueOfReceiptDateCommand ??= new(OnChangeValueOfReceiptDateCommandExecuted);
+
+		/// <summary>Логика выполнения - Change Value Of The Added Product Receipt Date</summary>
+
+		private void OnChangeValueOfReceiptDateCommandExecuted(object? p)
+		{
+			//ToDo I am here.
+		}
+
+		#endregion
 
 
 

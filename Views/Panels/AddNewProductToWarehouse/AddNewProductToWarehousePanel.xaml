@@ -273,8 +273,8 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <fa:ImageAwesome Grid.Column="0"
-                                     Icon="{Binding IconCostChangeValue}"
-                                     PrimaryColor="{Binding IconCostColorAddNewProduct}">
+                                     Icon="{Binding IconReceiptDateValue}"
+                                     PrimaryColor="{Binding IconReceiptDateColorAddNewProduct}">
                     </fa:ImageAwesome>
                 </Grid>
             </Grid>
