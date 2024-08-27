@@ -395,7 +395,6 @@ namespace Inventory.ViewModels.Warehouse
 		public List<string>? ListOfActualProductProperties { get => _ListOfActualProductProperties; set => Set(ref _ListOfActualProductProperties, value); }
 
 		#endregion
-
 		#region SelectedIndexOfComboBoxProductProperty: - The Value Of Selected Index Of Combo Box "Property"
 
 		/// <summary>The Value Of Selected Index Of Combo Box "Property"</summary>
@@ -404,6 +403,28 @@ namespace Inventory.ViewModels.Warehouse
 		/// <summary>The Value Of Selected Index Of Combo Box "Property"</summary>
 
 		public uint? SelectedIndexOfComboBoxProductProperty { get => _SelectedIndexOfComboBoxProductProperty; set => Set(ref _SelectedIndexOfComboBoxProductProperty, value); }
+
+		#endregion
+
+		#region ListOfPossibleProductLocations: - List Wich Contains Possible Locations Of Product
+
+		/// <summary>List Wich Contains Possible Locations Of Product</summary>
+		private List<string>? _ListOfPossibleProductLocations;
+
+		/// <summary>List Wich Contains Possible Locations Of Product</summary>
+
+		public List<string>? ListOfPossibleProductLocations { get => _ListOfPossibleProductLocations; set => Set(ref _ListOfPossibleProductLocations, value); }
+
+		#endregion
+
+		#region ValueOfSelectedItemComboBoxLocation: - Value Of SelectedItem Of Combo Box "Location" At Add New Product Panel
+
+		/// <summary>Value Of SelectedItem Of Combo Box "Location" At Add New Product Panel</summary>
+		private string? _ValueOfSelectedItemComboBoxLocation;
+
+		/// <summary>Value Of SelectedItem Of Combo Box "Location" At Add New Product Panel</summary>
+
+		public string? ValueOfSelectedItemComboBoxLocation { get => _ValueOfSelectedItemComboBoxLocation; set => Set(ref _ValueOfSelectedItemComboBoxLocation, value); }
 
 		#endregion
 
@@ -877,7 +898,25 @@ namespace Inventory.ViewModels.Warehouse
 
         }
 
-        #endregion
+		#endregion
+
+		#region Command ChangeValueOfLocationCommand: - Change Value Of The Added Product Location
+
+		/// <summary>Change Value Of The Added Product Location</summary>
+		private LambdaCommand? _ChangeValueOfLocationCommand;
+
+		/// <summary>Change Value Of The Added Product Location</summary>
+		public ICommand ChangeValueOfLocationCommand => _ChangeValueOfLocationCommand ??= new(OnChangeValueOfLocationCommandExecuted);
+
+		/// <summary>Логика выполнения - Change Value Of The Added Product Location</summary>
+
+		private void OnChangeValueOfLocationCommandExecuted(object? p)
+		{
+
+
+		}
+
+		#endregion
 
 
 
@@ -885,7 +924,7 @@ namespace Inventory.ViewModels.Warehouse
 
 
 
-    }
+	}
 }
 #endregion
 

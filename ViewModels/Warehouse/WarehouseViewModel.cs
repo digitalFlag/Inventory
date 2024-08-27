@@ -108,12 +108,17 @@ namespace Inventory.ViewModels.Warehouse
             IconCostChangeValue = "Regular_CircleXmark";
             IconCostColorAddNewProduct = "Red";
 
-            ValueOfSelectedItemComboBoxTittle = string.Empty;
-
             LoadedDataTableOfActualProducts = new DataTable();
             ListOfActualProductsTittles = [];
             ListOfActualProductProperties = [];
+            ListOfPossibleProductLocations = [];
+            ListOfPossibleProductLocations.Add("Дом");
+            ListOfPossibleProductLocations.Add("Офис");
             SelectedIndexOfComboBoxProductProperty = 0;
+
+            ValueOfSelectedItemComboBoxTittle = string.Empty;
+            ValueOfSelectedItemComboBoxLocation = ListOfPossibleProductLocations[0];
+
 
             #endregion
 

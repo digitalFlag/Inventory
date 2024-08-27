@@ -84,9 +84,7 @@
                                 </i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-
                     </ComboBox>
-
                 </Grid>
             </Grid>
             <!--Property-->
@@ -215,6 +213,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="130"/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0"
                        Content="{Binding LabelLocationProduct}"/>
@@ -223,10 +222,32 @@
                          BorderBrush="{Binding BorderColorLocationAddNewWarehouse}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding }"/>
+                            <i:InvokeCommandAction Command="{Binding ChangeValueOfLocationCommand}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBox>
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <fa:ImageAwesome Grid.Column="0"
+                                     Icon="{Binding IconTittleChangeValue}"
+                                     PrimaryColor="{Binding IcomTittleColorAddNewProduct}">
+                    </fa:ImageAwesome>
+                    <ComboBox Grid.Column="1"
+                              ItemsSource="{Binding ListOfPossibleProductLocations, UpdateSourceTrigger=PropertyChanged}"
+                              SelectedItem="{Binding ValueOfSelectedItemComboBoxLocation, UpdateSourceTrigger=PropertyChanged}"
+                              SelectedIndex="0">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction
+                                    Command="{Binding ComboBoxValueTittleIsChangedCommand}">
+                                </i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                </Grid>
             </Grid>
             <!--Receipt Date-->
             <Grid>
