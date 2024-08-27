@@ -327,6 +327,26 @@ namespace Inventory.ViewModels.Warehouse
 		public string? IconExpirationDateColorAddNewProduct { get => _IconExpirationDateColorAddNewProduct; set => Set(ref _IconExpirationDateColorAddNewProduct, value); }
 
 		#endregion
+		#region IconCostChangeValue: - Value Of Icon "Purchase Cost" When Value Is Changing
+
+		/// <summary>Value Of Icon "Purchase Cost" When Value Is Changing</summary>
+		private string? _IconCostChangeValue;
+
+		/// <summary>Value Of Icon "Purchase Cost" When Value Is Changing</summary>
+
+		public string? IconCostChangeValue { get => _IconCostChangeValue; set => Set(ref _IconCostChangeValue, value); }
+
+		#endregion
+		#region IconCostColorAddNewProduct: - Color Of Icon "Purchase Cost" At Add New Product Panel
+
+		/// <summary>Color Of Icon "Purchase Cost" At Add New Product Panel</summary>
+		private string? _IconCostColorAddNewProduct;
+
+		/// <summary>Color Of Icon "Purchase Cost" At Add New Product Panel</summary>
+
+		public string? IconCostColorAddNewProduct { get => _IconCostColorAddNewProduct; set => Set(ref _IconCostColorAddNewProduct, value); }
+
+		#endregion
 
 
 
@@ -534,7 +554,6 @@ namespace Inventory.ViewModels.Warehouse
         }
 
 		#endregion
-
 
 		#region Command ChangeValueOfProductTittleCommand: - Change Value Of The Added Product Tittle
 
@@ -787,10 +806,6 @@ namespace Inventory.ViewModels.Warehouse
 				return;
             }
 
-
-
-
-
             BorderColorExpirationDateAddNewWarehouse = "HotPink";
             IconExpirationDateChangeValue = "Regular_CircleCheck";
             IconExpirationDateColorAddNewProduct = "LimeGreen";
@@ -799,13 +814,53 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
+		#region Command ChangeValueOfProductCostCommand: - Change Value Of The AddedProduct Cost
+
+		/// <summary>Change Value Of The AddedProduct Cost</summary>
+		private LambdaCommand? _ChangeValueOfProductCostCommand;
+
+		/// <summary>Change Value Of The AddedProduct Cost</summary>
+		public ICommand ChangeValueOfProductCostCommand => _ChangeValueOfProductCostCommand ??= new(OnChangeValueOfProductCostCommandExecuted);
+
+		/// <summary>Логика выполнения - Change Value Of The AddedProduct Cost</summary>
+
+		private void OnChangeValueOfProductCostCommandExecuted(object? p)
+		{
+            if (string.IsNullOrEmpty(PurchaseCostAddNewToWarehouse))
+            {
+                BorderColorPurchaseCostAddNewWarehouse = "DarkViolet";
+                IconCostChangeValue = "Regular_CircleXmark";
+                IconCostColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Стоимость покупки\" продукта не задано.";
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(PurchaseCostAddNewToWarehouse))
+            {
+                BorderColorPurchaseCostAddNewWarehouse = "DarkViolet";
+                IconCostChangeValue = "Regular_CircleXmark";
+                IconCostColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Стоимость покупки\" продукта задано как ПРОБЕЛ!";
+
+                return;
+
+            }
+
+
+
+
+        }
+
+        #endregion
 
 
 
 
 
 
-	}
+
+    }
 }
 #endregion
 

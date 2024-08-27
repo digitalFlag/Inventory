@@ -186,6 +186,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="130"/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0"
                        Content="{Binding LabelPurchaseCostProduct}"/>
@@ -194,10 +195,20 @@
                          BorderBrush="{Binding BorderColorPurchaseCostAddNewWarehouse}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding }"/>
+                            <i:InvokeCommandAction Command="{Binding ChangeValueOfProductCostCommand}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBox>
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <fa:ImageAwesome Grid.Column="0"
+                                     Icon="{Binding IconCostChangeValue}"
+                                     PrimaryColor="{Binding IconCostColorAddNewProduct}">
+                    </fa:ImageAwesome>
+                </Grid>
             </Grid>
             <!--Location-->
             <Grid>

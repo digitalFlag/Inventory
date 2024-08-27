@@ -84,7 +84,7 @@ namespace Inventory.ViewModels.Warehouse
             BorderColorPropertyAddNewWarehouse = "HotPink";
             BorderColorSizeAddNewWarehouse = "HotPink";
             BorderColorExpirationDateAddNewWarehouse = "HotPink";
-            BorderColorPurchaseCostAddNewWarehouse = "HotPink";
+            BorderColorPurchaseCostAddNewWarehouse = "DarkViolet";
             BorderColorLocationAddNewWarehouse = "HotPink";
             BorderColorReceiptDateAddNewWarehouse = "HotPink";
             BorderColorOrderNumberAddNewWarehouse = "HotPink";
@@ -105,6 +105,8 @@ namespace Inventory.ViewModels.Warehouse
             IconNoteColorAddNewProduct = "LimeGreen";
             IconExpirationDateChangeValue = "Regular_CircleXmark";
             IconExpirationDateColorAddNewProduct = "Red";
+            IconCostChangeValue = "Regular_CircleXmark";
+            IconCostColorAddNewProduct = "Red";
 
             ValueOfSelectedItemComboBoxTittle = string.Empty;
 
