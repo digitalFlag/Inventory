@@ -10,7 +10,8 @@
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              
              d:DataContext="{d:DesignInstance vm:MainWindowViewModel, IsDesignTimeCreatable=True}"
-             d:Height="450" d:Width="800">
+             d:Height="450" d:Width="800"
+    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
 
     <UserControl.Resources>
         <Style TargetType="Menu" BasedOn="{StaticResource MenuMainStyle}"/>
@@ -19,7 +20,7 @@
         <Style TargetType="Label" BasedOn="{StaticResource LabelMainStyle}"/>
         <Style TargetType="GridSplitter" BasedOn="{StaticResource GridSplitterMainStyle}"/>
         <Style TargetType="StackPanel" BasedOn="{StaticResource StackPanelMainStyle}"/>
-        <Style TargetType="Button" BasedOn="{StaticResource ButtonMainStyle}"/>
+        <!--<Style TargetType="Button" BasedOn="{StaticResource ButtonMainStyle}"/>-->
         <Style TargetType="TabControl" BasedOn="{StaticResource TabControlMainStyle}"/>
         <Style TargetType="TabItem" BasedOn="{StaticResource TabItemMainStyle}"/>
         <Style TargetType="DataGrid" BasedOn="{StaticResource DataGridMainStyle}"/>
@@ -28,6 +29,8 @@
         <Style TargetType="Border" BasedOn="{StaticResource BorderMainStyle}"/>
         <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxMainStyle}"/>
         <Style TargetType="Grid" BasedOn="{StaticResource GridMainStyle}"/>
+        <Style TargetType="ComboBox" BasedOn="{StaticResource ComboBoxMainStyle}"/>
+
 
     </UserControl.Resources>
 
@@ -73,7 +76,7 @@
                                      Icon="{Binding IconTittleChangeValue}"
                                      PrimaryColor="{Binding IcomTittleColorAddNewProduct}">
                     </fa:ImageAwesome>
-                    <ComboBox Grid.Column="1"
+                    <ComboBox Style="{DynamicResource QQQQQQQQ}" Grid.Column="1"
                               ItemsSource="{Binding ListOfActualProductsTittles, UpdateSourceTrigger=PropertyChanged}"
                               SelectedItem="{Binding ValueOfSelectedItemComboBoxTittle, UpdateSourceTrigger=PropertyChanged}"
                               SelectedIndex="0">

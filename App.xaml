@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="Resources/Styles/BorderStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/ColumnHeaderStyles.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/ComboBoxStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/DataGridStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/DockPaanelStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/FontAwesomeIconStyles.xaml"/>

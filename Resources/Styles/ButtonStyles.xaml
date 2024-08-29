@@ -19,7 +19,8 @@
     <SolidColorBrush x:Key="Button.Disabled.Background" Color="MistyRose"/>
     <SolidColorBrush x:Key="Button.Disabled.Border" Color="LightGray"/>
     <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="LightGray"/>
-    <Style x:Key="ButtonMainStyle" TargetType="{x:Type Button}">
+    
+    <!--<Style x:Key="ButtonMainStyle" TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
         <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
@@ -57,6 +58,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
 </ResourceDictionary>
