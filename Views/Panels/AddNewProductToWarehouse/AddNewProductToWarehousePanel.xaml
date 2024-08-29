@@ -20,7 +20,7 @@
         <Style TargetType="Label" BasedOn="{StaticResource LabelMainStyle}"/>
         <Style TargetType="GridSplitter" BasedOn="{StaticResource GridSplitterMainStyle}"/>
         <Style TargetType="StackPanel" BasedOn="{StaticResource StackPanelMainStyle}"/>
-        <!--<Style TargetType="Button" BasedOn="{StaticResource ButtonMainStyle}"/>-->
+        <Style TargetType="Button" BasedOn="{StaticResource ButtonMainStyle}"/>
         <Style TargetType="TabControl" BasedOn="{StaticResource TabControlMainStyle}"/>
         <Style TargetType="TabItem" BasedOn="{StaticResource TabItemMainStyle}"/>
         <Style TargetType="DataGrid" BasedOn="{StaticResource DataGridMainStyle}"/>
@@ -76,7 +76,7 @@
                                      Icon="{Binding IconTittleChangeValue}"
                                      PrimaryColor="{Binding IcomTittleColorAddNewProduct}">
                     </fa:ImageAwesome>
-                    <ComboBox Style="{DynamicResource QQQQQQQQ}" Grid.Column="1"
+                    <ComboBox Grid.Column="1"
                               ItemsSource="{Binding ListOfActualProductsTittles, UpdateSourceTrigger=PropertyChanged}"
                               SelectedItem="{Binding ValueOfSelectedItemComboBoxTittle, UpdateSourceTrigger=PropertyChanged}"
                               SelectedIndex="0">
