@@ -567,6 +567,8 @@ namespace Inventory.ViewModels.Warehouse
 
             LoadedDataTableOfActualProducts = _DataBase.GetData(dbSettings, table);
             ListOfActualProductsTittles = [.. LoadedDataTableOfActualProducts.AsEnumerable().Select(x => x[1].ToString())];
+            ReceiptDateAddNewToWarehouse = DateTime.Now.ToString("dd.MM.yyyy");
+
         }
 
 		#endregion
@@ -808,6 +810,7 @@ namespace Inventory.ViewModels.Warehouse
 
 				return;
             }
+
             if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[1]))
             {
                 BorderColorExpirationDateAddNewWarehouse = "DarkViolet";
@@ -1000,7 +1003,6 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
-
 		#region Command ChangeValueOfReceiptDateCommand: - Change Value Of The Added Product Receipt Date
 
 		/// <summary>Change Value Of The Added Product Receipt Date</summary>
@@ -1013,8 +1015,43 @@ namespace Inventory.ViewModels.Warehouse
 
 		private void OnChangeValueOfReceiptDateCommandExecuted(object? p)
 		{
-			//ToDo I am here.
-		}
+            if (string.IsNullOrEmpty(ReceiptDateAddNewToWarehouse))
+            {
+                BorderColorReceiptDateAddNewWarehouse = "DarkViolet";
+                IconReceiptDateValue = "Regular_CircleXmark";
+                IconReceiptDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Дата поставки\" продукта не задано.";
+
+                return;
+            }
+
+            if (ReceiptDateAddNewToWarehouse.Length != 10)
+            {
+                BorderColorReceiptDateAddNewWarehouse = "DarkViolet";
+                IconReceiptDateValue = "Regular_CircleXmark";
+                IconReceiptDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Дата поставки\" продукта не задано (dd.MM.yyyy).";
+
+                return;
+            }
+
+            DateTime dt;
+            if (!DateTime.TryParse(ReceiptDateAddNewToWarehouse, out dt))
+            {
+                BorderColorReceiptDateAddNewWarehouse = "DarkViolet";
+                IconReceiptDateValue = "Regular_CircleXmark";
+                IconReceiptDateColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Дата поставки\" продукта не задано (dd.MM.yyyy).";
+
+                return;
+            }
+
+            BorderColorReceiptDateAddNewWarehouse = "HotPink";
+            IconReceiptDateValue = "Regular_CircleCheck";
+            IconReceiptDateColorAddNewProduct = "LimeGreen";
+            ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Дата поставки\" продукта изменено.";
+
+        }
 
 		#endregion
 

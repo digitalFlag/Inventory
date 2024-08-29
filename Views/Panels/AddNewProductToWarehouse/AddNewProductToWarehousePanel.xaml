@@ -263,7 +263,7 @@
                          BorderBrush="{Binding BorderColorReceiptDateAddNewWarehouse}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding }"/>
+                            <i:InvokeCommandAction Command="{Binding ChangeValueOfReceiptDateCommand}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBox>
