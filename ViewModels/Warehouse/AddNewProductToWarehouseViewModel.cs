@@ -387,6 +387,27 @@ namespace Inventory.ViewModels.Warehouse
 		public string? IconReceiptDateColorAddNewProduct { get => _IconReceiptDateColorAddNewProduct; set => Set(ref _IconReceiptDateColorAddNewProduct, value); }
 
 		#endregion
+		#region IconOrderNumberValue: - Value Of Icon "Order Number" When Value Is Changing
+
+		/// <summary>Value Of Icon "Order Number" When Value Is Changing</summary>
+		private string? _IconOrderNumberValue;
+
+		/// <summary>Value Of Icon "Order Number" When Value Is Changing</summary>
+
+		public string? IconOrderNumberValue { get => _IconOrderNumberValue; set => Set(ref _IconOrderNumberValue, value); }
+
+		#endregion
+		#region IconOrderNumberColorAddNewProduct: - Color Of Icon "Order Number" At Add New Product Panel
+
+		/// <summary>Color Of Icon "Order Number" At Add New Product Panel</summary>
+		private string? _IconOrderNumberColorAddNewProduct;
+
+		/// <summary>Color Of Icon "Order Number" At Add New Product Panel</summary>
+
+		public string? IconOrderNumberColorAddNewProduct { get => _IconOrderNumberColorAddNewProduct; set => Set(ref _IconOrderNumberColorAddNewProduct, value); }
+
+		#endregion
+
 
 		#region LoadedDataTableOfActualProducts: - Loaded "Data Table" From SQL DB For TabItem "Add New Warehouse Product"
 
@@ -1055,12 +1076,38 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
+		#region Command ChangeValueOfOrderNumberCommand: - Change Value Of The Added Product Order Number
 
+		/// <summary>Change Value Of The Added Product Order Number</summary>
+		private LambdaCommand? _ChangeValueOfOrderNumberCommand;
 
+		/// <summary>Change Value Of The Added Product Order Number</summary>
+		public ICommand ChangeValueOfOrderNumberCommand => _ChangeValueOfOrderNumberCommand ??= new(OnChangeValueOfOrderNumberCommandExecuted);
 
+		/// <summary>Логика выполнения - Change Value Of The Added Product Order Number</summary>
 
+		private void OnChangeValueOfOrderNumberCommandExecuted(object? p)
+		{
+            if (string.IsNullOrEmpty(OrderNumberAddNewToWarehouse))
+            {
+                BorderColorOrderNumberAddNewWarehouse = "DarkViolet";
+                IconOrderNumberValue = "Regular_CircleXmark";
+                IconOrderNumberColorAddNewProduct = "Red";
+                ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Номер заказа\" продукта не задано.";
 
-	}
+                return;
+            }
+
+            BorderColorOrderNumberAddNewWarehouse = "HotPink";
+            IconOrderNumberValue = "Regular_CircleCheck";
+            IconOrderNumberColorAddNewProduct = "LimeGreen";
+            ValueOfEventLogAddProductToWarehouseTabControl = "Значение \"Номер заказа\" продукта изменено.";
+
+        }
+
+        #endregion
+
+    }
 }
 #endregion
 

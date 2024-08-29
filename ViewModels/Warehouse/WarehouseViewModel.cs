@@ -110,6 +110,8 @@ namespace Inventory.ViewModels.Warehouse
             IconLocationColorAddNewProduct = "LimeGreen";
             IconReceiptDateValue = "Regular_CircleXmark";
             IconReceiptDateColorAddNewProduct = "Red";
+            IconOrderNumberValue = "Regular_CircleXmark";
+            IconOrderNumberColorAddNewProduct = "Red";
 
             LoadedDataTableOfActualProducts = new DataTable();
             ListOfActualProductsTittles = [];
