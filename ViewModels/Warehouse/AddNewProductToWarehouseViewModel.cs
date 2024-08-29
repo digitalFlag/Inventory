@@ -519,21 +519,18 @@ namespace Inventory.ViewModels.Warehouse
 
             string tableTittle = DbTables.WarehouseProducts;
 
-            DateTime exDate;
-			if (!DateTime.TryParse(ExpirationDateProductAddNewToWarehouse, out exDate))
+            if (IconTittleChangeValue == "Regular_CircleXmark" || IconPropertyChangeValue == "Regular_CircleXmark" ||
+                IconSizeChangeValue == "Regular_CircleXmark" || IconNoteChangeValue == "Regular_CircleXmark" ||
+                IconExpirationDateChangeValue == "Regular_CircleXmark" || IconCostChangeValue == "Regular_CircleXmark" ||
+                IconLocationChangeValue == "Regular_CircleXmark" || IconReceiptDateValue == "Regular_CircleXmark" ||
+                IconOrderNumberValue == "Regular_CircleXmark")
 			{
-                ValueOfEventLogAddProductToWarehouseTabControl = "Не удалось преобразовать значение \"Срок годности\"";
-
+                ValueOfEventLogAddProductToWarehouseTabControl = "Продукт не добавлен на склад. Некорректно указаны данные.";
                 return;
 			}
 
-            DateTime resDate;
-            if (!DateTime.TryParse(ReceiptDateAddNewToWarehouse, out resDate))
-			{
-                ValueOfEventLogAddProductToWarehouseTabControl = "Не удалось преобразовать значение \"Дата поступления\"";
-
-                return;
-            }
+			var exDate = DateTime.Parse("01." + ExpirationDateProductAddNewToWarehouse);
+            var resDate = DateTime.Parse(ReceiptDateAddNewToWarehouse);
 
             WarehouseProduct warehouseProduct = new()
             {
@@ -541,6 +538,8 @@ namespace Inventory.ViewModels.Warehouse
                 Tittle = TittleProductAddNewToWarehouse,
                 Property = PropertyProductAddNewToWarehouse,
                 Size = SizeProductAddNewToWarehouse,
+
+
                 ExpirationDate = exDate,
                 PurchaseCost = Convert.ToInt16(PurchaseCostAddNewToWarehouse),
                 Location = LocationAddNewToWarehouse,
@@ -552,7 +551,7 @@ namespace Inventory.ViewModels.Warehouse
 
             _DataBase.AddRecord(dbSettings, tableTittle, warehouseProduct);
 
-			ValueOfEventLogAddProductToWarehouseTabControl = "Данные внесены в Базу Данных";
+            ValueOfEventLogAddProductToWarehouseTabControl = "Продукт добавлен на склад.";
 
         }
 
