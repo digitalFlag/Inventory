@@ -587,6 +587,7 @@ namespace Inventory.ViewModels.Warehouse
 
             LoadedDataTableOfActualProducts = _DataBase.GetData(dbSettings, table);
             ListOfActualProductsTittles = [.. LoadedDataTableOfActualProducts.AsEnumerable().Select(x => x[1].ToString())];
+            ListOfActualProductsTittles.Sort();
             ReceiptDateAddNewToWarehouse = DateTime.Now.ToString("dd.MM.yyyy");
 
         }
@@ -607,23 +608,18 @@ namespace Inventory.ViewModels.Warehouse
 		{
 			TittleProductAddNewToWarehouse = ValueOfSelectedItemComboBoxTittle;
 
-
-            if (ValueOfSelectedItemComboBoxTittle is null)
+			if (ValueOfSelectedItemComboBoxTittle is null)
 			{
 				return;
 			}
 
-			ListOfActualProductProperties = ProductsProperties.ActualProperties.Set(ValueOfSelectedItemComboBoxTittle);
+            ListOfActualProductProperties = ProductsProperties.ActualProperties.Set(ValueOfSelectedItemComboBoxTittle);
 
-            if (ListOfActualProductProperties.Count > 0)
-            {
-                ListOfActualProductProperties.Sort();
-                SelectedIndexOfComboBoxProductProperty = 0;
+            PropertyProductAddNewToWarehouse = ListOfActualProductProperties[0];
 
-                PropertyProductAddNewToWarehouse = ListOfActualProductProperties[0];
-            }
+			SelectedIndexOfComboBoxProductProperty = 0;
 
-            SizeProductAddNewToWarehouse = ProductsProperties.ActualSizes.Set(ValueOfSelectedItemComboBoxTittle);
+			SizeProductAddNewToWarehouse = ProductsProperties.ActualSizes.Set(ValueOfSelectedItemComboBoxTittle);
             NoteAddNewToWarehouse = ProductsProperties.ActualNotes.Set(ValueOfSelectedItemComboBoxTittle);
 
         }
