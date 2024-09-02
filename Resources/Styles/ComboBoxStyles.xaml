@@ -10,6 +10,7 @@
     <Style x:Key="ComboBoxMainStyle" TargetType="ComboBox">
         <Setter Property="Margin" Value="2"/>
         <Setter Property="BorderThickness" Value="1"/>
+        
         <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Border}"/>
         <Setter Property="Background" Value="{StaticResource ComboBox.Static.Background}"/>
         <Setter Property="Foreground" Value="{StaticResource ComboBox.Static.Foreground}"/>
