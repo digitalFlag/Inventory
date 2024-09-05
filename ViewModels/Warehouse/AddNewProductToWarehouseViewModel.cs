@@ -11,6 +11,7 @@ namespace Inventory.ViewModels.Warehouse
     {
 		#region Dependencies
 
+
 		#region TittleProductAddNewToWarehouse: - "Tittle" Of Product That Is Adding To Warehouse
 
 		/// <summary>"Tittle" Of Product That Is Adding To Warehouse</summary>
