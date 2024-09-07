@@ -10,7 +10,7 @@ namespace Inventory.ViewModels.Warehouse
     public partial class WarehouseViewModel : DialogViewModel
     {
 		#region Dependencies
-
+		 
 		#region TittleProductAddNewToWarehouse: - "Tittle" Of Product That Is Adding To Warehouse
 
 		/// <summary>"Tittle" Of Product That Is Adding To Warehouse</summary>
