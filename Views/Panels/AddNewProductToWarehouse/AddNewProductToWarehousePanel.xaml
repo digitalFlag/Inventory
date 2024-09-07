@@ -29,8 +29,6 @@
         <Style TargetType="Border" BasedOn="{StaticResource BorderMainStyle}"/>
         <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxMainStyle}"/>
         <Style TargetType="Grid" BasedOn="{StaticResource GridMainStyle}"/>
-        <Style TargetType="ComboBox" BasedOn="{StaticResource ComboBoxMainStyle}"/>
-
 
     </UserControl.Resources>
 
@@ -79,7 +77,8 @@
                     <ComboBox Grid.Column="1"
                               ItemsSource="{Binding ListOfActualProductsTittles, UpdateSourceTrigger=PropertyChanged}"
                               SelectedItem="{Binding ValueOfSelectedItemComboBoxTittle, UpdateSourceTrigger=PropertyChanged}"
-                              SelectedIndex="0">
+                              SelectedIndex="0"
+                              Template ="{StaticResource ComboBoxMainStyle}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction
@@ -142,7 +141,8 @@
                        Content="{Binding LabelSizeProduct}"/>
                 <TextBox Grid.Column="1"
                          Text="{Binding SizeProductAddNewToWarehouse, UpdateSourceTrigger=PropertyChanged}"
-                         BorderBrush="{Binding BorderColorSizeAddNewWarehouse}">
+                         BorderBrush="{Binding BorderColorSizeAddNewWarehouse}"
+                         Height="82">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="TextChanged">
                             <i:InvokeCommandAction Command="{Binding ChangeValueOfProductSizeCommand}"/>
