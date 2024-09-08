@@ -12,6 +12,7 @@
         
         xmlns:viewsMyWarehouseProducts="clr-namespace:Inventory.Views.Panels.MyWarehouseProducts"
         xmlns:viewsAddNewProductToWarehouse="clr-namespace:Inventory.Views.Panels.AddNewProductToWarehouse"
+        xmlns:viewsSoldProducts="clr-namespace:Inventory.Views.Panels.SoldProducts"
         
         Style="{StaticResource WindowMainStyle}"
         Title="{Binding NameOfWarhouseWindow}" 
@@ -87,11 +88,11 @@
                 </i:Interaction.Triggers>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <fa:ImageAwesome Icon="Solid_ParachuteBox"/>
-                        <Label Content="{Binding AddToMyMiniWarehouse}"/>
+                        <fa:ImageAwesome Icon="Solid_HandHoldingDollar"/>
+                        <Label Content="{Binding SoldProductsFromMyWarehouse}"/>
                     </StackPanel>
                 </TabItem.Header>
-                <viewsAddNewProductToWarehouse:AddNewProductToWarehousePanel/>
+                <viewsSoldProducts:SoldProductsPanel/>
             </TabItem> <!--Sold Products-->
 
         </TabControl>

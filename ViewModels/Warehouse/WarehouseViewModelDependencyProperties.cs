@@ -59,6 +59,17 @@ namespace Inventory.ViewModels.Warehouse
         public string? AddToMyMiniWarehouse { get => _AddToMyMiniWarehouse; set => Set(ref _AddToMyMiniWarehouse, value); }
 
         #endregion
+        #region SoldProductsFromMyWarehouse: - TabControl Item "Peализованная продукция" -> "Warehouse Window"
+
+        /// <summary>TabControl Item "Peализованная продукция" -> "Warehouse Window"</summary>
+        private string? _SoldProductsFromMyWarehouse;
+
+        /// <summary>TabControl Item "Peализованная продукция" -> "Warehouse Window"</summary>
+
+        public string? SoldProductsFromMyWarehouse { get => _SoldProductsFromMyWarehouse; set => Set(ref _SoldProductsFromMyWarehouse, value); }
+
+        #endregion
+
         #region OptionsMyWarehouseTabWarhouseWindow: - Label "Options" -> "My Warehouse" Case -> "Warehouse Window" 
 
         /// <summary>Label "Options" -> "My Warehouse" Case -> "Warehouse Window" </summary>

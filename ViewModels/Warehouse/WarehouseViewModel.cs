@@ -18,6 +18,7 @@ namespace Inventory.ViewModels.Warehouse
 
             MyMiniWarehouse = "Мой Мини-Склад";
             AddToMyMiniWarehouse = "Добавить Продукцию на Мини-Склад";
+            SoldProductsFromMyWarehouse = "Реализованная продукция";
             OptionsMyWarehouseTabWarhouseWindow = "Действия:";
             DownloadDataMyProductsWarehouseWindow = "Обновить данные";
 
