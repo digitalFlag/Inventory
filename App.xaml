@@ -9,7 +9,6 @@
                 <ResourceDictionary Source="Resources/Styles/BorderStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/ColumnHeaderStyles.xaml"/>
-                <ResourceDictionary Source="Resources/Styles/ComboBoxStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/DataGridStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/DockPaanelStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/FontAwesomeIconStyles.xaml"/>
@@ -24,6 +23,8 @@
                 <ResourceDictionary Source="Resources/Styles/TextBlockStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/TextBoxStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/WindowStyles.xaml"/>
+
+                <ResourceDictionary Source="Resources/Templates/ComboBoxTemplates.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

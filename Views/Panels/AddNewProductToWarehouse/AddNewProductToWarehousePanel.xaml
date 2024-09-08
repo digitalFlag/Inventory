@@ -78,7 +78,7 @@
                               ItemsSource="{Binding ListOfActualProductsTittles, UpdateSourceTrigger=PropertyChanged}"
                               SelectedItem="{Binding ValueOfSelectedItemComboBoxTittle, UpdateSourceTrigger=PropertyChanged}"
                               SelectedIndex="0"
-                              Template ="{StaticResource ComboBoxMainStyle}">
+                              Template ="{StaticResource ComboBoxMainTemplate}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction
