@@ -152,8 +152,9 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Content="{Binding LabelSizeProduct}"/>
                     <TextBox Grid.Column="1"
-                                         Text="{Binding SelectedProductSize, UpdateSourceTrigger=PropertyChanged}"
-                                         BorderBrush="{Binding BorderColorSelectedProductSizeMyWarehouseControlTab}">
+                             Text="{Binding SelectedProductSize, UpdateSourceTrigger=PropertyChanged}"
+                             BorderBrush="{Binding BorderColorSelectedProductSizeMyWarehouseControlTab}"
+                             Height="82">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="TextChanged">
                                 <i:InvokeCommandAction Command="{Binding ChangeSizeValueOfWarehouseProductCommand}"/>

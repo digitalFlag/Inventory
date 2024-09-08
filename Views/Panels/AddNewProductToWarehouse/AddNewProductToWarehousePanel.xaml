@@ -118,7 +118,8 @@
                     </fa:ImageAwesome>
                     <ComboBox Grid.Column="1"
                               ItemsSource="{Binding ListOfActualProductProperties, UpdateSourceTrigger=PropertyChanged}"
-                              SelectedIndex="{Binding SelectedIndexOfComboBoxProductProperty, UpdateSourceTrigger=PropertyChanged}">
+                              SelectedIndex="{Binding SelectedIndexOfComboBoxProductProperty, UpdateSourceTrigger=PropertyChanged}"
+                              Template ="{StaticResource ComboBoxMainTemplate}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction
@@ -248,6 +249,7 @@
                     <ComboBox Grid.Column="1"
                               ItemsSource="{Binding ListOfPossibleProductLocations, UpdateSourceTrigger=PropertyChanged}"
                               SelectedItem="{Binding ValueOfSelectedItemComboBoxLocation, UpdateSourceTrigger=PropertyChanged}"
+                              Template="{StaticResource ComboBoxMainTemplate}"
                               SelectedIndex="0">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
