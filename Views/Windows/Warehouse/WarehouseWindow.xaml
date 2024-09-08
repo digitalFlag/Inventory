@@ -64,7 +64,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <viewsMyWarehouseProducts:MyWarehouseProductsPanel/>
-            </TabItem><!--My Warehouse Products Panel-->
+            </TabItem> <!--My Warehouse Products Panel-->
             <TabItem>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
@@ -79,6 +79,21 @@
                 </TabItem.Header>
                 <viewsAddNewProductToWarehouse:AddNewProductToWarehousePanel/>
             </TabItem> <!--Add New Product To Warehouse-->
+            <TabItem>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction Command="{Binding SelectTabItemAddNewProductCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="Solid_ParachuteBox"/>
+                        <Label Content="{Binding AddToMyMiniWarehouse}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <viewsAddNewProductToWarehouse:AddNewProductToWarehousePanel/>
+            </TabItem> <!--Sold Products-->
+
         </TabControl>
 
     </DockPanel>
