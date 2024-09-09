@@ -113,6 +113,20 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+
+        #region BorderColorSelectedProductSoldCostMyWarehouseControlTab: - "Border Color" Of Selected Product Sold Cost At "My Warehouse"
+
+        /// <summary>"Border Color" Of Selected Product Sold Cost At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductSoldCostMyWarehouseControlTab;
+
+        /// <summary>"Border Color" Of Selected Product Sold Cost At "My Warehouse"</summary>
+
+        public string? BorderColorSelectedProductSoldCostMyWarehouseControlTab { get => _BorderColorSelectedProductSoldCostMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductSoldCostMyWarehouseControlTab, value); }
+
+        #endregion
+
+
+
         #region ButtonCaptionReWriteWareHouseProduct: - Button Caption "ReWrite Data" In My WareHouse Products
 
         /// <summary>Button Caption "ReWrite Data" In My WareHouse Products</summary>
@@ -224,6 +238,20 @@ namespace Inventory.ViewModels.Warehouse
         public string? SelectedProductNote { get => _SelectedProductNote; set => Set(ref _SelectedProductNote, value); }
 
         #endregion
+        #region SelectedProductSoldCost: - Selected Product Sold Cost "My Warehouse"
+
+        /// <summary>Selected Product Sold Cost "My Warehouse"</summary>
+        private string? _SelectedProductSoldCost;
+
+        /// <summary>Selected Product Sold Cost "My Warehouse"</summary>
+
+        public string? SelectedProductSoldCost { get => _SelectedProductSoldCost; set => Set(ref _SelectedProductSoldCost, value); }
+
+        #endregion
+
+
+
+
 
         #region TextLabelEventLogMyWarehouseTabControlWarehouseWindow: - Text Of Event Log In MyWarehouse TabControl In Warehouse Window
 
@@ -1047,6 +1075,70 @@ namespace Inventory.ViewModels.Warehouse
             }
 
 
+        }
+
+        #endregion
+
+        #region Command ChangeSoldCostValueOfWarehouseProductCommand: - Change Value Of Of "Sold Coast" Of Selected Warehouse Product
+
+        /// <summary>Change Value Of Of "Sold Coast" Of Selected Warehouse Product</summary>
+        private LambdaCommand? _ChangeSoldCostValueOfWarehouseProductCommand;
+
+        /// <summary>Change Value Of Of "Sold Coast" Of Selected Warehouse Product</summary>
+        public ICommand ChangeSoldCostValueOfWarehouseProductCommand => _ChangeSoldCostValueOfWarehouseProductCommand ??= new(OnChangeSoldCostValueOfWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of Of "Sold Coast" Of Selected Warehouse Product</summary>
+
+        private void OnChangeSoldCostValueOfWarehouseProductCommandExecuted(object? p)
+        {
+            if (string.IsNullOrEmpty(SelectedProductSoldCost))
+            {
+                BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
+                //IconCostChangeValue = "Regular_CircleXmark";
+                //IconCostColorAddNewProduct = "Red";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта не задано.";
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(SelectedProductSoldCost))
+            {
+                BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
+                //IconCostChangeValue = "Regular_CircleXmark";
+                //IconCostColorAddNewProduct = "Red";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта задано как ПРОБЕЛ!";
+
+                return;
+            }
+
+            foreach (char c in SelectedProductSoldCost)
+            {
+                if (!char.IsDigit(c))
+                {
+                    BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
+                    //IconCostChangeValue = "Regular_CircleXmark";
+                    //IconCostColorAddNewProduct = "Red";
+                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта задано некорректно.";
+
+                    return;
+                }
+            }
+
+            if (SelectedProductSoldCost.Length > 1 && SelectedProductSoldCost[0] == '0')
+            {
+                BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
+                //IconCostChangeValue = "Regular_CircleXmark";
+                //IconCostColorAddNewProduct = "Red";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта задано некорректно (первая цифра 0).";
+
+                return;
+
+            }
+
+            BorderColorSelectedProductSoldCostMyWarehouseControlTab = "HotPink";
+            //IconCostChangeValue = "Regular_CircleCheck";
+            //IconCostColorAddNewProduct = "LimeGreen";
+            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта изменено.";
         }
 
         #endregion

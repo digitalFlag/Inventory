@@ -305,6 +305,7 @@
                     </Button>
                 </Grid>
                 <Label Content=""/>
+
                 <Grid Background="Pink">
                     <Label Content="Журнал событий:"
                                        FontWeight="Medium" 

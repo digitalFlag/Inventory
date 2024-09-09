@@ -116,5 +116,17 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
+		#region LabelSoldCostProduct: - Label Value "Sold Cost:" Of Product
+
+		/// <summary>Label Value "Sold Cost:" Of Product</summary>
+		private string? _LabelSoldCostProduct;
+
+		/// <summary>Label Value "Sold Cost:" Of Product</summary>
+
+		public string? LabelSoldCostProduct { get => _LabelSoldCostProduct; set => Set(ref _LabelSoldCostProduct, value); }
+
+		#endregion
+
+
 	}
 }
