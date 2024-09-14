@@ -10,11 +10,6 @@
              d:DataContext="{d:DesignInstance vm:MainWindowViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
 
-
-
-
-             
-
     <UserControl.Resources>
         <Style TargetType="Menu" BasedOn="{StaticResource MenuMainStyle}"/>
         <Style TargetType="MenuItem" BasedOn="{StaticResource MenuItemMainStyle}"/>
@@ -49,7 +44,7 @@
                 <Button DockPanel.Dock="Right"
                         Width="30"
                         HorizontalAlignment="Right"
-                        Command="{Binding RefreshConnectionToDataBaseWarhouseWindowCommand}">
+                        Command="{Binding }">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
                             <fa:ImageAwesome Icon="Solid_Rotate"/>
@@ -58,12 +53,9 @@
                 </Button>
             </DockPanel>
 
-
-
-
             <DataGrid Grid.Row="1"
-                              ItemsSource="{Binding Path = WarehouseProducts}"
-                              SelectedItem="{Binding SelectedWarehouseProduct, UpdateSourceTrigger=PropertyChanged}">
+                      ItemsSource="{Binding Path = SoldProducts}"
+                      SelectedItem="{Binding SelectedWarehouseProduct, UpdateSourceTrigger=PropertyChanged}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование продукции" Binding="{Binding Tittle}"/>
                     <DataGridTextColumn Header="Тип" Binding="{Binding Property}"/>
@@ -305,6 +297,67 @@
                     </Button>
                 </Grid>
                 <Label Content=""/>
+                <Grid Background="Pink">
+                    <Label Content="Условия продажи:"
+                                       FontWeight="Medium" 
+                                       HorizontalAlignment="Center">
+                    </Label>
+                </Grid>
+
+                <!--Sold Cost-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="{Binding LabelSoldCostProduct}"/>
+                    <TextBox Grid.Column="1" 
+                                         Text="{Binding SelectedProductSoldCost, UpdateSourceTrigger=PropertyChanged}"
+                                         BorderBrush="{Binding BorderColorSelectedProductSoldCostMyWarehouseControlTab}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding ChangeSoldCostValueOfWarehouseProductCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </Grid>
+                <!--Sold Date-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="{Binding LabelSoldDateProduct}"/>
+                    <TextBox Grid.Column="1" 
+                                         Text="{Binding SelectedProductSoldDate, UpdateSourceTrigger=PropertyChanged}"
+                                         BorderBrush="{Binding BorderColorSelectedProductSoldDateMyWarehouseControlTab}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding ChangeSoldDateValueOfWarhouseProductCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </Grid>
+                <!--Customer Id-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="{Binding LadelCustomerId}"/>
+                    <TextBox Grid.Column="1" 
+                                         Text="{Binding SelectedProductCustomerId, UpdateSourceTrigger=PropertyChanged}"
+                                         BorderBrush="{Binding BorderColorSelectedProductCustomerIdMyWarehouseControlTab}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding ChangeCustomerIdValueWarehouseProductCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </Grid>
+
+                <Label Content=""/>
+
 
                 <Grid Background="Pink">
                     <Label Content="Журнал событий:"
@@ -317,4 +370,7 @@
             </StackPanel>
         </ScrollViewer>
     </Grid>
+
+
+
 </UserControl>
