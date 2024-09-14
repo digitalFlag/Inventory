@@ -77,6 +77,12 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductCustomerId = string.Empty;
             #endregion
 
+            #region SOLD PRODUCTS
+
+            SelectedSoldProduct = new SoldProduct();
+
+            #endregion
+
             #region ADD NEW PRODUCT TO WAREHOUSE
 
             TittleProductAddNewToWarehouse = string.Empty;

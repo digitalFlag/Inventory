@@ -30,6 +30,18 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region SelectedSoldProduct: - Selected Sold Product
+
+        /// <summary>Selected Sold Product</summary>
+        private SoldProduct? _SelectedSoldProduct;
+
+        /// <summary>Selected Sold Product</summary>
+
+        public SoldProduct? SelectedSoldProduct { get => _SelectedSoldProduct; set => Set(ref _SelectedSoldProduct, value); }
+
+        #endregion
+
+        //I am Here.
 
 
 

@@ -1,6 +1,4 @@
-﻿using Inventory.Models;
-using Inventory.ViewModels.Base;
-using System.Data;
+﻿using Inventory.ViewModels.Base;
 
 namespace Inventory.ViewModels.Warehouse
 {
@@ -92,20 +90,6 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
-        #region SelectedWarehouseProduct: - Selected Warehouse Product
-
-        /// <summary>Selected Warehouse Product</summary>
-        private WarehouseProduct? _SelectedWarehouseProduct;
-
-        /// <summary>Selected Warehouse Product</summary>
-
-        public WarehouseProduct? SelectedWarehouseProduct
-        {
-            get => _SelectedWarehouseProduct;
-            set => Set(ref _SelectedWarehouseProduct, value);
-        }
-
-        #endregion
 
     }
 }

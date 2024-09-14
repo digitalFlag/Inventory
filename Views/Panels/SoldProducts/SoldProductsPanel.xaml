@@ -52,10 +52,10 @@
                     </Button.Content>
                 </Button>
             </DockPanel>
-
+<!--ToDo I am Here!!-->
             <DataGrid Grid.Row="1"
                       ItemsSource="{Binding Path = SoldProducts}"
-                      SelectedItem="{Binding SelectedWarehouseProduct, UpdateSourceTrigger=PropertyChanged}">
+                      SelectedItem="{Binding SelectedSoldProduct, UpdateSourceTrigger=PropertyChanged}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование продукции" Binding="{Binding Tittle}"/>
                     <DataGridTextColumn Header="Тип" Binding="{Binding Property}"/>

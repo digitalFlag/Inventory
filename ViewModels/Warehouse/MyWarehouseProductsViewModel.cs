@@ -289,7 +289,6 @@ namespace Inventory.ViewModels.Warehouse
         #endregion
 
 
-
         #region TextLabelEventLogMyWarehouseTabControlWarehouseWindow: - Text Of Event Log In MyWarehouse TabControl In Warehouse Window
 
         /// <summary>Text Of Event Log In MyWarehouse TabControl In Warehouse Window</summary>
@@ -312,6 +311,20 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region SelectedWarehouseProduct: - Selected Warehouse Product
+
+        /// <summary>Selected Warehouse Product</summary>
+        private WarehouseProduct? _SelectedWarehouseProduct;
+
+        /// <summary>Selected Warehouse Product</summary>
+
+        public WarehouseProduct? SelectedWarehouseProduct
+        {
+            get => _SelectedWarehouseProduct;
+            set => Set(ref _SelectedWarehouseProduct, value);
+        }
+
+        #endregion
 
         #endregion
 
