@@ -113,7 +113,6 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
-
         #region BorderColorSelectedProductSoldCostMyWarehouseControlTab: - "Border Color" Of Selected Product Sold Cost At "My Warehouse"
 
         /// <summary>"Border Color" Of Selected Product Sold Cost At "My Warehouse"</summary>
@@ -122,6 +121,16 @@ namespace Inventory.ViewModels.Warehouse
         /// <summary>"Border Color" Of Selected Product Sold Cost At "My Warehouse"</summary>
 
         public string? BorderColorSelectedProductSoldCostMyWarehouseControlTab { get => _BorderColorSelectedProductSoldCostMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductSoldCostMyWarehouseControlTab, value); }
+
+        #endregion
+        #region BorderColorSelectedProductSoldDateMyWarehouseControlTab: - "Border Color" Of Selected Product Sold Date At "My Warehouse"
+
+        /// <summary>"Border Color" Of Selected Product Sold Date At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductSoldDateMyWarehouseControlTab;
+
+        /// <summary>"Border Color" Of Selected Product Sold Date At "My Warehouse"</summary>
+
+        public string? BorderColorSelectedProductSoldDateMyWarehouseControlTab { get => _BorderColorSelectedProductSoldDateMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductSoldDateMyWarehouseControlTab, value); }
 
         #endregion
 
@@ -246,6 +255,16 @@ namespace Inventory.ViewModels.Warehouse
         /// <summary>Selected Product Sold Cost "My Warehouse"</summary>
 
         public string? SelectedProductSoldCost { get => _SelectedProductSoldCost; set => Set(ref _SelectedProductSoldCost, value); }
+
+        #endregion
+        #region SelectedProductSoldDate: - Selected Product Sold Date "My Warehouse"
+
+        /// <summary>Selected Product Sold Date "My Warehouse"</summary>
+        private string? _SelectedProductSoldDate;
+
+        /// <summary>Selected Product Sold Date "My Warehouse"</summary>
+
+        public string? SelectedProductSoldDate { get => _SelectedProductSoldDate; set => Set(ref _SelectedProductSoldDate, value); }
 
         #endregion
 
@@ -1078,7 +1097,7 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
-
+        
         #region Command ChangeSoldCostValueOfWarehouseProductCommand: - Change Value Of Of "Sold Coast" Of Selected Warehouse Product
 
         /// <summary>Change Value Of Of "Sold Coast" Of Selected Warehouse Product</summary>
@@ -1139,6 +1158,57 @@ namespace Inventory.ViewModels.Warehouse
             //IconCostChangeValue = "Regular_CircleCheck";
             //IconCostColorAddNewProduct = "LimeGreen";
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта изменено.";
+        }
+
+        #endregion
+        #region Command ChangeSoldDateValueOfWarhouseProductCommand: - Change Value Of "Sold Date" Of Selected Warehouse Product
+
+        /// <summary>Change Value Of "Sold Date" Of Selected Warehouse Product</summary>
+        private LambdaCommand? _ChangeSoldDateValueOfWarhouseProductCommand;
+
+        /// <summary>Change Value Of "Sold Date" Of Selected Warehouse Product</summary>
+        public ICommand ChangeSoldDateValueOfWarhouseProductCommand => _ChangeSoldDateValueOfWarhouseProductCommand ??= new(OnChangeSoldDateValueOfWarhouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Sold Date" Of Selected Warehouse Product</summary>
+
+        private void OnChangeSoldDateValueOfWarhouseProductCommandExecuted(object? p)
+        {
+            if (string.IsNullOrEmpty(SelectedProductSoldDate))
+            {
+                BorderColorSelectedProductSoldDateMyWarehouseControlTab = "DarkViolet";
+                //IconReceiptDateValue = "Regular_CircleXmark";
+                //IconReceiptDateColorAddNewProduct = "Red";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта не задано.";
+
+                return;
+            }
+
+            if (SelectedProductSoldDate.Length != 10)
+            {
+                BorderColorSelectedProductSoldDateMyWarehouseControlTab = "DarkViolet";
+                //IconReceiptDateValue = "Regular_CircleXmark";
+                //IconReceiptDateColorAddNewProduct = "Red";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта не задано (dd.MM.yyyy).";
+
+                return;
+            }
+
+            DateTime dt;
+            if (!DateTime.TryParse(SelectedProductSoldDate, out dt))
+            {
+                BorderColorSelectedProductSoldDateMyWarehouseControlTab = "DarkViolet";
+                //IconReceiptDateValue = "Regular_CircleXmark";
+                //IconReceiptDateColorAddNewProduct = "Red";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта не задано (dd.MM.yyyy).";
+
+                return;
+            }
+
+            BorderColorSelectedProductSoldDateMyWarehouseControlTab = "HotPink";
+            //IconReceiptDateValue = "Regular_CircleCheck";
+            //IconReceiptDateColorAddNewProduct = "LimeGreen";
+            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта изменено.";
+
         }
 
         #endregion

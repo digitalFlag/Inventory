@@ -35,6 +35,7 @@ namespace Inventory.ViewModels.Warehouse
             LabelNoteProduct = "Примечание:";
             LabelIdProduct = "Номер позиции:";
             LabelSoldCostProduct = "Стоимость продажи:";
+            LabelSoldDateProduct = "Дата продажи:";
 
             #endregion
 
@@ -53,6 +54,7 @@ namespace Inventory.ViewModels.Warehouse
             BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "HotPink";
             BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";
             BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
+            BorderColorSelectedProductSoldDateMyWarehouseControlTab = "HotPink";
 
             ButtonCaptionReWriteWareHouseProduct = "Корректировать данные";
 
@@ -69,7 +71,7 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductOrderNumber = string.Empty;
             SelectedProductNote = string.Empty;
             SelectedProductSoldCost = string.Empty;
-
+            SelectedProductSoldDate = DateTime.Now.ToString("dd.MM.yyyy");
             #endregion
 
             #region ADD NEW PRODUCT TO WAREHOUSE

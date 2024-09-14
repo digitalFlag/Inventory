@@ -128,5 +128,18 @@ namespace Inventory.ViewModels.Warehouse
 		#endregion
 
 
+		#region LabelSoldDateProduct: - Label Value "Sold Date:" Of Product
+
+		/// <summary>Label Value "Sold Date:" Of Product</summary>
+		private string? _LabelSoldDateProduct;
+
+		/// <summary>Label Value "Sold Date:" Of Product</summary>
+
+		public string? LabelSoldDateProduct { get => _LabelSoldDateProduct; set => Set(ref _LabelSoldDateProduct, value); }
+
+		#endregion
+
+
+
 	}
 }
