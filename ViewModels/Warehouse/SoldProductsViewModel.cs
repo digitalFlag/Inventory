@@ -1,6 +1,9 @@
-﻿using Inventory.Models;
+﻿using Inventory.Commands;
+using Inventory.Models;
+using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
 using System.Data;
+using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
 {
@@ -41,8 +44,16 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
-        //I am Here.
+        #region EventTextValueLogSoldProductsTabControl: - Text Of Event Log In Sold Products TabControl In Warehouse Window
 
+        /// <summary>Text Of Event Log In Sold Products TabControl In Warehouse Window</summary>
+        private string? _EventTextValueLogSoldProductsTabControl;
+
+        /// <summary>Text Of Event Log In Sold Products TabControl In Warehouse Window</summary>
+
+        public string? EventTextValueLogSoldProductsTabControl { get => _EventTextValueLogSoldProductsTabControl; set => Set(ref _EventTextValueLogSoldProductsTabControl, value); }
+
+        #endregion
 
 
 
@@ -50,6 +61,61 @@ namespace Inventory.ViewModels.Warehouse
         #endregion
 
         #region Commands
+
+        #region Command RefreshConnectionToDataBaseSoldProductsCommand: - Refresh Connection To DB With Sold Products
+
+        /// <summary>Refresh Connection To DB With Sold Products</summary>
+        private LambdaCommand? _RefreshConnectionToDataBaseSoldProductsCommand;
+
+        /// <summary>Refresh Connection To DB With Sold Products</summary>
+        public ICommand RefreshConnectionToDataBaseSoldProductsCommand => _RefreshConnectionToDataBaseSoldProductsCommand ??= new(OnRefreshConnectionToDataBaseSoldProductsCommandExecuted);
+
+        /// <summary>Логика выполнения - Refresh Connection To DB With Sold Products</summary>
+
+        private void OnRefreshConnectionToDataBaseSoldProductsCommandExecuted(object? p)
+        {
+            var dbSettings = new DBSettings
+            {
+                Server = ConnectionOptions.dbServer,
+                Port = ConnectionOptions.dbPort,
+                Name = ConnectionOptions.dbName,
+                UserId = ConnectionOptions.userId,
+                Password = ConnectionOptions.password
+            };
+
+            string table = DbTables.SoldProducts;
+
+            if (_DataBase is null)
+            {
+                return;
+            }
+
+            LoadedDataTableFromDataBaseMiniWarehouseWindow = _DataBase.GetData(dbSettings, table);
+
+            SoldProducts = LoadedDataTableFromDataBaseSoldProducts.AsEnumerable().Select(row => new Models.SoldProduct
+            {
+                Id = Convert.ToInt32(row[DbTableSoldProducts.propertyId]),
+                Tittle = Convert.ToString(row[DbTableSoldProducts.propertyTittle]),
+                Property = Convert.ToString(row[DbTableSoldProducts.propertyProperty]),
+                Size = Convert.ToString(row[DbTableSoldProducts.propertySize]),
+                ExpirationDate = Convert.ToDateTime(row[DbTableSoldProducts.propertyExpirationDate]),
+                PurchaseCost = Convert.ToInt16(row[DbTableSoldProducts.propertyPurchaseCost]),
+                SoldCost = Convert.ToInt16(row[DbTableSoldProducts.propertySoldCost]),
+                OrderNumber = Convert.ToString(row[DbTableSoldProducts.propertyOrderNumber]),
+                ReceiptDate = Convert.ToDateTime(row[DbTableSoldProducts.propertyReceiptDate]),
+                SoldDate = Convert.ToDateTime(row[DbTableSoldProducts.propertySoldDate]),
+                Note = Convert.ToString(row[DbTableSoldProducts.propertyNote]),
+                CustomerId = Convert.ToInt32(row[DbTableSoldProducts.propertyCustomerId]),
+            });
+
+            EventTextValueLogSoldProductsTabControl = $"Информация о проданной продукции из базы \"{ConnectionOptions.dbName}\" загружена.";
+            //ToDo I am Here
+
+        }
+
+        #endregion
+
+
 
         #endregion
     }

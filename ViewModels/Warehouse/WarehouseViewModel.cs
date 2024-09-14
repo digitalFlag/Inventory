@@ -80,6 +80,7 @@ namespace Inventory.ViewModels.Warehouse
             #region SOLD PRODUCTS
 
             SelectedSoldProduct = new SoldProduct();
+            EventTextValueLogSoldProductsTabControl = string.Empty;
 
             #endregion
 
