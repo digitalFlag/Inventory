@@ -342,6 +342,23 @@
                         </i:Interaction.Triggers>
                     </TextBox>
                 </Grid>
+                <!--Customer Id-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="{Binding LadelCustomerId}"/>
+                    <TextBox Grid.Column="1" 
+                                         Text="{Binding SelectedProductCustomerId, UpdateSourceTrigger=PropertyChanged}"
+                                         BorderBrush="{Binding BorderColorSelectedProductCustomerIdMyWarehouseControlTab}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding ChangeCustomerIdValueWarehouseProductCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </Grid>
 
                 <Label Content=""/>
 

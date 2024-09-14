@@ -133,6 +133,16 @@ namespace Inventory.ViewModels.Warehouse
         public string? BorderColorSelectedProductSoldDateMyWarehouseControlTab { get => _BorderColorSelectedProductSoldDateMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductSoldDateMyWarehouseControlTab, value); }
 
         #endregion
+        #region BorderColorSelectedProductCustomerIdMyWarehouseControlTab: - "Border Color" Of Selected Product Customer Id At "My Warehouse"
+
+        /// <summary>"Border Color" Of Selected Product Customer Id At "My Warehouse"</summary>
+        private string? _BorderColorSelectedProductCustomerIdMyWarehouseControlTab;
+
+        /// <summary>"Border Color" Of Selected Product Customer Id At "My Warehouse"</summary>
+
+        public string? BorderColorSelectedProductCustomerIdMyWarehouseControlTab { get => _BorderColorSelectedProductCustomerIdMyWarehouseControlTab; set => Set(ref _BorderColorSelectedProductCustomerIdMyWarehouseControlTab, value); }
+
+        #endregion
 
 
 
@@ -267,8 +277,16 @@ namespace Inventory.ViewModels.Warehouse
         public string? SelectedProductSoldDate { get => _SelectedProductSoldDate; set => Set(ref _SelectedProductSoldDate, value); }
 
         #endregion
+        #region SelectedProductCustomerId: - Selected Product "Customer Id"
 
+        /// <summary>Selected Product "Customer Id"</summary>
+        private string? _SelectedProductCustomerId;
 
+        /// <summary>Selected Product "Customer Id"</summary>
+
+        public string? SelectedProductCustomerId { get => _SelectedProductCustomerId; set => Set(ref _SelectedProductCustomerId, value); }
+
+        #endregion
 
 
 
@@ -1209,6 +1227,36 @@ namespace Inventory.ViewModels.Warehouse
             //IconReceiptDateColorAddNewProduct = "LimeGreen";
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта изменено.";
 
+        }
+
+        #endregion
+        #region Command ChangeCustomerIdValueWarehouseProductCommand: - Change Value Of "Customer Id" Of Selected Warehouse Product
+
+        /// <summary>Change Value Of "Customer Id" Of Selected Warehouse Product</summary>
+        private LambdaCommand? _ChangeCustomerIdValueWarehouseProductCommand;
+
+        /// <summary>Change Value Of "Customer Id" Of Selected Warehouse Product</summary>
+        public ICommand ChangeCustomerIdValueWarehouseProductCommand => _ChangeCustomerIdValueWarehouseProductCommand ??= new(OnChangeCustomerIdValueWarehouseProductCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of "Customer Id" Of Selected Warehouse Product</summary>
+
+        private void OnChangeCustomerIdValueWarehouseProductCommandExecuted(object? p)
+        {
+            if (char.IsWhiteSpace(SelectedProductCustomerId[0]))
+            {
+                BorderColorSelectedProductCustomerIdMyWarehouseControlTab = "DarkViolet";
+                //IconReceiptDateValue = "Regular_CircleXmark";
+                //IconReceiptDateColorAddNewProduct = "Red";
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Id Клиента\" начинается с пробела.";
+
+                return;
+            }
+
+
+            BorderColorSelectedProductCustomerIdMyWarehouseControlTab = "HotPink";
+            //IconReceiptDateValue = "Regular_CircleCheck";
+            //IconReceiptDateColorAddNewProduct = "LimeGreen";
+            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Id Киента\" изменено.";
         }
 
         #endregion
