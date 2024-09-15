@@ -90,11 +90,7 @@ namespace Inventory.ViewModels.Warehouse
                 return;
             }
 
-            LoadedDataTableFromDataBaseMiniWarehouseWindow = _DataBase.GetData(dbSettings, table);
-
-            SoldProduct soldProduct = null;
-
-            //ToDo I am Here
+            LoadedDataTableFromDataBaseSoldProducts = _DataBase.GetData(dbSettings, table);
 
             SoldProducts = LoadedDataTableFromDataBaseSoldProducts.AsEnumerable().Select(row => new Models.SoldProduct
             {
@@ -103,8 +99,8 @@ namespace Inventory.ViewModels.Warehouse
                 Property = Convert.ToString(row[DbTableSoldProducts.propertyProperty]),
                 Size = Convert.ToString(row[DbTableSoldProducts.propertySize]),
                 ExpirationDate = Convert.ToDateTime(row[DbTableSoldProducts.propertyExpirationDate]),
-                PurchaseCost = Convert.ToInt16(row[DbTableSoldProducts.propertyPurchaseCost]),
-                SoldCost = Convert.ToInt16(row[DbTableSoldProducts.propertySoldCost]),
+                PurchaseCost = Convert.ToInt32(row[DbTableSoldProducts.propertyPurchaseCost]),
+                SoldCost = Convert.ToInt32(row[DbTableSoldProducts.propertySoldCost]),
                 OrderNumber = Convert.ToString(row[DbTableSoldProducts.propertyOrderNumber]),
                 ReceiptDate = Convert.ToDateTime(row[DbTableSoldProducts.propertyReceiptDate]),
                 SoldDate = Convert.ToDateTime(row[DbTableSoldProducts.propertySoldDate]),

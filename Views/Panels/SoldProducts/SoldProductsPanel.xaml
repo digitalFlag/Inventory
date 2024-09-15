@@ -52,19 +52,21 @@
                     </Button.Content>
                 </Button>
             </DockPanel>
-<!--ToDo I am Here!!-->
             <DataGrid Grid.Row="1"
                       ItemsSource="{Binding Path = SoldProducts}"
                       SelectedItem="{Binding SelectedSoldProduct, UpdateSourceTrigger=PropertyChanged}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование продукции" Binding="{Binding Tittle}"/>
-                    <!--<DataGridTextColumn Header="Тип" Binding="{Binding Property}"/>
-                    <DataGridTextColumn Header="Размер" Binding="{Binding Size}"/>
-                    <DataGridTextColumn Header="Срок годности" Binding="{Binding ExpirationDate, StringFormat=MM.yyyy}"/>
-                    <DataGridTextColumn Header="Стоимость покупки" Binding="{Binding PurchaseCost}"/>
-                    <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderNumber}"/>
+                    <DataGridTextColumn Header="Тип" Binding="{Binding Property}"/>
                     <DataGridTextColumn Header="Дата поступления" Binding="{Binding ReceiptDate, StringFormat=dd.MM.yyyy}"/>
-                    <DataGridTextColumn Header="Примечание" Binding="{Binding Note}"/>-->
+                    <DataGridTextColumn Header="Стоимость покупки" Binding="{Binding PurchaseCost}"/>
+                    <DataGridTextColumn Header="Дата продажи" Binding="{Binding SoldDate, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Стоимость продажи" Binding="{Binding SoldCost}"/>
+                    <DataGridTextColumn Header="Покупатель" Binding="{Binding CustomerId}"/>
+                    <DataGridTextColumn Header="Срок годности" Binding="{Binding ExpirationDate, StringFormat=MM.yyyy}"/>
+                    <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderNumber}"/>
+                    <DataGridTextColumn Header="Размер" Binding="{Binding Size}"/>
+                    <DataGridTextColumn Header="Примечание" Binding="{Binding Note}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

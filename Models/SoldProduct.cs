@@ -10,8 +10,9 @@
 
         public DateTime? SoldDate { get; set; }
 
+        public string? Note { get; set; }
+
         public int? CustomerId { get; set; }
 
-        public string? Note { get; set; }
     }
 }
