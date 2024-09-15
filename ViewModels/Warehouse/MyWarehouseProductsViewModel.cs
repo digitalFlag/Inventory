@@ -361,7 +361,6 @@ namespace Inventory.ViewModels.Warehouse
 
             LoadedDataTableFromDataBaseMiniWarehouseWindow = _DataBase.GetData(dbSettings, table);
 
-
             WarehouseProducts = LoadedDataTableFromDataBaseMiniWarehouseWindow.AsEnumerable().Select(row => new Models.WarehouseProduct
             {
                 Id = Convert.ToInt32(row[DbTableWarehouseProducts.propertyId]),

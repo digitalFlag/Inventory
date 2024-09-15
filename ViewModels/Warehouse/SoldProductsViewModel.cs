@@ -92,6 +92,10 @@ namespace Inventory.ViewModels.Warehouse
 
             LoadedDataTableFromDataBaseMiniWarehouseWindow = _DataBase.GetData(dbSettings, table);
 
+            SoldProduct soldProduct = null;
+
+            //ToDo I am Here
+
             SoldProducts = LoadedDataTableFromDataBaseSoldProducts.AsEnumerable().Select(row => new Models.SoldProduct
             {
                 Id = Convert.ToInt32(row[DbTableSoldProducts.propertyId]),
@@ -109,7 +113,8 @@ namespace Inventory.ViewModels.Warehouse
             });
 
             EventTextValueLogSoldProductsTabControl = $"Информация о проданной продукции из базы \"{ConnectionOptions.dbName}\" загружена.";
-            //ToDo I am Here
+
+            //ToDo It's need to set variables values.
 
         }
 

@@ -58,14 +58,13 @@
                       SelectedItem="{Binding SelectedSoldProduct, UpdateSourceTrigger=PropertyChanged}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование продукции" Binding="{Binding Tittle}"/>
-                    <DataGridTextColumn Header="Тип" Binding="{Binding Property}"/>
+                    <!--<DataGridTextColumn Header="Тип" Binding="{Binding Property}"/>
                     <DataGridTextColumn Header="Размер" Binding="{Binding Size}"/>
                     <DataGridTextColumn Header="Срок годности" Binding="{Binding ExpirationDate, StringFormat=MM.yyyy}"/>
-                    <DataGridTextColumn Header="Место хранения" Binding="{Binding Location}"/>
                     <DataGridTextColumn Header="Стоимость покупки" Binding="{Binding PurchaseCost}"/>
                     <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderNumber}"/>
                     <DataGridTextColumn Header="Дата поступления" Binding="{Binding ReceiptDate, StringFormat=dd.MM.yyyy}"/>
-                    <DataGridTextColumn Header="Примечание" Binding="{Binding Note}"/>
+                    <DataGridTextColumn Header="Примечание" Binding="{Binding Note}"/>-->
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
@@ -73,7 +72,7 @@
         <GridSplitter Grid.Column="1">
         </GridSplitter>
         <ScrollViewer Grid.Column="2" 
-                                  VerticalScrollBarVisibility="Auto">
+                      VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical">
                 <StackPanel.Resources>
                     <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxMainStyle}">
