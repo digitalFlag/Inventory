@@ -12,5 +12,10 @@ namespace Inventory.Services
 
         public Task AddRecord(DBSettings dbSettings, string tableTittle, WarehouseProduct warehouseProduct);
 
+        public Task AddSoldProduct(DBSettings dbSettings, string tableTittle, SoldProduct soldProduct);
+
+        public Task DeleteRecord(DBSettings dbSettings, string tableTittle, string featureName, string featureValue);
+
+
     }
 }

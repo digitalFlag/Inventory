@@ -207,9 +207,6 @@ namespace Inventory.ViewModels.Warehouse
         #endregion
 
 
-
-
-
         #region ButtonCaptionReWriteWareHouseProduct: - Button Caption "ReWrite Data" In My WareHouse Products
 
         /// <summary>Button Caption "ReWrite Data" In My WareHouse Products</summary>
@@ -230,8 +227,6 @@ namespace Inventory.ViewModels.Warehouse
         public string? ButtonCaptionSoldOutWarehouseProduct { get => _ButtonCaptionSoldOutWarehouseProduct; set => Set(ref _ButtonCaptionSoldOutWarehouseProduct, value); }
 
         #endregion
-
-
 
 
         #region SelectedProductId: - Selected Product ID "My Warehouse"
@@ -726,6 +721,23 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnPushButtonSoldOutWareHouseCommandExecuted(object? p)
         {
+            if (_DataBase is null)
+            {
+                return;
+            }
+
+            var dbSettings = new DBSettings
+            {
+                Server = ConnectionOptions.dbServer,
+                Port = ConnectionOptions.dbPort,
+                Name = ConnectionOptions.dbName,
+                UserId = ConnectionOptions.userId,
+                Password = ConnectionOptions.password
+            };
+
+            string tableTittle = DbTables.SoldProducts;
+
+
             if (SelectedWarehouseProduct is null)
             {
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не выбран продукт для переноса в базу \"{DbTables.SoldProducts}\".";
@@ -738,6 +750,30 @@ namespace Inventory.ViewModels.Warehouse
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Продукт не может быть добавлен в \"Проданное\". Некорректно указаны данные.";
                 return;
             }
+
+            var soldDate = DateTime.Parse(SelectedProductSoldDate);
+
+            SoldProduct soldProduct = new()
+            {
+                Id = 0,
+                Tittle = SelectedWarehouseProduct.Tittle,
+                Property = SelectedWarehouseProduct.Property,
+                Size = SelectedWarehouseProduct.Size,
+                ExpirationDate = SelectedWarehouseProduct.ExpirationDate,
+                PurchaseCost = Convert.ToInt32(SelectedWarehouseProduct.PurchaseCost),
+                SoldCost = Convert.ToInt32(SelectedProductSoldCost),
+                OrderNumber = SelectedWarehouseProduct.OrderNumber,
+                ReceiptDate = SelectedWarehouseProduct.ReceiptDate,
+                SoldDate = soldDate,
+                Note = SelectedWarehouseProduct.Note,
+                CustomerId = Convert.ToInt32(SelectedProductCustomerId),
+            };
+
+            _DataBase.AddSoldProduct(dbSettings, tableTittle, soldProduct);
+
+            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Сведения о продукте записаны в базу \"{ConnectionOptions.dbName}\".";
+            //ToDo I am here
+
 
         }
 
@@ -1361,7 +1397,7 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnChangeCustomerIdValueWarehouseProductCommandExecuted(object? p)
         {
-            if (SelectedProductCustomerId is null)
+            if (string.IsNullOrEmpty(SelectedProductCustomerId))
             {
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Выбранный продукт\" равно NULL!";
                 return;

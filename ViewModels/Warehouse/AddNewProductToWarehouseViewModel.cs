@@ -537,8 +537,6 @@ namespace Inventory.ViewModels.Warehouse
                 Tittle = TittleProductAddNewToWarehouse,
                 Property = PropertyProductAddNewToWarehouse,
                 Size = SizeProductAddNewToWarehouse,
-
-
                 ExpirationDate = exDate,
                 PurchaseCost = Convert.ToInt16(PurchaseCostAddNewToWarehouse),
                 Location = LocationAddNewToWarehouse,
