@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\Windows\MainWindow\crown-solid.ico" />
+    <None Remove="Views\Windows\Warehouse\Icon_Crown.ico" />
+    <None Remove="Views\Windows\Warehouse\web-awesome-brands-solid.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
 	  <PackageReference Include="FontAwesome6.Svg" Version="2.5.1" />
 	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
 	  <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
@@ -17,6 +23,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\MkLibraries\ProductsProperties\ProductsProperties.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Windows\MainWindow\crown-solid.ico" />
+    <Resource Include="Views\Windows\Warehouse\Icon_Crown.ico" />
+    <Resource Include="Views\Windows\Warehouse\web-awesome-brands-solid.svg" />
   </ItemGroup>
 
 </Project>

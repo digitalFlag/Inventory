@@ -10,7 +10,7 @@
         
         Style="{StaticResource WindowMainStyle}"
         Title="{Binding NameOfInventoryWindow}" 
-        Height="450" Width="800">
+        Height="450" Width="800" Icon="/Views/Windows/MainWindow/crown-solid.ico">
 
     <Window.Resources>
         <Style TargetType="Menu" BasedOn="{StaticResource MenuMainStyle}"/>
