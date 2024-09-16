@@ -59,6 +59,7 @@ namespace Inventory.ViewModels.Warehouse
             BorderColorSelectedProductCustomerIdMyWarehouseControlTab = "HotPink";
 
             ButtonCaptionReWriteWareHouseProduct = "Корректировать данные";
+            ButtonCaptionSoldOutWarehouseProduct = "Продано";
 
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = string.Empty;
 
@@ -75,6 +76,14 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductSoldCost = string.Empty;
             SelectedProductSoldDate = DateTime.Now.ToString("dd.MM.yyyy");
             SelectedProductCustomerId = string.Empty;
+
+            IconSoldCostChangeValue = "Regular_CircleXmark";
+            IconSoldCostColorSendToSoldProducts = "Red";
+            IconSoldDateChangeValue = "Regular_CircleCheck";
+            IconSoldDateColorSendToSoldProducts = "LimeGreen";
+            IconCustomerIdChangeValue  = "Regular_CircleQuestion";
+            IconCustomerIdColorSendToSoldProducts = "Gray";
+
             #endregion
 
             #region SOLD PRODUCTS

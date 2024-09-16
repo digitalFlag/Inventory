@@ -145,6 +145,70 @@ namespace Inventory.ViewModels.Warehouse
         #endregion
 
 
+        #region IconSoldCostChangeValue: - Value Of Icom "Sold Cost" When Value Is Changing
+
+        /// <summary>Value Of Icom "Sold Cost" When Value Is Changing</summary>
+        private string? _IconSoldCostChangeValue;
+
+        /// <summary>Value Of Icom "Sold Cost" When Value Is Changing</summary>
+
+        public string? IconSoldCostChangeValue { get => _IconSoldCostChangeValue; set => Set(ref _IconSoldCostChangeValue, value); }
+
+        #endregion
+        #region IconSoldCostColorSendToSoldProducts: - Color Of Icon "Sold Cost" At My Warehouse Products Panel
+
+        /// <summary>Color Of Icon "Sold Cost" At My Warehouse Products Panel</summary>
+        private string? _IconSoldCostColorSendToSoldProducts;
+
+        /// <summary>Color Of Icon "Sold Cost" At My Warehouse Products Panel</summary>
+
+        public string? IconSoldCostColorSendToSoldProducts { get => _IconSoldCostColorSendToSoldProducts; set => Set(ref _IconSoldCostColorSendToSoldProducts, value); }
+
+        #endregion
+        #region IconSoldDateChangeValue: - Value Of Icon "Sold Date" When Value Is Changing
+
+        /// <summary>Value Of Icon "Sold Date" When Value Is Changing</summary>
+        private string? _IconSoldDateChangeValue;
+
+        /// <summary>Value Of Icon "Sold Date" When Value Is Changing</summary>
+
+        public string? IconSoldDateChangeValue { get => _IconSoldDateChangeValue; set => Set(ref _IconSoldDateChangeValue, value); }
+
+        #endregion
+        #region IconSoldDateColorSendToSoldProducts: - Color Of Icon "Sold Date" At My Warehouse Products Panel
+
+        /// <summary>Color Of Icon "Sold Date" At My Warehouse Products Panel</summary>
+        private string? _IconSoldDateColorSendToSoldProducts;
+
+        /// <summary>Color Of Icon "Sold Date" At My Warehouse Products Panel</summary>
+
+        public string? IconSoldDateColorSendToSoldProducts { get => _IconSoldDateColorSendToSoldProducts; set => Set(ref _IconSoldDateColorSendToSoldProducts, value); }
+
+        #endregion
+        #region IconCustomerIdChangeValue: - value Of Icon "Customer Id" When Value Is Changing
+
+        /// <summary>value Of Icon "Customer Id" When Value Is Changing</summary>
+        private string? _IconCustomerIdChangeValue;
+
+        /// <summary>value Of Icon "Customer Id" When Value Is Changing</summary>
+
+        public string? IconCustomerIdChangeValue { get => _IconCustomerIdChangeValue; set => Set(ref _IconCustomerIdChangeValue, value); }
+
+        #endregion
+        #region IconCustomerIdColorSendToSoldProducts: - Color Of Icon "Customer Id" At My Warehouse Products Panel
+
+        /// <summary>Color Of Icon "Customer Id" At My Warehouse Products Panel</summary>
+        private string? _IconCustomerIdColorSendToSoldProducts;
+
+        /// <summary>Color Of Icon "Customer Id" At My Warehouse Products Panel</summary>
+
+        public string? IconCustomerIdColorSendToSoldProducts { get => _IconCustomerIdColorSendToSoldProducts; set => Set(ref _IconCustomerIdColorSendToSoldProducts, value); }
+
+        #endregion
+
+
+
+
 
         #region ButtonCaptionReWriteWareHouseProduct: - Button Caption "ReWrite Data" In My WareHouse Products
 
@@ -156,6 +220,19 @@ namespace Inventory.ViewModels.Warehouse
         public string? ButtonCaptionReWriteWareHouseProduct { get => _ButtonCaptionReWriteWareHouseProduct; set => Set(ref _ButtonCaptionReWriteWareHouseProduct, value); }
 
         #endregion
+        #region ButtonCaptionSoldOutWarehouseProduct: - Button Caption "Sold Out" In My WareHouse Products
+
+        /// <summary>Button Caption "Sold Out" In My WareHouse Products</summary>
+        private string? _ButtonCaptionSoldOutWarehouseProduct;
+
+        /// <summary>Button Caption "Sold Out" In My WareHouse Products</summary>
+
+        public string? ButtonCaptionSoldOutWarehouseProduct { get => _ButtonCaptionSoldOutWarehouseProduct; set => Set(ref _ButtonCaptionSoldOutWarehouseProduct, value); }
+
+        #endregion
+
+
+
 
         #region SelectedProductId: - Selected Product ID "My Warehouse"
 
@@ -636,6 +713,36 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
+
+        #region Command PushButtonSoldOutWareHouseCommand: - Push Button "Sold Out" The Product From Warehouse
+
+        /// <summary>Push Button "Sold Out" The Product From Warehouse</summary>
+        private LambdaCommand? _PushButtonSoldOutWareHouseCommand;
+
+        /// <summary>Push Button "Sold Out" The Product From Warehouse</summary>
+        public ICommand PushButtonSoldOutWareHouseCommand => _PushButtonSoldOutWareHouseCommand ??= new(OnPushButtonSoldOutWareHouseCommandExecuted);
+
+        /// <summary>Логика выполнения - Push Button "Sold Out" The Product From Warehouse</summary>
+
+        private void OnPushButtonSoldOutWareHouseCommandExecuted(object? p)
+        {
+            if (SelectedWarehouseProduct is null)
+            {
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не выбран продукт для переноса в базу \"{DbTables.SoldProducts}\".";
+                return;
+            }
+
+            if (IconSoldCostChangeValue == "Regular_CircleXmark" || IconSoldDateChangeValue == "Regular_CircleXmark" ||
+                IconCustomerIdChangeValue == "Regular_CircleXmark")
+            {
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Продукт не может быть добавлен в \"Проданное\". Некорректно указаны данные.";
+                return;
+            }
+
+        }
+
+        #endregion
+
 
         #region Command ChangeTittleValueOfWarehouseProductCommand: - Change Value Of "Tittle" Of Selected Warhouse Product
 
@@ -1143,8 +1250,8 @@ namespace Inventory.ViewModels.Warehouse
             if (string.IsNullOrEmpty(SelectedProductSoldCost))
             {
                 BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
-                //IconCostChangeValue = "Regular_CircleXmark";
-                //IconCostColorAddNewProduct = "Red";
+                IconSoldCostChangeValue = "Regular_CircleXmark";
+                IconSoldCostColorSendToSoldProducts = "Red";
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта не задано.";
 
                 return;
@@ -1153,8 +1260,8 @@ namespace Inventory.ViewModels.Warehouse
             if (string.IsNullOrWhiteSpace(SelectedProductSoldCost))
             {
                 BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
-                //IconCostChangeValue = "Regular_CircleXmark";
-                //IconCostColorAddNewProduct = "Red";
+                IconSoldCostChangeValue = "Regular_CircleXmark";
+                IconSoldCostColorSendToSoldProducts = "Red";
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта задано как ПРОБЕЛ!";
 
                 return;
@@ -1165,8 +1272,8 @@ namespace Inventory.ViewModels.Warehouse
                 if (!char.IsDigit(c))
                 {
                     BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
-                    //IconCostChangeValue = "Regular_CircleXmark";
-                    //IconCostColorAddNewProduct = "Red";
+                    IconSoldCostChangeValue = "Regular_CircleXmark";
+                    IconSoldCostColorSendToSoldProducts = "Red";
                     TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта задано некорректно.";
 
                     return;
@@ -1176,8 +1283,8 @@ namespace Inventory.ViewModels.Warehouse
             if (SelectedProductSoldCost.Length > 1 && SelectedProductSoldCost[0] == '0')
             {
                 BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
-                //IconCostChangeValue = "Regular_CircleXmark";
-                //IconCostColorAddNewProduct = "Red";
+                IconSoldCostChangeValue = "Regular_CircleXmark";
+                IconSoldCostColorSendToSoldProducts = "Red";
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта задано некорректно (первая цифра 0).";
 
                 return;
@@ -1185,8 +1292,8 @@ namespace Inventory.ViewModels.Warehouse
             }
 
             BorderColorSelectedProductSoldCostMyWarehouseControlTab = "HotPink";
-            //IconCostChangeValue = "Regular_CircleCheck";
-            //IconCostColorAddNewProduct = "LimeGreen";
+            IconSoldCostChangeValue = "Regular_CircleCheck";
+            IconSoldCostColorSendToSoldProducts = "LimeGreen";
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта изменено.";
         }
 
@@ -1206,8 +1313,8 @@ namespace Inventory.ViewModels.Warehouse
             if (string.IsNullOrEmpty(SelectedProductSoldDate))
             {
                 BorderColorSelectedProductSoldDateMyWarehouseControlTab = "DarkViolet";
-                //IconReceiptDateValue = "Regular_CircleXmark";
-                //IconReceiptDateColorAddNewProduct = "Red";
+                IconSoldDateChangeValue = "Regular_CircleXmark";
+                IconSoldDateColorSendToSoldProducts = "Red";
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта не задано.";
 
                 return;
@@ -1216,8 +1323,8 @@ namespace Inventory.ViewModels.Warehouse
             if (SelectedProductSoldDate.Length != 10)
             {
                 BorderColorSelectedProductSoldDateMyWarehouseControlTab = "DarkViolet";
-                //IconReceiptDateValue = "Regular_CircleXmark";
-                //IconReceiptDateColorAddNewProduct = "Red";
+                IconSoldDateChangeValue = "Regular_CircleXmark";
+                IconSoldDateColorSendToSoldProducts = "Red";
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта не задано (dd.MM.yyyy).";
 
                 return;
@@ -1227,16 +1334,16 @@ namespace Inventory.ViewModels.Warehouse
             if (!DateTime.TryParse(SelectedProductSoldDate, out dt))
             {
                 BorderColorSelectedProductSoldDateMyWarehouseControlTab = "DarkViolet";
-                //IconReceiptDateValue = "Regular_CircleXmark";
-                //IconReceiptDateColorAddNewProduct = "Red";
+                IconSoldDateChangeValue = "Regular_CircleXmark";
+                IconSoldDateColorSendToSoldProducts = "Red";
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта не задано (dd.MM.yyyy).";
 
                 return;
             }
 
             BorderColorSelectedProductSoldDateMyWarehouseControlTab = "HotPink";
-            //IconReceiptDateValue = "Regular_CircleCheck";
-            //IconReceiptDateColorAddNewProduct = "LimeGreen";
+            IconSoldDateChangeValue = "Regular_CircleCheck";
+            IconSoldDateColorSendToSoldProducts = "LimeGreen";
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта изменено.";
 
         }
@@ -1254,11 +1361,17 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnChangeCustomerIdValueWarehouseProductCommandExecuted(object? p)
         {
+            if (SelectedProductCustomerId is null)
+            {
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Выбранный продукт\" равно NULL!";
+                return;
+            }
+
             if (char.IsWhiteSpace(SelectedProductCustomerId[0]))
             {
                 BorderColorSelectedProductCustomerIdMyWarehouseControlTab = "DarkViolet";
-                //IconReceiptDateValue = "Regular_CircleXmark";
-                //IconReceiptDateColorAddNewProduct = "Red";
+                IconCustomerIdChangeValue = "Regular_CircleXmark";
+                IconCustomerIdColorSendToSoldProducts = "Red";
                 TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Id Клиента\" начинается с пробела.";
 
                 return;
@@ -1266,8 +1379,8 @@ namespace Inventory.ViewModels.Warehouse
 
 
             BorderColorSelectedProductCustomerIdMyWarehouseControlTab = "HotPink";
-            //IconReceiptDateValue = "Regular_CircleCheck";
-            //IconReceiptDateColorAddNewProduct = "LimeGreen";
+            IconCustomerIdChangeValue = "Regular_CircleCheck";
+            IconCustomerIdColorSendToSoldProducts = "LimeGreen";
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Id Киента\" изменено.";
         }
 

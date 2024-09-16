@@ -255,8 +255,8 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Content="{Binding LabelNoteProduct}"/>
                     <TextBox Grid.Column="1" 
-                                         Text="{Binding SelectedProductNote, UpdateSourceTrigger=PropertyChanged}"
-                                         BorderBrush="{Binding BorderColorSelectedProductNoteMyWarehouseControlTab}">
+                             Text="{Binding SelectedProductNote, UpdateSourceTrigger=PropertyChanged}"
+                             BorderBrush="{Binding BorderColorSelectedProductNoteMyWarehouseControlTab}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="TextChanged">
                                 <i:InvokeCommandAction Command="{Binding ChangeNoteValueOfWarehouseProductCommand}"/>
@@ -272,8 +272,9 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Content="{Binding LabelIdProduct}"/>
                     <TextBox Grid.Column="1"
-                                         Text="{Binding SelectedWarehouseProduct.Id, UpdateSourceTrigger=PropertyChanged}"
-                                         IsReadOnly="True">
+                             Text="{Binding SelectedWarehouseProduct.Id, UpdateSourceTrigger=PropertyChanged}"
+                             IsReadOnly="True"
+                             Margin="3,2,3,2">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="TextChanged">
                                 <i:InvokeCommandAction Command="{Binding SelectNewWarehouseProductCommand}"/>
@@ -289,17 +290,19 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="1"
-                                Command="{Binding PushButtonCorrectWareHouseProductDataCommand}">
+                            Command="{Binding PushButtonCorrectWareHouseProductDataCommand}"
+                            Margin="3,2,3,2">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <fa:ImageAwesome Icon="Solid_Pen"/>
                                 <Label Content="{Binding ButtonCaptionReWriteWareHouseProduct}"
-                                             Margin="5,0,0,0">
+                                       Margin="5,0,0,0">
                                 </Label>
                             </StackPanel>
                         </Button.Content>
                     </Button>
                 </Grid>
+                
                 <Label Content=""/>
                 <Grid Background="Pink">
                     <Label Content="Условия продажи:"
@@ -313,6 +316,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="130"/>
                         <ColumnDefinition/>
+                        <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Content="{Binding LabelSoldCostProduct}"/>
                     <TextBox Grid.Column="1" 
@@ -324,12 +328,17 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </TextBox>
+                    <fa:ImageAwesome Grid.Column="2"
+                                     Icon="{Binding IconSoldCostChangeValue}"
+                                     PrimaryColor="{Binding IconSoldCostColorSendToSoldProducts}">
+                    </fa:ImageAwesome>
                 </Grid>
                 <!--Sold Date-->
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="130"/>
                         <ColumnDefinition/>
+                        <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Content="{Binding LabelSoldDateProduct}"/>
                     <TextBox Grid.Column="1" 
@@ -341,12 +350,17 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </TextBox>
+                    <fa:ImageAwesome Grid.Column="2"
+                                     Icon="{Binding IconSoldDateChangeValue}"
+                                     PrimaryColor="{Binding IconSoldDateColorSendToSoldProducts}">
+                    </fa:ImageAwesome>
                 </Grid>
                 <!--Customer Id-->
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="130"/>
                         <ColumnDefinition/>
+                        <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Content="{Binding LadelCustomerId}"/>
                     <TextBox Grid.Column="1" 
@@ -358,6 +372,30 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </TextBox>
+                    <fa:ImageAwesome Grid.Column="2"
+                                     Icon="{Binding IconCustomerIdChangeValue}"
+                                     PrimaryColor="{Binding IconCustomerIdColorSendToSoldProducts}">
+                    </fa:ImageAwesome>
+                </Grid>
+
+                <!--Button Sold Out-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1"
+                            Command="{Binding PushButtonSoldOutWareHouseCommand}"
+                            Margin="2,2,2,2">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome Icon="Regular_CreditCard"/>
+                                <Label Content="{Binding ButtonCaptionSoldOutWarehouseProduct}"
+                                       Margin="5,0,0,0">
+                                </Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
                 </Grid>
 
                 <Label Content=""/>
@@ -365,8 +403,8 @@
 
                 <Grid Background="Pink">
                     <Label Content="Журнал событий:"
-                                       FontWeight="Medium" 
-                                       HorizontalAlignment="Center">
+                           FontWeight="Medium" 
+                           HorizontalAlignment="Center">
                     </Label>
                 </Grid>
                 <Label Content="{Binding TextLabelEventLogMyWarehouseTabControlWarehouseWindow}"></Label>
