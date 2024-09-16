@@ -194,7 +194,6 @@ namespace Inventory.Services.Implementations
             var sqlConnection = new NpgsqlConnection(connectionString);
 
             sqlConnection.Open();
-
             using var sqlCommand = new NpgsqlCommand();
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandType = System.Data.CommandType.Text;
@@ -224,7 +223,6 @@ namespace Inventory.Services.Implementations
                                                             $"\'{soldProduct.CustomerId}\')";
 
             sqlCommand.CommandText = textCmd;
-
             await sqlCommand.ExecuteNonQueryAsync();
 
             sqlConnection.Close();
@@ -233,12 +231,25 @@ namespace Inventory.Services.Implementations
         public async Task DeleteRecord(DBSettings dbSettings, string tableTittle, string featureName, string featureValue)
         {
             string connectionString = $"Server={dbSettings.Server}; " +
-                          $"Port={dbSettings.Port}; " +
-                          $"DataBase={dbSettings.Name}; " +
-                          $"User Id={dbSettings.UserId}; " +
-                          $"Password={dbSettings.Password};";
-        }
+                                      $"Port={dbSettings.Port}; " +
+                                      $"DataBase={dbSettings.Name}; " +
+                                      $"User Id={dbSettings.UserId}; " +
+                                      $"Password={dbSettings.Password};";
 
+            var sqlConnection = new NpgsqlConnection(connectionString);
+
+            sqlConnection.Open();
+
+            using var sqlCommand = new NpgsqlCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandType = System.Data.CommandType.Text;
+            sqlCommand.CommandText = $"DROP TABLE IF EXISTS {tableTittle}";
+            await sqlCommand.ExecuteNonQueryAsync();
+            string textCmd = $"DELETE FROM \"{tableTittle}\" WHERE \"{featureName}\" IN ({featureValue})";
+            sqlCommand.CommandText = textCmd;
+            await sqlCommand.ExecuteNonQueryAsync();
+
+            sqlConnection.Close();
+        }
     }
 }
-

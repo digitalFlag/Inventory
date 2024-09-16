@@ -726,6 +726,12 @@ namespace Inventory.ViewModels.Warehouse
                 return;
             }
 
+            if (SelectedWarehouseProduct is null)
+            {
+                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не выбран продукт для переноса в базу \"{DbTables.SoldProducts}\".";
+                return;
+            }
+
             var dbSettings = new DBSettings
             {
                 Server = ConnectionOptions.dbServer,
@@ -736,13 +742,6 @@ namespace Inventory.ViewModels.Warehouse
             };
 
             string tableTittle = DbTables.SoldProducts;
-
-
-            if (SelectedWarehouseProduct is null)
-            {
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не выбран продукт для переноса в базу \"{DbTables.SoldProducts}\".";
-                return;
-            }
 
             if (IconSoldCostChangeValue == "Regular_CircleXmark" || IconSoldDateChangeValue == "Regular_CircleXmark" ||
                 IconCustomerIdChangeValue == "Regular_CircleXmark")
@@ -771,10 +770,11 @@ namespace Inventory.ViewModels.Warehouse
 
             _DataBase.AddSoldProduct(dbSettings, tableTittle, soldProduct);
 
+            tableTittle = DbTables.WarehouseProducts;
+
+            _DataBase.DeleteRecord(dbSettings, tableTittle, DbTableWarehouseProducts.propertyId, SelectedWarehouseProduct.Id.ToString());
+
             TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Сведения о продукте записаны в базу \"{ConnectionOptions.dbName}\".";
-            //ToDo I am here
-
-
         }
 
         #endregion
