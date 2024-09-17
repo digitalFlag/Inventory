@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="Views\Windows\MainWindow\crown-solid.ico" />
     <None Remove="Views\Windows\Warehouse\Icon_Crown.ico" />
+    <None Remove="Views\Windows\Warehouse\warehouse-solid.ico" />
     <None Remove="Views\Windows\Warehouse\web-awesome-brands-solid.svg" />
   </ItemGroup>
 
@@ -28,6 +29,7 @@
   <ItemGroup>
     <Resource Include="Views\Windows\MainWindow\crown-solid.ico" />
     <Resource Include="Views\Windows\Warehouse\Icon_Crown.ico" />
+    <Resource Include="Views\Windows\Warehouse\warehouse-solid.ico" />
     <Resource Include="Views\Windows\Warehouse\web-awesome-brands-solid.svg" />
   </ItemGroup>
 

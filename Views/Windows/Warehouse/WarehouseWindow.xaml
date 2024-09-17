@@ -16,7 +16,7 @@
         
         Style="{StaticResource WindowMainStyle}"
         Title="{Binding NameOfWarhouseWindow}"
-        Icon="/Views/Windows/Warehouse/Icon_Crown.ico"
+        Icon="/Views/Windows/Warehouse/warehouse-solid.ico"
         Height="450" Width="800">
         
         
