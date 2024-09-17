@@ -37,7 +37,7 @@ namespace Inventory.Services.Implementations
             return loadedData;
         }
 
-        // Update Record In Table From Data Base
+        //Update Record In Table From Data Base
         public async Task UpdateRecord(DBSettings dbSettings, string tableTittle, string columnTittle, string columnId,string idValue, string newValue)
         {
             string connectionString = $"Server={dbSettings.Server}; " +
@@ -65,7 +65,7 @@ namespace Inventory.Services.Implementations
             sqlConnection.Close();
         }
 
-        public async Task AddRecord(DBSettings dbSettings, string tableTittle, WarehouseProduct warehouseProduct)
+        public async Task AddWarehouseProduct(DBSettings dbSettings, string tableTittle, WarehouseProduct warehouseProduct)
         {
             if(warehouseProduct is null)
             {
@@ -123,10 +123,24 @@ namespace Inventory.Services.Implementations
             sqlCommand.CommandText = $"DROP TABLE IF EXISTS {tableTittle}";
             await sqlCommand.ExecuteNonQueryAsync();
 
-            //ToDo It`s need to rewrite textCommand Like AddSoldProduct Metod
-
-            string textCmd = $"INSERT INTO \"{tableTittle}\" (\"wp_Tittle\", \"wp_Property\", \"wp_Size\", \"wp_ExpirationDate\", \"wp_Location\", \"wp_PurchaseCost\", \"wp_OrderNumber\", \"wp_ReceiptDate\", \"wp_Note\") " +
-                             $"VALUES (\'{warehouseProduct.Tittle}\', \'{warehouseProduct.Property}\', \'{warehouseProduct.Size}\', \'{warehouseProduct.ExpirationDate}\', \'{warehouseProduct.Location}\', \'{warehouseProduct.PurchaseCost}\', \'{warehouseProduct.OrderNumber}\', \'{warehouseProduct.ReceiptDate}\', \'{warehouseProduct.Note}\')";
+            string textCmd = $"INSERT INTO \"{tableTittle}\" (\"{DbTableSoldProducts.propertyTittle}\", " +
+                                                            $"\"{DbTableWarehouseProducts.propertyTittle}\", " +
+                                                            $" \"{DbTableWarehouseProducts.propertySize}\", " +
+                                                            $"\"{DbTableWarehouseProducts.propertyExpirationDate}\", " +
+                                                            $"\"{DbTableWarehouseProducts.propertyLocation}\", " +
+                                                            $"\"{DbTableWarehouseProducts.propertyPurchaseCost}\", " +
+                                                            $"\"{DbTableWarehouseProducts.propertyOrderNumber}\", " +
+                                                            $"\"{DbTableWarehouseProducts.propertyReceiptDate}\", " +
+                                                            $"\"{DbTableWarehouseProducts.propertyNote}\") " +
+                                                    $"VALUES (\'{warehouseProduct.Tittle}\', " +
+                                                            $"\'{warehouseProduct.Property}\', " +
+                                                            $"\'{warehouseProduct.Size}\', " +
+                                                            $"\'{warehouseProduct.ExpirationDate}\', " +
+                                                            $"\'{warehouseProduct.Location}\', " +
+                                                            $"\'{warehouseProduct.PurchaseCost}\', " +
+                                                            $"\'{warehouseProduct.OrderNumber}\', " +
+                                                            $"\'{warehouseProduct.ReceiptDate}\', " +
+                                                            $"\'{warehouseProduct.Note}\')";
             sqlCommand.CommandText = textCmd;
 
             await sqlCommand.ExecuteNonQueryAsync();

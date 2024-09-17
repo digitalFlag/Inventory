@@ -10,7 +10,7 @@ namespace Inventory.Services
 
         public Task UpdateRecord(DBSettings dbSettings, string tableTittle, string columnTittle, string columnId, string idValue, string newValue);
 
-        public Task AddRecord(DBSettings dbSettings, string tableTittle, WarehouseProduct warehouseProduct);
+        public Task AddWarehouseProduct(DBSettings dbSettings, string tableTittle, WarehouseProduct warehouseProduct);
 
         public Task AddSoldProduct(DBSettings dbSettings, string tableTittle, SoldProduct soldProduct);
 

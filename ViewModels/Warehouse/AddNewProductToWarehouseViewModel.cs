@@ -546,7 +546,7 @@ namespace Inventory.ViewModels.Warehouse
             };
 
 
-            _DataBase.AddRecord(dbSettings, tableTittle, warehouseProduct);
+            _DataBase.AddWarehouseProduct(dbSettings, tableTittle, warehouseProduct);
 
             ValueOfEventLogAddProductToWarehouseTabControl = "Продукт добавлен на склад.";
 
