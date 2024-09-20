@@ -23,10 +23,12 @@ namespace Inventory.Services.Implementations
 
             var sqlConnection = new NpgsqlConnection(connectionString);
             sqlConnection.Open();
-            NpgsqlCommand sqlCommand = new();
-            sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandType = System.Data.CommandType.Text;
-            sqlCommand.CommandText = $"SELECT * FROM \"{tableTittle}\"";
+            NpgsqlCommand sqlCommand = new()
+            {
+                Connection = sqlConnection,
+                CommandType = System.Data.CommandType.Text,
+                CommandText = $"SELECT * FROM \"{tableTittle}\""
+            };
             NpgsqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             if (sqlDataReader.HasRows)
             {
@@ -49,10 +51,12 @@ namespace Inventory.Services.Implementations
             var sqlConnection = new NpgsqlConnection(connectionString);
             sqlConnection.Open();
 
-            using var sqlCommand = new NpgsqlCommand();
-            sqlCommand.Connection= sqlConnection;
-            sqlCommand.CommandType = System.Data.CommandType.Text;
-            sqlCommand.CommandText = $"DROP TABLE IF EXISTS {tableTittle}";
+            using NpgsqlCommand sqlCommand = new()
+            {
+                Connection = sqlConnection,
+                CommandType = System.Data.CommandType.Text,
+                CommandText = $"DROP TABLE IF EXISTS {tableTittle}",
+            };
             await sqlCommand.ExecuteNonQueryAsync();
 
             string textCmd = $"UPDATE \"{tableTittle}\" " +
@@ -64,7 +68,8 @@ namespace Inventory.Services.Implementations
 
             sqlConnection.Close();
         }
-
+        
+        //Add New Record To Warehouse Table
         public async Task AddWarehouseProduct(DBSettings dbSettings, string tableTittle, WarehouseProduct warehouseProduct)
         {
             if(warehouseProduct is null)
@@ -117,30 +122,36 @@ namespace Inventory.Services.Implementations
             var sqlConnection = new NpgsqlConnection(connectionString);
             sqlConnection.Open();
 
-            using var sqlCommand = new NpgsqlCommand();
-            sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandType = System.Data.CommandType.Text;
-            sqlCommand.CommandText = $"DROP TABLE IF EXISTS {tableTittle}";
+            using NpgsqlCommand sqlCommand = new()
+            {
+                Connection = sqlConnection,
+                CommandType = System.Data.CommandType.Text,
+                CommandText = $"DROP TABLE IF EXISTS {tableTittle}",
+            };
+
             await sqlCommand.ExecuteNonQueryAsync();
 
-            string textCmd = $"INSERT INTO \"{tableTittle}\" (\"{DbTableSoldProducts.propertyTittle}\", " +
-                                                            $"\"{DbTableWarehouseProducts.propertyTittle}\", " +
-                                                            $" \"{DbTableWarehouseProducts.propertySize}\", " +
-                                                            $"\"{DbTableWarehouseProducts.propertyExpirationDate}\", " +
-                                                            $"\"{DbTableWarehouseProducts.propertyLocation}\", " +
-                                                            $"\"{DbTableWarehouseProducts.propertyPurchaseCost}\", " +
-                                                            $"\"{DbTableWarehouseProducts.propertyOrderNumber}\", " +
-                                                            $"\"{DbTableWarehouseProducts.propertyReceiptDate}\", " +
-                                                            $"\"{DbTableWarehouseProducts.propertyNote}\") " +
-                                                    $"VALUES (\'{warehouseProduct.Tittle}\', " +
-                                                            $"\'{warehouseProduct.Property}\', " +
-                                                            $"\'{warehouseProduct.Size}\', " +
-                                                            $"\'{warehouseProduct.ExpirationDate}\', " +
-                                                            $"\'{warehouseProduct.Location}\', " +
-                                                            $"\'{warehouseProduct.PurchaseCost}\', " +
-                                                            $"\'{warehouseProduct.OrderNumber}\', " +
-                                                            $"\'{warehouseProduct.ReceiptDate}\', " +
-                                                            $"\'{warehouseProduct.Note}\')";
+            string textCmd = $"INSERT INTO \"{tableTittle}\" (\"wp_Tittle\", \"wp_Property\", \"wp_Size\", \"wp_ExpirationDate\", \"wp_Location\", \"wp_PurchaseCost\", \"wp_OrderNumber\", \"wp_ReceiptDate\", \"wp_Note\") " +
+                             $"VALUES (\'{warehouseProduct.Tittle}\', \'{warehouseProduct.Property}\', \'{warehouseProduct.Size}\', \'{warehouseProduct.ExpirationDate}\', \'{warehouseProduct.Location}\', \'{warehouseProduct.PurchaseCost}\', \'{warehouseProduct.OrderNumber}\', \'{warehouseProduct.ReceiptDate}\', \'{warehouseProduct.Note}\')";
+
+            //string textCmd = $"INSERT INTO \"{tableTittle}\" (\"{DbTableSoldProducts.propertyTittle}\", " +
+            //                                                $"\"{DbTableWarehouseProducts.propertyTittle}\", " +
+            //                                                $" \"{DbTableWarehouseProducts.propertySize}\", " +
+            //                                                $"\"{DbTableWarehouseProducts.propertyExpirationDate}\", " +
+            //                                                $"\"{DbTableWarehouseProducts.propertyLocation}\", " +
+            //                                                $"\"{DbTableWarehouseProducts.propertyPurchaseCost}\", " +
+            //                                                $"\"{DbTableWarehouseProducts.propertyOrderNumber}\", " +
+            //                                                $"\"{DbTableWarehouseProducts.propertyReceiptDate}\", " +
+            //                                                $"\"{DbTableWarehouseProducts.propertyNote}\") " +
+            //                                        $"VALUES (\'{warehouseProduct.Tittle}\', " +
+            //                                                $"\'{warehouseProduct.Property}\', " +
+            //                                                $"\'{warehouseProduct.Size}\', " +
+            //                                                $"\'{warehouseProduct.ExpirationDate}\', " +
+            //                                                $"\'{warehouseProduct.Location}\', " +
+            //                                                $"\'{warehouseProduct.PurchaseCost}\', " +
+            //                                                $"\'{warehouseProduct.OrderNumber}\', " +
+            //                                                $"\'{warehouseProduct.ReceiptDate}\', " +
+            //                                                $"\'{warehouseProduct.Note}\')";
             sqlCommand.CommandText = textCmd;
 
             await sqlCommand.ExecuteNonQueryAsync();
@@ -148,6 +159,7 @@ namespace Inventory.Services.Implementations
             sqlConnection.Close();
         }
 
+        //Add New Record To SoldProducts Table
         public async Task AddSoldProduct(DBSettings dbSettings, string tableTittle, SoldProduct soldProduct)
         {
             if (soldProduct is null)
@@ -242,6 +254,7 @@ namespace Inventory.Services.Implementations
             sqlConnection.Close();
         }
 
+        //Delete Record From A Data Base
         public async Task DeleteRecord(DBSettings dbSettings, string tableTittle, string featureName, string featureValue)
         {
             string connectionString = $"Server={dbSettings.Server}; " +

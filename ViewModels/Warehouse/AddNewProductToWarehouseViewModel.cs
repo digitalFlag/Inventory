@@ -4,6 +4,7 @@ using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
 using System.Data;
 using System.Windows.Input;
+using System.Globalization;
 
 namespace Inventory.ViewModels.Warehouse
 {
@@ -528,6 +529,14 @@ namespace Inventory.ViewModels.Warehouse
                 return;
 			}
 
+			if (ReceiptDateAddNewToWarehouse is null)
+			{
+                ValueOfEventLogAddProductToWarehouseTabControl = "Продукт не добавлен на склад. Значение \"даты получения\" продукта равно NULL!.";
+                return;
+			}
+
+			//CultureInfo fp = new("en-US");
+
 			var exDate = DateTime.Parse("01." + ExpirationDateProductAddNewToWarehouse);
             var resDate = DateTime.Parse(ReceiptDateAddNewToWarehouse);
 
@@ -1047,6 +1056,8 @@ namespace Inventory.ViewModels.Warehouse
 
                 return;
             }
+
+			//CultureInfo fp = new("ru-RU");
 
             DateTime dt;
             if (!DateTime.TryParse(ReceiptDateAddNewToWarehouse, out dt))
