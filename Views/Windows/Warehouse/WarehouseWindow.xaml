@@ -53,6 +53,11 @@
                 </MenuItem>
                 </MenuItem>
             </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StackPanel Orientation="Horizontal">
+                <!--I am here-->
+            </StackPanel>
+        </StatusBar>
         <TabControl>
             <TabItem>
                 <i:Interaction.Triggers>
