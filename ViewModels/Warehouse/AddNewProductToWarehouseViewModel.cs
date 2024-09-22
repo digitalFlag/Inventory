@@ -215,18 +215,6 @@ namespace Inventory.ViewModels.Warehouse
 
 		#endregion
 
-		#region ValueOfEventLogAddProductToWarehouseTabControl: - Value Of "Event Log" On TabCOntrol Add Product To Warehouse
-
-		/// <summary>Value Of "Event Log" On TabCOntrol Add Product To Warehouse</summary>
-		private string? _ValueOfEventLogAddProductToWarehouseTabControl;
-
-		/// <summary>Value Of "Event Log" On TabCOntrol Add Product To Warehouse</summary>
-
-		public string? ValueOfEventLogAddProductToWarehouseTabControl { get => _ValueOfEventLogAddProductToWarehouseTabControl; set => Set(ref _ValueOfEventLogAddProductToWarehouseTabControl, value); }
-
-		#endregion
-
-
 		#region IconTittleChangeValue: - Value Of Icon "Tittle" When Value Is Changing
 
 		/// <summary>Value Of Icon "Tittle" When Value Is Changing</summary>
@@ -525,13 +513,13 @@ namespace Inventory.ViewModels.Warehouse
                 IconLocationChangeValue == "Regular_CircleXmark" || IconReceiptDateValue == "Regular_CircleXmark" ||
                 IconOrderNumberValue == "Regular_CircleXmark")
 			{
-                ValueOfEventLogAddProductToWarehouseTabControl = "Продукт не добавлен на склад. Некорректно указаны данные.";
+                WarehouseEventTextValue = "Продукт не добавлен на склад. Некорректно указаны данные.";
                 return;
 			}
 
 			if (ReceiptDateAddNewToWarehouse is null)
 			{
-                ValueOfEventLogAddProductToWarehouseTabControl = "Продукт не добавлен на склад. Значение \"даты получения\" продукта равно NULL!.";
+                WarehouseEventTextValue = "Продукт не добавлен на склад. Значение \"даты получения\" продукта равно NULL!.";
                 return;
 			}
 
