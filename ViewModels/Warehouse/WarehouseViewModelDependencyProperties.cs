@@ -90,6 +90,38 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region WarehouseEventIconValue: - Value Of Icon "Event" In Warehouse Window
+
+        /// <summary>Value Of Icon "Event" In Warehouse Window</summary>
+        private string? _WarehouseEventIconValue;
+
+        /// <summary>Value Of Icon "Event" In Warehouse Window</summary>
+
+        public string? WarehouseEventIconValue { get => _WarehouseEventIconValue; set => Set(ref _WarehouseEventIconValue, value); }
+
+        #endregion
+        #region WarehouseEventIconColor: - Value Of Icon Color "Event" In Warehouse Window
+
+        /// <summary>Value Of Icon Color "Event" In Warehouse Window</summary>
+        private string? _WarehouseEventIconColor;
+
+        /// <summary>Value Of Icon Color "Event" In Warehouse Window</summary>
+
+        public string? WarehouseEventIconColor { get => _WarehouseEventIconColor; set => Set(ref _WarehouseEventIconColor, value); }
+
+        #endregion
+        #region WarehouseEventTextValue: - Value Of Texst "Event" In Warehouse Window
+
+        /// <summary>Value Of Texst "Event" In Warehouse Window</summary>
+        private string? _WarehouseEventTextValue;
+
+        /// <summary>Value Of Texst "Event" In Warehouse Window</summary>
+
+        public string? WarehouseEventTextValue { get => _WarehouseEventTextValue; set => Set(ref _WarehouseEventTextValue, value); }
+
+        #endregion
+
+
 
     }
 }

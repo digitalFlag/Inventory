@@ -38,6 +38,10 @@ namespace Inventory.ViewModels.Warehouse
             LabelSoldDateProduct = "Дата продажи:";
             LadelCustomerId = "Id Клиента:";
 
+            WarehouseEventIconValue = "Solid_Rocket";
+            WarehouseEventIconColor = "DeepPink";
+            WarehouseEventTextValue = string.Empty;
+
             #endregion
 
             #region WAREHOUSE PRODUCTS
