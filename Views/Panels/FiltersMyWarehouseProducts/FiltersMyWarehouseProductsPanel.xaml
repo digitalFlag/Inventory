@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="Inventory.Views.Panels.FiltersMyWarehouseProducts.FiltersMyWarehouseProductsPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+             xmlns:local="clr-namespace:Inventory.Views.Panels.FiltersMyWarehouseProducts"
+             xmlns:fa="http://schemas.fontawesome.com/icons/svg"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             
+             xmlns:vm="clr-namespace:Inventory.ViewModels.Warehouse"
+             d:DataContext="{d:DesignInstance vm:WarehouseViewModel, IsDesignTimeCreatable=True}"
+             d:Height="450" d:Width="300">
+
+
+    <UserControl.Resources>
+        <Style TargetType="Menu" BasedOn="{StaticResource MenuMainStyle}"/>
+        <Style TargetType="MenuItem" BasedOn="{StaticResource MenuItemMainStyle}"/>
+        <Style TargetType="fa:ImageAwesome" BasedOn="{StaticResource FontAwesomeIconPinkStyle}"/>
+        <Style TargetType="Label" BasedOn="{StaticResource LabelMainStyle}"/>
+        <Style TargetType="GridSplitter" BasedOn="{StaticResource GridSplitterMainStyle}"/>
+        <Style TargetType="StackPanel" BasedOn="{StaticResource StackPanelMainStyle}"/>
+        <Style TargetType="Button" BasedOn="{StaticResource ButtonMainStyle}"/>
+        <Style TargetType="TabControl" BasedOn="{StaticResource TabControlMainStyle}"/>
+        <Style TargetType="TabItem" BasedOn="{StaticResource TabItemMainStyle}"/>
+        <Style TargetType="DataGrid" BasedOn="{StaticResource DataGridMainStyle}"/>
+        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderMainStyle}"/>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockMainStyle}"/>
+        <Style TargetType="Border" BasedOn="{StaticResource BorderMainStyle}"/>
+        <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxMainStyle}"/>
+        <Style TargetType="Grid" BasedOn="{StaticResource GridMainStyle}"/>
+
+    </UserControl.Resources>
+    
+
+        <StackPanel Orientation="Vertical">
+        <!--Tittle-->
+        <Label Content="{Binding LabelTittleProduct}"
+               FontWeight="Normal">
+        </Label>
+        <TextBox>
+            
+        </TextBox>
+
+
+
+
+        </StackPanel>
+
+</UserControl>
+
+

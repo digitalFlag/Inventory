@@ -88,6 +88,7 @@ namespace Inventory.ViewModels.Warehouse
             IconCustomerIdChangeValue  = Icons.Name.Regular_CircleQuestion.ToString();
             IconCustomerIdColorSendToSoldProducts = Color.Gray.Name;
 
+            TabItemFiltersMyWarehouseItem = "Фильтры";
             TabItemSelectedProductMyWarehouseItem = "Выбранный продукт";
 
             #endregion

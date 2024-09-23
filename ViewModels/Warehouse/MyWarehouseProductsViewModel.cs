@@ -398,6 +398,17 @@ namespace Inventory.ViewModels.Warehouse
         public string? TabItemSelectedProductMyWarehouseItem { get => _TabItemSelectedProductMyWarehouseItem; set => Set(ref _TabItemSelectedProductMyWarehouseItem, value); }
 
         #endregion
+        #region TabItemFiltersMyWarehouseItem: - Name Of TabItem "Filters" In Panel My Warehouse Products
+
+        /// <summary>Name Of TabItem "Filters" In Panel My Warehouse Products</summary>
+        private string? _TabItemFiltersMyWarehouseItem;
+
+        /// <summary>Name Of TabItem "Filters" In Panel My Warehouse Products</summary>
+
+        public string? TabItemFiltersMyWarehouseItem { get => _TabItemFiltersMyWarehouseItem; set => Set(ref _TabItemFiltersMyWarehouseItem, value); }
+
+        #endregion
+
 
 
         #endregion
