@@ -53,23 +53,20 @@
                 </MenuItem>
                 </MenuItem>
             </Menu>
-
-        <Grid DockPanel.Dock="Bottom">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="22"/>
-            </Grid.ColumnDefinitions>
-            <fa:ImageAwesome Grid.Column="1" 
-                             Icon="{Binding WarehouseEventIconValue}"
-                             PrimaryColor="{Binding WarehouseEventIconColor}">
-            </fa:ImageAwesome>
-            <StackPanel Grid.Column="0"
-                        Orientation="Horizontal">
+        <StatusBar DockPanel.Dock="Bottom">
+            <StackPanel Orientation="Horizontal">
+                <!--Icon-->
+                <fa:ImageAwesome Grid.Column="1" 
+                 Icon="{Binding WarehouseEventIconValue}"
+                 PrimaryColor="{Binding WarehouseEventIconColor}">
+                </fa:ImageAwesome>
+                <!--Event Text-->
                 <TextBlock Text="{Binding WarehouseEventTextValue}">
-                    
                 </TextBlock>
             </StackPanel>
-        </Grid>
+        </StatusBar>
+            
+
 
         <TabControl>
             <TabItem>
