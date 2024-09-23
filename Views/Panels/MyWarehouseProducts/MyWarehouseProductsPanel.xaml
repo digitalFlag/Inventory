@@ -102,8 +102,18 @@
                 <!--TAB CONTROL-->
                 <TabControl>
                     <!--TAB ITEM FILTERS-->
-                    <TabItem Header="{Binding TabItemFiltersMyWarehouseItem}"
-                             FontWeight="Bold">
+                    
+                    
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome Icon="{Binding IconFiltersTabControlInMyWarehouseItemValue}">
+                                    
+                                </fa:ImageAwesome>
+                                <Label Content="{Binding TabItemFiltersMyWarehouseItem}"
+                                       FontWeight="Bold"/>
+                            </StackPanel>
+                        </TabItem.Header>
                         <viewsFiltersMyWarehouseProducts:FiltersMyWarehouseProductsPanel/>
                     </TabItem>
                     <!--TAB ITEM SELECTED PRODUCT-->

@@ -410,6 +410,17 @@ namespace Inventory.ViewModels.Warehouse
         #endregion
 
 
+        #region IconFiltersTabControlInMyWarehouseItemValue: - Value Of Icon "Filters" Tab Control -> My WareHouse Item
+
+        /// <summary>Value Of Icon "Filters" Tab Control -> My WareHouse Item</summary>
+        private string? _IconFiltersTabControlInMyWarehouseItemValue;
+
+        /// <summary>Value Of Icon "Filters" Tab Control -> My WareHouse Item</summary>
+
+        public string? IconFiltersTabControlInMyWarehouseItemValue { get => _IconFiltersTabControlInMyWarehouseItemValue; set => Set(ref _IconFiltersTabControlInMyWarehouseItemValue, value); }
+
+        #endregion
+
 
         #endregion
 
