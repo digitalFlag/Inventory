@@ -107,14 +107,6 @@
 
                 <Label Content=""/>
                 
-                <Grid Background="Pink">
-                    <Label Content="Журнал событий:"
-                           FontWeight="Medium" 
-                           HorizontalAlignment="Center">
-                    </Label>
-                </Grid>
-                <Label Content="{Binding EventTextValueLogSoldProductsTabControl}"></Label>
-
             </StackPanel>
         </ScrollViewer>
     </Grid>

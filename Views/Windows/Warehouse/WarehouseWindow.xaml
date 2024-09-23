@@ -61,7 +61,8 @@
                  PrimaryColor="{Binding WarehouseEventIconColor}">
                 </fa:ImageAwesome>
                 <!--Event Text-->
-                <TextBlock Text="{Binding WarehouseEventTextValue}">
+                <TextBlock Text="{Binding WarehouseEventTextValue}"
+                           Background="Transparent">
                 </TextBlock>
             </StackPanel>
         </StatusBar>

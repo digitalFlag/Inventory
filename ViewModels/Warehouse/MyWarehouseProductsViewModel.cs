@@ -4,6 +4,7 @@ using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
@@ -361,18 +362,6 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
-
-        #region TextLabelEventLogMyWarehouseTabControlWarehouseWindow: - Text Of Event Log In MyWarehouse TabControl In Warehouse Window
-
-        /// <summary>Text Of Event Log In MyWarehouse TabControl In Warehouse Window</summary>
-        private string? _TextLabelEventLogMyWarehouseTabControlWarehouseWindow;
-
-        /// <summary>Text Of Event Log In MyWarehouse TabControl In Warehouse Window</summary>
-
-        public string? TextLabelEventLogMyWarehouseTabControlWarehouseWindow { get => _TextLabelEventLogMyWarehouseTabControlWarehouseWindow; set => Set(ref _TextLabelEventLogMyWarehouseTabControlWarehouseWindow, value); }
-
-        #endregion
-
         #region WarehouseProducts: - Products On Warehouse List
 
         /// <summary>Products On Warehouse List</summary>
@@ -448,7 +437,10 @@ namespace Inventory.ViewModels.Warehouse
                 Note = Convert.ToString(row[DbTableWarehouseProducts.propertyNote]),
             });
 
-            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Информация о продукции на Мини-Складе из базы \"{ConnectionOptions.dbName}\" загружена.";
+            WarehouseEventTextValue = $"Информация о продукции на Мини-Складе из базы \"{ConnectionOptions.dbName}\" загружена.";
+            WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+            WarehouseEventIconColor = Color.LimeGreen.Name;
+
 
             SelectedProductId = string.Empty;
             SelectedProductTittle = string.Empty;
@@ -460,6 +452,11 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductReceiptDate = string.Empty;
             SelectedProductOrderNumber = string.Empty;
             SelectedProductNote = string.Empty;
+
+            WarehouseEventTextValue = "Данные о продукции обновлены.";
+            WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+            WarehouseEventIconColor = Color.LimeGreen.Name;
+
 
             OnPropertyChanged();
         }
@@ -517,7 +514,10 @@ namespace Inventory.ViewModels.Warehouse
 
             if (string.IsNullOrEmpty(SelectedProductId))
             {
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не выбран \"Продукт\" из списка.";
+                WarehouseEventTextValue = $"Не выбран \"Продукт\" из списка.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
+
                 return;
             }
 
@@ -562,7 +562,10 @@ namespace Inventory.ViewModels.Warehouse
 
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductTittle);
 
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение названия выбранного продукта изменено.";
+                WarehouseEventTextValue = "Значение названия выбранного продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
+
                 BorderColorSelectedProductTittleMyWarehouseControlTab = "HotPink";
             }
             //Property
@@ -577,7 +580,10 @@ namespace Inventory.ViewModels.Warehouse
 
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductProperty);
 
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventTextValue = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
+
                 BorderColorSelectedProductPropertyMyWarehouseControlTab = "HotPink";
             }
             //Size
@@ -592,7 +598,10 @@ namespace Inventory.ViewModels.Warehouse
 
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductSize);
 
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventTextValue = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
+
                 BorderColorSelectedProductSizeMyWarehouseControlTab = "HotPink";
 
 
@@ -615,7 +624,10 @@ namespace Inventory.ViewModels.Warehouse
 
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, newValue);
 
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventTextValue = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
+
                 BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "HotPink";
             }
             //Purchase Cost
@@ -630,7 +642,10 @@ namespace Inventory.ViewModels.Warehouse
 
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductPurchaseCost);
 
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventTextValue = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
+
                 BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "HotPink";
 
 
@@ -650,7 +665,10 @@ namespace Inventory.ViewModels.Warehouse
 
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductLocation);
 
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventTextValue = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
+
                 BorderColorSelectedProductLocationMyWarehouseControlTab = "HotPink";
             }
             //Receipt Date
@@ -665,7 +683,10 @@ namespace Inventory.ViewModels.Warehouse
 
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductReceiptDate);
 
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventTextValue = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
+
                 BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "HotPink";
 
 
@@ -685,7 +706,11 @@ namespace Inventory.ViewModels.Warehouse
 
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductOrderNumber);
 
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventTextValue = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
+
+
                 BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "HotPink";
             }
             //Note
@@ -700,7 +725,10 @@ namespace Inventory.ViewModels.Warehouse
 
                 _DataBase.UpdateRecord(dbSettings, tableTittle, columnTittle, columnId, SelectedProductId, SelectedProductNote);
 
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventTextValue = "Значение свойства выбранного продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
+
                 BorderColorSelectedProductNoteMyWarehouseControlTab = "HotPink";
             }
 
@@ -729,7 +757,10 @@ namespace Inventory.ViewModels.Warehouse
 
             if (SelectedWarehouseProduct is null)
             {
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не выбран продукт для переноса в базу \"{DbTables.SoldProducts}\".";
+                WarehouseEventTextValue = $"Не выбран продукт для переноса в базу \"{DbTables.SoldProducts}\".";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
+
                 return;
             }
 
@@ -747,7 +778,10 @@ namespace Inventory.ViewModels.Warehouse
             if (IconSoldCostChangeValue == "Regular_CircleXmark" || IconSoldDateChangeValue == "Regular_CircleXmark" ||
                 IconCustomerIdChangeValue == "Regular_CircleXmark")
             {
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Продукт не может быть добавлен в \"Проданное\". Некорректно указаны данные.";
+                WarehouseEventTextValue = $"Продукт не может быть добавлен в \"Проданное\". Некорректно указаны данные.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
+
                 return;
             }
 
@@ -775,7 +809,10 @@ namespace Inventory.ViewModels.Warehouse
 
             _DataBase.DeleteRecord(dbSettings, tableTittle, DbTableWarehouseProducts.propertyId, SelectedWarehouseProduct.Id.ToString());
 
-            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Сведения о продукте записаны в базу \"{ConnectionOptions.dbName}\".";
+            WarehouseEventTextValue = $"Сведения о продукте записаны в базу \"{ConnectionOptions.dbName}\".";
+            WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+            WarehouseEventIconColor = Color.LimeGreen.Name;
+
         }
 
         #endregion
@@ -808,14 +845,19 @@ namespace Inventory.ViewModels.Warehouse
                 if (string.IsNullOrEmpty(SelectedProductTittle))
                 {
                     BorderColorSelectedProductTittleMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Название\" продукта.";
+
+                    WarehouseEventTextValue = $"Не задано значение \"Название\" продукта.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
 
                 BorderColorSelectedProductTittleMyWarehouseControlTab = "Green";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Название\" продукта изменено.";
 
+                WarehouseEventTextValue = $"Значение \"Название\" продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
             }
             else
             {
@@ -851,13 +893,19 @@ namespace Inventory.ViewModels.Warehouse
                 if (string.IsNullOrEmpty(SelectedProductProperty))
                 {
                     BorderColorSelectedProductPropertyMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Свойство\" продукта.";
+
+                    WarehouseEventTextValue = $"Не задано значение \"Свойство\" продукта.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
 
                 BorderColorSelectedProductPropertyMyWarehouseControlTab = "Green";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Свойство\" продукта изменено.";
+
+                WarehouseEventTextValue = $"Значение \"Свойство\" продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
 
             }
             else
@@ -894,13 +942,19 @@ namespace Inventory.ViewModels.Warehouse
                 if (string.IsNullOrEmpty(SelectedProductSize))
                 {
                     BorderColorSelectedProductSizeMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Размер\" продукта.";
+
+                    WarehouseEventTextValue = $"Не задано значение \"Размер\" продукта.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
 
                 BorderColorSelectedProductSizeMyWarehouseControlTab = "Green";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Размер\" продукта изменено.";
+
+                WarehouseEventTextValue = $"Значение \"Размер\" продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
 
             }
             else
@@ -937,13 +991,19 @@ namespace Inventory.ViewModels.Warehouse
                 if (string.IsNullOrEmpty(SelectedProductLocation))
                 {
                     BorderColorSelectedProductLocationMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Место хранения\" продукта.";
+
+                    WarehouseEventTextValue = $"Не задано значение \"Место хранения\" продукта.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
 
                 BorderColorSelectedProductLocationMyWarehouseControlTab = "Green";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Место хранения\" продукта изменено.";
+
+                WarehouseEventTextValue = $"Значение \"Место хранения\" продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
 
             }
             else
@@ -980,13 +1040,19 @@ namespace Inventory.ViewModels.Warehouse
                 if (string.IsNullOrEmpty(SelectedProductOrderNumber))
                 {
                     BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Номер заказа\" продукта.";
+
+                    WarehouseEventTextValue = $"Не задано значение \"Номер заказа\" продукта.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
 
                 BorderColorSelectedProductOrderNumberMyWarehouseControlTab = "Green";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Номер заказа\" продукта изменено.";
+
+                WarehouseEventTextValue = $"Значение \"Номер заказа\" продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
 
             }
             else
@@ -1023,13 +1089,19 @@ namespace Inventory.ViewModels.Warehouse
                 if (SelectedProductNote is null)
                 {
                     BorderColorSelectedProductNoteMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Примечание\" продукта NULL.";
+
+                    WarehouseEventTextValue = $"Значение \"Примечание\" продукта NULL.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
 
                 BorderColorSelectedProductNoteMyWarehouseControlTab = "Green";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Примечание\" продукта изменено.";
+
+                WarehouseEventTextValue = $"Значение \"Примечание\" продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
 
             }
             else
@@ -1066,7 +1138,10 @@ namespace Inventory.ViewModels.Warehouse
                 if (string.IsNullOrEmpty(SelectedProductExpirationData))
                 {
                     BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Срок годности\" продукта.";
+
+                    WarehouseEventTextValue = $"Не задано значение \"Срок годности\" продукта.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
@@ -1074,7 +1149,10 @@ namespace Inventory.ViewModels.Warehouse
                 if (SelectedProductExpirationData.Length != 7)
                 {
                     BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Формат значения \"Срок годности\" некоректный (мм/гггг).";
+
+                    WarehouseEventTextValue = $"Формат значения \"Срок годности\" некоректный (мм/гггг).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
@@ -1083,7 +1161,10 @@ namespace Inventory.ViewModels.Warehouse
                 if (mm != "01" && mm != "02" && mm != "03" && mm != "04" && mm != "05" && mm != "06" && mm != "07" && mm != "08" && mm != "09" && mm != "10" && mm != "11" && mm != "12")
                 {
                     BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Формат месяца значения \"Срок годности\" некоректный.";
+
+                    WarehouseEventTextValue = $"Формат месяца значения \"Срок годности\" некоректный.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
@@ -1101,7 +1182,10 @@ namespace Inventory.ViewModels.Warehouse
                 if (isLetter)
                 {
                     BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Формат года значения \"Срок годности\" некоректный.";
+
+                    WarehouseEventTextValue = $"Формат года значения \"Срок годности\" некоректный.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
@@ -1110,7 +1194,10 @@ namespace Inventory.ViewModels.Warehouse
                 if (yearvalue < 2000)
                 {
                     BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение года \"Срок годности\" слишком мало.";
+
+                    WarehouseEventTextValue = $"Значение года \"Срок годности\" слишком мало.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
@@ -1118,14 +1205,20 @@ namespace Inventory.ViewModels.Warehouse
                 if (yearvalue > 2050)
                 {
                     BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение года \"Срок годности\" слишком велико.";
+
+                    WarehouseEventTextValue = $"Значение года \"Срок годности\" слишком велико.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
 
 
                 BorderColorSelectedProductExpirationDateMyWarehouseControlTab = "Green";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Срок годности\" продукта изменено.";
+
+                WarehouseEventTextValue = $"Значение \"Срок годности\" продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
 
             }
             else
@@ -1162,7 +1255,10 @@ namespace Inventory.ViewModels.Warehouse
                 if (string.IsNullOrEmpty(SelectedProductPurchaseCost))
                 {
                     BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Цена\" продукта.";
+
+                    WarehouseEventTextValue = $"Не задано значение \"Цена\" продукта.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
@@ -1180,7 +1276,10 @@ namespace Inventory.ViewModels.Warehouse
                 if (isLetter)
                 {
                     BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Цена\" указано некорректно.";
+
+                    WarehouseEventTextValue = $"Значение \"Цена\" указано некорректно.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
@@ -1190,13 +1289,19 @@ namespace Inventory.ViewModels.Warehouse
                 if (coastValue < 0)
                 {
                     BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Цена\" отрицательное.";
+
+                    WarehouseEventTextValue = $"Значение \"Цена\" отрицательное.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
 
                 BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "Green";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Цена\" продукта изменено.";
+
+                WarehouseEventTextValue = $"Значение \"Цена\" продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
 
             }
             else
@@ -1236,7 +1341,10 @@ namespace Inventory.ViewModels.Warehouse
                 if (string.IsNullOrEmpty(SelectedProductReceiptDate))
                 {
                     BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Не задано значение \"Дата поступления\" продукта.";
+
+                    WarehouseEventTextValue = $"Не задано значение \"Дата поступления\" продукта.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
@@ -1244,7 +1352,10 @@ namespace Inventory.ViewModels.Warehouse
                 if (SelectedProductReceiptDate.Length != 10)
                 {
                     BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Формат значения \"Дата поступления\" некоректный (дд.мм.гггг).";
+
+                    WarehouseEventTextValue = $"Формат значения \"Дата поступления\" некоректный (дд.мм.гггг).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
@@ -1253,13 +1364,19 @@ namespace Inventory.ViewModels.Warehouse
                 if (!DateTime.TryParse(SelectedProductReceiptDate, out dt))
                 {
                     BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "DarkViolet";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Дата поступления\" некоректно.";
+
+                    WarehouseEventTextValue = $"Значение \"Дата поступления\" некоректно.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
 
                 BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "Green";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = $"Значение \"Дата поступления\" продукта изменено.";
+
+                WarehouseEventTextValue = $"Значение \"Дата поступления\" продукта изменено.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
 
             }
             else
@@ -1289,7 +1406,10 @@ namespace Inventory.ViewModels.Warehouse
                 BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
                 IconSoldCostChangeValue = "Regular_CircleXmark";
                 IconSoldCostColorSendToSoldProducts = "Red";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта не задано.";
+
+                WarehouseEventTextValue = "Значение \"Стоимость продажи\" продукта не задано.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
@@ -1299,7 +1419,10 @@ namespace Inventory.ViewModels.Warehouse
                 BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
                 IconSoldCostChangeValue = "Regular_CircleXmark";
                 IconSoldCostColorSendToSoldProducts = "Red";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта задано как ПРОБЕЛ!";
+
+                WarehouseEventTextValue = "Значение \"Стоимость продажи\" продукта задано как ПРОБЕЛ!";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
@@ -1311,7 +1434,10 @@ namespace Inventory.ViewModels.Warehouse
                     BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
                     IconSoldCostChangeValue = "Regular_CircleXmark";
                     IconSoldCostColorSendToSoldProducts = "Red";
-                    TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта задано некорректно.";
+
+                    WarehouseEventTextValue = "Значение \"Стоимость продажи\" продукта задано некорректно.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
@@ -1322,7 +1448,11 @@ namespace Inventory.ViewModels.Warehouse
                 BorderColorSelectedProductSoldCostMyWarehouseControlTab = "DarkViolet";
                 IconSoldCostChangeValue = "Regular_CircleXmark";
                 IconSoldCostColorSendToSoldProducts = "Red";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта задано некорректно (первая цифра 0).";
+
+                WarehouseEventTextValue = "Значение \"Стоимость продажи\" продукта задано некорректно (первая цифра 0).";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
+
 
                 return;
 
@@ -1331,7 +1461,10 @@ namespace Inventory.ViewModels.Warehouse
             BorderColorSelectedProductSoldCostMyWarehouseControlTab = "HotPink";
             IconSoldCostChangeValue = "Regular_CircleCheck";
             IconSoldCostColorSendToSoldProducts = "LimeGreen";
-            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Стоимость продажи\" продукта изменено.";
+
+            WarehouseEventTextValue = "Значение \"Стоимость продажи\" продукта изменено.";
+            WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+            WarehouseEventIconColor = Color.LimeGreen.Name;
         }
 
         #endregion
@@ -1352,7 +1485,10 @@ namespace Inventory.ViewModels.Warehouse
                 BorderColorSelectedProductSoldDateMyWarehouseControlTab = "DarkViolet";
                 IconSoldDateChangeValue = "Regular_CircleXmark";
                 IconSoldDateColorSendToSoldProducts = "Red";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта не задано.";
+
+                WarehouseEventTextValue = "Значение \"Дата продажи\" продукта не задано.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
@@ -1362,7 +1498,10 @@ namespace Inventory.ViewModels.Warehouse
                 BorderColorSelectedProductSoldDateMyWarehouseControlTab = "DarkViolet";
                 IconSoldDateChangeValue = "Regular_CircleXmark";
                 IconSoldDateColorSendToSoldProducts = "Red";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта не задано (dd.MM.yyyy).";
+
+                WarehouseEventTextValue = "Значение \"Дата продажи\" продукта не задано (dd.MM.yyyy).";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
@@ -1373,7 +1512,10 @@ namespace Inventory.ViewModels.Warehouse
                 BorderColorSelectedProductSoldDateMyWarehouseControlTab = "DarkViolet";
                 IconSoldDateChangeValue = "Regular_CircleXmark";
                 IconSoldDateColorSendToSoldProducts = "Red";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта не задано (dd.MM.yyyy).";
+
+                WarehouseEventTextValue = "Значение \"Дата продажи\" продукта не задано (dd.MM.yyyy).";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
@@ -1381,7 +1523,10 @@ namespace Inventory.ViewModels.Warehouse
             BorderColorSelectedProductSoldDateMyWarehouseControlTab = "HotPink";
             IconSoldDateChangeValue = "Regular_CircleCheck";
             IconSoldDateColorSendToSoldProducts = "LimeGreen";
-            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Дата продажи\" продукта изменено.";
+
+            WarehouseEventTextValue = "Значение \"Дата продажи\" продукта изменено.";
+            WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+            WarehouseEventIconColor = Color.LimeGreen.Name;
 
         }
 
@@ -1400,7 +1545,10 @@ namespace Inventory.ViewModels.Warehouse
         {
             if (string.IsNullOrEmpty(SelectedProductCustomerId))
             {
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Выбранный продукт\" равно NULL!";
+                WarehouseEventTextValue = "Значение \"Выбранный продукт\" равно NULL!";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
+
                 return;
             }
 
@@ -1409,16 +1557,21 @@ namespace Inventory.ViewModels.Warehouse
                 BorderColorSelectedProductCustomerIdMyWarehouseControlTab = "DarkViolet";
                 IconCustomerIdChangeValue = "Regular_CircleXmark";
                 IconCustomerIdColorSendToSoldProducts = "Red";
-                TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Id Клиента\" начинается с пробела.";
+
+                WarehouseEventTextValue = "Значение \"Id Клиента\" начинается с пробела.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
 
-
             BorderColorSelectedProductCustomerIdMyWarehouseControlTab = "HotPink";
             IconCustomerIdChangeValue = "Regular_CircleCheck";
             IconCustomerIdColorSendToSoldProducts = "LimeGreen";
-            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = "Значение \"Id Киента\" изменено.";
+
+            WarehouseEventTextValue = "Значение \"Id Киента\" изменено.";
+            WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+            WarehouseEventIconColor = Color.LimeGreen.Name;
         }
 
         #endregion

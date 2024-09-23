@@ -40,8 +40,8 @@ namespace Inventory.ViewModels.Warehouse
             LabelSoldDateProduct = "Дата продажи:";
             LadelCustomerId = "Id Клиента:";
 
-            WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-            WarehouseEventIconColor = Color.DeepPink.ToString();
+            WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+            WarehouseEventIconColor = Color.Green.Name;
             WarehouseEventTextValue = string.Empty;
 
             #endregion
@@ -51,23 +51,21 @@ namespace Inventory.ViewModels.Warehouse
             LoadedDataTableFromDataBaseMiniWarehouseWindow = new DataTable();
             SelectedWarehouseProduct = new WarehouseProduct();
 
-            BorderColorSelectedProductTittleMyWarehouseControlTab = Color.HotPink.ToString();
-            BorderColorSelectedProductPropertyMyWarehouseControlTab = Color.HotPink.ToString();
-            BorderColorSelectedProductSizeMyWarehouseControlTab = Color.HotPink.ToString();
-            BorderColorSelectedProductExpirationDateMyWarehouseControlTab = Color.HotPink.ToString();
-            BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = Color.HotPink.ToString();
-            BorderColorSelectedProductLocationMyWarehouseControlTab = Color.HotPink.ToString();
-            BorderColorSelectedProductReceiptDateMyWarehouseControlTab = Color.HotPink.ToString();
-            BorderColorSelectedProductOrderNumberMyWarehouseControlTab = Color.HotPink.ToString();
-            BorderColorSelectedProductNoteMyWarehouseControlTab = Color.HotPink.ToString();
-            BorderColorSelectedProductSoldCostMyWarehouseControlTab = Color.HotPink.ToString();
-            BorderColorSelectedProductSoldDateMyWarehouseControlTab = Color.HotPink.ToString();
-            BorderColorSelectedProductCustomerIdMyWarehouseControlTab = Color.HotPink.ToString();
+            BorderColorSelectedProductTittleMyWarehouseControlTab = Color.HotPink.Name;
+            BorderColorSelectedProductPropertyMyWarehouseControlTab = Color.HotPink.Name;
+            BorderColorSelectedProductSizeMyWarehouseControlTab = Color.HotPink.Name;
+            BorderColorSelectedProductExpirationDateMyWarehouseControlTab = Color.HotPink.Name;
+            BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = Color.HotPink.Name;
+            BorderColorSelectedProductLocationMyWarehouseControlTab = Color.HotPink.Name;
+            BorderColorSelectedProductReceiptDateMyWarehouseControlTab = Color.HotPink.Name;
+            BorderColorSelectedProductOrderNumberMyWarehouseControlTab = Color.HotPink.Name;
+            BorderColorSelectedProductNoteMyWarehouseControlTab = Color.HotPink.Name;
+            BorderColorSelectedProductSoldCostMyWarehouseControlTab = Color.HotPink.Name;
+            BorderColorSelectedProductSoldDateMyWarehouseControlTab = Color.HotPink.Name;
+            BorderColorSelectedProductCustomerIdMyWarehouseControlTab = Color.HotPink.Name;
 
             ButtonCaptionReWriteWareHouseProduct = "Корректировать данные";
             ButtonCaptionSoldOutWarehouseProduct = "Продано";
-
-            TextLabelEventLogMyWarehouseTabControlWarehouseWindow = string.Empty;
 
             SelectedProductId = string.Empty;
             SelectedProductTittle = string.Empty;
@@ -84,11 +82,11 @@ namespace Inventory.ViewModels.Warehouse
             SelectedProductCustomerId = string.Empty;
 
             IconSoldCostChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-            IconSoldCostColorSendToSoldProducts = Color.Red.ToString();
+            IconSoldCostColorSendToSoldProducts = Color.Red.Name;
             IconSoldDateChangeValue = Icons.Name.Regular_CircleCheck.ToString();
-            IconSoldDateColorSendToSoldProducts = Color.LimeGreen.ToString();
+            IconSoldDateColorSendToSoldProducts = Color.LimeGreen.Name;
             IconCustomerIdChangeValue  = Icons.Name.Regular_CircleQuestion.ToString();
-            IconCustomerIdColorSendToSoldProducts = Color.Gray.ToString();
+            IconCustomerIdColorSendToSoldProducts = Color.Gray.Name;
 
             #endregion
 
@@ -110,39 +108,39 @@ namespace Inventory.ViewModels.Warehouse
             OrderNumberAddNewToWarehouse = string.Empty;
             NoteAddNewToWarehouse = string.Empty;
 
-            BorderColorTittleAddNewWarehouse = Color.HotPink.ToString();
-            BorderColorPropertyAddNewWarehouse = Color.HotPink.ToString();
-            BorderColorSizeAddNewWarehouse = Color.HotPink.ToString();
-            BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.ToString();
-            BorderColorPurchaseCostAddNewWarehouse = Color.DarkViolet.ToString();
-            BorderColorLocationAddNewWarehouse = Color.HotPink.ToString();
-            BorderColorReceiptDateAddNewWarehouse = Color.HotPink.ToString();
-            BorderColorOrderNumberAddNewWarehouse = Color.HotPink.ToString();
-            BorderColorNoteAddNewWarehouse = Color.HotPink.ToString();
-            BorderColorIdAddNewWarehouse = Color.HotPink.ToString();
+            BorderColorTittleAddNewWarehouse = Color.HotPink.Name;
+            BorderColorPropertyAddNewWarehouse = Color.HotPink.Name;
+            BorderColorSizeAddNewWarehouse = Color.HotPink.Name;
+            BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.Name;
+            BorderColorPurchaseCostAddNewWarehouse = Color.DarkViolet.Name;
+            BorderColorLocationAddNewWarehouse = Color.HotPink.Name;
+            BorderColorReceiptDateAddNewWarehouse = Color.HotPink.Name;
+            BorderColorOrderNumberAddNewWarehouse = Color.HotPink.Name;
+            BorderColorNoteAddNewWarehouse = Color.HotPink.Name;
+            BorderColorIdAddNewWarehouse = Color.HotPink.Name;
 
             ButtonTittleAddToWarewouseAddToWarehousePannel = "Добавить на Мини-Склад";
 
             WarehouseEventTextValue = string.Empty;
 
             IconTittleChangeValue = Icons.Name.Regular_CircleCheck.ToString();
-            IcomTittleColorAddNewProduct = Color.Gray.ToString();
+            IcomTittleColorAddNewProduct = Color.Gray.Name;
             IconPropertyChangeValue = Icons.Name.Regular_CircleCheck.ToString();
-            IconPropertyColorAddNewProduct = Color.Gray.ToString();
+            IconPropertyColorAddNewProduct = Color.Gray.Name;
             IconSizeChangeValue = Icons.Name.Regular_CircleCheck.ToString();
-            IconSizeColorAddNewProduct = Color.Gray.ToString();
+            IconSizeColorAddNewProduct = Color.Gray.Name;
             IconNoteChangeValue = Icons.Name.Regular_CircleCheck.ToString();
-            IconNoteColorAddNewProduct = Color.LimeGreen.ToString();
+            IconNoteColorAddNewProduct = Color.LimeGreen.Name;
             IconExpirationDateChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-            IconExpirationDateColorAddNewProduct = Color.Red.ToString();
+            IconExpirationDateColorAddNewProduct = Color.Red.Name;
             IconCostChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-            IconCostColorAddNewProduct = Color.Red.ToString();
+            IconCostColorAddNewProduct = Color.Red.Name;
             IconLocationChangeValue = Icons.Name.Regular_CircleCheck.ToString();
-            IconLocationColorAddNewProduct = Color.LimeGreen.ToString();
+            IconLocationColorAddNewProduct = Color.LimeGreen.Name;
             IconReceiptDateValue = Icons.Name.Regular_CircleXmark.ToString();
-            IconReceiptDateColorAddNewProduct = Color.Red.ToString();
+            IconReceiptDateColorAddNewProduct = Color.Red.Name;
             IconOrderNumberValue = Icons.Name.Regular_CircleXmark.ToString();
-            IconOrderNumberColorAddNewProduct = Color.Red.ToString();
+            IconOrderNumberColorAddNewProduct = Color.Red.Name;
 
             LoadedDataTableOfActualProducts = new DataTable();
             ListOfActualProductsTittles = [];

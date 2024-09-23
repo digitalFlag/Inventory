@@ -516,7 +516,7 @@ namespace Inventory.ViewModels.Warehouse
 			{
                 WarehouseEventTextValue = "Продукт не добавлен на склад. Некорректно указаны данные.";
 				WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-				WarehouseEventIconColor = Color.Red.ToString();
+				WarehouseEventIconColor = Color.Red.Name;
                 return;
 			}
 
@@ -524,7 +524,7 @@ namespace Inventory.ViewModels.Warehouse
 			{
                 WarehouseEventTextValue = "Продукт не добавлен на склад. Значение \"даты получения\" продукта равно NULL!.";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
                 return;
 			}
 
@@ -552,7 +552,7 @@ namespace Inventory.ViewModels.Warehouse
 
             WarehouseEventTextValue = "Продукт добавлен на склад.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-            WarehouseEventIconColor = Color.LimeGreen.ToString();
+            WarehouseEventIconColor = Color.LimeGreen.Name;
         }
 
 		#endregion
@@ -657,26 +657,26 @@ namespace Inventory.ViewModels.Warehouse
 		{
 			if (string.IsNullOrEmpty(TittleProductAddNewToWarehouse))
 			{
-                BorderColorTittleAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorTittleAddNewWarehouse = Color.DarkViolet.Name;
 				IconTittleChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-				IcomTittleColorAddNewProduct = Color.Red.ToString();
+				IcomTittleColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Название\" продукта не задано!";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
                 return;
 
             }
 
             if (string.IsNullOrWhiteSpace(TittleProductAddNewToWarehouse))
             {
-                BorderColorTittleAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorTittleAddNewWarehouse = Color.DarkViolet.Name;
                 IconTittleChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IcomTittleColorAddNewProduct = Color.Red.ToString();
+                IcomTittleColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Название\" продукта задано как ПРОБЕЛ!";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
                 return;
 
             }
@@ -685,29 +685,29 @@ namespace Inventory.ViewModels.Warehouse
 			{
                 WarehouseEventTextValue = "Список эталонов\"Названий\" продуктов пустой!";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
                 return;
 			}
 
 			if (ListOfActualProductsTittles.Contains(TittleProductAddNewToWarehouse))
 			{
-                BorderColorTittleAddNewWarehouse = Color.HotPink.ToString();
+                BorderColorTittleAddNewWarehouse = Color.HotPink.Name;
                 IconTittleChangeValue = Icons.Name.Regular_CircleCheck.ToString();
-                IcomTittleColorAddNewProduct = Color.LimeGreen.ToString();
+                IcomTittleColorAddNewProduct = Color.LimeGreen.Name;
 
                 WarehouseEventTextValue = "Значение \"Название\" продукта изменено.";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-                WarehouseEventIconColor = Color.LimeGreen.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
                 return;
             }
 
-            BorderColorTittleAddNewWarehouse = Color.HotPink.ToString();
+            BorderColorTittleAddNewWarehouse = Color.HotPink.Name;
             IconTittleChangeValue = Icons.Name.Regular_CircleQuestion.ToString();
-            IcomTittleColorAddNewProduct = Color.Green.ToString();
+            IcomTittleColorAddNewProduct = Color.Green.Name;
 
             WarehouseEventTextValue = "Задано \"Название\" продукта не внесенное в эталоны!";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-            WarehouseEventIconColor = Color.Green.ToString();
+            WarehouseEventIconColor = Color.Green.Name;
 
             ListOfActualProductProperties = [];
             PropertyProductAddNewToWarehouse = string.Empty;
@@ -731,13 +731,13 @@ namespace Inventory.ViewModels.Warehouse
 		{
             if (string.IsNullOrEmpty(PropertyProductAddNewToWarehouse))
             {
-                BorderColorPropertyAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorPropertyAddNewWarehouse = Color.DarkViolet.Name;
                 IconPropertyChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconPropertyColorAddNewProduct = Color.Red.ToString();
+                IconPropertyColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Тип\" продукта не задано.";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
@@ -750,24 +750,24 @@ namespace Inventory.ViewModels.Warehouse
 
             if (ListOfActualProductProperties.Contains(PropertyProductAddNewToWarehouse))
             {
-                BorderColorPropertyAddNewWarehouse = Color.HotPink.ToString();
+                BorderColorPropertyAddNewWarehouse = Color.HotPink.Name;
                 IconPropertyChangeValue = Icons.Name.Regular_CircleCheck.ToString();
-                IconPropertyColorAddNewProduct = Color.LimeGreen.ToString();
+                IconPropertyColorAddNewProduct = Color.LimeGreen.Name;
 
                 WarehouseEventTextValue = "Значение \"Тип\" продукта изменено.";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-                WarehouseEventIconColor = Color.LimeGreen.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
 
                 return;
             }
 
-            BorderColorPropertyAddNewWarehouse = Color.HotPink.ToString();
+            BorderColorPropertyAddNewWarehouse = Color.HotPink.Name;
             IconPropertyChangeValue = Icons.Name.Regular_CircleQuestion.ToString();
-            IconPropertyColorAddNewProduct = Color.Green.ToString();
+            IconPropertyColorAddNewProduct = Color.Green.Name;
 
             WarehouseEventTextValue = "Задан \"Тип\" продукта не внесенный в эталон!";
             WarehouseEventIconValue = Icons.Name.Regular_CircleQuestion.ToString();
-            WarehouseEventIconColor = Color.Green.ToString();
+            WarehouseEventIconColor = Color.Green.Name;
         }
 
 		#endregion
@@ -786,24 +786,24 @@ namespace Inventory.ViewModels.Warehouse
 		{
             if (string.IsNullOrEmpty(SizeProductAddNewToWarehouse))
             {
-                BorderColorSizeAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorSizeAddNewWarehouse = Color.DarkViolet.Name;
                 IconSizeChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconSizeColorAddNewProduct = Color.Red.ToString();
+                IconSizeColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Размер\" продукта не задано.";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
 
-            BorderColorSizeAddNewWarehouse = Color.HotPink.ToString();
+            BorderColorSizeAddNewWarehouse = Color.HotPink.Name;
             IconSizeChangeValue = Icons.Name.Regular_CircleCheck.ToString();
-            IconSizeColorAddNewProduct = Color.LimeGreen.ToString();
+            IconSizeColorAddNewProduct = Color.LimeGreen.Name;
 
             WarehouseEventTextValue = "Значение \"Размер\" продукта изменено.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-            WarehouseEventIconColor = Color.LimeGreen.ToString();
+            WarehouseEventIconColor = Color.LimeGreen.Name;
 
         }
 
@@ -823,100 +823,100 @@ namespace Inventory.ViewModels.Warehouse
 		{
             if (string.IsNullOrEmpty(ExpirationDateProductAddNewToWarehouse))
             {
-                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconExpirationDateChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconExpirationDateColorAddNewProduct = Color.Red.ToString();
+                IconExpirationDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Срок годности\" продукта не задано.";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
 
 			if (ExpirationDateProductAddNewToWarehouse.Length != 7)
 			{
-                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconExpirationDateChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconExpirationDateColorAddNewProduct = Color.Red.ToString();
+                IconExpirationDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Срок годности\" продукта задано некорректно (mm.yyyy).";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
 
 			if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[0]))
 			{
-                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconExpirationDateChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconExpirationDateColorAddNewProduct = Color.Red.ToString();
+                IconExpirationDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Срок годности\" продукта задано некорректно (*m.yyyy).";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
 
             if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[1]))
             {
-                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconExpirationDateChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconExpirationDateColorAddNewProduct = Color.Red.ToString();
+                IconExpirationDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Срок годности\" продукта задано некорректно (m*.yyyy).";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
             if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[3]))
             {
-                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconExpirationDateChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconExpirationDateColorAddNewProduct = Color.Red.ToString();
+                IconExpirationDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Срок годности\" продукта задано некорректно (mm.*yyy).";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
             if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[4]))
             {
-                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconExpirationDateChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconExpirationDateColorAddNewProduct = Color.Red.ToString();
+                IconExpirationDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Срок годности\" продукта задано некорректно (mm.y*yy).";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
             if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[5]))
             {
-                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconExpirationDateChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconExpirationDateColorAddNewProduct = Color.Red.ToString();
+                IconExpirationDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Срок годности\" продукта задано некорректно (mm.yy*y).";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
             if (!char.IsDigit(ExpirationDateProductAddNewToWarehouse[6]))
             {
-                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconExpirationDateChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconExpirationDateColorAddNewProduct = Color.Red.ToString();
+                IconExpirationDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Срок годности\" продукта задано некорректно (mm.yyy*).";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
@@ -925,37 +925,37 @@ namespace Inventory.ViewModels.Warehouse
 
 			if (month < 1 || month > 12)
 			{
-                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconExpirationDateChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconExpirationDateColorAddNewProduct = Color.Red.ToString();
+                IconExpirationDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Срок годности\" (месяц) продукта задано некорректно (**.yyyy).";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
 
 			if (ExpirationDateProductAddNewToWarehouse[2] != '.' && ExpirationDateProductAddNewToWarehouse[2] != '/')
 			{
-                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorExpirationDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconExpirationDateChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconExpirationDateColorAddNewProduct = Color.Red.ToString();
+                IconExpirationDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Срок годности\" (разделитель) продукта задано некорректно (mm*yyyy) ( * = . or /).";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
 
-            BorderColorExpirationDateAddNewWarehouse = Color.HotPink.ToString();
+            BorderColorExpirationDateAddNewWarehouse = Color.HotPink.Name;
             IconExpirationDateChangeValue = Icons.Name.Regular_CircleCheck.ToString();
-            IconExpirationDateColorAddNewProduct = Color.LimeGreen.ToString();
+            IconExpirationDateColorAddNewProduct = Color.LimeGreen.Name;
 
             WarehouseEventTextValue = "Значение \"Срок годности\" продукта изменено.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-            WarehouseEventIconColor = Color.LimeGreen.ToString();
+            WarehouseEventIconColor = Color.LimeGreen.Name;
         }
 
 		#endregion
@@ -974,26 +974,26 @@ namespace Inventory.ViewModels.Warehouse
 		{
             if (string.IsNullOrEmpty(PurchaseCostAddNewToWarehouse))
             {
-                BorderColorPurchaseCostAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorPurchaseCostAddNewWarehouse = Color.DarkViolet.Name;
                 IconCostChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconCostColorAddNewProduct = Color.Red.ToString();
+                IconCostColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Стоимость покупки\" продукта не задано.";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(PurchaseCostAddNewToWarehouse))
             {
-                BorderColorPurchaseCostAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorPurchaseCostAddNewWarehouse = Color.DarkViolet.Name;
                 IconCostChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconCostColorAddNewProduct = Color.Red.ToString();
+                IconCostColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Стоимость покупки\" продукта задано как ПРОБЕЛ!";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
@@ -1002,13 +1002,13 @@ namespace Inventory.ViewModels.Warehouse
 			{
 				if (!char.IsDigit(c))
 				{
-                    BorderColorPurchaseCostAddNewWarehouse = Color.DarkViolet.ToString();
+                    BorderColorPurchaseCostAddNewWarehouse = Color.DarkViolet.Name;
                     IconCostChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                    IconCostColorAddNewProduct = Color.Red.ToString();
+                    IconCostColorAddNewProduct = Color.Red.Name;
 
                     WarehouseEventTextValue = "Значение \"Стоимость покупки\" продукта задано некорректно.";
                     WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                    WarehouseEventIconColor = Color.Red.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
                     return;
                 }
@@ -1016,25 +1016,25 @@ namespace Inventory.ViewModels.Warehouse
 
 			if (PurchaseCostAddNewToWarehouse.Length > 1 && PurchaseCostAddNewToWarehouse[0] == '0')
 			{
-                BorderColorPurchaseCostAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorPurchaseCostAddNewWarehouse = Color.DarkViolet.Name;
                 IconCostChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconCostColorAddNewProduct = Color.Red.ToString();
+                IconCostColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Стоимость покупки\" продукта задано некорректно (первая цифра 0).";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
 
             }
 
-            BorderColorPurchaseCostAddNewWarehouse = Color.HotPink.ToString();
+            BorderColorPurchaseCostAddNewWarehouse = Color.HotPink.Name;
             IconCostChangeValue = Icons.Name.Regular_CircleCheck.ToString();
-            IconCostColorAddNewProduct = Color.LimeGreen.ToString();
+            IconCostColorAddNewProduct = Color.LimeGreen.Name;
 
             WarehouseEventTextValue = "Значение \"Стоимость покупки\" продукта изменено.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-            WarehouseEventIconColor = Color.LimeGreen.ToString();
+            WarehouseEventIconColor = Color.LimeGreen.Name;
 
         }
 
@@ -1054,13 +1054,13 @@ namespace Inventory.ViewModels.Warehouse
 		{
             if (string.IsNullOrEmpty(LocationAddNewToWarehouse) || string.IsNullOrWhiteSpace(LocationAddNewToWarehouse))
             {
-                BorderColorLocationAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorLocationAddNewWarehouse = Color.DarkViolet.Name;
                 IconLocationChangeValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconLocationColorAddNewProduct = Color.Red.ToString();
+                IconLocationColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Место хранения\" продукта не задано!";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
 
@@ -1070,31 +1070,31 @@ namespace Inventory.ViewModels.Warehouse
             {
                 WarehouseEventTextValue = "Список эталонов\"Место хранения\" продуктов пустой!";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
 
             if (ListOfPossibleProductLocations.Contains(LocationAddNewToWarehouse))
             {
-                BorderColorLocationAddNewWarehouse = Color.HotPink.ToString();
+                BorderColorLocationAddNewWarehouse = Color.HotPink.Name;
                 IconLocationChangeValue = Icons.Name.Regular_CircleCheck.ToString();
-                IconLocationColorAddNewProduct = Color.LimeGreen.ToString();
+                IconLocationColorAddNewProduct = Color.LimeGreen.Name;
 
                 WarehouseEventTextValue = "Значение \"Место хранения\" продукта изменено.";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-                WarehouseEventIconColor = Color.LimeGreen.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
 
                 return;
             }
 
-            BorderColorLocationAddNewWarehouse = Color.HotPink.ToString();
+            BorderColorLocationAddNewWarehouse = Color.HotPink.Name;
             IconLocationChangeValue = Icons.Name.Regular_CircleQuestion.ToString();
-            IconLocationColorAddNewProduct = Color.Green.ToString();
+            IconLocationColorAddNewProduct = Color.Green.Name;
 
             WarehouseEventTextValue = "Задано значение \"Место хранения\" продукта не внесенное в эталоны.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleQuestion.ToString();
-            WarehouseEventIconColor = Color.Green.ToString();
+            WarehouseEventIconColor = Color.Green.Name;
         }
 
 		#endregion
@@ -1113,26 +1113,26 @@ namespace Inventory.ViewModels.Warehouse
 		{
             if (string.IsNullOrEmpty(ReceiptDateAddNewToWarehouse))
             {
-                BorderColorReceiptDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorReceiptDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconReceiptDateValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconReceiptDateColorAddNewProduct = Color.Red.ToString();
+                IconReceiptDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Дата поставки\" продукта не задано.";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
 
             if (ReceiptDateAddNewToWarehouse.Length != 10)
             {
-                BorderColorReceiptDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorReceiptDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconReceiptDateValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconReceiptDateColorAddNewProduct = Color.Red.ToString();
+                IconReceiptDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Дата поставки\" продукта не задано (dd.MM.yyyy).";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
@@ -1142,24 +1142,24 @@ namespace Inventory.ViewModels.Warehouse
             DateTime dt;
             if (!DateTime.TryParse(ReceiptDateAddNewToWarehouse, out dt))
             {
-                BorderColorReceiptDateAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorReceiptDateAddNewWarehouse = Color.DarkViolet.Name;
                 IconReceiptDateValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconReceiptDateColorAddNewProduct = Color.Red.ToString();
+                IconReceiptDateColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Дата поставки\" продукта не задано (dd.MM.yyyy).";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
 
-            BorderColorReceiptDateAddNewWarehouse = Color.HotPink.ToString();
+            BorderColorReceiptDateAddNewWarehouse = Color.HotPink.Name;
             IconReceiptDateValue = Icons.Name.Regular_CircleCheck.ToString();
-            IconReceiptDateColorAddNewProduct = Color.LimeGreen.ToString();
+            IconReceiptDateColorAddNewProduct = Color.LimeGreen.Name;
 
             WarehouseEventTextValue = "Значение \"Дата поставки\" продукта изменено.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-            WarehouseEventIconColor = Color.LimeGreen.ToString();
+            WarehouseEventIconColor = Color.LimeGreen.Name;
         }
 
 		#endregion
@@ -1178,24 +1178,24 @@ namespace Inventory.ViewModels.Warehouse
 		{
             if (string.IsNullOrEmpty(OrderNumberAddNewToWarehouse))
             {
-                BorderColorOrderNumberAddNewWarehouse = Color.DarkViolet.ToString();
+                BorderColorOrderNumberAddNewWarehouse = Color.DarkViolet.Name;
                 IconOrderNumberValue = Icons.Name.Regular_CircleXmark.ToString();
-                IconOrderNumberColorAddNewProduct = Color.Red.ToString();
+                IconOrderNumberColorAddNewProduct = Color.Red.Name;
 
                 WarehouseEventTextValue = "Значение \"Номер заказа\" продукта не задано.";
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-                WarehouseEventIconColor = Color.Red.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 return;
             }
 
-            BorderColorOrderNumberAddNewWarehouse = Color.HotPink.ToString();
+            BorderColorOrderNumberAddNewWarehouse = Color.HotPink.Name;
             IconOrderNumberValue = Icons.Name.Regular_CircleCheck.ToString();
-            IconOrderNumberColorAddNewProduct = Color.LimeGreen.ToString();
+            IconOrderNumberColorAddNewProduct = Color.LimeGreen.Name;
 
             WarehouseEventTextValue = "Значение \"Номер заказа\" продукта изменено.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-            WarehouseEventIconColor = Color.LimeGreen.ToString();
+            WarehouseEventIconColor = Color.LimeGreen.Name;
         }
 
         #endregion
