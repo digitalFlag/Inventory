@@ -57,7 +57,7 @@
             </DockPanel>
             
             <DataGrid Grid.Row="1"
-                      ItemsSource="{Binding Path = WarehouseProducts}"
+                      ItemsSource="{Binding Path = FilteredWarehouseProducts}"
                       SelectedItem="{Binding SelectedWarehouseProduct, UpdateSourceTrigger=PropertyChanged}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование продукции" Binding="{Binding Tittle}"/>
@@ -87,7 +87,8 @@
                 <Label Style="{StaticResource LabelMainStyle}"
                                    Background="HotPink"
                                    Foreground="Black" 
-                                   FontWeight="Bold">
+                                   FontWeight="Bold"
+                                   Margin="1,2">
                     <Label.Content>
                         <StackPanel Orientation="Horizontal"
                                                 Background="HotPink">
@@ -111,7 +112,7 @@
                                     
                                 </fa:ImageAwesome>
                                 <Label Content="{Binding TabItemFiltersMyWarehouseItem}"
-                                       FontWeight="Bold"/>
+                                       FontWeight="SemiBold"/>
                             </StackPanel>
                         </TabItem.Header>
                         <viewsFiltersMyWarehouseProducts:FiltersMyWarehouseProductsPanel/>

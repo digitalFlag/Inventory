@@ -5,6 +5,7 @@ using Inventory.ViewModels.Base;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Windows.Documents;
 using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
@@ -362,16 +363,29 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
-        #region WarehouseProducts: - Products On Warehouse List
+        #region AllWarehouseProducts: - All "My Warehouse Products" Lodaded From DB
 
-        /// <summary>Products On Warehouse List</summary>
-        private IEnumerable<WarehouseProduct>? _WarehouseProducts;
+        /// <summary>All "My Warehouse Products" Lodaded From DB</summary>
+        private IEnumerable<WarehouseProduct>? _AllWarehouseProducts;
 
-        /// <summary>Products On Warehouse List</summary>
+        /// <summary>All "My Warehouse Products" Lodaded From DB</summary>
 
-        public IEnumerable<WarehouseProduct>? WarehouseProducts { get => _WarehouseProducts; set => Set(ref _WarehouseProducts, value); }
+        public IEnumerable<WarehouseProduct>? AllWarehouseProducts { get => _AllWarehouseProducts; set => Set(ref _AllWarehouseProducts, value); }
 
         #endregion
+
+        #region FilteredWarehouseProducts: - "My Warehouse Products" After Filtering
+
+        /// <summary>"My Warehouse Products" After Filtering</summary>
+        private IEnumerable<WarehouseProduct>? _FilteredWarehouseProducts;
+
+        /// <summary>"My Warehouse Products" After Filtering</summary>
+
+        public IEnumerable<WarehouseProduct>? FilteredWarehouseProducts { get => _FilteredWarehouseProducts; set => Set(ref _FilteredWarehouseProducts, value); }
+
+        #endregion
+
+
 
         #region SelectedWarehouseProduct: - Selected Warehouse Product
 
@@ -427,17 +441,18 @@ namespace Inventory.ViewModels.Warehouse
 
         #region Commands
 
-        #region Command RefreshConnectionToDataBaseWarhouseWindowCommand: - Refresh Connection To BD With Products
 
-        /// <summary>Refresh Connection To BD With Products</summary>
-        private LambdaCommand? _RefreshConnectionToDataBaseWarhouseWindowCommand;
+        #region Command LoadMyWarehouseProductsFromDbCommand: - Load "My Warehouse Products" Data From DB 
 
-        /// <summary>Refresh Connection To BD With Products</summary>
-        public ICommand RefreshConnectionToDataBaseWarhouseWindowCommand => _RefreshConnectionToDataBaseWarhouseWindowCommand ??= new(OnRefreshConnectionToDataBaseWarhouseWindowCommandExecuted);
+        /// <summary>Load "My Warehouse Products" Data From DB </summary>
+        private LambdaCommand? _LoadMyWarehouseProductsFromDbCommand;
 
-        /// <summary>Логика выполнения - Refresh Connection To BD With Products</summary>
+        /// <summary>Load "My Warehouse Products" Data From DB </summary>
+        public ICommand LoadMyWarehouseProductsFromDbCommand => _LoadMyWarehouseProductsFromDbCommand ??= new(OnLoadMyWarehouseProductsFromDbCommandExecuted);
 
-        private void OnRefreshConnectionToDataBaseWarhouseWindowCommandExecuted(object? p)
+        /// <summary>Логика выполнения - Load "My Warehouse Products" Data From DB </summary>
+
+        private void OnLoadMyWarehouseProductsFromDbCommandExecuted(object? p)
         {
             var dbSettings = new DBSettings
             {
@@ -448,16 +463,16 @@ namespace Inventory.ViewModels.Warehouse
                 Password = ConnectionOptions.password
             };
 
-            string table = DbTables.WarehouseProducts;
-
             if (_DataBase is null)
             {
                 return;
             }
 
+            string table = DbTables.WarehouseProducts;
+
             LoadedDataTableFromDataBaseMiniWarehouseWindow = _DataBase.GetData(dbSettings, table);
 
-            WarehouseProducts = LoadedDataTableFromDataBaseMiniWarehouseWindow.AsEnumerable().Select(row => new Models.WarehouseProduct
+            AllWarehouseProducts = LoadedDataTableFromDataBaseMiniWarehouseWindow.AsEnumerable().Select(row => new Models.WarehouseProduct
             {
                 Id = Convert.ToInt32(row[DbTableWarehouseProducts.propertyId]),
                 Tittle = Convert.ToString(row[DbTableWarehouseProducts.propertyTittle]),
@@ -470,6 +485,30 @@ namespace Inventory.ViewModels.Warehouse
                 ReceiptDate = Convert.ToDateTime(row[DbTableWarehouseProducts.propertyReceiptDate]),
                 Note = Convert.ToString(row[DbTableWarehouseProducts.propertyNote]),
             });
+
+
+
+        }
+
+        #endregion
+
+
+        #region Command RefreshConnectionToDataBaseWarhouseWindowCommand: - Refresh Connection To BD With Products
+
+        /// <summary>Refresh Connection To BD With Products</summary>
+        private LambdaCommand? _RefreshConnectionToDataBaseWarhouseWindowCommand;
+
+        /// <summary>Refresh Connection To BD With Products</summary>
+        public ICommand RefreshConnectionToDataBaseWarhouseWindowCommand => _RefreshConnectionToDataBaseWarhouseWindowCommand ??= new(OnRefreshConnectionToDataBaseWarhouseWindowCommandExecuted);
+
+        /// <summary>Логика выполнения - Refresh Connection To BD With Products</summary>
+
+        private void OnRefreshConnectionToDataBaseWarhouseWindowCommandExecuted(object? p)
+        {
+
+            //ToDo It`s need To Implement.
+
+
 
             WarehouseEventTextValue = $"Информация о продукции на Мини-Складе из базы \"{ConnectionOptions.dbName}\" загружена.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
