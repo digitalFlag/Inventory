@@ -55,6 +55,30 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </TextBox>
+        <!--Expiration Date-->
+        <Label Content="{Binding LabelExpirationDateProduct}"
+               FontWeight="Normal">
+        </Label>
+        <Grid Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0"
+                   Content="От:">
+            </Label>
+
+
+            <Label Grid.Column="3"
+                   Content="До:">
+            </Label>
+
+
+        </Grid>
 
 
 
