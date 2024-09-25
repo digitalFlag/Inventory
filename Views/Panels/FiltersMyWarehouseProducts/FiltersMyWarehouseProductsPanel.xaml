@@ -44,11 +44,12 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </TextBox>
+        <!--Property-->
 
 
 
 
-        </StackPanel>
+    </StackPanel>
 
 </UserControl>
 

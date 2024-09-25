@@ -2,10 +2,8 @@
 using Inventory.Models;
 using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
-using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Windows.Documents;
 using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
