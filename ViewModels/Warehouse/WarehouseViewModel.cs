@@ -95,6 +95,7 @@ namespace Inventory.ViewModels.Warehouse
 
             FilterTittleForMyWarehouseProducts = string.Empty;
             FilterPropertyForMyWarehouseProducts = string.Empty;
+            FilterExpirationDateStartForMyWarehouseProducts = string.Empty;
 
             #endregion
 

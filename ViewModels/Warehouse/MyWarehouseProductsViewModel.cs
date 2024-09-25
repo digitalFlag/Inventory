@@ -453,6 +453,16 @@ namespace Inventory.ViewModels.Warehouse
         public string? FilterPropertyForMyWarehouseProducts { get => _FilterPropertyForMyWarehouseProducts; set => Set(ref _FilterPropertyForMyWarehouseProducts, value); }
 
         #endregion
+        #region FilterExpirationDateStartForMyWarehouseProducts: - Filter "Expitation Date Start" For My Warehouse Products
+
+        /// <summary>Filter "Expitation Date Start" For My Warehouse Products</summary>
+        private string? _FilterExpirationDateStartForMyWarehouseProducts;
+
+        /// <summary>Filter "Expitation Date Start" For My Warehouse Products</summary>
+
+        public string? FilterExpirationDateStartForMyWarehouseProducts { get => _FilterExpirationDateStartForMyWarehouseProducts; set => Set(ref _FilterExpirationDateStartForMyWarehouseProducts, value); }
+
+        #endregion
 
 
 
@@ -656,6 +666,54 @@ namespace Inventory.ViewModels.Warehouse
                 {
                     resultList.Add(product);
                 }
+            }
+
+            //Filtering By Expiration Date Start
+
+            if (!string.IsNullOrEmpty(FilterExpirationDateStartForMyWarehouseProducts))
+            {
+                IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
+
+                FilteredWarehouseProducts = [];
+
+                DateTime dt;
+                if (!DateTime.TryParse("01." + FilterExpirationDateStartForMyWarehouseProducts, out dt))
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Срок годности От:\" задано некорректно (мм.ГГГГ).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+                else
+                {
+
+                }
+                //ToDo I Am Here.
+
+
+                //    foreach (WarehouseProduct product in resultList)
+                //{
+                //    if (product.Tittle.Contains(FilterTittleForMyWarehouseProducts))
+                //    {
+                //        FilteredWarehouseProducts.Add(product);
+                //    }
+                //}
+
+                //if (FilteredWarehouseProducts.Count == 0)
+                //{
+                //    WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Наименованием\".";
+                //    WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                //    WarehouseEventIconColor = Color.Goldenrod.Name;
+
+                //    return;
+                //}
+
+                //resultList.Clear();
+                //foreach (WarehouseProduct product in FilteredWarehouseProducts)
+                //{
+                //    resultList.Add(product);
+                //}
             }
 
 
