@@ -45,6 +45,16 @@
             </i:Interaction.Triggers>
         </TextBox>
         <!--Property-->
+        <Label Content="{Binding LabelPropertyProduct}"
+               FontWeight="Normal">
+        </Label>
+        <TextBox Text="{Binding FilterPropertyForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="TextChanged">
+                    <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </TextBox>
 
 
 

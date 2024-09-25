@@ -94,6 +94,7 @@ namespace Inventory.ViewModels.Warehouse
 
 
             FilterTittleForMyWarehouseProducts = string.Empty;
+            FilterPropertyForMyWarehouseProducts = string.Empty;
 
             #endregion
 

@@ -432,6 +432,7 @@ namespace Inventory.ViewModels.Warehouse
         public string? IconFiltersTabControlInMyWarehouseItemValue { get => _IconFiltersTabControlInMyWarehouseItemValue; set => Set(ref _IconFiltersTabControlInMyWarehouseItemValue, value); }
 
         #endregion
+
         #region FilterTittleForMyWarehouseProducts: - Filter "Tittle" For My Warehouse Products 
 
         /// <summary>Filter "Tittle" For My Warehouse Products </summary>
@@ -440,6 +441,16 @@ namespace Inventory.ViewModels.Warehouse
         /// <summary>Filter "Tittle" For My Warehouse Products </summary>
 
         public string? FilterTittleForMyWarehouseProducts { get => _FilterTittleForMyWarehouseProducts; set => Set(ref _FilterTittleForMyWarehouseProducts, value); }
+
+        #endregion
+        #region FilterPropertyForMyWarehouseProducts: - Folter "Property" For My Warehouse Products
+
+        /// <summary>Folter "Property" For My Warehouse Products</summary>
+        private string? _FilterPropertyForMyWarehouseProducts;
+
+        /// <summary>Folter "Property" For My Warehouse Products</summary>
+
+        public string? FilterPropertyForMyWarehouseProducts { get => _FilterPropertyForMyWarehouseProducts; set => Set(ref _FilterPropertyForMyWarehouseProducts, value); }
 
         #endregion
 
@@ -607,13 +618,48 @@ namespace Inventory.ViewModels.Warehouse
                     WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                     WarehouseEventIconColor = Color.Goldenrod.Name;
 
-
                     return;
                 }
 
-
-
+                resultList.Clear();
+                foreach (WarehouseProduct product in FilteredWarehouseProducts)
+                {
+                    resultList.Add(product);
+                }
             }
+
+            //Filtering By Products Property
+            if (!string.IsNullOrEmpty(FilterPropertyForMyWarehouseProducts))
+            {
+                IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
+
+                FilteredWarehouseProducts = [];
+                foreach (WarehouseProduct product in resultList)
+                {
+                    if (product.Property.Contains(FilterPropertyForMyWarehouseProducts))
+                    {
+                        FilteredWarehouseProducts.Add(product);
+                    }
+                }
+
+                if (FilteredWarehouseProducts.Count == 0)
+                {
+                    WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Типом\".";
+                    WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                    WarehouseEventIconColor = Color.Goldenrod.Name;
+                    
+                    return;
+                }
+
+                resultList.Clear();
+                foreach (WarehouseProduct product in FilteredWarehouseProducts)
+                {
+                    resultList.Add(product);
+                }
+            }
+
+
+
         }
 
         #endregion
