@@ -373,17 +373,17 @@ namespace Inventory.ViewModels.Warehouse
         public IEnumerable<WarehouseProduct>? AllWarehouseProducts { get => _AllWarehouseProducts; set => Set(ref _AllWarehouseProducts, value); }
 
         #endregion
-
         #region FilteredWarehouseProducts: - "My Warehouse Products" After Filtering
 
         /// <summary>"My Warehouse Products" After Filtering</summary>
-        private IEnumerable<WarehouseProduct>? _FilteredWarehouseProducts;
+        private List<WarehouseProduct>? _FilteredWarehouseProducts;
 
         /// <summary>"My Warehouse Products" After Filtering</summary>
 
-        public IEnumerable<WarehouseProduct>? FilteredWarehouseProducts { get => _FilteredWarehouseProducts; set => Set(ref _FilteredWarehouseProducts, value); }
+        public List<WarehouseProduct>? FilteredWarehouseProducts { get => _FilteredWarehouseProducts; set => Set(ref _FilteredWarehouseProducts, value); }
 
         #endregion
+
 
 
 
@@ -434,6 +434,17 @@ namespace Inventory.ViewModels.Warehouse
         public string? IconFiltersTabControlInMyWarehouseItemValue { get => _IconFiltersTabControlInMyWarehouseItemValue; set => Set(ref _IconFiltersTabControlInMyWarehouseItemValue, value); }
 
         #endregion
+        #region FilterTittleForMyWarehouseProducts: - Filter "Tittle" For My Warehouse Products 
+
+        /// <summary>Filter "Tittle" For My Warehouse Products </summary>
+        private string? _FilterTittleForMyWarehouseProducts;
+
+        /// <summary>Filter "Tittle" For My Warehouse Products </summary>
+
+        public string? FilterTittleForMyWarehouseProducts { get => _FilterTittleForMyWarehouseProducts; set => Set(ref _FilterTittleForMyWarehouseProducts, value); }
+
+        #endregion
+
 
 
         #endregion
@@ -488,10 +499,11 @@ namespace Inventory.ViewModels.Warehouse
 
 
 
+
+
         }
 
         #endregion
-
 
         #region Command RefreshConnectionToDataBaseWarhouseWindowCommand: - Refresh Connection To BD With Products
 
@@ -506,9 +518,10 @@ namespace Inventory.ViewModels.Warehouse
         private void OnRefreshConnectionToDataBaseWarhouseWindowCommandExecuted(object? p)
         {
 
-            //ToDo It`s need To Implement.
+            //ToDo It`s need To Implement?.
 
-
+            OnLoadMyWarehouseProductsFromDbCommandExecuted(true);
+            OnFilterMyWarehouseProductsCommandExecuted(true);
 
             WarehouseEventTextValue = $"Информация о продукции на Мини-Складе из базы \"{ConnectionOptions.dbName}\" загружена.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
@@ -535,6 +548,80 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
+
+        #region Command FilterMyWarehouseProductsCommand: - Filter "My Warehouse Products" By Seted Parametrs
+
+        /// <summary>Filter "My Warehouse Products" By Seted Parametrs</summary>
+        private LambdaCommand? _FilterMyWarehouseProductsCommand;
+
+        /// <summary>Filter "My Warehouse Products" By Seted Parametrs</summary>
+        public ICommand FilterMyWarehouseProductsCommand => _FilterMyWarehouseProductsCommand ??= new(OnFilterMyWarehouseProductsCommandExecuted);
+
+        /// <summary>Логика выполнения - Filter "My Warehouse Products" By Seted Parametrs</summary>
+
+        private void OnFilterMyWarehouseProductsCommandExecuted(object? p)
+        {
+            if (AllWarehouseProducts is null)
+            {
+                WarehouseEventTextValue = "Список \"Загруженных продуктов\" равен NULL!";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
+
+                return;
+            }
+
+            if (!AllWarehouseProducts.Any())
+            {
+                WarehouseEventTextValue = "Список \"Загруженных продуктов\" не содержит элементы.";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
+
+                return;
+            }
+
+            IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_FilterCircleXmark.ToString();
+
+            List <WarehouseProduct> resultList = [];
+
+            foreach (WarehouseProduct product in AllWarehouseProducts)
+            {
+                resultList.Add(product);
+            }
+            FilteredWarehouseProducts = AllWarehouseProducts.ToList();
+
+            //Filtering By Products Tittle
+            if (!string.IsNullOrEmpty(FilterTittleForMyWarehouseProducts))
+            {
+                IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
+
+                FilteredWarehouseProducts = [];
+                foreach (WarehouseProduct product in resultList)
+                {
+                    if (product.Tittle.Contains(FilterTittleForMyWarehouseProducts))
+                    {
+                        FilteredWarehouseProducts.Add(product);
+                    }
+                }
+
+                if (FilteredWarehouseProducts.Count == 0)
+                {
+                    WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Наименованием\".";
+                    WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                    WarehouseEventIconColor = Color.Goldenrod.Name;
+
+
+                    return;
+                }
+
+
+
+            }
+        }
+
+        #endregion
+
+
+
 
         #region Command SelectNewWarehouseProductCommand: - Select New Product In My Warehouse
 
@@ -677,10 +764,6 @@ namespace Inventory.ViewModels.Warehouse
 
                 BorderColorSelectedProductSizeMyWarehouseControlTab = "HotPink";
 
-
-
-
-
             }
             //Expiration Data
             if (BorderColorSelectedProductExpirationDateMyWarehouseControlTab == "Green")
@@ -722,9 +805,6 @@ namespace Inventory.ViewModels.Warehouse
                 BorderColorSelectedProductPurchaseCostMyWarehouseControlTab = "HotPink";
 
 
-
-
-
             }
             //Location
             if (BorderColorSelectedProductLocationMyWarehouseControlTab == "Green")
@@ -761,10 +841,6 @@ namespace Inventory.ViewModels.Warehouse
                 WarehouseEventIconColor = Color.LimeGreen.Name;
 
                 BorderColorSelectedProductReceiptDateMyWarehouseControlTab = "HotPink";
-
-
-
-
 
             }
             //Order Number

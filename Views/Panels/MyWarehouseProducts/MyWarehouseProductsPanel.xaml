@@ -109,7 +109,6 @@
                         <TabItem.Header>
                             <StackPanel Orientation="Horizontal">
                                 <fa:ImageAwesome Icon="{Binding IconFiltersTabControlInMyWarehouseItemValue}">
-                                    
                                 </fa:ImageAwesome>
                                 <Label Content="{Binding TabItemFiltersMyWarehouseItem}"
                                        FontWeight="SemiBold"/>

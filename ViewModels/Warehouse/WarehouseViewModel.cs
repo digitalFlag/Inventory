@@ -92,6 +92,9 @@ namespace Inventory.ViewModels.Warehouse
             TabItemSelectedProductMyWarehouseItem = "Выбранный продукт";
             IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_FilterCircleXmark.ToString();
 
+
+            FilterTittleForMyWarehouseProducts = string.Empty;
+
             #endregion
 
             #region SOLD PRODUCTS
