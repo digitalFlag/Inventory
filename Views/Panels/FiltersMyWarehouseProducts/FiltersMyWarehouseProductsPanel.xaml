@@ -88,9 +88,24 @@
                         <i:InvokeCommandAction Command="{Binding SelectedExpirationDateStartChangedMyWarehouseProductsCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-  
             </DatePicker>
-
+            <!--Stop Value-->
+            <TextBox Grid.Column="5"
+                     Text="{Binding FilterExpirationDateStopForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <DatePicker Grid.Column="6"
+                        SelectedDate="{Binding SelectedDateExpirationDateStopFilterMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectedDateChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectedExpirationDateStopChangedMyWarehouseProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </DatePicker>
 
 
 

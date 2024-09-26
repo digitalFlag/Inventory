@@ -421,7 +421,7 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
-
+        //Filter Tab Control
         #region IconFiltersTabControlInMyWarehouseItemValue: - Value Of Icon "Filters" Tab Control -> My WareHouse Item
 
         /// <summary>Value Of Icon "Filters" Tab Control -> My WareHouse Item</summary>
@@ -471,6 +471,26 @@ namespace Inventory.ViewModels.Warehouse
         /// <summary>Selected Date For DataPicker "Expitation Date Start" Filter For My Warehouse Products</summary>
 
         public DateTime? SelectedDateExpirationDateStartFilterMyWarehouseProducts { get => _SelectedDateExpirationDateStartFilterMyWarehouseProducts; set => Set(ref _SelectedDateExpirationDateStartFilterMyWarehouseProducts, value); }
+
+        #endregion
+        #region FilterExpirationDateStopForMyWarehouseProducts: - Filter "Expiration Date Stop" For My Warehouse Products
+
+        /// <summary>Filter "Expiration Date Stop" For My Warehouse Products</summary>
+        private string? _FilterExpirationDateStopForMyWarehouseProducts;
+
+        /// <summary>Filter "Expiration Date Stop" For My Warehouse Products</summary>
+
+        public string? FilterExpirationDateStopForMyWarehouseProducts { get => _FilterExpirationDateStopForMyWarehouseProducts; set => Set(ref _FilterExpirationDateStopForMyWarehouseProducts, value); }
+
+        #endregion
+        #region SelectedDateExpirationDateStopFilterMyWarehouseProducts: - Selected Date For DataPicker "Expiration Date Stop" Filter For My Warehouse Products
+
+        /// <summary>Selected Date For DataPicker "Expiration Date Stop" Filter For My Warehouse Products</summary>
+        private DateTime? _SelectedDateExpirationDateStopFilterMyWarehouseProducts;
+
+        /// <summary>Selected Date For DataPicker "Expiration Date Stop" Filter For My Warehouse Products</summary>
+
+        public DateTime? SelectedDateExpirationDateStopFilterMyWarehouseProducts { get => _SelectedDateExpirationDateStopFilterMyWarehouseProducts; set => Set(ref _SelectedDateExpirationDateStopFilterMyWarehouseProducts, value); }
 
         #endregion
 
@@ -729,7 +749,58 @@ namespace Inventory.ViewModels.Warehouse
 
                 }
             }
+            //Filtering By Expiration Date Stop
+            if (!string.IsNullOrEmpty(FilterExpirationDateStopForMyWarehouseProducts))
+            {
+                IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
 
+                FilteredWarehouseProducts = [];
+
+                if (FilterExpirationDateStopForMyWarehouseProducts.Length != 7)
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Срок годности До:\" задано некорректно (мм.ГГГГ).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+
+                DateTime dt;
+                if (!DateTime.TryParse("01." + FilterExpirationDateStopForMyWarehouseProducts, out dt))
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Срок годности До:\" задано некорректно (мм.ГГГГ).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+                else
+                {
+                    foreach (WarehouseProduct product in resultList)
+                    {
+                        if (product.ExpirationDate <= dt)
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
+                    }
+
+                    if (FilteredWarehouseProducts.Count == 0)
+                    {
+                        WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Срок годности До:\".";
+                        WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                        WarehouseEventIconColor = Color.Goldenrod.Name;
+
+                        return;
+                    }
+
+                    resultList.Clear();
+                    foreach (WarehouseProduct product in FilteredWarehouseProducts)
+                    {
+                        resultList.Add(product);
+                    }
+
+                }
+            }
 
 
             WarehouseEventTextValue = $"Отфильтрованный список содержит {FilteredWarehouseProducts.Count.ToString()} продуктов.";
@@ -753,6 +824,23 @@ namespace Inventory.ViewModels.Warehouse
         {
 
             FilterExpirationDateStartForMyWarehouseProducts = SelectedDateExpirationDateStartFilterMyWarehouseProducts.ToString()[3..10];
+        }
+
+        #endregion
+        #region Command SelectedExpirationDateStopChangedMyWarehouseProductsCommand: - "Selected Expiration Date" Stop Changed In My Warehouse Window
+
+        /// <summary>"Selected Expiration Date" Stop Changed In My Warehouse Window</summary>
+        private LambdaCommand? _SelectedExpirationDateStopChangedMyWarehouseProductsCommand;
+
+        /// <summary>"Selected Expiration Date" Stop Changed In My Warehouse Window</summary>
+        public ICommand SelectedExpirationDateStopChangedMyWarehouseProductsCommand => _SelectedExpirationDateStopChangedMyWarehouseProductsCommand ??= new(OnSelectedExpirationDateStopChangedMyWarehouseProductsCommandExecuted);
+
+        /// <summary>Логика выполнения - "Selected Expiration Date" Stop Changed In My Warehouse Window</summary>
+
+        private void OnSelectedExpirationDateStopChangedMyWarehouseProductsCommandExecuted(object? p)
+        {
+            FilterExpirationDateStopForMyWarehouseProducts = SelectedDateExpirationDateStopFilterMyWarehouseProducts.ToString()[3..10];
+
         }
 
         #endregion
