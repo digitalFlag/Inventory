@@ -493,6 +493,26 @@ namespace Inventory.ViewModels.Warehouse
         public DateTime? SelectedDateExpirationDateStopFilterMyWarehouseProducts { get => _SelectedDateExpirationDateStopFilterMyWarehouseProducts; set => Set(ref _SelectedDateExpirationDateStopFilterMyWarehouseProducts, value); }
 
         #endregion
+        #region FilterPurchaseCostStartForMyWarehouseProducts: - Filter "Purchase Cost Start" For My Warehouse Products 
+
+        /// <summary>Filter "Purchase Cost Start" For My Warehouse Products </summary>
+        private string? _FilterPurchaseCostStartForMyWarehouseProducts;
+
+        /// <summary>Filter "Purchase Cost Start" For My Warehouse Products </summary>
+
+        public string? FilterPurchaseCostStartForMyWarehouseProducts { get => _FilterPurchaseCostStartForMyWarehouseProducts; set => Set(ref _FilterPurchaseCostStartForMyWarehouseProducts, value); }
+
+        #endregion
+        #region FilterPurchaseCostStopForMyWarehouseProducts: - Filter "Purchase Cost Stop" For My Warehouse Products
+
+        /// <summary>Filter "Purchase Cost Stop" For My Warehouse Products</summary>
+        private string? _FilterPurchaseCostStopForMyWarehouseProducts;
+
+        /// <summary>Filter "Purchase Cost Stop" For My Warehouse Products</summary>
+
+        public string? FilterPurchaseCostStopForMyWarehouseProducts { get => _FilterPurchaseCostStopForMyWarehouseProducts; set => Set(ref _FilterPurchaseCostStopForMyWarehouseProducts, value); }
+
+        #endregion
 
 
         #endregion
@@ -800,6 +820,116 @@ namespace Inventory.ViewModels.Warehouse
                     }
 
                 }
+            }
+
+            //Filtering By Purchase Cost Start
+            if (!string.IsNullOrEmpty(FilterPurchaseCostStartForMyWarehouseProducts))
+            {
+                IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
+
+                FilteredWarehouseProducts = [];
+
+                foreach (char c in FilterPurchaseCostStartForMyWarehouseProducts)
+                {
+                    if (!char.IsDigit(c))
+                    {
+                        WarehouseEventTextValue = $"Значение фмльтра \"Стоимость покупки От:\" задано некорректно.";
+                        WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                        WarehouseEventIconColor = Color.Red.Name;
+
+                        return;
+                    }
+                }
+
+                if (FilterPurchaseCostStartForMyWarehouseProducts[0] == 0)
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Стоимость покупки От:\" задано некорректно.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+
+                int price = Convert.ToInt32(FilterPurchaseCostStartForMyWarehouseProducts);
+
+                foreach (WarehouseProduct product in resultList)
+                {
+                    if (product.PurchaseCost >= price)
+                    {
+                        FilteredWarehouseProducts.Add(product);
+                    }
+                }
+
+                if (FilteredWarehouseProducts.Count == 0)
+                {
+                    WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Стоимость покупки От:\".";
+                    WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                    WarehouseEventIconColor = Color.Goldenrod.Name;
+
+                    return;
+                }
+
+                resultList.Clear();
+                foreach (WarehouseProduct product in FilteredWarehouseProducts)
+                {
+                    resultList.Add(product);
+                }
+
+            }
+
+            //Filtering By Purchase Cost Stop
+            if (!string.IsNullOrEmpty(FilterPurchaseCostStopForMyWarehouseProducts))
+            {
+                IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
+
+                FilteredWarehouseProducts = [];
+
+                foreach (char c in FilterPurchaseCostStopForMyWarehouseProducts)
+                {
+                    if (!char.IsDigit(c))
+                    {
+                        WarehouseEventTextValue = $"Значение фмльтра \"Стоимость покупки До:\" задано некорректно.";
+                        WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                        WarehouseEventIconColor = Color.Red.Name;
+
+                        return;
+                    }
+                }
+
+                if (FilterPurchaseCostStopForMyWarehouseProducts[0] == 0)
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Стоимость покупки До:\" задано некорректно.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+
+                int price = Convert.ToInt32(FilterPurchaseCostStopForMyWarehouseProducts);
+
+                foreach (WarehouseProduct product in resultList)
+                {
+                    if (product.PurchaseCost <= price)
+                    {
+                        FilteredWarehouseProducts.Add(product);
+                    }
+                }
+
+                if (FilteredWarehouseProducts.Count == 0)
+                {
+                    WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Стоимость покупки От:\".";
+                    WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                    WarehouseEventIconColor = Color.Goldenrod.Name;
+
+                    return;
+                }
+
+                resultList.Clear();
+                foreach (WarehouseProduct product in FilteredWarehouseProducts)
+                {
+                    resultList.Add(product);
+                }
+
             }
 
 

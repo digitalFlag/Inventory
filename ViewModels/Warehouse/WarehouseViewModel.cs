@@ -99,6 +99,8 @@ namespace Inventory.ViewModels.Warehouse
             SelectedDateExpirationDateStartFilterMyWarehouseProducts = DateTime.Now;
             FilterExpirationDateStopForMyWarehouseProducts = string.Empty;
             SelectedDateExpirationDateStopFilterMyWarehouseProducts = DateTime.Now;
+            FilterPurchaseCostStartForMyWarehouseProducts = string.Empty;
+            FilterPurchaseCostStopForMyWarehouseProducts = string.Empty;
 
             #endregion
 

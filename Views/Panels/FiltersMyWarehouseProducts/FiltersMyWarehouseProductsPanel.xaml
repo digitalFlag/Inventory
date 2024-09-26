@@ -118,7 +118,46 @@
 
 
         </Grid>
+        <!--Purchase Cost-->
+        <Label Content="{Binding LabelPurchaseCostProduct}"
+               FontWeight="Normal">
+        </Label>
+        <Grid Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0"
+                   Content="От:">
+            </Label>
+            <!--Start Value-->
+            <TextBox Grid.Column="1"
+                     Text="{Binding FilterPurchaseCostStartForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <!--Stop Value-->
+            <TextBox Grid.Column="5"
+                     Text="{Binding FilterPurchaseCostStopForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
 
+            <Label Grid.Column="3"
+                   Content="До:">
+            </Label>
+
+
+        </Grid>
 
 
 
