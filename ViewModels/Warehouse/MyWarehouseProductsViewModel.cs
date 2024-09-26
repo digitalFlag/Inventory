@@ -463,7 +463,16 @@ namespace Inventory.ViewModels.Warehouse
         public string? FilterExpirationDateStartForMyWarehouseProducts { get => _FilterExpirationDateStartForMyWarehouseProducts; set => Set(ref _FilterExpirationDateStartForMyWarehouseProducts, value); }
 
         #endregion
+        #region SelectedDateExpirationDateStartFilterMyWarehouseProducts: - Selected Date For DataPicker "Expitation Date Start" Filter For My Warehouse Products
 
+        /// <summary>Selected Date For DataPicker "Expitation Date Start" Filter For My Warehouse Products</summary>
+        private DateTime? _SelectedDateExpirationDateStartFilterMyWarehouseProducts;
+
+        /// <summary>Selected Date For DataPicker "Expitation Date Start" Filter For My Warehouse Products</summary>
+
+        public DateTime? SelectedDateExpirationDateStartFilterMyWarehouseProducts { get => _SelectedDateExpirationDateStartFilterMyWarehouseProducts; set => Set(ref _SelectedDateExpirationDateStartFilterMyWarehouseProducts, value); }
+
+        #endregion
 
 
         #endregion
@@ -669,7 +678,6 @@ namespace Inventory.ViewModels.Warehouse
             }
 
             //Filtering By Expiration Date Start
-
             if (!string.IsNullOrEmpty(FilterExpirationDateStartForMyWarehouseProducts))
             {
                 IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
@@ -723,6 +731,7 @@ namespace Inventory.ViewModels.Warehouse
             }
 
 
+
             WarehouseEventTextValue = $"Отфильтрованный список содержит {FilteredWarehouseProducts.Count.ToString()} продуктов.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
             WarehouseEventIconColor = Color.LimeGreen.Name;
@@ -730,6 +739,23 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region Command SelectedExpirationDateStartChangedMyWarehouseProductsCommand: - "Selected Expiration Date" Changed In My Warehouse Windows
+
+        /// <summary>"Selected Expiration Date" Changed In My Warehouse Windows</summary>
+        private LambdaCommand? _SelectedExpirationDateStartChangedMyWarehouseProductsCommand;
+
+        /// <summary>"Selected Expiration Date" Changed In My Warehouse Windows</summary>
+        public ICommand SelectedExpirationDateStartChangedMyWarehouseProductsCommand => _SelectedExpirationDateStartChangedMyWarehouseProductsCommand ??= new(OnSelectedExpirationDateStartChangedMyWarehouseProductsCommandExecuted);
+
+        /// <summary>Логика выполнения - "Selected Expiration Date" Changed In My Warehouse Windows</summary>
+
+        private void OnSelectedExpirationDateStartChangedMyWarehouseProductsCommandExecuted(object? p)
+        {
+
+            FilterExpirationDateStartForMyWarehouseProducts = SelectedDateExpirationDateStartFilterMyWarehouseProducts.ToString()[3..10];
+        }
+
+        #endregion
 
 
 

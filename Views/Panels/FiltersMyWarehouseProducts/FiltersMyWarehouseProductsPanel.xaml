@@ -64,6 +64,7 @@
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30"/>
@@ -80,6 +81,15 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </TextBox>
+            <DatePicker Grid.Column="2"
+                        SelectedDate="{Binding SelectedDateExpirationDateStartFilterMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectedDateChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectedExpirationDateStartChangedMyWarehouseProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+  
+            </DatePicker>
 
 
 
@@ -87,7 +97,7 @@
 
 
 
-            <Label Grid.Column="3"
+            <Label Grid.Column="4"
                    Content="До:">
             </Label>
 
