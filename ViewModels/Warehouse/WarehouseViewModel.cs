@@ -104,6 +104,10 @@ namespace Inventory.ViewModels.Warehouse
             FilterLocationForMyWarehouseProducts = string.Empty;
             ListOfComboBoxLocationPossibleValues = [];
             SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts = string.Empty;
+            SelectedDateReceiptDateStartFilterMyWarehouseProducts = DateTime.Now;
+            SelectedDateReceiptDateStopFilterMyWarehouseProducts = DateTime.Now;
+            FilterReceiptDateStartForMyWarehouseProducts = string.Empty;
+            FilterReceiptDateStopForMyWarehouseProducts = string.Empty;
 
             #endregion
 

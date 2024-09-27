@@ -544,6 +544,46 @@ namespace Inventory.ViewModels.Warehouse
         public string? SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts { get => _SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts; set => Set(ref _SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts, value); }
 
         #endregion
+        #region SelectedDateReceiptDateStartFilterMyWarehouseProducts: - Selected Date For DataPicker "Receipt Date Start" Filter For My Warehouse Products
+
+        /// <summary>Selected Date For DataPicker "Receipt Date Start" Filter For My Warehouse Products</summary>
+        private DateTime? _SelectedDateReceiptDateStartFilterMyWarehouseProducts;
+
+        /// <summary>Selected Date For DataPicker "Receipt Date Start" Filter For My Warehouse Products</summary>
+
+        public DateTime? SelectedDateReceiptDateStartFilterMyWarehouseProducts { get => _SelectedDateReceiptDateStartFilterMyWarehouseProducts; set => Set(ref _SelectedDateReceiptDateStartFilterMyWarehouseProducts, value); }
+
+        #endregion
+        #region SelectedDateReceiptDateStopFilterMyWarehouseProducts: - Selected Date For DataPicker "Receipt Date Stop" Filter For My Warehouse Products
+
+        /// <summary>Selected Date For DataPicker "Receipt Date Stop" Filter For My Warehouse Products</summary>
+        private DateTime? _SelectedDateReceiptDateStopFilterMyWarehouseProducts;
+
+        /// <summary>Selected Date For DataPicker "Receipt Date Stop" Filter For My Warehouse Products</summary>
+
+        public DateTime? SelectedDateReceiptDateStopFilterMyWarehouseProducts { get => _SelectedDateReceiptDateStopFilterMyWarehouseProducts; set => Set(ref _SelectedDateReceiptDateStopFilterMyWarehouseProducts, value); }
+
+        #endregion
+        #region FilterReceiptDateStartForMyWarehouseProducts: - Filter "Receipt Date Start" For My Warehouse Products
+
+        /// <summary>Filter "Receipt Date Start" For My Warehouse Products</summary>
+        private string? _FilterReceiptDateStartForMyWarehouseProducts;
+
+        /// <summary>Filter "Receipt Date Start" For My Warehouse Products</summary>
+
+        public string? FilterReceiptDateStartForMyWarehouseProducts { get => _FilterReceiptDateStartForMyWarehouseProducts; set => Set(ref _FilterReceiptDateStartForMyWarehouseProducts, value); }
+
+        #endregion
+        #region FilterReceiptDateStopForMyWarehouseProducts: - Filter "Receipt Date Stop" For My Warehouse Products
+
+        /// <summary>Filter "Receipt Date Stop" For My Warehouse Products</summary>
+        private string? _FilterReceiptDateStopForMyWarehouseProducts;
+
+        /// <summary>Filter "Receipt Date Stop" For My Warehouse Products</summary>
+
+        public string? FilterReceiptDateStopForMyWarehouseProducts { get => _FilterReceiptDateStopForMyWarehouseProducts; set => Set(ref _FilterReceiptDateStopForMyWarehouseProducts, value); }
+
+        #endregion
 
 
         #endregion
@@ -1014,6 +1054,111 @@ namespace Inventory.ViewModels.Warehouse
                 }
             }
 
+            //Filtering By Receipt Date Start
+            if (!string.IsNullOrEmpty(FilterReceiptDateStartForMyWarehouseProducts))
+            {
+                IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
+
+                FilteredWarehouseProducts = [];
+
+                if (FilterReceiptDateStartForMyWarehouseProducts.Length != 10)
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Дата поступления От:\" задано некорректно (дд.мм.гггг).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+
+                DateTime dt;
+                if (!DateTime.TryParse(FilterReceiptDateStartForMyWarehouseProducts, out dt))
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Дата поступления От:\" задано некорректно (дд.мм.гггг).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+                else
+                {
+                    foreach (WarehouseProduct product in resultList)
+                    {
+                        if (product.ReceiptDate >= dt)
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
+                    }
+
+                    if (FilteredWarehouseProducts.Count == 0)
+                    {
+                        WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Дата поступления От:\".";
+                        WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                        WarehouseEventIconColor = Color.Goldenrod.Name;
+
+                        return;
+                    }
+
+                    resultList.Clear();
+                    foreach (WarehouseProduct product in FilteredWarehouseProducts)
+                    {
+                        resultList.Add(product);
+                    }
+
+                }
+            }
+            //Filtering By Receipt Date Stop
+            if (!string.IsNullOrEmpty(FilterReceiptDateStopForMyWarehouseProducts))
+            {
+                IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
+
+                FilteredWarehouseProducts = [];
+
+                if (FilterReceiptDateStopForMyWarehouseProducts.Length != 10)
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Дата поступления До:\" задано некорректно (дд.мм.гггг).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+
+                DateTime dt;
+                if (!DateTime.TryParse(FilterReceiptDateStopForMyWarehouseProducts, out dt))
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Дата поступления До:\" задано некорректно (дд.мм.гггг).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+                else
+                {
+                    foreach (WarehouseProduct product in resultList)
+                    {
+                        if (product.ReceiptDate <= dt)
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
+                    }
+
+                    if (FilteredWarehouseProducts.Count == 0)
+                    {
+                        WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Дата поступления До:\".";
+                        WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                        WarehouseEventIconColor = Color.Goldenrod.Name;
+
+                        return;
+                    }
+
+                    resultList.Clear();
+                    foreach (WarehouseProduct product in FilteredWarehouseProducts)
+                    {
+                        resultList.Add(product);
+                    }
+
+                }
+            }
+
 
             WarehouseEventTextValue = $"Отфильтрованный список содержит {FilteredWarehouseProducts.Count.ToString()} продуктов.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
@@ -1076,6 +1221,40 @@ namespace Inventory.ViewModels.Warehouse
             }
 
             FilterLocationForMyWarehouseProducts = SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts;
+        }
+
+        #endregion
+        #region Command SelectedReceiptDateStartChangedMyWarehouseProductsCommand: - "Selected Receipt Date Start" Changed In My Warehouse Windows
+
+        /// <summary>"Selected Receipt Date Start" Changed In My Warehouse Windows</summary>
+        private LambdaCommand? _SelectedReceiptDateStartChangedMyWarehouseProductsCommand;
+
+        /// <summary>"Selected Receipt Date Start" Changed In My Warehouse Windows</summary>
+        public ICommand SelectedReceiptDateStartChangedMyWarehouseProductsCommand => _SelectedReceiptDateStartChangedMyWarehouseProductsCommand ??= new(OnSelectedReceiptDateStartChangedMyWarehouseProductsCommandExecuted);
+
+        /// <summary>Логика выполнения - "Selected Receipt Date Start" Changed In My Warehouse Windows</summary>
+
+        private void OnSelectedReceiptDateStartChangedMyWarehouseProductsCommandExecuted(object? p)
+        {
+
+            FilterReceiptDateStartForMyWarehouseProducts = SelectedDateReceiptDateStartFilterMyWarehouseProducts.ToString()[..10];
+        }
+
+        #endregion
+        #region Command SelectedReceiptDateStopChangedMyWarehouseProductsCommand: - "Selected Receipt Date" Stop Changed In My Warehouse Window
+
+        /// <summary>"Selected Receipt Date" Stop Changed In My Warehouse Window</summary>
+        private LambdaCommand? _SelectedReceiptDateStopChangedMyWarehouseProductsCommand;
+
+        /// <summary>"Selected Receipt Date" Stop Changed In My Warehouse Window</summary>
+        public ICommand SelectedReceiptDateStopChangedMyWarehouseProductsCommand => _SelectedReceiptDateStopChangedMyWarehouseProductsCommand ??= new(OnSelectedReceiptDateStopChangedMyWarehouseProductsCommandExecuted);
+
+        /// <summary>Логика выполнения - "Selected Receipt Date" Stop Changed In My Warehouse Window</summary>
+
+        private void OnSelectedReceiptDateStopChangedMyWarehouseProductsCommandExecuted(object? p)
+        {
+            FilterReceiptDateStopForMyWarehouseProducts = SelectedDateReceiptDateStopFilterMyWarehouseProducts.ToString()[..10];
+
         }
 
         #endregion
