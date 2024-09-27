@@ -101,6 +101,9 @@ namespace Inventory.ViewModels.Warehouse
             SelectedDateExpirationDateStopFilterMyWarehouseProducts = DateTime.Now;
             FilterPurchaseCostStartForMyWarehouseProducts = string.Empty;
             FilterPurchaseCostStopForMyWarehouseProducts = string.Empty;
+            FilterLocationForMyWarehouseProducts = string.Empty;
+            ListOfComboBoxLocationPossibleValues = [];
+            SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts = string.Empty;
 
             #endregion
 

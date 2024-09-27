@@ -5,6 +5,7 @@ using Inventory.ViewModels.Base;
 using System.Data;
 using System.Drawing;
 using System.Windows.Input;
+using System.Linq;
 
 namespace Inventory.ViewModels.Warehouse
 {
@@ -513,6 +514,36 @@ namespace Inventory.ViewModels.Warehouse
         public string? FilterPurchaseCostStopForMyWarehouseProducts { get => _FilterPurchaseCostStopForMyWarehouseProducts; set => Set(ref _FilterPurchaseCostStopForMyWarehouseProducts, value); }
 
         #endregion
+        #region FilterLocationForMyWarehouseProducts: - Filter "Location" For My Warehouse Products
+
+        /// <summary>Filter "Location" For My Warehouse Products</summary>
+        private string? _FilterLocationForMyWarehouseProducts;
+
+        /// <summary>Filter "Location" For My Warehouse Products</summary>
+
+        public string? FilterLocationForMyWarehouseProducts { get => _FilterLocationForMyWarehouseProducts; set => Set(ref _FilterLocationForMyWarehouseProducts, value); }
+
+        #endregion
+        #region ListOfComboBoxLocationPossibleValues: - Possible Items Values Of Combo Box "Location" In Filter Panel My Warehouse Products 
+
+        /// <summary>Possible Items Values Of Combo Box "Location" In Filter Panel My Warehouse Products </summary>
+        private List<string>? _ListOfComboBoxLocationPossibleValues;
+
+        /// <summary>Possible Items Values Of Combo Box "Location" In Filter Panel My Warehouse Products </summary>
+
+        public List<string>? ListOfComboBoxLocationPossibleValues { get => _ListOfComboBoxLocationPossibleValues; set => Set(ref _ListOfComboBoxLocationPossibleValues, value); }
+
+        #endregion
+        #region SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts: - Selectrd Item Of ComboBox "Location" In Filter Panel In My Warehouse Products Item
+
+        /// <summary>Selectrd Item Of ComboBox "Location" In Filter Panel In My Warehouse Products Item</summary>
+        private string? _SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts;
+
+        /// <summary>Selectrd Item Of ComboBox "Location" In Filter Panel In My Warehouse Products Item</summary>
+
+        public string? SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts { get => _SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts; set => Set(ref _SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts, value); }
+
+        #endregion
 
 
         #endregion
@@ -932,6 +963,57 @@ namespace Inventory.ViewModels.Warehouse
 
             }
 
+            //Filtering By Location
+            List<string> productsLocation = [];
+            foreach (WarehouseProduct wp in FilteredWarehouseProducts)
+            {
+                if (wp.Location is null)
+                {
+                    WarehouseEventTextValue = $"Значение \"Местоположения:\" продукта их отфильтрованного списка задано некорректно.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    break;
+                }
+
+                productsLocation.Add(wp.Location);
+                productsLocation.Sort();
+                ListOfComboBoxLocationPossibleValues = productsLocation.Distinct().ToList();
+            }
+            if (!string.IsNullOrEmpty(FilterLocationForMyWarehouseProducts))
+            {
+                IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
+
+                FilteredWarehouseProducts = [];
+
+                if (FilterLocationForMyWarehouseProducts is null)
+                {
+                    WarehouseEventTextValue = $"Значение фильтра \"Местоположение:\" равно NULL.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+                FilteredWarehouseProducts.AddRange(from WarehouseProduct product in resultList
+                                                   where product.Location.Contains(FilterLocationForMyWarehouseProducts)
+                                                   select product);
+
+                if (FilteredWarehouseProducts.Count == 0)
+                {
+                    WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Местоположением\".";
+                    WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                    WarehouseEventIconColor = Color.Goldenrod.Name;
+
+                    return;
+                }
+
+                resultList.Clear();
+                foreach (WarehouseProduct product in FilteredWarehouseProducts)
+                {
+                    resultList.Add(product);
+                }
+            }
+
 
             WarehouseEventTextValue = $"Отфильтрованный список содержит {FilteredWarehouseProducts.Count.ToString()} продуктов.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
@@ -971,6 +1053,29 @@ namespace Inventory.ViewModels.Warehouse
         {
             FilterExpirationDateStopForMyWarehouseProducts = SelectedDateExpirationDateStopFilterMyWarehouseProducts.ToString()[3..10];
 
+        }
+
+        #endregion
+        #region Command ChangeSelectedItemOfCombmBoxLocationFilterCommand: - Change Value Of Selected Item "Location" Filtef In My Warehouse Panel
+
+        /// <summary>Change Value Of Selected Item "Location" Filtef In My Warehouse Panel</summary>
+        private LambdaCommand? _ChangeSelectedItemOfCombmBoxLocationFilterCommand;
+
+        /// <summary>Change Value Of Selected Item "Location" Filtef In My Warehouse Panel</summary>
+        public ICommand ChangeSelectedItemOfCombmBoxLocationFilterCommand => _ChangeSelectedItemOfCombmBoxLocationFilterCommand ??= new(OnChangeSelectedItemOfCombmBoxLocationFilterCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of Selected Item "Location" Filtef In My Warehouse Panel</summary>
+
+        private void OnChangeSelectedItemOfCombmBoxLocationFilterCommandExecuted(object? p)
+        {
+            if (SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts is null)
+            {
+                SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts = FilterLocationForMyWarehouseProducts;
+
+                return;
+            }
+
+            FilterLocationForMyWarehouseProducts = SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts;
         }
 
         #endregion

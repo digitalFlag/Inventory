@@ -44,6 +44,7 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </TextBox>
+        <Label Content=" " Height ="10"/>
         <!--Property-->
         <Label Content="{Binding LabelPropertyProduct}"
                FontWeight="Normal">
@@ -55,6 +56,7 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </TextBox>
+        <Label Content=" " Height ="10"/>
         <!--Expiration Date-->
         <Label Content="{Binding LabelExpirationDateProduct}"
                FontWeight="Normal">
@@ -118,6 +120,7 @@
 
 
         </Grid>
+        <Label Content=" " Height ="10"/>
         <!--Purchase Cost-->
         <Label Content="{Binding LabelPurchaseCostProduct}"
                FontWeight="Normal">
@@ -157,6 +160,37 @@
             </Label>
 
 
+        </Grid>
+        <Label Content=" " Height ="10"/>
+        <Label Content="{Binding LabelLocationProduct}"
+               FontWeight="Normal">
+        </Label>
+        <Grid Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0"
+                         Text="{Binding FilterLocationForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <ComboBox Grid.Column="2"
+                      ItemsSource="{Binding ListOfComboBoxLocationPossibleValues}"
+                      SelectedItem="{Binding SelectedItemOfComboBoxLocationInFilterPanelMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}"
+                      Template ="{StaticResource ComboBoxMainTemplate}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding ChangeSelectedItemOfCombmBoxLocationFilterCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+            
+            
         </Grid>
 
 
