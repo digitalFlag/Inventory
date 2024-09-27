@@ -584,7 +584,26 @@ namespace Inventory.ViewModels.Warehouse
         public string? FilterReceiptDateStopForMyWarehouseProducts { get => _FilterReceiptDateStopForMyWarehouseProducts; set => Set(ref _FilterReceiptDateStopForMyWarehouseProducts, value); }
 
         #endregion
+        #region ListOfComboBoxOrderNumberPossibleValues: - Possible Items Values Of Combo Box "Order Number" In Filter Panel My Warehouse Products 
 
+        /// <summary>Possible Items Values Of Combo Box "Order Number" In Filter Panel My Warehouse Products </summary>
+        private List<string>? _ListOfComboBoxOrderNumberPossibleValues;
+
+        /// <summary>Possible Items Values Of Combo Box "Order Number" In Filter Panel My Warehouse Products </summary>
+
+        public List<string>? ListOfComboBoxOrderNumberPossibleValues { get => _ListOfComboBoxOrderNumberPossibleValues; set => Set(ref _ListOfComboBoxOrderNumberPossibleValues, value); }
+
+        #endregion
+        #region FilterOrderNumberForMyWarehouseProducts: - Filter "Order Number" For My Warehouse Products
+
+        /// <summary>Filter "Order Number" For My Warehouse Products</summary>
+        private string? _FilterOrderNumberForMyWarehouseProducts;
+
+        /// <summary>Filter "Order Number" For My Warehouse Products</summary>
+
+        public string? FilterOrderNumberForMyWarehouseProducts { get => _FilterOrderNumberForMyWarehouseProducts; set => Set(ref _FilterOrderNumberForMyWarehouseProducts, value); }
+
+        #endregion
 
         #endregion
 
@@ -1156,6 +1175,58 @@ namespace Inventory.ViewModels.Warehouse
                         resultList.Add(product);
                     }
 
+                }
+            }
+
+            //Filtering By OrderNumber
+            List<string> productsOrdersNumbers = [];
+            foreach (WarehouseProduct wp in FilteredWarehouseProducts)
+            {
+                if (wp.OrderNumber is null)
+                {
+                    WarehouseEventTextValue = $"Значение \"Номер заказа:\" продукта их отфильтрованного списка задано некорректно.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    break;
+                }
+
+                productsLocation.Add(wp.OrderNumber);
+                productsLocation.Sort();
+                ListOfComboBoxOrderNumberPossibleValues = productsOrdersNumbers.Distinct().ToList();
+            }
+            if (!string.IsNullOrEmpty(FilterOrderNumberForMyWarehouseProducts))
+            {
+                IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
+
+                FilteredWarehouseProducts = [];
+
+                if (FilterOrderNumberForMyWarehouseProducts is null)
+                {
+                    WarehouseEventTextValue = $"Значение фильтра \"Номер заказа:\" равно NULL.";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+                //ToDo I am Here.
+                FilteredWarehouseProducts.AddRange(from WarehouseProduct product in resultList
+                                                   where product.Location.Contains(FilterLocationForMyWarehouseProducts)
+                                                   select product);
+
+                if (FilteredWarehouseProducts.Count == 0)
+                {
+                    WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Местоположением\".";
+                    WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                    WarehouseEventIconColor = Color.Goldenrod.Name;
+
+                    return;
+                }
+
+                resultList.Clear();
+                foreach (WarehouseProduct product in FilteredWarehouseProducts)
+                {
+                    resultList.Add(product);
                 }
             }
 

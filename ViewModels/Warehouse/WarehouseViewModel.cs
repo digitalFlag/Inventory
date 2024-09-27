@@ -108,6 +108,8 @@ namespace Inventory.ViewModels.Warehouse
             SelectedDateReceiptDateStopFilterMyWarehouseProducts = DateTime.Now;
             FilterReceiptDateStartForMyWarehouseProducts = string.Empty;
             FilterReceiptDateStopForMyWarehouseProducts = string.Empty;
+            ListOfComboBoxOrderNumberPossibleValues = [];
+            FilterOrderNumberForMyWarehouseProducts = string.Empty;
 
             #endregion
 
