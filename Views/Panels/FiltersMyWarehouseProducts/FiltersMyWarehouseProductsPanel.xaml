@@ -158,10 +158,9 @@
             <Label Grid.Column="3"
                    Content="До:">
             </Label>
-
-
         </Grid>
         <Label Content=" " Height ="10"/>
+        <!--Location-->
         <Label Content="{Binding LabelLocationProduct}"
                FontWeight="Normal">
         </Label>
@@ -256,7 +255,37 @@
 
 
         </Grid>
-
+        <Label Content=" " Height ="10"/>
+        <!--Order Number-->
+        <Label Content="{Binding LabelOrderNumberProduct}"
+               FontWeight="Normal">
+        </Label>
+        <Grid Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0"
+                         Text="{Binding FilterOrderNumberForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <ComboBox Grid.Column="2"
+                      ItemsSource="{Binding ListOfComboBoxOrderNumberPossibleValues}"
+                      SelectedItem="{Binding SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}"
+                      Template ="{StaticResource ComboBoxMainTemplate}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding ChangeSelectedItemOfCombmBoxOrderNumberFilterCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+        </Grid>
+        <Label Content=" " Height ="10"/>
 
     </StackPanel>
 

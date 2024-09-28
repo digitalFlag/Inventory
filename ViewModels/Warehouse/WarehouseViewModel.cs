@@ -110,6 +110,7 @@ namespace Inventory.ViewModels.Warehouse
             FilterReceiptDateStopForMyWarehouseProducts = string.Empty;
             ListOfComboBoxOrderNumberPossibleValues = [];
             FilterOrderNumberForMyWarehouseProducts = string.Empty;
+            SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts = string.Empty;
 
             #endregion
 

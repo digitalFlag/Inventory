@@ -604,6 +604,17 @@ namespace Inventory.ViewModels.Warehouse
         public string? FilterOrderNumberForMyWarehouseProducts { get => _FilterOrderNumberForMyWarehouseProducts; set => Set(ref _FilterOrderNumberForMyWarehouseProducts, value); }
 
         #endregion
+        #region SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts: - Selectrd Item Of ComboBox "Order Number" In Filter Panel In My Warehouse Products Item
+
+        /// <summary>Selectrd Item Of ComboBox "Order Number" In Filter Panel In My Warehouse Products Item</summary>
+        private string? _SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts;
+
+        /// <summary>Selectrd Item Of ComboBox "Order Number" In Filter Panel In My Warehouse Products Item</summary>
+
+        public string? SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts { get => _SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts; set => Set(ref _SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts, value); }
+
+        #endregion
+
 
         #endregion
 
@@ -1191,8 +1202,8 @@ namespace Inventory.ViewModels.Warehouse
                     break;
                 }
 
-                productsLocation.Add(wp.OrderNumber);
-                productsLocation.Sort();
+                productsOrdersNumbers.Add(wp.OrderNumber);
+                productsOrdersNumbers.Sort();
                 ListOfComboBoxOrderNumberPossibleValues = productsOrdersNumbers.Distinct().ToList();
             }
             if (!string.IsNullOrEmpty(FilterOrderNumberForMyWarehouseProducts))
@@ -1209,14 +1220,14 @@ namespace Inventory.ViewModels.Warehouse
 
                     return;
                 }
-                //ToDo I am Here.
+
                 FilteredWarehouseProducts.AddRange(from WarehouseProduct product in resultList
-                                                   where product.Location.Contains(FilterLocationForMyWarehouseProducts)
+                                                   where product.OrderNumber.Contains(FilterOrderNumberForMyWarehouseProducts)
                                                    select product);
 
                 if (FilteredWarehouseProducts.Count == 0)
                 {
-                    WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Местоположением\".";
+                    WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Номером заказа\".";
                     WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                     WarehouseEventIconColor = Color.Goldenrod.Name;
 
@@ -1326,6 +1337,29 @@ namespace Inventory.ViewModels.Warehouse
         {
             FilterReceiptDateStopForMyWarehouseProducts = SelectedDateReceiptDateStopFilterMyWarehouseProducts.ToString()[..10];
 
+        }
+
+        #endregion
+        #region Command ChangeSelectedItemOfCombmBoxOrderNumberFilterCommand: - Change Value Of Selected Item "Order Number" Filtef In My Warehouse Panel
+
+        /// <summary>Change Value Of Selected Item "Order Number" Filtef In My Warehouse Panel</summary>
+        private LambdaCommand? _ChangeSelectedItemOfCombmBoxOrderNumberFilterCommand;
+
+        /// <summary>Change Value Of Selected Item "Order Number" Filtef In My Warehouse Panel</summary>
+        public ICommand ChangeSelectedItemOfCombmBoxOrderNumberFilterCommand => _ChangeSelectedItemOfCombmBoxOrderNumberFilterCommand ??= new(OnChangeSelectedItemOfCombmBoxOrderNumberFilterCommandExecuted);
+
+        /// <summary>Логика выполнения - Change Value Of Selected Item "Order Number" Filtef In My Warehouse Panel</summary>
+
+        private void OnChangeSelectedItemOfCombmBoxOrderNumberFilterCommandExecuted(object? p)
+        {
+            if (SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts is null)
+            {
+                SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts = FilterOrderNumberForMyWarehouseProducts;
+
+                return;
+            }
+
+            FilterOrderNumberForMyWarehouseProducts = SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts;
         }
 
         #endregion
