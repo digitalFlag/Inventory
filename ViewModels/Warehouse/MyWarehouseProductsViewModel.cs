@@ -5,7 +5,6 @@ using Inventory.ViewModels.Base;
 using System.Data;
 using System.Drawing;
 using System.Windows.Input;
-using System.Linq;
 
 namespace Inventory.ViewModels.Warehouse
 {
@@ -433,7 +432,6 @@ namespace Inventory.ViewModels.Warehouse
         public string? IconFiltersTabControlInMyWarehouseItemValue { get => _IconFiltersTabControlInMyWarehouseItemValue; set => Set(ref _IconFiltersTabControlInMyWarehouseItemValue, value); }
 
         #endregion
-
         #region FilterTittleForMyWarehouseProducts: - Filter "Tittle" For My Warehouse Products 
 
         /// <summary>Filter "Tittle" For My Warehouse Products </summary>
@@ -622,6 +620,17 @@ namespace Inventory.ViewModels.Warehouse
         /// <summary>Folter "Note" For My Warehouse Products</summary>
 
         public string? FilterNoteForMyWarehouseProducts { get => _FilterNoteForMyWarehouseProducts; set => Set(ref _FilterNoteForMyWarehouseProducts, value); }
+
+        #endregion
+        //Statistic
+        #region TabItemStatisticMyWarehouseItem: - Name Of TabItem "Statistic" In Panel My Warehouse Products
+
+        /// <summary>Name Of TabItem "Statistic" In Panel My Warehouse Products</summary>
+        private string? _TabItemStatisticMyWarehouseItem;
+
+        /// <summary>Name Of TabItem "Statistic" In Panel My Warehouse Products</summary>
+
+        public string? TabItemStatisticMyWarehouseItem { get => _TabItemStatisticMyWarehouseItem; set => Set(ref _TabItemStatisticMyWarehouseItem, value); }
 
         #endregion
 
@@ -1272,13 +1281,32 @@ namespace Inventory.ViewModels.Warehouse
                 }
             }
 
-
+            OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
             WarehouseEventTextValue = $"Отфильтрованный список содержит {FilteredWarehouseProducts.Count.ToString()} продуктов.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
             WarehouseEventIconColor = Color.LimeGreen.Name;
         }
 
         #endregion
+
+
+        #region Command CalculateStatisticsMyWarehouseProductsCommand: - Calculate Statistics About The List Of Warehouse Products After Filtering
+
+        /// <summary>Calculate Statistics About The List Of Warehouse Products After Filtering</summary>
+        private LambdaCommand? _CalculateStatisticsMyWarehouseProductsCommand;
+
+        /// <summary>Calculate Statistics About The List Of Warehouse Products After Filtering</summary>
+        public ICommand CalculateStatisticsMyWarehouseProductsCommand => _CalculateStatisticsMyWarehouseProductsCommand ??= new(OnCalculateStatisticsMyWarehouseProductsCommandExecuted);
+
+        /// <summary>Логика выполнения - Calculate Statistics About The List Of Warehouse Products After Filtering</summary>
+
+        private void OnCalculateStatisticsMyWarehouseProductsCommandExecuted(object? p)
+        {
+            FilteredWarehouseProducts;
+        }
+
+        #endregion
+
 
         #region Command SelectedExpirationDateStartChangedMyWarehouseProductsCommand: - "Selected Expiration Date" Changed In My Warehouse Windows
 

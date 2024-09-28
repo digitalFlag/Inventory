@@ -10,4 +10,8 @@
 
     </Style>
 
+    <Style x:Key="TextBlockNeitralStyle" BasedOn="{StaticResource TextBlockMainStyle}" TargetType="TextBlock">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
 </ResourceDictionary>

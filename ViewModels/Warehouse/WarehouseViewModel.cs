@@ -113,6 +113,9 @@ namespace Inventory.ViewModels.Warehouse
             SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts = string.Empty;
             FilterNoteForMyWarehouseProducts = string.Empty;
 
+            //Statistic
+            TabItemStatisticMyWarehouseItem = "Статистика";
+
             #endregion
 
             #region SOLD PRODUCTS

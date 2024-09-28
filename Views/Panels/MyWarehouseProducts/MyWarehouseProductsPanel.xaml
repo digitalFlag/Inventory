@@ -9,6 +9,8 @@
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              
              xmlns:viewsFiltersMyWarehouseProducts="clr-namespace:Inventory.Views.Panels.FiltersMyWarehouseProducts"
+             xmlns:viewsStatisticsMyWarehouseProducts="clr-namespace:Inventory.Views.Panels.StatisticsMyWarehouseProducts"
+             
              
              d:DataContext="{d:DesignInstance vm:MainWindowViewModel, IsDesignTimeCreatable=True}"
              d:Height="450" d:Width="800">
@@ -103,8 +105,6 @@
                 <!--TAB CONTROL-->
                 <TabControl>
                     <!--TAB ITEM FILTERS-->
-                    
-                    
                     <TabItem>
                         <TabItem.Header>
                             <StackPanel Orientation="Horizontal">
@@ -116,9 +116,28 @@
                         </TabItem.Header>
                         <viewsFiltersMyWarehouseProducts:FiltersMyWarehouseProductsPanel/>
                     </TabItem>
+                    <!--TAB ITEM Statistics-->
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome Icon="Solid_ChartLine">
+                                </fa:ImageAwesome>
+                                <Label Content="{Binding TabItemStatisticMyWarehouseItem}"
+                                       FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <viewsStatisticsMyWarehouseProducts:StatisticsMyWarehouseProductsPanel/>
+                    </TabItem>
                     <!--TAB ITEM SELECTED PRODUCT-->
-                    <TabItem Header="{Binding TabItemSelectedProductMyWarehouseItem}"
-                             FontWeight="Bold">
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome Icon="Solid_ArrowPointer">
+                                </fa:ImageAwesome>
+                                <Label Content="{Binding TabItemSelectedProductMyWarehouseItem}"
+                                       FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </TabItem.Header>
                         <StackPanel Orientation="Vertical">
                             <!--Tittle-->
                             <Grid>
@@ -313,9 +332,9 @@
                                     </Button.Content>
                                 </Button>
                             </Grid>
-                            
+
                             <Label Content=""/>
-                            
+
                             <!--Sold Options: Label-->
                             <Grid Background="Pink">
                                 <Label Content="Условия продажи:"
@@ -408,10 +427,9 @@
                                     </Button.Content>
                                 </Button>
                             </Grid>
-                            
+
                         </StackPanel>
                     </TabItem>
-                    
                 </TabControl>
                 
             </StackPanel>
