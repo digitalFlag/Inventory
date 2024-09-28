@@ -653,7 +653,26 @@ namespace Inventory.ViewModels.Warehouse
         public string? ValueOfTotalNumberOfProductsForMyWarehouseProducts { get => _ValueOfTotalNumberOfProductsForMyWarehouseProducts; set => Set(ref _ValueOfTotalNumberOfProductsForMyWarehouseProducts, value); }
 
         #endregion
+        #region TextValueTotalPriceOfProducts: - Value Of Text "Total Price Of Products"
 
+        /// <summary>Value Of Text "Total Price Of Products"</summary>
+        private string? _TextValueTotalPriceOfProducts;
+
+        /// <summary>Value Of Text "Total Price Of Products"</summary>
+
+        public string? TextValueTotalPriceOfProducts { get => _TextValueTotalPriceOfProducts; set => Set(ref _TextValueTotalPriceOfProducts, value); }
+
+        #endregion
+        #region ValueOfTotalPriceOfProductsForMyWarehouseProducts: - Value Of "Total Price Of Products" In "Statistics" TabItem In My Warehouse Panel
+
+        /// <summary>Value Of "Total Price Of Products" In "Statistics" TabItem In My Warehouse Panel</summary>
+        private string? _ValueOfTotalPriceOfProductsForMyWarehouseProducts;
+
+        /// <summary>Value Of "Total Price Of Products" In "Statistics" TabItem In My Warehouse Panel</summary>
+
+        public string? ValueOfTotalPriceOfProductsForMyWarehouseProducts { get => _ValueOfTotalPriceOfProductsForMyWarehouseProducts; set => Set(ref _ValueOfTotalPriceOfProductsForMyWarehouseProducts, value); }
+
+        #endregion
 
 
         #endregion
@@ -1339,10 +1358,12 @@ namespace Inventory.ViewModels.Warehouse
             if (FilteredWarehouseProducts is null)
             {
                 WarehouseEventTextValue = $"Cписок для рассчета \"Статистики\" равен NULL!";
-                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-                WarehouseEventIconColor = Color.LimeGreen.Name;
+                WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                WarehouseEventIconColor = Color.Red.Name;
 
                 ValueOfTotalNumberOfProductsForMyWarehouseProducts = string.Empty;
+                ValueOfTotalPriceOfProductsForMyWarehouseProducts = string.Empty;
+
 
                 return;
             }
@@ -1351,18 +1372,36 @@ namespace Inventory.ViewModels.Warehouse
 
             if (FilteredWarehouseProducts.Count == 0)
             {
-                WarehouseEventTextValue = $"Cписок для рассчета \"Статистики\" равен NULL!";
+                WarehouseEventTextValue = $"Cписок для рассчета \"Статистики\" не содержит значений.";
                 WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                 WarehouseEventIconColor = Color.Goldenrod.Name;
 
                 ValueOfTotalNumberOfProductsForMyWarehouseProducts = string.Empty;
-
+                ValueOfTotalPriceOfProductsForMyWarehouseProducts = string.Empty;
                 return;
             }
 
 
 
             ValueOfTotalNumberOfProductsForMyWarehouseProducts = FilteredWarehouseProducts.Count.ToString();
+            int totalPrice = 0;
+            foreach (WarehouseProduct wp in FilteredWarehouseProducts)
+            {
+                if (wp.PurchaseCost is null)
+                {
+                    WarehouseEventTextValue = $"Значение \"Стоимость покупки\" одного из продуктов равно NULL!";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+
+                totalPrice += (int)wp.PurchaseCost;
+            }
+
+            ValueOfTotalPriceOfProductsForMyWarehouseProducts = totalPrice.ToString() + " р.";
+
+
         }
 
         #endregion

@@ -117,6 +117,8 @@ namespace Inventory.ViewModels.Warehouse
             TabItemStatisticMyWarehouseItem = "Статистика";
             TextValueTotalNumberOfProducts = "Всего позиций:";
             ValueOfTotalNumberOfProductsForMyWarehouseProducts = string.Empty;
+            TextValueTotalPriceOfProducts = "Общая стоимость:";
+            ValueOfTotalPriceOfProductsForMyWarehouseProducts = string.Empty;
 
             #endregion
 

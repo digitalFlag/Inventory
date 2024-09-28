@@ -48,7 +48,24 @@
 
         </Grid>
         <Label Padding="5"/>
+        <!--Total Price Of Products-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" 
+                       Text="{Binding TextValueTotalPriceOfProducts}">
+            </TextBlock>
+            <TextBlock Grid.Column="2" 
+                       Text="{Binding ValueOfTotalPriceOfProductsForMyWarehouseProducts}" 
+                       TextAlignment="Center">
+            </TextBlock>
 
+
+        </Grid>
+        <Label Padding="5"/>
 
     </StackPanel>
 </UserControl>
