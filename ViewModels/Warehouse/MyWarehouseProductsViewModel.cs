@@ -633,6 +633,27 @@ namespace Inventory.ViewModels.Warehouse
         public string? TabItemStatisticMyWarehouseItem { get => _TabItemStatisticMyWarehouseItem; set => Set(ref _TabItemStatisticMyWarehouseItem, value); }
 
         #endregion
+        #region TextValueTotalNumberOfProducts: - Value Of Text "Total Number Of Products"
+
+        /// <summary>Value Of Text "Total Number Of Products"</summary>
+        private string? _TextValueTotalNumberOfProducts;
+
+        /// <summary>Value Of Text "Total Number Of Products"</summary>
+
+        public string? TextValueTotalNumberOfProducts { get => _TextValueTotalNumberOfProducts; set => Set(ref _TextValueTotalNumberOfProducts, value); }
+
+        #endregion
+        #region ValueOfTotalNumberOfProductsForMyWarehouseProducts: - Value Of "Total Number Of Products" In "Statistics" TabItem In My Warehouse Panel
+
+        /// <summary>Value Of "Total Number Of Products" In "Statistics" TabItem In My Warehouse Panel</summary>
+        private string? _ValueOfTotalNumberOfProductsForMyWarehouseProducts;
+
+        /// <summary>Value Of "Total Number Of Products" In "Statistics" TabItem In My Warehouse Panel</summary>
+
+        public string? ValueOfTotalNumberOfProductsForMyWarehouseProducts { get => _ValueOfTotalNumberOfProductsForMyWarehouseProducts; set => Set(ref _ValueOfTotalNumberOfProductsForMyWarehouseProducts, value); }
+
+        #endregion
+
 
 
         #endregion
@@ -793,6 +814,7 @@ namespace Inventory.ViewModels.Warehouse
                     WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Наименованием\".";
                     WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                     WarehouseEventIconColor = Color.Goldenrod.Name;
+                    OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
 
                     return;
                 }
@@ -823,7 +845,8 @@ namespace Inventory.ViewModels.Warehouse
                     WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Типом\".";
                     WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                     WarehouseEventIconColor = Color.Goldenrod.Name;
-                    
+                    OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
+
                     return;
                 }
 
@@ -874,6 +897,7 @@ namespace Inventory.ViewModels.Warehouse
                         WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Срок годности От:\".";
                         WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                         WarehouseEventIconColor = Color.Goldenrod.Name;
+                        OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
 
                         return;
                     }
@@ -926,6 +950,7 @@ namespace Inventory.ViewModels.Warehouse
                         WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Срок годности До:\".";
                         WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                         WarehouseEventIconColor = Color.Goldenrod.Name;
+                        OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
 
                         return;
                     }
@@ -982,6 +1007,7 @@ namespace Inventory.ViewModels.Warehouse
                     WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Стоимость покупки От:\".";
                     WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                     WarehouseEventIconColor = Color.Goldenrod.Name;
+                    OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
 
                     return;
                 }
@@ -1037,6 +1063,7 @@ namespace Inventory.ViewModels.Warehouse
                     WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Стоимость покупки От:\".";
                     WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                     WarehouseEventIconColor = Color.Goldenrod.Name;
+                    OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
 
                     return;
                 }
@@ -1089,6 +1116,7 @@ namespace Inventory.ViewModels.Warehouse
                     WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Местоположением\".";
                     WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                     WarehouseEventIconColor = Color.Goldenrod.Name;
+                    OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
 
                     return;
                 }
@@ -1140,6 +1168,7 @@ namespace Inventory.ViewModels.Warehouse
                         WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Дата поступления От:\".";
                         WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                         WarehouseEventIconColor = Color.Goldenrod.Name;
+                        OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
 
                         return;
                     }
@@ -1192,6 +1221,7 @@ namespace Inventory.ViewModels.Warehouse
                         WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Дата поступления До:\".";
                         WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                         WarehouseEventIconColor = Color.Goldenrod.Name;
+                        OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
 
                         return;
                     }
@@ -1246,6 +1276,7 @@ namespace Inventory.ViewModels.Warehouse
                     WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Номером заказа\".";
                     WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                     WarehouseEventIconColor = Color.Goldenrod.Name;
+                    OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
 
                     return;
                 }
@@ -1276,6 +1307,7 @@ namespace Inventory.ViewModels.Warehouse
                     WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Примечанием\".";
                     WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                     WarehouseEventIconColor = Color.Goldenrod.Name;
+                    OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
 
                     return;
                 }
@@ -1302,7 +1334,35 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnCalculateStatisticsMyWarehouseProductsCommandExecuted(object? p)
         {
-            FilteredWarehouseProducts;
+            // Null Check
+
+            if (FilteredWarehouseProducts is null)
+            {
+                WarehouseEventTextValue = $"Cписок для рассчета \"Статистики\" равен NULL!";
+                WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+                WarehouseEventIconColor = Color.LimeGreen.Name;
+
+                ValueOfTotalNumberOfProductsForMyWarehouseProducts = string.Empty;
+
+                return;
+            }
+
+            // Zero Check
+
+            if (FilteredWarehouseProducts.Count == 0)
+            {
+                WarehouseEventTextValue = $"Cписок для рассчета \"Статистики\" равен NULL!";
+                WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                WarehouseEventIconColor = Color.Goldenrod.Name;
+
+                ValueOfTotalNumberOfProductsForMyWarehouseProducts = string.Empty;
+
+                return;
+            }
+
+
+
+            ValueOfTotalNumberOfProductsForMyWarehouseProducts = FilteredWarehouseProducts.Count.ToString();
         }
 
         #endregion

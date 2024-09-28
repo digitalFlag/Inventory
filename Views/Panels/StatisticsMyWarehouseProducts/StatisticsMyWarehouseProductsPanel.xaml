@@ -26,20 +26,30 @@
         <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockNeitralStyle}"/>
         <Style TargetType="Border" BasedOn="{StaticResource BorderMainStyle}"/>
         <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxMainStyle}"/>
-        <Style TargetType="Grid" BasedOn="{StaticResource GridMainStyle}"/>
+        <Style TargetType="Grid" BasedOn="{StaticResource GridNeitralStyle}"/>
 
     </UserControl.Resources>
     <StackPanel Orientation="Vertical">
         <!--Total Number Of Products-->
-        <Grid >
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock></TextBlock>
+            <TextBlock Grid.Column="0" 
+                       Text="{Binding TextValueTotalNumberOfProducts}">
+            </TextBlock>
+            <TextBlock Grid.Column="2" 
+                       Text="{Binding ValueOfTotalNumberOfProductsForMyWarehouseProducts}" 
+                       TextAlignment="Center">
+            </TextBlock>
+
+
         </Grid>
-        
-        
+        <Label Padding="5"/>
+
+
     </StackPanel>
 </UserControl>
 

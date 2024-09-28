@@ -5,4 +5,8 @@
         <Setter Property="Background" Value="MistyRose"/>
     </Style>
 
+    <Style x:Key="GridNeitralStyle" BasedOn="{StaticResource GridMainStyle}" TargetType="Grid">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
 </ResourceDictionary>
