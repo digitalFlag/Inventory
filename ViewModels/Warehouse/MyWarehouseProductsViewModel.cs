@@ -614,6 +614,16 @@ namespace Inventory.ViewModels.Warehouse
         public string? SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts { get => _SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts; set => Set(ref _SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts, value); }
 
         #endregion
+        #region FilterNoteForMyWarehouseProducts: - Folter "Note" For My Warehouse Products
+
+        /// <summary>Folter "Note" For My Warehouse Products</summary>
+        private string? _FilterNoteForMyWarehouseProducts;
+
+        /// <summary>Folter "Note" For My Warehouse Products</summary>
+
+        public string? FilterNoteForMyWarehouseProducts { get => _FilterNoteForMyWarehouseProducts; set => Set(ref _FilterNoteForMyWarehouseProducts, value); }
+
+        #endregion
 
 
         #endregion
@@ -686,9 +696,6 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnRefreshConnectionToDataBaseWarhouseWindowCommandExecuted(object? p)
         {
-
-            //ToDo It`s need To Implement?.
-
             OnLoadMyWarehouseProductsFromDbCommandExecuted(true);
             OnFilterMyWarehouseProductsCommandExecuted(true);
 
@@ -1241,6 +1248,30 @@ namespace Inventory.ViewModels.Warehouse
                 }
             }
 
+            //Filtering By Products Note
+            if (!string.IsNullOrEmpty(FilterNoteForMyWarehouseProducts))
+            {
+                IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
+
+                FilteredWarehouseProducts = [];
+                foreach (WarehouseProduct product in resultList)
+                {
+                    if (product.Note.Contains(FilterNoteForMyWarehouseProducts))
+                    {
+                        FilteredWarehouseProducts.Add(product);
+                    }
+                }
+
+                if (FilteredWarehouseProducts.Count == 0)
+                {
+                    WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Примечанием\".";
+                    WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                    WarehouseEventIconColor = Color.Goldenrod.Name;
+
+                    return;
+                }
+            }
+
 
             WarehouseEventTextValue = $"Отфильтрованный список содержит {FilteredWarehouseProducts.Count.ToString()} продуктов.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
@@ -1363,7 +1394,6 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
-
 
 
         #region Command SelectNewWarehouseProductCommand: - Select New Product In My Warehouse

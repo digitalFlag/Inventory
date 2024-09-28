@@ -92,7 +92,7 @@ namespace Inventory.ViewModels.Warehouse
             TabItemSelectedProductMyWarehouseItem = "Выбранный продукт";
             IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_FilterCircleXmark.ToString();
 
-
+            //Filters
             FilterTittleForMyWarehouseProducts = string.Empty;
             FilterPropertyForMyWarehouseProducts = string.Empty;
             FilterExpirationDateStartForMyWarehouseProducts = string.Empty;
@@ -111,6 +111,7 @@ namespace Inventory.ViewModels.Warehouse
             ListOfComboBoxOrderNumberPossibleValues = [];
             FilterOrderNumberForMyWarehouseProducts = string.Empty;
             SelectedItemOfComboBoxOrderNumberInFilterPanelMyWarehouseProducts = string.Empty;
+            FilterNoteForMyWarehouseProducts = string.Empty;
 
             #endregion
 

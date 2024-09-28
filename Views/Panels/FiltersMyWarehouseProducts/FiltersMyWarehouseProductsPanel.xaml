@@ -286,6 +286,17 @@
             </ComboBox>
         </Grid>
         <Label Content=" " Height ="10"/>
+        <!--Note-->
+        <Label Content="{Binding LabelNoteProduct}"
+               FontWeight="Normal">
+        </Label>
+        <TextBox Text="{Binding FilterNoteForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="TextChanged">
+                    <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </TextBox>
 
     </StackPanel>
 
