@@ -7,6 +7,11 @@
              xmlns:vm="clr-namespace:Inventory.ViewModels.MainWindowViewModel"
              xmlns:fa="http://schemas.fontawesome.com/icons/svg"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             
+             xmlns:viewsFiltersSoldProducts="clr-namespace:Inventory.Views.Panels.FiltersSoldProructs"
+             
+             
+             
              d:DataContext="{d:DesignInstance vm:MainWindowViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -96,17 +101,23 @@
                         </StackPanel>
                     </Label.Content>
                 </Label>
-                <Label Content=""/>
+                <!--TAB CONTROL-->
+                <TabControl>
+                    <!--Tab Item Filters-->
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome Icon="{Binding IconFiltersTabControlInMyWarehouseItemValue}">
+                                </fa:ImageAwesome>
+                                <Label Content="{Binding TabItemFiltersMyWarehouseItem}"
+                                       FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <viewsFiltersSoldProducts:FilterSoldProductsPanel/>
+                    </TabItem>
 
-                <Grid Background="Pink">
-                    <Label Content="Выбранный продукт:"
-                                       FontWeight="Medium" 
-                                       HorizontalAlignment="Center">
-                    </Label>
-                </Grid>
 
-                <Label Content=""/>
-                
+                </TabControl>
             </StackPanel>
         </ScrollViewer>
     </Grid>
