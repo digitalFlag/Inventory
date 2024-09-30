@@ -206,6 +206,22 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
+        #region Command PushButtonCancelFilterInFilterTabItemInSoldProductsItemCommand: - Push Button "Cancel" In Filters TabItem In Sold Products Item
+
+        /// <summary>Push Button "Cancel" In Filters TabItem In Sold Products Item</summary>
+        private LambdaCommand? _PushButtonCancelFilterInFilterTabItemInSoldProductsItemCommand;
+
+        /// <summary>Push Button "Cancel" In Filters TabItem In Sold Products Item</summary>
+        public ICommand PushButtonCancelFilterInFilterTabItemInSoldProductsItemCommand => _PushButtonCancelFilterInFilterTabItemInSoldProductsItemCommand ??= new(OnPushButtonCancelFilterInFilterTabItemInSoldProductsItemCommandExeCanceled);
+
+        /// <summary>Логика выполнения - Push Button "Cancel" In Filters TabItem In Sold Products Item</summary>
+
+        private void OnPushButtonCancelFilterInFilterTabItemInSoldProductsItemCommandExeCanceled(object? p)
+        {
+            //ToDo Its Need To Implement.
+        }
+
+        #endregion
 
 
 

@@ -171,6 +171,18 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region LabelCancel: - Label Value "Cancel"  
+
+        /// <summary>Label Value "Cancel"  </summary>
+        private string? _LabelCancel;
+
+        /// <summary>Label Value "Cancel"  </summary>
+
+        public string? LabelCancel { get => _LabelCancel; set => Set(ref _LabelCancel, value); }
+
+        #endregion
+
+
 
     }
 }

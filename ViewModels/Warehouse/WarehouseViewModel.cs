@@ -43,6 +43,7 @@ namespace Inventory.ViewModels.Warehouse
             //Filters
             LabelSelectProduct = "Выделить";
             LabelCutProduct = "Вырезать";
+            LabelCancel = "Стереть";
 
             #endregion
 
