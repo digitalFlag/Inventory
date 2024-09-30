@@ -3,6 +3,7 @@ using Inventory.Models;
 using Inventory.Resources.Constants;
 using Inventory.ViewModels.Base;
 using System.Data;
+using System.Drawing;
 using System.Windows.Input;
 
 namespace Inventory.ViewModels.Warehouse
@@ -67,6 +68,44 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region FiltersModeSelectForSoldFroducts: - Is Mode "Select" For Filters In Sold Products Item 
+
+        /// <summary>Is Mode "Select" For Filters In Sold Products Item </summary>
+        private bool? _FiltersModeSelectForSoldFroducts;
+
+        /// <summary>Is Mode "Select" For Filters In Sold Products Item </summary>
+
+        public bool? FiltersModeSelectForSoldFroducts { get => _FiltersModeSelectForSoldFroducts; set => Set(ref _FiltersModeSelectForSoldFroducts, value); }
+
+        #endregion
+        #region ColorOfFillRectungleSelectFilterSoldProductsItem: - Color Of "Rectangle" Select Filter In Sold Products Item
+        /// <summary>Color Of "Rectangle" Select Filter In Sold Products Item</summary>
+        private string? _ColorOfFillRectungleSelectFilterSoldProductsItem;
+
+        /// <summary>Color Of "Rectangle" Select Filter In Sold Products Item</summary>
+
+        public string? ColorOfFillRectungleSelectFilterSoldProductsItem { get => _ColorOfFillRectungleSelectFilterSoldProductsItem; set => Set(ref _ColorOfFillRectungleSelectFilterSoldProductsItem, value); }
+
+        #endregion
+        #region FiltersModeCutForSoldFroducts: - Is Mode "Cut" For Filters In Sold Products Item 
+
+        /// <summary>Is Mode "Cut" For Filters In Sold Products Item </summary>
+        private bool? _FiltersModeCutForSoldFroducts;
+
+        /// <summary>Is Mode "Cut" For Filters In Sold Products Item </summary>
+
+        public bool? FiltersModeCutForSoldFroducts { get => _FiltersModeCutForSoldFroducts; set => Set(ref _FiltersModeCutForSoldFroducts, value); }
+
+        #endregion
+        #region ColorOfFillRectungleCutFilterSoldProductsItem: - Color Of "Rectangle" Cut Filter In Sold Products Item
+        /// <summary>Color Of "Rectangle" Cut Filter In Sold Products Item</summary>
+        private string? _ColorOfFillRectungleCutFilterSoldProductsItem;
+
+        /// <summary>Color Of "Rectangle" Cut Filter In Sold Products Item</summary>
+
+        public string? ColorOfFillRectungleCutFilterSoldProductsItem { get => _ColorOfFillRectungleCutFilterSoldProductsItem; set => Set(ref _ColorOfFillRectungleCutFilterSoldProductsItem, value); }
+
+        #endregion
 
 
 
@@ -123,6 +162,46 @@ namespace Inventory.ViewModels.Warehouse
             EventTextValueLogSoldProductsTabControl = $"Информация о проданной продукции из базы \"{ConnectionOptions.dbName}\" загружена.";
 
             //ToDo It's need to set variables values.
+
+        }
+
+        #endregion
+
+
+        #region Command PushButtonSelectFilterInFilterTabItemInSoldProductsItemCommand: - Push Button "Select" In Filters TabItem In Sold Products Item
+
+        /// <summary>Push Button "Select" In Filters TabItem In Sold Products Item</summary>
+        private LambdaCommand? _PushButtonSelectFilterInFilterTabItemInSoldProductsItemCommand;
+
+        /// <summary>Push Button "Select" In Filters TabItem In Sold Products Item</summary>
+        public ICommand PushButtonSelectFilterInFilterTabItemInSoldProductsItemCommand => _PushButtonSelectFilterInFilterTabItemInSoldProductsItemCommand ??= new(OnPushButtonSelectFilterInFilterTabItemInSoldProductsItemCommandExecuted);
+
+        /// <summary>Логика выполнения - Push Button "Select" In Filters TabItem In Sold Products Item</summary>
+
+        private void OnPushButtonSelectFilterInFilterTabItemInSoldProductsItemCommandExecuted(object? p)
+        {
+            FiltersModeSelectForSoldFroducts = true;
+            ColorOfFillRectungleSelectFilterSoldProductsItem = Color.HotPink.Name;
+            ColorOfFillRectungleCutFilterSoldProductsItem = Color.Pink.Name;
+
+        }
+
+        #endregion
+        #region Command PushButtonCutFilterInFilterTabItemInSoldProductsItemCommand: - Push Button "Cut" In Filters TabItem In Sold Products Item
+
+        /// <summary>Push Button "Cut" In Filters TabItem In Sold Products Item</summary>
+        private LambdaCommand? _PushButtonCutFilterInFilterTabItemInSoldProductsItemCommand;
+
+        /// <summary>Push Button "Cut" In Filters TabItem In Sold Products Item</summary>
+        public ICommand PushButtonCutFilterInFilterTabItemInSoldProductsItemCommand => _PushButtonCutFilterInFilterTabItemInSoldProductsItemCommand ??= new(OnPushButtonCutFilterInFilterTabItemInSoldProductsItemCommandExecuted);
+
+        /// <summary>Логика выполнения - Push Button "Cut" In Filters TabItem In Sold Products Item</summary>
+
+        private void OnPushButtonCutFilterInFilterTabItemInSoldProductsItemCommandExecuted(object? p)
+        {
+            FiltersModeSelectForSoldFroducts = false;
+            ColorOfFillRectungleCutFilterSoldProductsItem = Color.HotPink.Name;
+            ColorOfFillRectungleSelectFilterSoldProductsItem = Color.Pink.Name;
 
         }
 

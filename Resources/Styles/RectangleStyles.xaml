@@ -3,8 +3,9 @@
 
     <Style x:Key="RectangleMainStyle" TargetType="Rectangle">
         <Setter Property="Fill" Value="Pink"/>
-        <Setter Property="Stroke" Value="HotPink"/>
+        <Setter Property="Stroke" Value="DeepPink"/>
         <Setter Property="StrokeThickness"  Value="1"/>
+        <Setter Property="Margin" Value="1"/>
     </Style>
     
 </ResourceDictionary>

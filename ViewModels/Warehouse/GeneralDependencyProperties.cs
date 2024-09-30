@@ -160,5 +160,17 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region LabelCutProduct: - Label Value "Cut" Of Product
+
+        /// <summary>Label Value "Cut" Of Product</summary>
+        private string? _LabelCutProduct;
+
+        /// <summary>Label Value "Cut" Of Product</summary>
+
+        public string? LabelCutProduct { get => _LabelCutProduct; set => Set(ref _LabelCutProduct, value); }
+
+        #endregion
+
+
     }
 }

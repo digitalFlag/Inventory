@@ -42,11 +42,7 @@ namespace Inventory.ViewModels.Warehouse
 
             //Filters
             LabelSelectProduct = "Выделить";
-            LabelFilterModeInFiltersTabItemInSoldProductsItem = "Режим Фильтрации:";
-
-            WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-            WarehouseEventIconColor = Color.Green.Name;
-            WarehouseEventTextValue = string.Empty;
+            LabelCutProduct = "Вырезать";
 
             #endregion
 
@@ -130,6 +126,18 @@ namespace Inventory.ViewModels.Warehouse
 
             SelectedSoldProduct = new SoldProduct();
             EventTextValueLogSoldProductsTabControl = string.Empty;
+
+            //Filers
+            LabelFilterModeInFiltersTabItemInSoldProductsItem = "Режим Фильтрации:";
+
+            WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
+            WarehouseEventIconColor = Color.Green.Name;
+            WarehouseEventTextValue = string.Empty;
+            ColorOfFillRectungleSelectFilterSoldProductsItem = Color.HotPink.Name;
+            FiltersModeSelectForSoldFroducts = true;
+            ColorOfFillRectungleCutFilterSoldProductsItem = Color.Pink.Name;
+
+
 
             #endregion
 
