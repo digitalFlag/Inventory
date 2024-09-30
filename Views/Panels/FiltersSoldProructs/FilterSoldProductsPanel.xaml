@@ -28,8 +28,7 @@
         <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxMainStyle}"/>
         <Style TargetType="Grid" BasedOn="{StaticResource GridNeitralStyle}"/>
         <Style TargetType="CheckBox" BasedOn="{StaticResource CheckBoxMainStyle}"/>
-
-
+        <Style TargetType="Rectangle" BasedOn="{StaticResource RectangleMainStyle}"/>
 
     </UserControl.Resources>
     
@@ -45,11 +44,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Rectangle Grid.Column="0"
-                       Fill="Aqua"
-                       StrokeThickness="1"
-                       Height="22"
-                       >
+            <Rectangle Grid.Column="0">
             </Rectangle>
             <StackPanel Grid.Column="0" 
                         Orientation="Horizontal">

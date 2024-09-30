@@ -18,6 +18,7 @@
                 <ResourceDictionary Source="Resources/Styles/LabelStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/MenuItemStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/MenuStyles.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/RectangleStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/StackPanelStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/TabControlStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/TabItemStyles.xaml"/>
