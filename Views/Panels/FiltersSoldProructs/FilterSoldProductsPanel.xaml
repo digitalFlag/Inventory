@@ -45,30 +45,30 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <DockPanel Grid.Column="0">
-                
-            </DockPanel>
-            
-            
-            
-            <StackPanel Grid.Column="0"
+            <Rectangle Grid.Column="0"
+                       Fill="Aqua"
+                       StrokeThickness="1"
+                       Height="22"
+                       >
+            </Rectangle>
+            <StackPanel Grid.Column="0" 
                         Orientation="Horizontal">
-                <fa:ImageAwesome Icon="Solid_Filter"/>
-                <Label Content="{Binding LabelSelectProduct}"
-                 Margin="5,0,0,0">
+                <fa:ImageAwesome Icon="Solid_ParachuteBox"/>
+                <Label Content="{Binding ButtonTittleAddToWarewouseAddToWarehousePannel}"
+                       Margin="5,0,0,0">
                 </Label>
-                <CheckBox >
-                    <CheckBox.LayoutTransform>
-                        <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
-                    </CheckBox.LayoutTransform>
-                </CheckBox>
             </StackPanel>
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
+
+
+
+
         </Grid>
    
 
