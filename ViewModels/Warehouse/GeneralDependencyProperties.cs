@@ -147,9 +147,18 @@ namespace Inventory.ViewModels.Warehouse
 
 		public string? LadelCustomerId { get => _LadelCustomerId; set => Set(ref _LadelCustomerId, value); }
 
-		#endregion
+        #endregion
 
+        #region LabelSelectProduct: - Label Value "Select" Of Product
 
+        /// <summary>Label Value "Select" Of Product</summary>
+        private string? _LabelSelectProduct;
 
-	}
+        /// <summary>Label Value "Select" Of Product</summary>
+
+        public string? LabelSelectProduct { get => _LabelSelectProduct; set => Set(ref _LabelSelectProduct, value); }
+
+        #endregion
+
+    }
 }

@@ -40,6 +40,10 @@ namespace Inventory.ViewModels.Warehouse
             LabelSoldDateProduct = "Дата продажи:";
             LadelCustomerId = "Id Клиента:";
 
+            //Filters
+            LabelSelectProduct = "Выделить";
+            LabelFilterModeInFiltersTabItemInSoldProductsItem = "Режим Фильтрации:";
+
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
             WarehouseEventIconColor = Color.Green.Name;
             WarehouseEventTextValue = string.Empty;

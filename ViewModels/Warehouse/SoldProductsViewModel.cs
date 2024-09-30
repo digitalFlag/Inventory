@@ -55,6 +55,18 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        //Filters
+        #region LabelFilterModeInFiltersTabItemInSoldProductsItem: - Label Value "Filter Mode" In Filters tabItem In Sold Products Item
+
+        /// <summary>Label Value "Filter Mode" In Filters tabItem In Sold Products Item</summary>
+        private string? _LabelFilterModeInFiltersTabItemInSoldProductsItem;
+
+        /// <summary>Label Value "Filter Mode" In Filters tabItem In Sold Products Item</summary>
+
+        public string? LabelFilterModeInFiltersTabItemInSoldProductsItem { get => _LabelFilterModeInFiltersTabItemInSoldProductsItem; set => Set(ref _LabelFilterModeInFiltersTabItemInSoldProductsItem, value); }
+
+        #endregion
+
 
 
 

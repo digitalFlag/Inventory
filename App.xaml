@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/BorderStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/CheckBoxStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/ColumnHeaderStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/DataGridStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/DockPaanelStyles.xaml"/>
