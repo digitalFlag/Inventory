@@ -725,10 +725,6 @@ namespace Inventory.ViewModels.Warehouse
                 Note = Convert.ToString(row[DbTableWarehouseProducts.propertyNote]),
             });
 
-
-
-
-
         }
 
         #endregion
@@ -747,11 +743,6 @@ namespace Inventory.ViewModels.Warehouse
         {
             OnLoadMyWarehouseProductsFromDbCommandExecuted(true);
             OnFilterMyWarehouseProductsCommandExecuted(true);
-
-            WarehouseEventTextValue = $"Информация о продукции на Мини-Складе из базы \"{ConnectionOptions.dbName}\" загружена.";
-            WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
-            WarehouseEventIconColor = Color.LimeGreen.Name;
-
 
             SelectedProductId = string.Empty;
             SelectedProductTittle = string.Empty;

@@ -96,18 +96,60 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
-
-
-
-
-
-
-
-
-
-
         </Grid>
-   
+        <Label Content=" " Height ="10"/>
+        <!--Tittle-->
+        <Label Content="{Binding LabelTittleProduct}"
+               FontWeight="Normal">
+        </Label>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" 
+                Text="{Binding FilterTittleForSoldProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding FilterSoldProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <Button Grid.Column="1"
+                    Margin="2"
+                    Command="{Binding PushButtonCancelTittleFilterInFilterTabItemInSoldProductsItemCommand}">
+                <Button.Content>
+                    <fa:ImageAwesome Icon="Solid_FilterCircleXmark"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Label Content=" " Height ="10"/>
+        <!--Property-->
+        <Label Content="{Binding LabelPropertyProduct}"
+               FontWeight="Normal">
+        </Label>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" 
+                Text="{Binding FilterPropertyForSoldProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding FilterSoldProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <Button Grid.Column="1"
+                    Margin="2"
+                    Command="{Binding PushButtonCancelPropertyFilterInFilterTabItemInSoldProductsItemCommand}">
+                <Button.Content>
+                    <fa:ImageAwesome Icon="Solid_FilterCircleXmark"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Label Content=" " Height ="10"/>
 
 
 

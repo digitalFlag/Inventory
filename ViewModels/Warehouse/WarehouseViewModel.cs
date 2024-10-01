@@ -129,6 +129,8 @@ namespace Inventory.ViewModels.Warehouse
             EventTextValueLogSoldProductsTabControl = string.Empty;
 
             //Filers
+            IconFiltersTabControlInSoldProductsItemValue = Icons.Name.Solid_FilterCircleXmark.ToString();
+
             LabelFilterModeInFiltersTabItemInSoldProductsItem = "Режим Фильтрации:";
 
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
@@ -137,6 +139,9 @@ namespace Inventory.ViewModels.Warehouse
             ColorOfFillRectungleSelectFilterSoldProductsItem = Color.HotPink.Name;
             FiltersModeSelectForSoldFroducts = true;
             ColorOfFillRectungleCutFilterSoldProductsItem = Color.Pink.Name;
+
+            FilterTittleForSoldProducts = string.Empty;
+            FilterPropertyForSoldProducts = string.Empty;
 
 
 
