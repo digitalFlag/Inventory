@@ -142,7 +142,10 @@ namespace Inventory.ViewModels.Warehouse
 
             FilterTittleForSoldProducts = string.Empty;
             FilterPropertyForSoldProducts = string.Empty;
-
+            FilterSoldDateStartForSoldProducts = string.Empty;
+            SelectedDateSoldDateStartFilterSoldProducts = DateTime.Now;
+            FilterSoldDateStopForSoldProducts = string.Empty;
+            SelectedDateSoldDateStopFilterSoldProducts = DateTime.Now;
 
 
             #endregion

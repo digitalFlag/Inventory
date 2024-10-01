@@ -139,6 +139,47 @@ namespace Inventory.ViewModels.Warehouse
         public string? FilterPropertyForSoldProducts { get => _FilterPropertyForSoldProducts; set => Set(ref _FilterPropertyForSoldProducts, value); }
 
         #endregion
+        #region FilterSoldDateStartForSoldProducts: - Filter "Sold Date Start" For Sold Products
+
+        /// <summary>Filter "Sold Date Start" For Sold Products</summary>
+        private string? _FilterSoldDateStartForSoldProducts;
+
+        /// <summary>Filter "Sold Date Start" For Sold Products</summary>
+
+        public string? FilterSoldDateStartForSoldProducts { get => _FilterSoldDateStartForSoldProducts; set => Set(ref _FilterSoldDateStartForSoldProducts, value); }
+
+        #endregion
+        #region SelectedDateSoldDateStartFilterSoldProducts: - Selected Date For DataPicker "Sold Date Start" Filter For Sold Products
+
+        /// <summary>Selected Date For DataPicker "Sold Date Start" Filter For Sold Products</summary>
+        private DateTime? _SelectedDateSoldDateStartFilterSoldProducts;
+
+        /// <summary>Selected Date For DataPicker "Sold Date Start" Filter For Sold Products</summary>
+
+        public DateTime? SelectedDateSoldDateStartFilterSoldProducts { get => _SelectedDateSoldDateStartFilterSoldProducts; set => Set(ref _SelectedDateSoldDateStartFilterSoldProducts, value); }
+
+        #endregion
+        #region FilterSoldDateStopForSoldProducts: - Filter "Sold Date Stop" For Sold Products
+
+        /// <summary>Filter "Sold Date Stop" For Sold Products</summary>
+        private string? _FilterSoldDateStopForSoldProducts;
+
+        /// <summary>Filter "Sold Date Stop" For Sold Products</summary>
+
+        public string? FilterSoldDateStopForSoldProducts { get => _FilterSoldDateStopForSoldProducts; set => Set(ref _FilterSoldDateStopForSoldProducts, value); }
+
+        #endregion
+        #region SelectedDateSoldDateStopFilterSoldProducts: - Selected Date For DataPicker "Sold Date Stop" Filter For Sold Products
+
+        /// <summary>Selected Date For DataPicker "Sold Date Stop" Filter For Sold Products</summary>
+        private DateTime? _SelectedDateSoldDateStopFilterSoldProducts;
+
+        /// <summary>Selected Date For DataPicker "Sold Date Stop" Filter For Sold Products</summary>
+
+        public DateTime? SelectedDateSoldDateStopFilterSoldProducts { get => _SelectedDateSoldDateStopFilterSoldProducts; set => Set(ref _SelectedDateSoldDateStopFilterSoldProducts, value); }
+
+        #endregion
+
 
 
 
@@ -356,6 +397,138 @@ namespace Inventory.ViewModels.Warehouse
             }
 
             //Filtering By Sold Date Start
+            if (!string.IsNullOrEmpty(FilterSoldDateStartForSoldProducts))
+            {
+                IconFiltersTabControlInSoldProductsItemValue = Icons.Name.Solid_Filter.ToString();
+
+                FilteredSoldProducts = [];
+
+                if (FilterSoldDateStartForSoldProducts.Length != 10)
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Дата продажи От:\" задано некорректно (дд.мм.гггг).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+
+                DateTime dt;
+
+                if (!DateTime.TryParse(FilterSoldDateStartForSoldProducts, out dt))
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Дата продажи От:\" задано некорректно (дд.мм.гггг).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+                else
+                {
+                    if (FiltersModeSelectForSoldFroducts)
+                    {
+                        foreach (SoldProduct product in resultList)
+                        {
+                            if (product.SoldDate >= dt)
+                            {
+                                FilteredSoldProducts.Add(product);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (SoldProduct product in resultList)
+                        {
+                            if (product.SoldDate <= dt)
+                            {
+                                FilteredSoldProducts.Add(product);
+                            }
+                        }
+                    }
+
+                    if (FilteredSoldProducts.Count == 0)
+                    {
+                        WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Дата продажи От:\".";
+                        WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                        WarehouseEventIconColor = Color.Goldenrod.Name;
+                        OnCalculateStatisticsSoldProductsCommandExecuted(true);
+
+                        return;
+                    }
+
+                    resultList.Clear();
+                    foreach (SoldProduct product in FilteredSoldProducts)
+                    {
+                        resultList.Add(product);
+                    }
+                }
+            }
+
+            //Filtering By Sold Date Stop
+            if (!string.IsNullOrEmpty(FilterSoldDateStopForSoldProducts))
+            {
+                IconFiltersTabControlInSoldProductsItemValue = Icons.Name.Solid_Filter.ToString();
+
+                FilteredSoldProducts = [];
+
+                if (FilterSoldDateStopForSoldProducts.Length != 10)
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Дата продажи До:\" задано некорректно (дд.мм.гггг).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+
+                DateTime dt;
+
+                if (!DateTime.TryParse(FilterSoldDateStopForSoldProducts, out dt))
+                {
+                    WarehouseEventTextValue = $"Значение фмльтра \"Дата продажи До:\" задано некорректно (дд.мм.гггг).";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
+
+                    return;
+                }
+                else
+                {
+                    if (FiltersModeSelectForSoldFroducts)
+                    {
+                        foreach (SoldProduct product in resultList)
+                        {
+                            if (product.SoldDate <= dt)
+                            {
+                                FilteredSoldProducts.Add(product);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (SoldProduct product in resultList)
+                        {
+                            if (product.SoldDate >= dt)
+                            {
+                                FilteredSoldProducts.Add(product);
+                            }
+                        }
+                    }
+
+                    if (FilteredSoldProducts.Count == 0)
+                    {
+                        WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Дата продажи До:\".";
+                        WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                        WarehouseEventIconColor = Color.Goldenrod.Name;
+                        OnCalculateStatisticsSoldProductsCommandExecuted(true);
+
+                        return;
+                    }
+
+                    resultList.Clear();
+                    foreach (SoldProduct product in FilteredSoldProducts)
+                    {
+                        resultList.Add(product);
+                    }
+                }
+            }
 
 
 
@@ -363,64 +536,6 @@ namespace Inventory.ViewModels.Warehouse
 
 
 
-
-
-
-
-
-
-            //if (!string.IsNullOrEmpty(FilterReceiptDateStartForSoldProducts))
-            //{
-            //    IconFiltersTabControlInSoldItemValue = Icons.Name.Solid_Filter.ToString();
-
-            //    FilteredWarehouseProducts = [];
-
-            //    if (FilterReceiptDateStartForSoldProducts.Length != 10)
-            //    {
-            //        WarehouseEventTextValue = $"Значение фмльтра \"Дата поступления От:\" задано некорректно (дд.мм.гггг).";
-            //        WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-            //        WarehouseEventIconColor = Color.Red.Name;
-
-            //        return;
-            //    }
-
-            //    DateTime dt;
-            //    if (!DateTime.TryParse(FilterReceiptDateStartForSoldProducts, out dt))
-            //    {
-            //        WarehouseEventTextValue = $"Значение фмльтра \"Дата поступления От:\" задано некорректно (дд.мм.гггг).";
-            //        WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-            //        WarehouseEventIconColor = Color.Red.Name;
-
-            //        return;
-            //    }
-            //    else
-            //    {
-            //        foreach (WarehouseProduct product in resultList)
-            //        {
-            //            if (product.ReceiptDate >= dt)
-            //            {
-            //                FilteredWarehouseProducts.Add(product);
-            //            }
-            //        }
-
-            //        if (FilteredWarehouseProducts.Count == 0)
-            //        {
-            //            WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Дата поступления От:\".";
-            //            WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
-            //            WarehouseEventIconColor = Color.Goldenrod.Name;
-            //            OnCalculateStatisticsSoldProductsCommandExecuted(true);
-
-            //            return;
-            //        }
-
-            //        resultList.Clear();
-            //        foreach (WarehouseProduct product in FilteredWarehouseProducts)
-            //        {
-            //            resultList.Add(product);
-            //        }
-
-            //    }
-            //}
             ////Filtering By Receipt Date Stop
             //if (!string.IsNullOrEmpty(FilterReceiptDateStopForSoldProducts))
             //{
@@ -661,6 +776,8 @@ namespace Inventory.ViewModels.Warehouse
         {
             FilterTittleForSoldProducts = string.Empty;
             FilterPropertyForSoldProducts = string.Empty;
+            FilterSoldDateStartForSoldProducts = string.Empty;
+            FilterSoldDateStopForSoldProducts = string.Empty;
 
             OnFilterSoldProductsCommandExecuted(true);
 
@@ -703,8 +820,59 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
+        #region Command PushButtonCancelSoldDateFilterInFilterTabItemInSoldProductsItemCommand: - Push Button "Cancel  Sold Date Value" In Filters TabItem In Sold Products Item
 
+        /// <summary>Push Button "Cancel  Sold Date Value" In Filters TabItem In Sold Products Item</summary>
+        private LambdaCommand? _PushButtonCancelSoldDateFilterInFilterTabItemInSoldProductsItemCommand;
 
+        /// <summary>Push Button "Cancel  Sold Date Value" In Filters TabItem In Sold Products Item</summary>
+        public ICommand PushButtonCancelSoldDateFilterInFilterTabItemInSoldProductsItemCommand => _PushButtonCancelSoldDateFilterInFilterTabItemInSoldProductsItemCommand ??= new(OnPushButtonCancelSoldDateFilterInFilterTabItemInSoldProductsItemCommandExeCanceled);
+
+        /// <summary>Логика выполнения - Push Button "Cancel  Sold Date Value" In Filters TabItem In Sold Products Item</summary>
+
+        private void OnPushButtonCancelSoldDateFilterInFilterTabItemInSoldProductsItemCommandExeCanceled(object? p)
+        {
+            FilterSoldDateStartForSoldProducts = string.Empty;
+            FilterSoldDateStopForSoldProducts = string.Empty;
+            OnFilterSoldProductsCommandExecuted(true);
+        }
+
+        #endregion
+
+        #region Command SelectedSoldDateStartChangedSoldProductsCommand: - "Selected Sold Date" Changed In My Warehouse Windows
+
+        /// <summary>"Selected Sold Date" Changed In My Warehouse Windows</summary>
+        private LambdaCommand? _SelectedSoldDateStartChangedSoldProductsCommand;
+
+        /// <summary>"Selected Sold Date" Changed In My Warehouse Windows</summary>
+        public ICommand SelectedSoldDateStartChangedSoldProductsCommand => _SelectedSoldDateStartChangedSoldProductsCommand ??= new(OnSelectedSoldDateStartChangedSoldProductsCommandExecuted);
+
+        /// <summary>Логика выполнения - "Selected Sold Date" Changed In My Warehouse Windows</summary>
+
+        private void OnSelectedSoldDateStartChangedSoldProductsCommandExecuted(object? p)
+        {
+
+            FilterSoldDateStartForSoldProducts = SelectedDateSoldDateStartFilterSoldProducts.ToString()[..10];
+        }
+
+        #endregion
+        #region Command SelectedSoldDateStopChangedSoldProductsCommand: - "Selected Sold Date" Stop Changed In My Warehouse Window
+
+        /// <summary>"Selected Sold Date" Stop Changed In My Warehouse Window</summary>
+        private LambdaCommand? _SelectedSoldDateStopChangedSoldProductsCommand;
+
+        /// <summary>"Selected Sold Date" Stop Changed In My Warehouse Window</summary>
+        public ICommand SelectedSoldDateStopChangedSoldProductsCommand => _SelectedSoldDateStopChangedSoldProductsCommand ??= new(OnSelectedSoldDateStopChangedSoldProductsCommandExecuted);
+
+        /// <summary>Логика выполнения - "Selected Sold Date" Stop Changed In My Warehouse Window</summary>
+
+        private void OnSelectedSoldDateStopChangedSoldProductsCommandExecuted(object? p)
+        {
+            FilterSoldDateStopForSoldProducts = SelectedDateSoldDateStopFilterSoldProducts.ToString()[..10];
+
+        }
+
+        #endregion
 
         #endregion
     }

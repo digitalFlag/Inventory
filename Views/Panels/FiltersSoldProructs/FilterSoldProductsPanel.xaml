@@ -150,7 +150,70 @@
             </Button>
         </Grid>
         <Label Content=" " Height ="10"/>
+        <!--Sold Date-->
+        <Label Content="{Binding LabelSoldDateProduct}"
+               FontWeight="Normal">
+        </Label>
+        <Grid Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0"
+                   Content="От:">
+            </Label>
+            <!--Start Value-->
+            <TextBox Grid.Column="1"
+                     Text="{Binding FilterSoldDateStartForSoldProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding FilterSoldProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <DatePicker Grid.Column="2"
+                        SelectedDate="{Binding SelectedDateSoldDateStartFilterSoldProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectedDateChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectedSoldDateStartChangedSoldProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </DatePicker>
+            <!--Stop Value-->
+            <TextBox Grid.Column="5"
+                     Text="{Binding FilterSoldDateStopForSoldProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding FilterSoldProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <DatePicker Grid.Column="6"
+                        SelectedDate="{Binding SelectedDateSoldDateStopFilterSoldProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectedDateChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectedSoldDateStopChangedSoldProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </DatePicker>
+            <Label Grid.Column="4"
+                   Content="До:">
+            </Label>
+            <Button Grid.Column="7"
+                    Margin="2"
+                    Command="{Binding PushButtonCancelSoldDateFilterInFilterTabItemInSoldProductsItemCommand}">
+                <Button.Content>
+                    <fa:ImageAwesome Icon="Solid_FilterCircleXmark"/>
+                </Button.Content>
+            </Button>
 
+        </Grid>
 
 
     </StackPanel>
