@@ -146,7 +146,7 @@ namespace Inventory.ViewModels.Warehouse
             SelectedDateSoldDateStartFilterSoldProducts = DateTime.Now;
             FilterSoldDateStopForSoldProducts = string.Empty;
             SelectedDateSoldDateStopFilterSoldProducts = DateTime.Now;
-
+            FilterClientIdForSoldProducts = string.Empty;
 
             #endregion
 

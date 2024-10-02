@@ -179,6 +179,16 @@ namespace Inventory.ViewModels.Warehouse
         public DateTime? SelectedDateSoldDateStopFilterSoldProducts { get => _SelectedDateSoldDateStopFilterSoldProducts; set => Set(ref _SelectedDateSoldDateStopFilterSoldProducts, value); }
 
         #endregion
+        #region FilterClientIdForSoldProducts: - Filter "Client Id" For Sold Products 
+
+        /// <summary>Filter "Client Id" For Sold Products </summary>
+        private string? _FilterClientIdForSoldProducts;
+
+        /// <summary>Filter "Client Id" For Sold Products </summary>
+
+        public string? FilterClientIdForSoldProducts { get => _FilterClientIdForSoldProducts; set => Set(ref _FilterClientIdForSoldProducts, value); }
+
+        #endregion
 
 
 
@@ -274,8 +284,6 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnFilterSoldProductsCommandExecuted(object? p)
         {
-            //ToDo It`s need To Debugged Icon View!
-
             if (AllSoldProducts is null)
             {
                 WarehouseEventTextValue = "Список \"Загруженных продуктов\" равен NULL!";
@@ -530,143 +538,51 @@ namespace Inventory.ViewModels.Warehouse
                 }
             }
 
+            //Filtering By Products ClientId
+            if (!string.IsNullOrEmpty(FilterClientIdForSoldProducts))
+            {
+                IconFiltersTabControlInSoldProductsItemValue = Icons.Name.Solid_Filter.ToString();
 
+                FilteredSoldProducts = [];
 
+                if (FiltersModeSelectForSoldFroducts)
+                {
+                    foreach (SoldProduct product in resultList)
+                    {
+                        if (product.CustomerId == Convert.ToInt32(FilterClientIdForSoldProducts))
+                        {
+                            FilteredSoldProducts.Add(product);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (SoldProduct product in resultList)
+                    {
+                        if (product.CustomerId != Convert.ToInt32(FilterClientIdForSoldProducts))
+                        {
+                            FilteredSoldProducts.Add(product);
+                        }
+                    }
+                }
 
+                if (FilteredSoldProducts.Count == 0)
+                {
+                    WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Id Клиента\".";
+                    WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
+                    WarehouseEventIconColor = Color.Goldenrod.Name;
+                    OnCalculateStatisticsSoldProductsCommandExecuted(true);
 
+                    return;
+                }
 
+                resultList.Clear();
 
-            ////Filtering By Receipt Date Stop
-            //if (!string.IsNullOrEmpty(FilterReceiptDateStopForSoldProducts))
-            //{
-            //    IconFiltersTabControlInSoldItemValue = Icons.Name.Solid_Filter.ToString();
-
-            //    FilteredWarehouseProducts = [];
-
-            //    if (FilterReceiptDateStopForSoldProducts.Length != 10)
-            //    {
-            //        WarehouseEventTextValue = $"Значение фмльтра \"Дата поступления До:\" задано некорректно (дд.мм.гггг).";
-            //        WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-            //        WarehouseEventIconColor = Color.Red.Name;
-
-            //        return;
-            //    }
-
-            //    DateTime dt;
-            //    if (!DateTime.TryParse(FilterReceiptDateStopForSoldProducts, out dt))
-            //    {
-            //        WarehouseEventTextValue = $"Значение фмльтра \"Дата поступления До:\" задано некорректно (дд.мм.гггг).";
-            //        WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-            //        WarehouseEventIconColor = Color.Red.Name;
-
-            //        return;
-            //    }
-            //    else
-            //    {
-            //        foreach (WarehouseProduct product in resultList)
-            //        {
-            //            if (product.ReceiptDate <= dt)
-            //            {
-            //                FilteredWarehouseProducts.Add(product);
-            //            }
-            //        }
-
-            //        if (FilteredWarehouseProducts.Count == 0)
-            //        {
-            //            WarehouseEventTextValue = $"Список не содержит продуктов с указанным параметрами фильтра \"Дата поступления До:\".";
-            //            WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
-            //            WarehouseEventIconColor = Color.Goldenrod.Name;
-            //            OnCalculateStatisticsSoldProductsCommandExecuted(true);
-
-            //            return;
-            //        }
-
-            //        resultList.Clear();
-            //        foreach (WarehouseProduct product in FilteredWarehouseProducts)
-            //        {
-            //            resultList.Add(product);
-            //        }
-
-            //    }
-            //}
-
-            ////Filtering By OrderNumber
-            //List<string> productsOrdersNumbers = [];
-            //foreach (WarehouseProduct wp in FilteredWarehouseProducts)
-            //{
-            //    if (wp.OrderNumber is null)
-            //    {
-            //        WarehouseEventTextValue = $"Значение \"Номер заказа:\" продукта их отфильтрованного списка задано некорректно.";
-            //        WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-            //        WarehouseEventIconColor = Color.Red.Name;
-
-            //        break;
-            //    }
-
-            //    productsOrdersNumbers.Add(wp.OrderNumber);
-            //    productsOrdersNumbers.Sort();
-            //    ListOfComboBoxOrderNumberPossibleValues = productsOrdersNumbers.Distinct().ToList();
-            //}
-            //if (!string.IsNullOrEmpty(FilterOrderNumberForSoldProducts))
-            //{
-            //    IconFiltersTabControlInSoldItemValue = Icons.Name.Solid_Filter.ToString();
-
-            //    FilteredWarehouseProducts = [];
-
-            //    if (FilterOrderNumberForSoldProducts is null)
-            //    {
-            //        WarehouseEventTextValue = $"Значение фильтра \"Номер заказа:\" равно NULL.";
-            //        WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
-            //        WarehouseEventIconColor = Color.Red.Name;
-
-            //        return;
-            //    }
-
-            //    FilteredWarehouseProducts.AddRange(from WarehouseProduct product in resultList
-            //                                       where product.OrderNumber.Contains(FilterOrderNumberForSoldProducts)
-            //                                       select product);
-
-            //    if (FilteredWarehouseProducts.Count == 0)
-            //    {
-            //        WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Номером заказа\".";
-            //        WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
-            //        WarehouseEventIconColor = Color.Goldenrod.Name;
-            //        OnCalculateStatisticsSoldProductsCommandExecuted(true);
-
-            //        return;
-            //    }
-
-            //    resultList.Clear();
-            //    foreach (WarehouseProduct product in FilteredWarehouseProducts)
-            //    {
-            //        resultList.Add(product);
-            //    }
-            //}
-
-            ////Filtering By Products Note
-            //if (!string.IsNullOrEmpty(FilterNoteForSoldProducts))
-            //{
-            //    IconFiltersTabControlInSoldItemValue = Icons.Name.Solid_Filter.ToString();
-
-            //    FilteredWarehouseProducts = [];
-            //    foreach (WarehouseProduct product in resultList)
-            //    {
-            //        if (product.Note.Contains(FilterNoteForSoldProducts))
-            //        {
-            //            FilteredWarehouseProducts.Add(product);
-            //        }
-            //    }
-
-            //    if (FilteredWarehouseProducts.Count == 0)
-            //    {
-            //        WarehouseEventTextValue = $"Список не содержит продуктов с указанным \"Примечанием\".";
-            //        WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
-            //        WarehouseEventIconColor = Color.Goldenrod.Name;
-            //        OnCalculateStatisticsSoldProductsCommandExecuted(true);
-
-            //        return;
-            //    }
-            //}
+                foreach (SoldProduct product in FilteredSoldProducts)
+                {
+                    resultList.Add(product);
+                }
+            }
 
             WarehouseEventTextValue = $"Отфильтрованный список содержит {FilteredWarehouseProducts.Count.ToString()} продуктов.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
@@ -778,6 +694,7 @@ namespace Inventory.ViewModels.Warehouse
             FilterPropertyForSoldProducts = string.Empty;
             FilterSoldDateStartForSoldProducts = string.Empty;
             FilterSoldDateStopForSoldProducts = string.Empty;
+            FilterClientIdForSoldProducts = string.Empty;
 
             OnFilterSoldProductsCommandExecuted(true);
 
@@ -834,6 +751,23 @@ namespace Inventory.ViewModels.Warehouse
         {
             FilterSoldDateStartForSoldProducts = string.Empty;
             FilterSoldDateStopForSoldProducts = string.Empty;
+            OnFilterSoldProductsCommandExecuted(true);
+        }
+
+        #endregion
+        #region Command PushButtonCancelClientIdFilterInFilterTabItemInSoldProductsItemCommand: - Push Button "Cancel  Client Id Value" In Filters TabItem In Sold Products Item
+
+        /// <summary>Push Button "Cancel  Client Id Value" In Filters TabItem In Sold Products Item</summary>
+        private LambdaCommand? _PushButtonCancelClientIdFilterInFilterTabItemInSoldProductsItemCommand;
+
+        /// <summary>Push Button "Cancel  Client Id Value" In Filters TabItem In Sold Products Item</summary>
+        public ICommand PushButtonCancelClientIdFilterInFilterTabItemInSoldProductsItemCommand => _PushButtonCancelClientIdFilterInFilterTabItemInSoldProductsItemCommand ??= new(OnPushButtonCancelClientIdFilterInFilterTabItemInSoldProductsItemCommandExeCanceled);
+
+        /// <summary>Логика выполнения - Push Button "Cancel  Client Id Value" In Filters TabItem In Sold Products Item</summary>
+
+        private void OnPushButtonCancelClientIdFilterInFilterTabItemInSoldProductsItemCommandExeCanceled(object? p)
+        {
+            FilterClientIdForSoldProducts = string.Empty;
             OnFilterSoldProductsCommandExecuted(true);
         }
 
