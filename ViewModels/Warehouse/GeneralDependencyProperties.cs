@@ -182,6 +182,18 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region LabelStatistics: - Label Value "Statistics"  
+
+        /// <summary>Label Value "Statistics"  </summary>
+        private string? _LabelStatistics;
+
+        /// <summary>Label Value "Statistics"  </summary>
+
+        public string? LabelStatistics { get => _LabelStatistics; set => Set(ref _LabelStatistics, value); }
+
+        #endregion
+
+
 
 
     }

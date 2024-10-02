@@ -9,6 +9,7 @@
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              
              xmlns:viewsFiltersSoldProducts="clr-namespace:Inventory.Views.Panels.FiltersSoldProructs"
+             xmlns:viewsStatisticsSoldProducts="clr-namespace:Inventory.Views.Panels.StatisticsSoldProducts"
              
              
              
@@ -115,7 +116,18 @@
                         </TabItem.Header>
                         <viewsFiltersSoldProducts:FilterSoldProductsPanel/>
                     </TabItem>
-
+                    <!--Tab Item Statistics-->
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome Icon="Solid_ChartLine">
+                                </fa:ImageAwesome>
+                                <Label Content="{Binding LabelStatistics}"
+                                       FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <viewsStatisticsSoldProducts:StatisticsSoldProductsPanel/>
+                    </TabItem>
 
                 </TabControl>
             </StackPanel>

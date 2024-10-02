@@ -623,16 +623,6 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
         //Statistic
-        #region TabItemStatisticMyWarehouseItem: - Name Of TabItem "Statistic" In Panel My Warehouse Products
-
-        /// <summary>Name Of TabItem "Statistic" In Panel My Warehouse Products</summary>
-        private string? _TabItemStatisticMyWarehouseItem;
-
-        /// <summary>Name Of TabItem "Statistic" In Panel My Warehouse Products</summary>
-
-        public string? TabItemStatisticMyWarehouseItem { get => _TabItemStatisticMyWarehouseItem; set => Set(ref _TabItemStatisticMyWarehouseItem, value); }
-
-        #endregion
         #region TextValueTotalNumberOfProducts: - Value Of Text "Total Number Of Products"
 
         /// <summary>Value Of Text "Total Number Of Products"</summary>

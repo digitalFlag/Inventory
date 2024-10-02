@@ -39,6 +39,7 @@ namespace Inventory.ViewModels.Warehouse
             LabelSoldCostProduct = "Стоимость продажи:";
             LabelSoldDateProduct = "Дата продажи:";
             LadelCustomerId = "Id Клиента:";
+            LabelStatistics = "Статистика";
 
             //Filters
             LabelSelectProduct = "Выделить";
@@ -115,7 +116,6 @@ namespace Inventory.ViewModels.Warehouse
             FilterNoteForMyWarehouseProducts = string.Empty;
 
             //Statistic
-            TabItemStatisticMyWarehouseItem = "Статистика";
             TextValueTotalNumberOfProducts = "Всего позиций:";
             ValueOfTotalNumberOfProductsForMyWarehouseProducts = string.Empty;
             TextValueTotalPriceOfProducts = "Общая стоимость:";
