@@ -33,7 +33,71 @@
     
 
         <StackPanel Orientation="Vertical">
-        <!--Tittle-->
+        <!--Filtration Mode-->
+        <Label Content="{Binding LabelFilterModeInFiltersTabItemInMyWarehouseProductsItem}"
+               FontWeight="Normal">
+        </Label>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!--Select Mode-->
+            <Rectangle Grid.Column="0"
+                       Fill="{Binding ColorOfFillRectungleSelectFilterMyWarehouseProductsItem}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction Command="{Binding PushButtonSelectFilterInFilterTabItemInMyWarehouseProductsItemCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Rectangle>
+            <StackPanel Grid.Column="0"
+                        Orientation="Horizontal"  
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center">
+                <fa:ImageAwesome Icon="Solid_Filter"
+                                 Margin="5, 0, 5, 0">
+                </fa:ImageAwesome>
+                <Label Content="{Binding LabelSelectProduct}">
+                </Label>
+
+            </StackPanel>
+            <!--Cut Mode-->
+            <Rectangle Grid.Column="1"
+                       Fill="{Binding ColorOfFillRectungleCutFilterMyWarehouseProductsItem}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction Command="{Binding PushButtonCutFilterInFilterTabItemInMyWarehouseProductsItemCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Rectangle>
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"  
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center">
+                <fa:ImageAwesome Icon="Solid_Scissors"
+                                 Margin="5, 0, 5, 0">
+                </fa:ImageAwesome>
+                <Label Content="{Binding LabelCutProduct}">
+                </Label>
+
+            </StackPanel>
+            <!--Cancel Filters-->
+            <Button Grid.Column="2"
+                    Command="{Binding PushButtonCancelFilterInFilterTabItemInMyWarehouseProductsItemCommand}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="Solid_FilterCircleXmark"/>
+                        <Label Content="{Binding LabelCancel}"
+                               Margin="5,0,0,0">
+                        </Label>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Grid>
+
+            <!--Tittle-->
         <Label Content="{Binding LabelTittleProduct}"
                FontWeight="Normal">
         </Label>

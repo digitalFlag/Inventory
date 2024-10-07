@@ -432,6 +432,48 @@ namespace Inventory.ViewModels.Warehouse
         public string? IconFiltersTabControlInMyWarehouseItemValue { get => _IconFiltersTabControlInMyWarehouseItemValue; set => Set(ref _IconFiltersTabControlInMyWarehouseItemValue, value); }
 
         #endregion
+
+        #region LabelFilterModeInFiltersTabItemInMyWarehouseProductsItem: - Label Value "Filter Mode" In Filters tabItem In MyWarehouse Products Item
+
+        /// <summary>Label Value "Filter Mode" In Filters tabItem In MyWarehouse Products Item</summary>
+        private string? _LabelFilterModeInFiltersTabItemInMyWarehouseProductsItem;
+
+        /// <summary>Label Value "Filter Mode" In Filters tabItem In MyWarehouse Products Item</summary>
+
+        public string? LabelFilterModeInFiltersTabItemInMyWarehouseProductsItem { get => _LabelFilterModeInFiltersTabItemInMyWarehouseProductsItem; set => Set(ref _LabelFilterModeInFiltersTabItemInMyWarehouseProductsItem, value); }
+
+        #endregion
+        #region FiltersModeSelectForMyWarehouseFroducts: - Is Mode "Select" For Filters In MyWarehouse Products Item 
+
+        /// <summary>Is Mode "Select" For Filters In MyWarehouse Products Item </summary>
+        private bool _FiltersModeSelectForMyWarehouseFroducts;
+
+        /// <summary>Is Mode "Select" For Filters In MyWarehouse Products Item </summary>
+
+        public bool FiltersModeSelectForMyWarehouseFroducts { get => _FiltersModeSelectForMyWarehouseFroducts; set => Set(ref _FiltersModeSelectForMyWarehouseFroducts, value); }
+
+        #endregion
+        #region ColorOfFillRectungleSelectFilterMyWarehouseProductsItem: - Color Of "Rectangle" Select Filter In MyWarehouse Products Item
+        /// <summary>Color Of "Rectangle" Select Filter In MyWarehouse Products Item</summary>
+        private string? _ColorOfFillRectungleSelectFilterMyWarehouseProductsItem;
+
+        /// <summary>Color Of "Rectangle" Select Filter In MyWarehouse Products Item</summary>
+
+        public string? ColorOfFillRectungleSelectFilterMyWarehouseProductsItem { get => _ColorOfFillRectungleSelectFilterMyWarehouseProductsItem; set => Set(ref _ColorOfFillRectungleSelectFilterMyWarehouseProductsItem, value); }
+
+        #endregion
+        #region ColorOfFillRectungleCutFilterMyWarehouseProductsItem: - Color Of "Rectangle" Cut Filter In MyWarehouse Products Item
+        /// <summary>Color Of "Rectangle" Cut Filter In MyWarehouse Products Item</summary>
+        private string? _ColorOfFillRectungleCutFilterMyWarehouseProductsItem;
+
+        /// <summary>Color Of "Rectangle" Cut Filter In MyWarehouse Products Item</summary>
+
+        public string? ColorOfFillRectungleCutFilterMyWarehouseProductsItem { get => _ColorOfFillRectungleCutFilterMyWarehouseProductsItem; set => Set(ref _ColorOfFillRectungleCutFilterMyWarehouseProductsItem, value); }
+
+        #endregion
+
+
+
         #region FilterTittleForMyWarehouseProducts: - Filter "Tittle" For My Warehouse Products 
 
         /// <summary>Filter "Tittle" For My Warehouse Products </summary>

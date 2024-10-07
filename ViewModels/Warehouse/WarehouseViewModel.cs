@@ -100,6 +100,10 @@ namespace Inventory.ViewModels.Warehouse
             IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_FilterCircleXmark.ToString();
 
             //Filters
+            LabelFilterModeInFiltersTabItemInMyWarehouseProductsItem = "Режим фильтрации:";
+            ColorOfFillRectungleSelectFilterMyWarehouseProductsItem = Color.HotPink.Name;
+            FiltersModeSelectForMyWarehouseFroducts = true;
+            ColorOfFillRectungleCutFilterMyWarehouseProductsItem = Color.Pink.Name;
             FilterTittleForMyWarehouseProducts = string.Empty;
             FilterPropertyForMyWarehouseProducts = string.Empty;
             FilterExpirationDateStartForMyWarehouseProducts = string.Empty;
