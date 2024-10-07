@@ -96,18 +96,34 @@
                 </Button.Content>
             </Button>
         </Grid>
+        <Label Content=" " Height ="10"/>
 
-            <!--Tittle-->
+        <!--Tittle-->
         <Label Content="{Binding LabelTittleProduct}"
                FontWeight="Normal">
         </Label>
-        <TextBox Text="{Binding FilterTittleForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="TextChanged">
-                    <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </TextBox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" 
+                Text="{Binding FilterTittleForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <Button Grid.Column="1"
+                    Margin="2"
+                    Command="{Binding PushButtonCancelTittleFilterInFilterTabItemInMyWarehouseProductsItemCommand}">
+                <Button.Content>
+                    <fa:ImageAwesome Icon="Solid_FilterCircleXmark"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+
         <Label Content=" " Height ="10"/>
         <!--Property-->
         <Label Content="{Binding LabelPropertyProduct}"

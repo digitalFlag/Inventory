@@ -1867,6 +1867,90 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region Command PushButtonSelectFilterInFilterTabItemInMyWarehouseProductsItemCommand: - Push Button "Select" In Filters TabItem In MyWarehouse Products Item
+
+        /// <summary>Push Button "Select" In Filters TabItem In MyWarehouse Products Item</summary>
+        private LambdaCommand? _PushButtonSelectFilterInFilterTabItemInMyWarehouseProductsItemCommand;
+
+        /// <summary>Push Button "Select" In Filters TabItem In MyWarehouse Products Item</summary>
+        public ICommand PushButtonSelectFilterInFilterTabItemInMyWarehouseProductsItemCommand => _PushButtonSelectFilterInFilterTabItemInMyWarehouseProductsItemCommand ??= new(OnPushButtonSelectFilterInFilterTabItemInMyWarehouseProductsItemCommandExecuted);
+
+        /// <summary>Логика выполнения - Push Button "Select" In Filters TabItem In MyWarehouse Products Item</summary>
+
+        private void OnPushButtonSelectFilterInFilterTabItemInMyWarehouseProductsItemCommandExecuted(object? p)
+        {
+            FiltersModeSelectForMyWarehouseFroducts = true;
+            ColorOfFillRectungleSelectFilterMyWarehouseProductsItem = Color.HotPink.Name;
+            ColorOfFillRectungleCutFilterMyWarehouseProductsItem = Color.Pink.Name;
+            OnFilterMyWarehouseProductsCommandExecuted(true);
+
+        }
+
+        #endregion
+        #region Command PushButtonCutFilterInFilterTabItemInMyWarehouseProductsItemCommand: - Push Button "Cut" In Filters TabItem In MyWarehouse Products Item
+
+        /// <summary>Push Button "Cut" In Filters TabItem In MyWarehouse Products Item</summary>
+        private LambdaCommand? _PushButtonCutFilterInFilterTabItemInMyWarehouseProductsItemCommand;
+
+        /// <summary>Push Button "Cut" In Filters TabItem In MyWarehouse Products Item</summary>
+        public ICommand PushButtonCutFilterInFilterTabItemInMyWarehouseProductsItemCommand => _PushButtonCutFilterInFilterTabItemInMyWarehouseProductsItemCommand ??= new(OnPushButtonCutFilterInFilterTabItemInMyWarehouseProductsItemCommandExecuted);
+
+        /// <summary>Логика выполнения - Push Button "Cut" In Filters TabItem In MyWarehouse Products Item</summary>
+
+        private void OnPushButtonCutFilterInFilterTabItemInMyWarehouseProductsItemCommandExecuted(object? p)
+        {
+            FiltersModeSelectForMyWarehouseFroducts = false;
+            ColorOfFillRectungleCutFilterMyWarehouseProductsItem = Color.HotPink.Name;
+            ColorOfFillRectungleSelectFilterMyWarehouseProductsItem = Color.Pink.Name;
+            OnFilterMyWarehouseProductsCommandExecuted(true);
+
+        }
+
+        #endregion
+        #region Command PushButtonCancelFilterInFilterTabItemInMyWarehouseProductsItemCommand: - Push Button "Cancel" In Filters TabItem In MyWarehouse Products Item
+
+        /// <summary>Push Button "Cancel" In Filters TabItem In MyWarehouse Products Item</summary>
+        private LambdaCommand? _PushButtonCancelFilterInFilterTabItemInMyWarehouseProductsItemCommand;
+
+        /// <summary>Push Button "Cancel" In Filters TabItem In MyWarehouse Products Item</summary>
+        public ICommand PushButtonCancelFilterInFilterTabItemInMyWarehouseProductsItemCommand => _PushButtonCancelFilterInFilterTabItemInMyWarehouseProductsItemCommand ??= new(OnPushButtonCancelFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled);
+
+        /// <summary>Логика выполнения - Push Button "Cancel" In Filters TabItem In MyWarehouse Products Item</summary>
+
+        private void OnPushButtonCancelFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled(object? p)
+        {
+            //ToDo It`s need To Implement
+            FilterTittleForMyWarehouseProducts = string.Empty;
+
+            //FilterPropertyForMyWarehouseProducts = string.Empty;
+            //FilterMyWarehouseDateStartForMyWarehouseProducts = string.Empty;
+            //FilterMyWarehouseDateStopForMyWarehouseProducts = string.Empty;
+            //FilterClientIdForMyWarehouseProducts = string.Empty;
+
+            OnFilterMyWarehouseProductsCommandExecuted(true);
+
+        }
+
+        #endregion
+        #region Command PushButtonCancelTittleFilterInFilterTabItemInMyWarehouseProductsItemCommand: - Push Button "Cancel Tittle Value" In Filters TabItem In MyWarehouse Products Item
+
+        /// <summary>Push Button "Cancel Tittle Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        private LambdaCommand? _PushButtonCancelTittleFilterInFilterTabItemInMyWarehouseProductsItemCommand;
+
+        /// <summary>Push Button "Cancel Tittle Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        public ICommand PushButtonCancelTittleFilterInFilterTabItemInMyWarehouseProductsItemCommand => _PushButtonCancelTittleFilterInFilterTabItemInMyWarehouseProductsItemCommand ??= new(OnPushButtonCancelTittleFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled);
+
+        /// <summary>Логика выполнения - Push Button "Cancel Tittle Value" In Filters TabItem In MyWarehouse Products Item</summary>
+
+        private void OnPushButtonCancelTittleFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled(object? p)
+        {
+            FilterTittleForMyWarehouseProducts = string.Empty;
+            OnFilterMyWarehouseProductsCommandExecuted(true);
+
+        }
+
+        #endregion
+
 
         #region Command ChangeTittleValueOfWarehouseProductCommand: - Change Value Of "Tittle" Of Selected Warhouse Product
 
