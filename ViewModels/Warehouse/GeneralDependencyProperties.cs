@@ -193,8 +193,38 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region TextValueTotalNumberOfProducts: - Value Of Text "Total Number Of Products"
 
+        /// <summary>Value Of Text "Total Number Of Products"</summary>
+        private string? _TextValueTotalNumberOfProducts;
 
+        /// <summary>Value Of Text "Total Number Of Products"</summary>
+
+        public string? TextValueTotalNumberOfProducts { get => _TextValueTotalNumberOfProducts; set => Set(ref _TextValueTotalNumberOfProducts, value); }
+
+        #endregion
+
+        #region TextValueTotalPriceOfProducts: - Value Of Text "Total Price Of Products"
+
+        /// <summary>Value Of Text "Total Price Of Products"</summary>
+        private string? _TextValueTotalPriceOfProducts;
+
+        /// <summary>Value Of Text "Total Price Of Products"</summary>
+
+        public string? TextValueTotalPriceOfProducts { get => _TextValueTotalPriceOfProducts; set => Set(ref _TextValueTotalPriceOfProducts, value); }
+
+        #endregion
+
+        #region TextValueTotalCostOfProducts: - Value Of Text "Total Cost Of Products"
+
+        /// <summary>Value Of Text "Total Cost Of Products"</summary>
+        private string? _TextValueTotalCostOfProducts;
+
+        /// <summary>Value Of Text "Total Cost Of Products"</summary>
+
+        public string? TextValueTotalCostOfProducts { get => _TextValueTotalCostOfProducts; set => Set(ref _TextValueTotalCostOfProducts, value); }
+
+        #endregion
 
     }
 }

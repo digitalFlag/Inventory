@@ -623,16 +623,6 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
         //Statistic
-        #region TextValueTotalNumberOfProducts: - Value Of Text "Total Number Of Products"
-
-        /// <summary>Value Of Text "Total Number Of Products"</summary>
-        private string? _TextValueTotalNumberOfProducts;
-
-        /// <summary>Value Of Text "Total Number Of Products"</summary>
-
-        public string? TextValueTotalNumberOfProducts { get => _TextValueTotalNumberOfProducts; set => Set(ref _TextValueTotalNumberOfProducts, value); }
-
-        #endregion
         #region ValueOfTotalNumberOfProductsForMyWarehouseProducts: - Value Of "Total Number Of Products" In "Statistics" TabItem In My Warehouse Panel
 
         /// <summary>Value Of "Total Number Of Products" In "Statistics" TabItem In My Warehouse Panel</summary>
@@ -641,16 +631,6 @@ namespace Inventory.ViewModels.Warehouse
         /// <summary>Value Of "Total Number Of Products" In "Statistics" TabItem In My Warehouse Panel</summary>
 
         public string? ValueOfTotalNumberOfProductsForMyWarehouseProducts { get => _ValueOfTotalNumberOfProductsForMyWarehouseProducts; set => Set(ref _ValueOfTotalNumberOfProductsForMyWarehouseProducts, value); }
-
-        #endregion
-        #region TextValueTotalPriceOfProducts: - Value Of Text "Total Price Of Products"
-
-        /// <summary>Value Of Text "Total Price Of Products"</summary>
-        private string? _TextValueTotalPriceOfProducts;
-
-        /// <summary>Value Of Text "Total Price Of Products"</summary>
-
-        public string? TextValueTotalPriceOfProducts { get => _TextValueTotalPriceOfProducts; set => Set(ref _TextValueTotalPriceOfProducts, value); }
 
         #endregion
         #region ValueOfTotalPriceOfProductsForMyWarehouseProducts: - Value Of "Total Price Of Products" In "Statistics" TabItem In My Warehouse Panel
@@ -1321,7 +1301,6 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
-
         #region Command CalculateStatisticsMyWarehouseProductsCommand: - Calculate Statistics About The List Of Warehouse Products After Filtering
 
         /// <summary>Calculate Statistics About The List Of Warehouse Products After Filtering</summary>
@@ -1386,7 +1365,6 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
-
 
         #region Command SelectedExpirationDateStartChangedMyWarehouseProductsCommand: - "Selected Expiration Date" Changed In My Warehouse Windows
 

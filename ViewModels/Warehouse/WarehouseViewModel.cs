@@ -46,6 +46,11 @@ namespace Inventory.ViewModels.Warehouse
             LabelCutProduct = "Вырезать";
             LabelCancel = "Стереть";
 
+            //Statistics
+            TextValueTotalNumberOfProducts = "Всего позиций:";
+            TextValueTotalPriceOfProducts = "Общая стоимость:";
+            TextValueTotalCostOfProducts = "Общая стоимость";
+
             #endregion
 
             #region WAREHOUSE PRODUCTS
@@ -116,9 +121,7 @@ namespace Inventory.ViewModels.Warehouse
             FilterNoteForMyWarehouseProducts = string.Empty;
 
             //Statistic
-            TextValueTotalNumberOfProducts = "Всего позиций:";
             ValueOfTotalNumberOfProductsForMyWarehouseProducts = string.Empty;
-            TextValueTotalPriceOfProducts = "Общая стоимость:";
             ValueOfTotalPriceOfProductsForMyWarehouseProducts = string.Empty;
 
             #endregion
@@ -147,6 +150,10 @@ namespace Inventory.ViewModels.Warehouse
             FilterSoldDateStopForSoldProducts = string.Empty;
             SelectedDateSoldDateStopFilterSoldProducts = DateTime.Now;
             FilterClientIdForSoldProducts = string.Empty;
+
+            //Statistics
+            ValueOfTotalNumberOfProductsForSoldProducts = string.Empty;
+            ValueOfTotalCostOfProductsForSoldProducts = string.Empty;
 
             #endregion
 

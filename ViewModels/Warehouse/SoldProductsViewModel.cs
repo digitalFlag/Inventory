@@ -190,6 +190,27 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        //Statistics
+        #region ValueOfTotalNumberOfProductsForSoldProducts: - Value Of "Total Number Of Products" In "Statistics" TabItem In Sold Panel
+
+        /// <summary>Value Of "Total Number Of Products" In "Statistics" TabItem In Sold Panel</summary>
+        private string? _ValueOfTotalNumberOfProductsForSoldProducts;
+
+        /// <summary>Value Of "Total Number Of Products" In "Statistics" TabItem In Sold Panel</summary>
+
+        public string? ValueOfTotalNumberOfProductsForSoldProducts { get => _ValueOfTotalNumberOfProductsForSoldProducts; set => Set(ref _ValueOfTotalNumberOfProductsForSoldProducts, value); }
+
+        #endregion
+        #region ValueOfTotalCostOfProductsForSoldProducts: - Value Of "Total Cost Of Products" In "Statistics" TabItem In Sold Panel
+
+        /// <summary>Value Of "Total Cost Of Products" In "Statistics" TabItem In Sold Panel</summary>
+        private string? _ValueOfTotalCostOfProductsForSoldProducts;
+
+        /// <summary>Value Of "Total Cost Of Products" In "Statistics" TabItem In Sold Panel</summary>
+
+        public string? ValueOfTotalCostOfProductsForSoldProducts { get => _ValueOfTotalCostOfProductsForSoldProducts; set => Set(ref _ValueOfTotalCostOfProductsForSoldProducts, value); }
+
+        #endregion
 
 
 
@@ -584,6 +605,7 @@ namespace Inventory.ViewModels.Warehouse
                 }
             }
 
+            OnCalculateStatisticsSoldProductsCommandExecuted(true);
             WarehouseEventTextValue = $"Отфильтрованный список содержит {FilteredWarehouseProducts.Count.ToString()} продуктов.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
             WarehouseEventIconColor = Color.LimeGreen.Name;
@@ -611,8 +633,8 @@ namespace Inventory.ViewModels.Warehouse
                 WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
                 WarehouseEventIconColor = Color.Red.Name;
 
-                //ValueOfTotalNumberOfProductsForSoldProducts = string.Empty;
-                //ValueOfTotalPriceOfProductsForSoldProducts = string.Empty;
+                ValueOfTotalNumberOfProductsForSoldProducts = string.Empty;
+                ValueOfTotalCostOfProductsForSoldProducts = string.Empty;
 
 
                 return;
@@ -626,13 +648,29 @@ namespace Inventory.ViewModels.Warehouse
                 WarehouseEventIconValue = Icons.Name.Solid_CircleExclamation.ToString();
                 WarehouseEventIconColor = Color.Goldenrod.Name;
 
-                //ValueOfTotalNumberOfProductsForSoldProducts = string.Empty;
-                //ValueOfTotalPriceOfProductsForSoldProducts = string.Empty;
+                ValueOfTotalNumberOfProductsForSoldProducts = string.Empty;
+                ValueOfTotalCostOfProductsForSoldProducts = string.Empty;
                 return;
             }
 
+            ValueOfTotalNumberOfProductsForSoldProducts = FilteredSoldProducts.Count.ToString();
+            int totalPrice = 0;
+            foreach (SoldProduct sp in FilteredSoldProducts)
+            {
+                if (sp.SoldCost is null)
+                {
+                    WarehouseEventTextValue = $"Значение \"Стоимость ппродажи\" одного из продуктов равно NULL!";
+                    WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                    WarehouseEventIconColor = Color.Red.Name;
 
-            //ToDo It`s need To Implement.
+                    return;
+                }
+
+                totalPrice += (int)sp.SoldCost;
+            }
+
+            ValueOfTotalCostOfProductsForSoldProducts = totalPrice.ToString() + " р.";
+
         }
 
         #endregion
