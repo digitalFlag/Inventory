@@ -1926,6 +1926,8 @@ namespace Inventory.ViewModels.Warehouse
             FilterExpirationDateStopForMyWarehouseProducts = string.Empty;
             FilterPurchaseCostStartForMyWarehouseProducts = string.Empty;
             FilterPurchaseCostStopForMyWarehouseProducts = string.Empty;
+            FilterLocationForMyWarehouseProducts = string.Empty;
+
 
             OnFilterMyWarehouseProductsCommandExecuted(true);
 
@@ -2001,6 +2003,24 @@ namespace Inventory.ViewModels.Warehouse
         {
             FilterPurchaseCostStartForMyWarehouseProducts = string.Empty;
             FilterPurchaseCostStopForMyWarehouseProducts = string.Empty;
+            OnFilterMyWarehouseProductsCommandExecuted(true);
+
+        }
+
+        #endregion
+        #region Command PushButtonCancelLocationFilterInFilterTabItemInMyWarehouseProductsItemCommand: - Push Button "Cancel Location Value" In Filters TabItem In MyWarehouse Products Item
+
+        /// <summary>Push Button "Cancel Location Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        private LambdaCommand? _PushButtonCancelLocationFilterInFilterTabItemInMyWarehouseProductsItemCommand;
+
+        /// <summary>Push Button "Cancel Location Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        public ICommand PushButtonCancelLocationFilterInFilterTabItemInMyWarehouseProductsItemCommand => _PushButtonCancelLocationFilterInFilterTabItemInMyWarehouseProductsItemCommand ??= new(OnPushButtonCancelLocationFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled);
+
+        /// <summary>Логика выполнения - Push Button "Cancel Location Value" In Filters TabItem In MyWarehouse Products Item</summary>
+
+        private void OnPushButtonCancelLocationFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled(object? p)
+        {
+            FilterLocationForMyWarehouseProducts = string.Empty;
             OnFilterMyWarehouseProductsCommandExecuted(true);
 
         }

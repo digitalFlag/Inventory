@@ -278,19 +278,6 @@
             </Button>
         </Grid>
         <Label Content=" " Height ="10"/>
-
-
-
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
         <!--Location-->
         <Label Content="{Binding LabelLocationProduct}"
                FontWeight="Normal">
@@ -298,8 +285,9 @@
         <Grid Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <TextBox Grid.Column="0"
                          Text="{Binding FilterLocationForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
@@ -319,10 +307,28 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ComboBox>
-            
-            
+            <Button Grid.Column="3"
+                    Margin="2"
+                    Command="{Binding PushButtonCancelLocationFilterInFilterTabItemInMyWarehouseProductsItemCommand}">
+                <Button.Content>
+                    <fa:ImageAwesome Icon="Solid_FilterCircleXmark"/>
+                </Button.Content>
+            </Button>
+
         </Grid>
         <Label Content=" " Height ="10"/>
+
+
+
+
+            
+            
+            
+            
+            
+            
+            
+            
         <!--Receipt Date-->
         <Label Content="{Binding LabelReceiptDateProduct}"
                FontWeight="Normal">
