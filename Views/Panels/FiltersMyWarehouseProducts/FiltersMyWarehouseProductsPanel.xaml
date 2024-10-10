@@ -150,13 +150,10 @@
             </Button>
         </Grid>
         <Label Content=" " Height ="10"/>
-            
-            
         <!--Expiration Date-->
         <Label Content="{Binding LabelExpirationDateProduct}"
                FontWeight="Normal">
         </Label>
-
         <Grid Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30"/>
@@ -217,10 +214,6 @@
             </Button>
         </Grid>
         <Label Content=" " Height ="10"/>
-            
-            
-            
-            
         <!--Purchase Cost-->
         <Label Content="{Binding LabelPurchaseCostProduct}"
                FontWeight="Normal">
@@ -229,9 +222,12 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0"
                    Content="От:">
@@ -245,6 +241,14 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </TextBox>
+            <DatePicker Grid.Column="2"
+                        SelectedDate="{Binding SelectedDatePurchaseCostStartFilterMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectedDateChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectedPurchaseCostStartChangedMyWarehouseProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </DatePicker>
             <!--Stop Value-->
             <TextBox Grid.Column="5"
                      Text="{Binding FilterPurchaseCostStopForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
@@ -254,12 +258,39 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </TextBox>
-
-            <Label Grid.Column="3"
+            <DatePicker Grid.Column="6"
+                        SelectedDate="{Binding SelectedDatePurchaseCostStopFilterMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectedDateChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectedPurchaseCostStopChangedMyWarehouseProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </DatePicker>
+            <Label Grid.Column="4"
                    Content="До:">
             </Label>
+            <Button Grid.Column="7"
+                    Margin="2"
+                    Command="{Binding PushButtonCancelPurchaseCostFilterInFilterTabItemInMyWarehouseProductsItemCommand}">
+                <Button.Content>
+                    <fa:ImageAwesome Icon="Solid_FilterCircleXmark"/>
+                </Button.Content>
+            </Button>
         </Grid>
         <Label Content=" " Height ="10"/>
+
+
+
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
         <!--Location-->
         <Label Content="{Binding LabelLocationProduct}"
                FontWeight="Normal">

@@ -1924,6 +1924,8 @@ namespace Inventory.ViewModels.Warehouse
             FilterPropertyForMyWarehouseProducts = string.Empty;
             FilterExpirationDateStartForMyWarehouseProducts = string.Empty;
             FilterExpirationDateStopForMyWarehouseProducts = string.Empty;
+            FilterPurchaseCostStartForMyWarehouseProducts = string.Empty;
+            FilterPurchaseCostStopForMyWarehouseProducts = string.Empty;
 
             OnFilterMyWarehouseProductsCommandExecuted(true);
 
@@ -1980,6 +1982,25 @@ namespace Inventory.ViewModels.Warehouse
         {
             FilterExpirationDateStartForMyWarehouseProducts = string.Empty;
             FilterExpirationDateStopForMyWarehouseProducts = string.Empty;
+            OnFilterMyWarehouseProductsCommandExecuted(true);
+
+        }
+
+        #endregion
+        #region Command PushButtonCancelPurchaseCostFilterInFilterTabItemInMyWarehouseProductsItemCommand: - Push Button "Cancel PurchaseCost Value" In Filters TabItem In MyWarehouse Products Item
+
+        /// <summary>Push Button "Cancel PurchaseCost Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        private LambdaCommand? _PushButtonCancelPurchaseCostFilterInFilterTabItemInMyWarehouseProductsItemCommand;
+
+        /// <summary>Push Button "Cancel PurchaseCost Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        public ICommand PushButtonCancelPurchaseCostFilterInFilterTabItemInMyWarehouseProductsItemCommand => _PushButtonCancelPurchaseCostFilterInFilterTabItemInMyWarehouseProductsItemCommand ??= new(OnPushButtonCancelPurchaseCostFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled);
+
+        /// <summary>Логика выполнения - Push Button "Cancel PurchaseCost Value" In Filters TabItem In MyWarehouse Products Item</summary>
+
+        private void OnPushButtonCancelPurchaseCostFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled(object? p)
+        {
+            FilterPurchaseCostStartForMyWarehouseProducts = string.Empty;
+            FilterPurchaseCostStopForMyWarehouseProducts = string.Empty;
             OnFilterMyWarehouseProductsCommandExecuted(true);
 
         }
