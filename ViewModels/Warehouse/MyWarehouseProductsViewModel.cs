@@ -1921,11 +1921,9 @@ namespace Inventory.ViewModels.Warehouse
         {
             //ToDo It`s need To Implement
             FilterTittleForMyWarehouseProducts = string.Empty;
-
-            //FilterPropertyForMyWarehouseProducts = string.Empty;
-            //FilterMyWarehouseDateStartForMyWarehouseProducts = string.Empty;
-            //FilterMyWarehouseDateStopForMyWarehouseProducts = string.Empty;
-            //FilterClientIdForMyWarehouseProducts = string.Empty;
+            FilterPropertyForMyWarehouseProducts = string.Empty;
+            FilterExpirationDateStartForMyWarehouseProducts = string.Empty;
+            FilterExpirationDateStopForMyWarehouseProducts = string.Empty;
 
             OnFilterMyWarehouseProductsCommandExecuted(true);
 
@@ -1945,6 +1943,43 @@ namespace Inventory.ViewModels.Warehouse
         private void OnPushButtonCancelTittleFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled(object? p)
         {
             FilterTittleForMyWarehouseProducts = string.Empty;
+            OnFilterMyWarehouseProductsCommandExecuted(true);
+
+        }
+
+        #endregion
+        #region Command PushButtonCancelPropertyFilterInFilterTabItemInMyWarehouseProductsItemCommand: - Push Button "Cancel Property Value" In Filters TabItem In MyWarehouse Products Item
+
+        /// <summary>Push Button "Cancel Property Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        private LambdaCommand? _PushButtonCancelPropertyFilterInFilterTabItemInMyWarehouseProductsItemCommand;
+
+        /// <summary>Push Button "Cancel Property Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        public ICommand PushButtonCancelPropertyFilterInFilterTabItemInMyWarehouseProductsItemCommand => _PushButtonCancelPropertyFilterInFilterTabItemInMyWarehouseProductsItemCommand ??= new(OnPushButtonCancelPropertyFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled);
+
+        /// <summary>Логика выполнения - Push Button "Cancel Property Value" In Filters TabItem In MyWarehouse Products Item</summary>
+
+        private void OnPushButtonCancelPropertyFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled(object? p)
+        {
+            FilterPropertyForMyWarehouseProducts = string.Empty;
+            OnFilterMyWarehouseProductsCommandExecuted(true);
+
+        }
+
+        #endregion
+        #region Command PushButtonCancelExpirationDateFilterInFilterTabItemInMyWarehouseProductsItemCommand: - Push Button "Cancel ExpirationDate Value" In Filters TabItem In MyWarehouse Products Item
+
+        /// <summary>Push Button "Cancel ExpirationDate Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        private LambdaCommand? _PushButtonCancelExpirationDateFilterInFilterTabItemInMyWarehouseProductsItemCommand;
+
+        /// <summary>Push Button "Cancel ExpirationDate Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        public ICommand PushButtonCancelExpirationDateFilterInFilterTabItemInMyWarehouseProductsItemCommand => _PushButtonCancelExpirationDateFilterInFilterTabItemInMyWarehouseProductsItemCommand ??= new(OnPushButtonCancelExpirationDateFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled);
+
+        /// <summary>Логика выполнения - Push Button "Cancel ExpirationDate Value" In Filters TabItem In MyWarehouse Products Item</summary>
+
+        private void OnPushButtonCancelExpirationDateFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled(object? p)
+        {
+            FilterExpirationDateStartForMyWarehouseProducts = string.Empty;
+            FilterExpirationDateStopForMyWarehouseProducts = string.Empty;
             OnFilterMyWarehouseProductsCommandExecuted(true);
 
         }

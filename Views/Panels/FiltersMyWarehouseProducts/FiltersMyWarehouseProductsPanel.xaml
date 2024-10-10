@@ -123,38 +123,55 @@
                 </Button.Content>
             </Button>
         </Grid>
-
         <Label Content=" " Height ="10"/>
         <!--Property-->
         <Label Content="{Binding LabelPropertyProduct}"
                FontWeight="Normal">
         </Label>
-        <TextBox Text="{Binding FilterPropertyForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="TextChanged">
-                    <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </TextBox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" 
+                Text="{Binding FilterPropertyForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <Button Grid.Column="1"
+                    Margin="2"
+                    Command="{Binding PushButtonCancelPropertyFilterInFilterTabItemInMyWarehouseProductsItemCommand}">
+                <Button.Content>
+                    <fa:ImageAwesome Icon="Solid_FilterCircleXmark"/>
+                </Button.Content>
+            </Button>
+        </Grid>
         <Label Content=" " Height ="10"/>
+            
+            
         <!--Expiration Date-->
         <Label Content="{Binding LabelExpirationDateProduct}"
                FontWeight="Normal">
         </Label>
+
         <Grid Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0"
                    Content="От:">
             </Label>
-                <!--Start Value-->
+            <!--Start Value-->
             <TextBox Grid.Column="1"
                      Text="{Binding FilterExpirationDateStartForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
                 <i:Interaction.Triggers>
@@ -188,19 +205,22 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </DatePicker>
-
-
-
-
-
-
             <Label Grid.Column="4"
                    Content="До:">
             </Label>
-
-
+            <Button Grid.Column="7"
+                    Margin="2"
+                    Command="{Binding PushButtonCancelExpirationDateFilterInFilterTabItemInMyWarehouseProductsItemCommand}">
+                <Button.Content>
+                    <fa:ImageAwesome Icon="Solid_FilterCircleXmark"/>
+                </Button.Content>
+            </Button>
         </Grid>
         <Label Content=" " Height ="10"/>
+            
+            
+            
+            
         <!--Purchase Cost-->
         <Label Content="{Binding LabelPurchaseCostProduct}"
                FontWeight="Normal">
