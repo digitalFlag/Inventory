@@ -1919,7 +1919,6 @@ namespace Inventory.ViewModels.Warehouse
 
         private void OnPushButtonCancelFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled(object? p)
         {
-            //ToDo It`s need To Implement
             FilterTittleForMyWarehouseProducts = string.Empty;
             FilterPropertyForMyWarehouseProducts = string.Empty;
             FilterExpirationDateStartForMyWarehouseProducts = string.Empty;
@@ -1929,6 +1928,8 @@ namespace Inventory.ViewModels.Warehouse
             FilterLocationForMyWarehouseProducts = string.Empty;
             FilterReceiptDateStartForMyWarehouseProducts = string.Empty;
             FilterReceiptDateStopForMyWarehouseProducts = string.Empty;
+            FilterOrderNumberForMyWarehouseProducts = string.Empty;
+            FilterNoteForMyWarehouseProducts = string.Empty;
 
             OnFilterMyWarehouseProductsCommandExecuted(true);
 
@@ -2046,7 +2047,42 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
+        #region Command PushButtonCancelOrderNumberFilterInFilterTabItemInMyWarehouseProductsItemCommand: - Push Button "Cancel OrderNumber Value" In Filters TabItem In MyWarehouse Products Item
 
+        /// <summary>Push Button "Cancel OrderNumber Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        private LambdaCommand? _PushButtonCancelOrderNumberFilterInFilterTabItemInMyWarehouseProductsItemCommand;
+
+        /// <summary>Push Button "Cancel OrderNumber Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        public ICommand PushButtonCancelOrderNumberFilterInFilterTabItemInMyWarehouseProductsItemCommand => _PushButtonCancelOrderNumberFilterInFilterTabItemInMyWarehouseProductsItemCommand ??= new(OnPushButtonCancelOrderNumberFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled);
+
+        /// <summary>Логика выполнения - Push Button "Cancel OrderNumber Value" In Filters TabItem In MyWarehouse Products Item</summary>
+
+        private void OnPushButtonCancelOrderNumberFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled(object? p)
+        {
+            FilterOrderNumberForMyWarehouseProducts = string.Empty;
+            OnFilterMyWarehouseProductsCommandExecuted(true);
+
+        }
+
+        #endregion
+        #region Command PushButtonCancelNoteFilterInFilterTabItemInMyWarehouseProductsItemCommand: - Push Button "Cancel Note Value" In Filters TabItem In MyWarehouse Products Item
+
+        /// <summary>Push Button "Cancel Note Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        private LambdaCommand? _PushButtonCancelNoteFilterInFilterTabItemInMyWarehouseProductsItemCommand;
+
+        /// <summary>Push Button "Cancel Note Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        public ICommand PushButtonCancelNoteFilterInFilterTabItemInMyWarehouseProductsItemCommand => _PushButtonCancelNoteFilterInFilterTabItemInMyWarehouseProductsItemCommand ??= new(OnPushButtonCancelNoteFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled);
+
+        /// <summary>Логика выполнения - Push Button "Cancel Note Value" In Filters TabItem In MyWarehouse Products Item</summary>
+
+        private void OnPushButtonCancelNoteFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled(object? p)
+        {
+            FilterNoteForMyWarehouseProducts = string.Empty;
+            OnFilterMyWarehouseProductsCommandExecuted(true);
+
+        }
+
+        #endregion
 
         #region Command ChangeTittleValueOfWarehouseProductCommand: - Change Value Of "Tittle" Of Selected Warhouse Product
 

@@ -9,7 +9,7 @@
              
              xmlns:vm="clr-namespace:Inventory.ViewModels.Warehouse"
              d:DataContext="{d:DesignInstance vm:WarehouseViewModel, IsDesignTimeCreatable=True}"
-             d:Height="450" d:Width="300">
+             d:Height="550" d:Width="300">
 
 
     <UserControl.Resources>
@@ -32,7 +32,7 @@
     </UserControl.Resources>
     
 
-        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" Margin="1,1,1,1">
         <!--Filtration Mode-->
         <Label Content="{Binding LabelFilterModeInFiltersTabItemInMyWarehouseProductsItem}"
                FontWeight="Normal">
@@ -381,12 +381,6 @@
             </Button>
         </Grid>
         <Label Content=" " Height ="10"/>
-
-
-
-
-
-
         <!--Order Number-->
         <Label Content="{Binding LabelOrderNumberProduct}"
                FontWeight="Normal">
@@ -394,8 +388,9 @@
         <Grid Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <TextBox Grid.Column="0"
                          Text="{Binding FilterOrderNumberForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
@@ -415,19 +410,41 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ComboBox>
+            <Button Grid.Column="3"
+                    Margin="2"
+                    Command="{Binding PushButtonCancelOrderNumberFilterInFilterTabItemInMyWarehouseProductsItemCommand}">
+                <Button.Content>
+                    <fa:ImageAwesome Icon="Solid_FilterCircleXmark"/>
+                </Button.Content>
+            </Button>
+
         </Grid>
         <Label Content=" " Height ="10"/>
         <!--Note-->
         <Label Content="{Binding LabelNoteProduct}"
                FontWeight="Normal">
         </Label>
-        <TextBox Text="{Binding FilterNoteForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="TextChanged">
-                    <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </TextBox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" 
+                Text="{Binding FilterNoteForMyWarehouseProducts, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding FilterMyWarehouseProductsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <Button Grid.Column="1"
+                    Margin="2"
+                    Command="{Binding PushButtonCancelNoteFilterInFilterTabItemInMyWarehouseProductsItemCommand}">
+                <Button.Content>
+                    <fa:ImageAwesome Icon="Solid_FilterCircleXmark"/>
+                </Button.Content>
+            </Button>
+        </Grid>
 
     </StackPanel>
 
