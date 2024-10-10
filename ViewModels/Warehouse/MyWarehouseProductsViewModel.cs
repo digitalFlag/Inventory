@@ -823,11 +823,25 @@ namespace Inventory.ViewModels.Warehouse
                 IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
 
                 FilteredWarehouseProducts = [];
-                foreach (WarehouseProduct product in resultList)
+
+                if (FiltersModeSelectForMyWarehouseFroducts)
                 {
-                    if (product.Tittle.Contains(FilterTittleForMyWarehouseProducts))
+                    foreach (WarehouseProduct product in resultList)
                     {
-                        FilteredWarehouseProducts.Add(product);
+                        if (product.Tittle.Contains(FilterTittleForMyWarehouseProducts))
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (WarehouseProduct product in resultList)
+                    {
+                        if (!product.Tittle.Contains(FilterTittleForMyWarehouseProducts))
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
                     }
                 }
 
