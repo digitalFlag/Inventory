@@ -1927,7 +1927,8 @@ namespace Inventory.ViewModels.Warehouse
             FilterPurchaseCostStartForMyWarehouseProducts = string.Empty;
             FilterPurchaseCostStopForMyWarehouseProducts = string.Empty;
             FilterLocationForMyWarehouseProducts = string.Empty;
-
+            FilterReceiptDateStartForMyWarehouseProducts = string.Empty;
+            FilterReceiptDateStopForMyWarehouseProducts = string.Empty;
 
             OnFilterMyWarehouseProductsCommandExecuted(true);
 
@@ -2021,6 +2022,25 @@ namespace Inventory.ViewModels.Warehouse
         private void OnPushButtonCancelLocationFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled(object? p)
         {
             FilterLocationForMyWarehouseProducts = string.Empty;
+            OnFilterMyWarehouseProductsCommandExecuted(true);
+
+        }
+
+        #endregion
+        #region Command PushButtonCancelReceiptDateFilterInFilterTabItemInMyWarehouseProductsItemCommand: - Push Button "Cancel ReceiptDate Value" In Filters TabItem In MyWarehouse Products Item
+
+        /// <summary>Push Button "Cancel ReceiptDate Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        private LambdaCommand? _PushButtonCancelReceiptDateFilterInFilterTabItemInMyWarehouseProductsItemCommand;
+
+        /// <summary>Push Button "Cancel ReceiptDate Value" In Filters TabItem In MyWarehouse Products Item</summary>
+        public ICommand PushButtonCancelReceiptDateFilterInFilterTabItemInMyWarehouseProductsItemCommand => _PushButtonCancelReceiptDateFilterInFilterTabItemInMyWarehouseProductsItemCommand ??= new(OnPushButtonCancelReceiptDateFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled);
+
+        /// <summary>Логика выполнения - Push Button "Cancel ReceiptDate Value" In Filters TabItem In MyWarehouse Products Item</summary>
+
+        private void OnPushButtonCancelReceiptDateFilterInFilterTabItemInMyWarehouseProductsItemCommandExeCanceled(object? p)
+        {
+            FilterReceiptDateStartForMyWarehouseProducts = string.Empty;
+            FilterReceiptDateStopForMyWarehouseProducts = string.Empty;
             OnFilterMyWarehouseProductsCommandExecuted(true);
 
         }

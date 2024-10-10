@@ -317,18 +317,6 @@
 
         </Grid>
         <Label Content=" " Height ="10"/>
-
-
-
-
-            
-            
-            
-            
-            
-            
-            
-            
         <!--Receipt Date-->
         <Label Content="{Binding LabelReceiptDateProduct}"
                FontWeight="Normal">
@@ -338,9 +326,10 @@
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0"
@@ -380,19 +369,24 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </DatePicker>
-
-
-
-
-
-
             <Label Grid.Column="4"
                    Content="До:">
             </Label>
-
-
+            <Button Grid.Column="7"
+                    Margin="2"
+                    Command="{Binding PushButtonCancelReceiptDateFilterInFilterTabItemInMyWarehouseProductsItemCommand}">
+                <Button.Content>
+                    <fa:ImageAwesome Icon="Solid_FilterCircleXmark"/>
+                </Button.Content>
+            </Button>
         </Grid>
         <Label Content=" " Height ="10"/>
+
+
+
+
+
+
         <!--Order Number-->
         <Label Content="{Binding LabelOrderNumberProduct}"
                FontWeight="Normal">
