@@ -1386,6 +1386,8 @@ namespace Inventory.ViewModels.Warehouse
                 }
             }
 
+            //ToDo I am Here.
+
             //Filtering By OrderNumber
             List<string> productsOrdersNumbers = [];
             foreach (WarehouseProduct wp in FilteredWarehouseProducts)
@@ -1418,9 +1420,31 @@ namespace Inventory.ViewModels.Warehouse
                     return;
                 }
 
-                FilteredWarehouseProducts.AddRange(from WarehouseProduct product in resultList
-                                                   where product.OrderNumber.Contains(FilterOrderNumberForMyWarehouseProducts)
-                                                   select product);
+                if (FiltersModeSelectForMyWarehouseFroducts)
+                {
+                    FilteredWarehouseProducts.AddRange(from WarehouseProduct product in resultList
+                                                       where product.OrderNumber.Contains(FilterOrderNumberForMyWarehouseProducts)
+                                                       select product);
+                }
+                else
+                {
+                    foreach (var product in resultList)
+                    {
+                        if (product.OrderNumber is null)
+                        {
+                            WarehouseEventTextValue = $"Значение \"Номер заказа:\" продукта их отфильтрованного списка задано некорректно.";
+                            WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                            WarehouseEventIconColor = Color.Red.Name;
+
+                            return;
+                        }
+
+                        if (product.OrderNumber.Contains(FilterOrderNumberForMyWarehouseProducts))
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
+                    }
+                }
 
                 if (FilteredWarehouseProducts.Count == 0)
                 {
