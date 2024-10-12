@@ -1386,22 +1386,20 @@ namespace Inventory.ViewModels.Warehouse
                 }
             }
 
-            //ToDo I am Here.
-
             //Filtering By OrderNumber
             List<string> productsOrdersNumbers = [];
-            foreach (WarehouseProduct wp in FilteredWarehouseProducts)
+            for (int i = 0; i < FilteredWarehouseProducts.Count; i++)
             {
-                if (wp.OrderNumber is null)
+                if (FilteredWarehouseProducts[i].OrderNumber is null)
                 {
                     WarehouseEventTextValue = $"Значение \"Номер заказа:\" продукта их отфильтрованного списка задано некорректно.";
                     WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
                     WarehouseEventIconColor = Color.Red.Name;
 
-                    break;
+                    return;
                 }
 
-                productsOrdersNumbers.Add(wp.OrderNumber);
+                productsOrdersNumbers.Add(FilteredWarehouseProducts[i].OrderNumber);
                 productsOrdersNumbers.Sort();
                 ListOfComboBoxOrderNumberPossibleValues = productsOrdersNumbers.Distinct().ToList();
             }
@@ -1469,13 +1467,28 @@ namespace Inventory.ViewModels.Warehouse
                 IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
 
                 FilteredWarehouseProducts = [];
-                foreach (WarehouseProduct product in resultList)
+
+                if (FiltersModeSelectForMyWarehouseFroducts)
                 {
-                    if (product.Note.Contains(FilterNoteForMyWarehouseProducts))
+                    foreach (WarehouseProduct product in resultList)
                     {
-                        FilteredWarehouseProducts.Add(product);
+                        if (product.Note.Contains(FilterNoteForMyWarehouseProducts))
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
                     }
                 }
+                else
+                {
+                    foreach (WarehouseProduct product in resultList)
+                    {
+                        if (!product.Note.Contains(FilterNoteForMyWarehouseProducts))
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
+                    }
+                }
+
 
                 if (FilteredWarehouseProducts.Count == 0)
                 {
