@@ -5,6 +5,7 @@ using Inventory.ViewModels.Base;
 using System.Data;
 using System.Drawing;
 using System.Windows.Input;
+using System.Linq;
 
 namespace Inventory.ViewModels.Warehouse
 {
@@ -826,13 +827,9 @@ namespace Inventory.ViewModels.Warehouse
 
                 if (FiltersModeSelectForMyWarehouseFroducts)
                 {
-                    foreach (WarehouseProduct product in resultList)
-                    {
-                        if (product.Tittle.Contains(FilterTittleForMyWarehouseProducts))
-                        {
-                            FilteredWarehouseProducts.Add(product);
-                        }
-                    }
+                    FilteredWarehouseProducts.AddRange(from WarehouseProduct product in resultList
+                                                       where product.Tittle.Contains(FilterTittleForMyWarehouseProducts)
+                                                       select product);
                 }
                 else
                 {
@@ -868,12 +865,31 @@ namespace Inventory.ViewModels.Warehouse
                 IconFiltersTabControlInMyWarehouseItemValue = Icons.Name.Solid_Filter.ToString();
 
                 FilteredWarehouseProducts = [];
-                foreach (WarehouseProduct product in resultList)
+
+                if (FiltersModeSelectForMyWarehouseFroducts)
                 {
-                    if (product.Property.Contains(FilterPropertyForMyWarehouseProducts))
+                    FilteredWarehouseProducts.AddRange(from WarehouseProduct product in resultList
+                                                       where product.Property.Contains(FilterPropertyForMyWarehouseProducts)
+                                                       select product);
+                }
+                else
+                {
+                    foreach (var wp in resultList)
                     {
-                        FilteredWarehouseProducts.Add(product);
-                    }
+                        if (wp.Property is null)
+                        {
+                            WarehouseEventTextValue = $"У одного из отфильтрованных продуктов свойство \"Тип\" равно NULL.";
+                            WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                            WarehouseEventIconColor = Color.Red.Name;
+
+                            return;
+                        }
+
+                        if (!wp.Property.Contains(FilterPropertyForMyWarehouseProducts))
+                        {
+                            FilteredWarehouseProducts.Add(wp);
+                        }
+                    }    
                 }
 
                 if (FilteredWarehouseProducts.Count == 0)
@@ -1350,7 +1366,7 @@ namespace Inventory.ViewModels.Warehouse
             }
 
             OnCalculateStatisticsMyWarehouseProductsCommandExecuted(true);
-            WarehouseEventTextValue = $"Отфильтрованный список содержит {FilteredWarehouseProducts.Count.ToString()} продуктов.";
+            WarehouseEventTextValue = $"Отфильтрованный список содержит {FilteredWarehouseProducts.Count} продуктов.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
             WarehouseEventIconColor = Color.LimeGreen.Name;
         }
