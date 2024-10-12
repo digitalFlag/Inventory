@@ -1072,11 +1072,24 @@ namespace Inventory.ViewModels.Warehouse
 
                 int price = Convert.ToInt32(FilterPurchaseCostStartForMyWarehouseProducts);
 
-                foreach (WarehouseProduct product in resultList)
+                if (FiltersModeSelectForMyWarehouseFroducts)
                 {
-                    if (product.PurchaseCost >= price)
+                    foreach (WarehouseProduct product in resultList)
                     {
-                        FilteredWarehouseProducts.Add(product);
+                        if (product.PurchaseCost >= price)
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (WarehouseProduct product in resultList)
+                    {
+                        if (product.PurchaseCost <= price)
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
                     }
                 }
 
@@ -1097,7 +1110,6 @@ namespace Inventory.ViewModels.Warehouse
                 }
 
             }
-
             //Filtering By Purchase Cost Stop
             if (!string.IsNullOrEmpty(FilterPurchaseCostStopForMyWarehouseProducts))
             {
@@ -1128,11 +1140,24 @@ namespace Inventory.ViewModels.Warehouse
 
                 int price = Convert.ToInt32(FilterPurchaseCostStopForMyWarehouseProducts);
 
-                foreach (WarehouseProduct product in resultList)
+                if (FiltersModeSelectForMyWarehouseFroducts)
                 {
-                    if (product.PurchaseCost <= price)
+                    foreach (WarehouseProduct product in resultList)
                     {
-                        FilteredWarehouseProducts.Add(product);
+                        if (product.PurchaseCost <= price)
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (WarehouseProduct product in resultList)
+                    {
+                        if (product.PurchaseCost >= price)
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
                     }
                 }
 
