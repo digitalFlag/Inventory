@@ -1280,11 +1280,24 @@ namespace Inventory.ViewModels.Warehouse
                 }
                 else
                 {
-                    foreach (WarehouseProduct product in resultList)
+                    if (FiltersModeSelectForMyWarehouseFroducts)
                     {
-                        if (product.ReceiptDate >= dt)
+                        foreach (WarehouseProduct product in resultList)
                         {
-                            FilteredWarehouseProducts.Add(product);
+                            if (product.ReceiptDate >= dt)
+                            {
+                                FilteredWarehouseProducts.Add(product);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (WarehouseProduct product in resultList)
+                        {
+                            if (product.ReceiptDate <= dt)
+                            {
+                                FilteredWarehouseProducts.Add(product);
+                            }
                         }
                     }
 
@@ -1333,11 +1346,24 @@ namespace Inventory.ViewModels.Warehouse
                 }
                 else
                 {
-                    foreach (WarehouseProduct product in resultList)
+                    if (FiltersModeSelectForMyWarehouseFroducts)
                     {
-                        if (product.ReceiptDate <= dt)
+                        foreach (WarehouseProduct product in resultList)
                         {
-                            FilteredWarehouseProducts.Add(product);
+                            if (product.ReceiptDate <= dt)
+                            {
+                                FilteredWarehouseProducts.Add(product);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (WarehouseProduct product in resultList)
+                        {
+                            if (product.ReceiptDate >= dt)
+                            {
+                                FilteredWarehouseProducts.Add(product);
+                            }
                         }
                     }
 
