@@ -1210,9 +1210,31 @@ namespace Inventory.ViewModels.Warehouse
 
                     return;
                 }
-                FilteredWarehouseProducts.AddRange(from WarehouseProduct product in resultList
-                                                   where product.Location.Contains(FilterLocationForMyWarehouseProducts)
-                                                   select product);
+
+                if (FiltersModeSelectForMyWarehouseFroducts)
+                {
+                    FilteredWarehouseProducts.AddRange(from WarehouseProduct product in resultList
+                                                       where product.Location.Contains(FilterLocationForMyWarehouseProducts)
+                                                       select product);
+                }
+                else
+                {
+                    foreach (var product in resultList)
+                    {
+                        if (product.Location is null)
+                        {
+                            WarehouseEventTextValue = $"Значение \"Местоположение:\" одного из отфильтрованных продуктов равно NULL.";
+                            WarehouseEventIconValue = Icons.Name.Regular_CircleXmark.ToString();
+                            WarehouseEventIconColor = Color.Red.Name;
+                            return;
+                        }
+
+                        if (!product.Location.Contains(FilterLocationForMyWarehouseProducts))
+                        {
+                            FilteredWarehouseProducts.Add(product);
+                        }
+                    }
+                }
 
                 if (FilteredWarehouseProducts.Count == 0)
                 {
