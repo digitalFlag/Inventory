@@ -24,6 +24,18 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region LoadedDataTableFromDataBaseActualProductsWindow: - Loaded "DataTable" From SQL DB For "Actual Products Window" 
+
+        /// <summary>Loaded "DataTable" From SQL DB For "Actual Products Window" </summary>
+        private DataTable? _LoadedDataTableFromDataBaseActualProductsWindow;
+
+        /// <summary>Loaded "DataTable" From SQL DB For "Actual Products Window" </summary>
+
+        public DataTable? LoadedDataTableFromDataBaseActualProductsWindow { get => _LoadedDataTableFromDataBaseActualProductsWindow; set => Set(ref _LoadedDataTableFromDataBaseActualProductsWindow, value); }
+
+        #endregion
+
+
         #region BorderColorSelectedProductTittleMyWarehouseControlTab: - "Border Color" Of Selected Product At "My Warehouse"
 
         /// <summary>"Border Color" Of Selected Product At "My Warehouse"</summary>
@@ -382,6 +394,16 @@ namespace Inventory.ViewModels.Warehouse
         public List<WarehouseProduct>? FilteredWarehouseProducts { get => _FilteredWarehouseProducts; set => Set(ref _FilteredWarehouseProducts, value); }
 
         #endregion
+        #region AllActualProducts: - All "My Actual Products" Lodaded From DB
+
+        /// <summary>All "My Actual Products" Lodaded From DB</summary>
+        private IEnumerable<ActualProduct>? _AllActualProducts;
+
+        /// <summary>All "My Actual Products" Lodaded From DB</summary>
+
+        public IEnumerable<ActualProduct>? AllActualProducts { get => _AllActualProducts; set => Set(ref _AllActualProducts, value); }
+
+        #endregion
 
 
 
@@ -736,7 +758,6 @@ namespace Inventory.ViewModels.Warehouse
                 ReceiptDate = Convert.ToDateTime(row[DbTableWarehouseProducts.propertyReceiptDate]),
                 Note = Convert.ToString(row[DbTableWarehouseProducts.propertyNote]),
             });
-
         }
 
         #endregion
@@ -1568,6 +1589,7 @@ namespace Inventory.ViewModels.Warehouse
 
             ValueOfTotalPriceOfProductsForMyWarehouseProducts = totalPrice.ToString() + " р.";
 
+            //ToDo I am Here.
 
         }
 
@@ -1599,9 +1621,15 @@ namespace Inventory.ViewModels.Warehouse
                 return;
             }
 
-            string table = DbTables.WarehouseProducts;
+            string table = DbTables.ActualProducts;
 
-            //ToDo Its need to Implemented.
+            LoadedDataTableFromDataBaseActualProductsWindow = _DataBase.GetData(dbSettings, table);
+
+            AllActualProducts = LoadedDataTableFromDataBaseActualProductsWindow.AsEnumerable().Select(row => new Models.ActualProduct
+            {
+                Tittle = Convert.ToString(row[DbTableActualProducts.Tittle]),
+                FullPrise = Convert.ToInt16(row[DbTableActualProducts.FullPrice]),
+            });
         }
 
         #endregion
