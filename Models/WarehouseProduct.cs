@@ -8,6 +8,8 @@
 
         public int? PurchaseCost { get; set; }
 
+        public int? FullPriseCost { get; set; }
+
         public string? Note { get; set; }
 
     }

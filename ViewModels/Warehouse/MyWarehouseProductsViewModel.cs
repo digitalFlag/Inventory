@@ -693,7 +693,6 @@ namespace Inventory.ViewModels.Warehouse
 
         #region Commands
 
-
         #region Command LoadMyWarehouseProductsFromDbCommand: - Load "My Warehouse Products" Data From DB 
 
         /// <summary>Load "My Warehouse Products" Data From DB </summary>
@@ -1437,7 +1436,7 @@ namespace Inventory.ViewModels.Warehouse
                             return;
                         }
 
-                        if (product.OrderNumber.Contains(FilterOrderNumberForMyWarehouseProducts))
+                        if (!product.OrderNumber.Contains(FilterOrderNumberForMyWarehouseProducts))
                         {
                             FilteredWarehouseProducts.Add(product);
                         }
@@ -1573,6 +1572,41 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
+
+        #region Command LoadFullPrisesOfActuallProductsCommand: - Load Information About Products Actuall Prises.
+
+        /// <summary>Load Information About Products Actuall Prises.</summary>
+        private LambdaCommand? _LoadFullPrisesOfActuallProductsCommand;
+
+        /// <summary>Load Information About Products Actuall Prises.</summary>
+        public ICommand LoadFullPrisesOfActuallProductsCommand => _LoadFullPrisesOfActuallProductsCommand ??= new(OnLoadFullPrisesOfActuallProductsCommandExecuted);
+
+        /// <summary>Логика выполнения - Load Information About Products Actuall Prises.</summary>
+
+        private void OnLoadFullPrisesOfActuallProductsCommandExecuted(object? p)
+        {
+            var dbSettings = new DBSettings
+            {
+                Server = ConnectionOptions.dbServer,
+                Port = ConnectionOptions.dbPort,
+                Name = ConnectionOptions.dbName,
+                UserId = ConnectionOptions.userId,
+                Password = ConnectionOptions.password
+            };
+
+            if (_DataBase is null)
+            {
+                return;
+            }
+
+            string table = DbTables.WarehouseProducts;
+
+            //ToDo Its need to Implemented.
+        }
+
+        #endregion
+
+
 
         #region Command SelectedExpirationDateStartChangedMyWarehouseProductsCommand: - "Selected Expiration Date" Changed In My Warehouse Windows
 
@@ -3010,6 +3044,5 @@ namespace Inventory.ViewModels.Warehouse
 
 
         #endregion
-
     }
 }
