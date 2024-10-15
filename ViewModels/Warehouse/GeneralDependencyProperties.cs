@@ -215,6 +215,18 @@ namespace Inventory.ViewModels.Warehouse
 
         #endregion
 
+        #region TextValueFullPriceOfProducts: - Value Of Text "Full Price Of Products"
+
+        /// <summary>Value Of Text "Full Price Of Products"</summary>
+        private string? _TextValueFullPriceOfProducts;
+
+        /// <summary>Value Of Text "Full Price Of Products"</summary>
+
+        public string? TextValueFullPriceOfProducts { get => _TextValueFullPriceOfProducts; set => Set(ref _TextValueFullPriceOfProducts, value); }
+
+        #endregion
+
+
         #region TextValueTotalCostOfProducts: - Value Of Text "Total Cost Of Products"
 
         /// <summary>Value Of Text "Total Cost Of Products"</summary>

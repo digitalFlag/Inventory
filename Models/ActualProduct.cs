@@ -4,6 +4,6 @@
     {
         public string? Tittle {  get; set; }
 
-        public int? FullPrise { get; set; }
+        public int FullPrise { get; set; }
     }
 }

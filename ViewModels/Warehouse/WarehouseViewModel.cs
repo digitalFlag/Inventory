@@ -49,7 +49,8 @@ namespace Inventory.ViewModels.Warehouse
             //Statistics
             TextValueTotalNumberOfProducts = "Всего позиций:";
             TextValueTotalPriceOfProducts = "Общая стоимость:";
-            TextValueTotalCostOfProducts = "Общая стоимость";
+            TextValueTotalCostOfProducts = "Общая стоимость:";
+            TextValueFullPriceOfProducts = "Полная стоимость:";
 
             #endregion
 

@@ -6,6 +6,8 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Input;
 using System.Linq;
+using System.Windows;
+using System.Runtime.CompilerServices;
 
 namespace Inventory.ViewModels.Warehouse
 {
@@ -708,6 +710,16 @@ namespace Inventory.ViewModels.Warehouse
         public string? ValueOfTotalPriceOfProductsForMyWarehouseProducts { get => _ValueOfTotalPriceOfProductsForMyWarehouseProducts; set => Set(ref _ValueOfTotalPriceOfProductsForMyWarehouseProducts, value); }
 
         #endregion
+        #region ValueOfFullPriceOfProductsForMyWarehouseProducts: - Value Of "Full Price Of Products" In "Statistics" TabItem In My Warehouse Panel
+
+        /// <summary>Value Of "Full Price Of Products" In "Statistics" TabItem In My Warehouse Panel</summary>
+        private string? _ValueOfFullPriceOfProductsForMyWarehouseProducts;
+
+        /// <summary>Value Of "Full Price Of Products" In "Statistics" TabItem In My Warehouse Panel</summary>
+
+        public string? ValueOfFullPriceOfProductsForMyWarehouseProducts { get => _ValueOfFullPriceOfProductsForMyWarehouseProducts; set => Set(ref _ValueOfFullPriceOfProductsForMyWarehouseProducts, value); }
+
+        #endregion
 
 
         #endregion
@@ -775,6 +787,7 @@ namespace Inventory.ViewModels.Warehouse
         private void OnRefreshConnectionToDataBaseWarhouseWindowCommandExecuted(object? p)
         {
             OnLoadMyWarehouseProductsFromDbCommandExecuted(true);
+            OnLoadFullPrisesOfActuallProductsCommandExecuted(true);
             OnFilterMyWarehouseProductsCommandExecuted(true);
 
             SelectedProductId = string.Empty;
@@ -791,7 +804,6 @@ namespace Inventory.ViewModels.Warehouse
             WarehouseEventTextValue = "Данные о продукции обновлены.";
             WarehouseEventIconValue = Icons.Name.Regular_CircleCheck.ToString();
             WarehouseEventIconColor = Color.LimeGreen.Name;
-
 
             OnPropertyChanged();
         }
@@ -1569,8 +1581,6 @@ namespace Inventory.ViewModels.Warehouse
                 return;
             }
 
-
-
             ValueOfTotalNumberOfProductsForMyWarehouseProducts = FilteredWarehouseProducts.Count.ToString();
             int totalPrice = 0;
             foreach (WarehouseProduct wp in FilteredWarehouseProducts)
@@ -1588,9 +1598,32 @@ namespace Inventory.ViewModels.Warehouse
             }
 
             ValueOfTotalPriceOfProductsForMyWarehouseProducts = totalPrice.ToString() + " р.";
+            
+            int fullPrice = 0;
 
-            //ToDo I am Here.
+            foreach (var actualProduct in FilteredWarehouseProducts)
+            {
+                string tittle = actualProduct.Tittle;
 
+                bool isConsist = false;
+
+                foreach (var product in AllActualProducts)
+                {
+                    if (tittle == product.Tittle)
+                    {
+                        fullPrice += product.FullPrise;
+                        isConsist = true;
+                        break;
+                    }
+                }
+                if (!isConsist)
+                {
+                    MessageBox.Show($"Отсутствует информация о стоимости продукта \"{tittle}\"");
+                }
+
+            }
+
+            ValueOfFullPriceOfProductsForMyWarehouseProducts = fullPrice.ToString() + " p.";
         }
 
         #endregion
@@ -1633,8 +1666,6 @@ namespace Inventory.ViewModels.Warehouse
         }
 
         #endregion
-
-
 
         #region Command SelectedExpirationDateStartChangedMyWarehouseProductsCommand: - "Selected Expiration Date" Changed In My Warehouse Windows
 
